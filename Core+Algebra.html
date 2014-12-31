@@ -1,0 +1,123 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html>
+      <head>
+        <meta charset="utf-8"/>
+        <meta content="width=device-width, initial-scale=1" name="viewport"/>
+        <title>scodec — Core Algebra</title>
+        
+        <link rel="stylesheet" href="css/blueprint/screen.css" type="text/css" media="screen, projection"/>
+        <link rel="stylesheet" href="css/blueprint/grid.css" type="text/css" media="screen and (min-device-width: 800px), projection"/>
+        <link rel="stylesheet" href="css/blueprint/print.css" type="text/css" media="print"/> 
+        <!--[if lt IE 8]>
+          <link rel="stylesheet" href={ relativeBase + "css/blueprint/ie.css" } type="text/css" media="screen, projection"/>
+        <![endif]-->
+        <link rel="stylesheet" href="css/pamflet.css" type="text/css" media="screen, projection"/>
+        <link rel="stylesheet" href="css/pamflet-print.css" type="text/css" media="print"/>
+        <link rel="stylesheet" href="css/pamflet-grid.css" type="text/css" media="screen and (min-device-width: 800px), projection"/>
+        <link rel="stylesheet" href="css/color_scheme-redmond.css" type="text/css" media="screen, projection"/>
+        <link rel="stylesheet" href="css/color_scheme-github.css" type="text/css" media="screen, projection"/>
+        <link rel="stylesheet" href="css/color_scheme-monokai.css" type="text/css" media="screen, projection"/>
+        <link rel="stylesheet" href="css/pamfletheight_2em_2em.css" type="text/css" media="screen and (min-device-width: 800px), projection"/>
+        <script type="text/javascript" src="js/jquery-1.6.2.min.js"></script>
+        <script type="text/javascript" src="js/jquery.collapse.js"></script>
+        <script type="text/javascript" src="js/pamflet.js"></script>
+        <script type="text/javascript">
+          Pamflet.page.language = 'en';
+        </script>
+        <script type="text/javascript" src="js/prettify/prettify.js"></script><script type="text/javascript" src="js/prettify/lang-scala.js"></script><link type="text/css" rel="stylesheet" href="css/prettify.css"/><script type="text/javascript"><!--
+        window.onload=function() { prettyPrint(); };
+      --></script>
+        <link rel="stylesheet" href="css/custom.css" type="text/css" media="screen, projection"/>
+        
+        <script type="text/javascript">
+              Pamflet.twitter = '#scodec';
+            </script>
+      </head>
+      <body class="color_scheme-redmond">
+        <a class="page prev nav" href="scodec-core.html">
+            <span class="space">&nbsp;</span>
+            <span class="flip arrow">❧</span>
+          </a><a class="page next nav" href="Contents+in+Depth.html">
+            <span class="space">&nbsp;</span>
+            <span class="arrow">❧</span>
+          </a>
+        <div class="container contentswrapper">
+          <div class="span-16 prepend-1 append-1 contents">
+            <h1 id="Core+Algebra">Core Algebra<a href="#Core+Algebra" class="header-link"><span class="header-link-content">&nbsp;</span></a></h1><p>We saw the <code>Codec</code> type when we used it to encode a value to binary and decode binary back to a value. The ability to decode and encode come from two fundamental traits, <code>Decoder</code> and <code>Encoder</code>. Let’s look at these in turn.
+</p><h2 id="Decoder">Decoder<a href="#Decoder" class="header-link"><span class="header-link-content">&nbsp;</span></a></h2><pre><code class="prettyprint lang-scala">trait Decoder[+A] {
+  def decode(b: BitVector): Err \/ (BitVector, A)
+}
+</code></pre><p>A decoder defines a single abstract operation, <code>decode</code>, which converts a bit vector in to a pair containing the unconsumed bits and a decoded value, or returns an error. For example, a decoder that decodes a 32-bit integer returns an error when the supplied vector has less than 32-bits, and returns the supplied vector less 32-bits otherwise.
+</p><p>The result type is a disjunction with <code>scodec.Err</code> on the left side. <code>Err</code> is an open-for-subclassing data type that contains an error message and a context stack. The context stack contains strings that provide context on where the error occurred in a large structure. We saw an example of this earlier, where the context stack represented a path through the <code>Arrangement</code> class, in to a <code>Vector</code>, and then in to a <code>Line</code> and <code>Point</code>. The type is open-for-subclassing so that codecs can return domain specific error types and then pattern match on the received type. An <code>Err</code> is <em>not</em> a subtype of <code>Throwable</code>, so it cannot be used (directly) with <code>scala.util.Try</code>. Also note that codecs never throw exceptions (or should never!). All errors are communicated via the <code>Err</code> type.
+</p><h3 id="map">map<a href="#map" class="header-link"><span class="header-link-content">&nbsp;</span></a></h3><p>A function can be mapped over a decoder, resulting in our first combinator:
+</p><pre><code class="prettyprint lang-scala">trait Decoder[+A] { self =&gt;
+  def decode(b: BitVector): Err \/ (BitVector, A)
+  def map[B](f: A =&gt; B): Decoder[B] = new Decoder[B] {
+    def decode(b: BitVector): Err \/ (BitVector, B) =
+      self.decode(b) map { case (rem, a) =&gt; (rem, f(b)) }
+  }
+}
+</code></pre><p>Note that the <em>implementation</em> of the <code>map</code> method is not particularly important — rather, the type signature is the focus.
+</p><p>As a first use case for <code>map</code>, consider creating a decoder for the following case class by reusing the built-in <code>int32</code> codec:
+</p><pre><code class="prettyprint lang-scala">case class Foo(x: Int)
+val fooDecoder: Decoder[Foo] = int32 map { i =&gt; Foo(i) }
+</code></pre><h3 id="emap">emap<a href="#emap" class="header-link"><span class="header-link-content">&nbsp;</span></a></h3><p>The <code>map</code> operation does not allow room for returning an error. We can define a variant of <code>map</code> that allows the supplied function to indicate error:
+</p><pre><code class="prettyprint lang-scala">trait Decoder[+A] { self =&gt;
+  ...
+  def emap[B](f: A =&gt; Err \/ B): Decoder[B] = new Decoder[B] {
+    def decode(b: BitVector): Err \/ (BitVector, B) =
+      self.decode(bits) flatMap { case (rem, a) =&gt;
+        f(a).map { b =&gt; (rem, b) }
+      }
+  }
+}
+</code></pre><h3 id="flatMap">flatMap<a href="#flatMap" class="header-link"><span class="header-link-content">&nbsp;</span></a></h3><p>Further generalizing, we can <code>flatMap</code> a function over a decoder to express that the “next” codec is <em>dependent</em> on the decoded value from the current decoder:
+</p><pre><code class="prettyprint lang-scala">trait Decoder[+A] { self =&gt;
+  def decode(b: BitVector): Err \/ (BitVector, A)
+  def flatMap[B](f: A =&gt; Decoder[B]): Decoder[B] = new Decoder[B] {
+    def decode(b: BitVector): Err \/ (BitVector, B) =
+      self.decode(b) flatMap { case (rem, a) =&gt;
+        val next: Codec[B] = f(a)
+        next.decode(rem)
+      }
+  }
+}
+</code></pre><p>The resulting decoder first decodes a value of type <code>A</code> using the original decoder. If that’s successful, it applies the decoded value to the supplied function to get a <code>Decoder[B]</code> and then decodes the bits remaining from decoding <code>A</code> using that decoder.
+</p><p>As mentioned previously, <code>flatMap</code> models a dependency between a decoded value and the decoder to use for the remaining bits. A good use case for this is a bit pattern that first encodes a count followed by a number of records. An implementation of this is not provided because we will see it later in a different context.
+</p><h2 id="Encoder">Encoder<a href="#Encoder" class="header-link"><span class="header-link-content">&nbsp;</span></a></h2><p>TODO
+</p><h2 id="Codec">Codec<a href="#Codec" class="header-link"><span class="header-link-content">&nbsp;</span></a></h2><p>TODO
+</p><h2 id="GenCodec">GenCodec<a href="#GenCodec" class="header-link"><span class="header-link-content">&nbsp;</span></a></h2><p>TODO
+</p><div class="bottom nav end span-16">
+                        
+                      </div><div class="tocwrapper show">
+      <a class="tochead nav" style="display: none" href="#toc">❦</a>
+      <a name="toc"></a>
+      <h4 class="toctitle">Contents</h4>
+      <div class="tocbody">
+      <div><a href="index.html">scodec</a></div><ol class="toc"> <li><div><a href="scodec-bits.html">scodec-bits</a></div></li><li><div><a href="scodec-core.html">scodec-core</a></div><ol class="toc"> <li><div class="current">Core Algebra</div></li> </ol></li><li class="generated"><div><a href="Contents+in+Depth.html">Contents in Depth</a></div></li><li class="generated"><div><a href="Combined+Pages.html">Combined Pages</a></div></li> </ol></div></div>
+          </div>
+        </div>
+        <div class="header">
+          <div class="container">
+        <div class="span-16 prepend-1 append-1">
+          <div class="span-16 top nav">
+            <div class="span-16 title">
+              <span>scodec</span> — Core Algebra
+            </div>
+          </div>
+        </div>
+      </div>
+        </div>
+        <div class="footer">
+          
+        </div>
+        
+        <div class="highlight-outer">
+              <div class="highlight-menu">
+                <ul>
+                  <li><button id="highlight-button-twitter"><img src="img/twitter-bird-dark-bgs.png"/></button></li>
+                </ul>
+              </div>
+            </div>
+      </body>
+    </html>

@@ -1,6 +1,9 @@
 CACHE MANIFEST
-# Tue Dec 30 19:14:47 EST 2014
+# Tue Dec 30 23:29:14 EST 2014
+css/custom.css
 index.html
+scodec-bits.html
+scodec-core.html
 Contents+in+Depth.html
 Combined+Pages.html
 img/fork.png
@@ -20,3 +23,4 @@ js/jquery.collapse.js
 js/pamflet.js
 css/prettify.css
 js/prettify/prettify.js
+js/prettify/lang-scala.js

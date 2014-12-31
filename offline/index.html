@@ -25,26 +25,37 @@
           Pamflet.page.language = 'en';
         </script>
         
-        
+        <link rel="stylesheet" href="css/custom.css" type="text/css" media="screen, projection"/>
         
         
       </head>
       <body class="color_scheme-redmond">
-        <a class="page next nav" href="Contents+in+Depth.html">
+        <a class="page next nav" href="scodec-bits.html">
             <span class="space">&nbsp;</span>
             <span class="arrow">❧</span>
           </a>
         <div class="container contentswrapper">
           <div class="span-16 prepend-1 append-1 contents">
-            <h1 id="scodec">scodec<a href="#scodec" class="header-link"><span class="header-link-content">&nbsp;</span></a></h1><p>Hello, world!
-</p><div class="bottom nav end span-16">
+            <h1 id="scodec">scodec<a href="#scodec" class="header-link"><span class="header-link-content">&nbsp;</span></a></h1><p>scodec is a suite of libraries for working with binary data. Support ranges from simple, performant data structures for working with bits and bytes to streaming encoding and decoding.
+</p><p>There are three primary modules:
+</p><ul><li>scodec-bits - Zero dependency library that provides persistent data structures, <code>BitVector</code> and <code>ByteVector</code>, for working with binary.
+</li><li>scodec-core - Combinator based library for encoding/decoding values to/from binary.
+</li><li>scodec-stream - Binding between scodec-core and <a href="http://github.com/scalaz/scalaz-stream">scalaz-stream</a> that enables streaming encoding/decoding.
+</li></ul><p>There are a few secondary modules as well:
+</p><ul><li>scodec-spire - Binding between scodec-core and <a href="http://github.com/non/spire">spire</a>, mostly taking advantage of unsigned numeric types.
+</li><li>scodec-protocols - Library of general purpose implementations of common protocols.
+</li></ul><p>This guide goes over each of these modules in detail.
+</p><div class="bottom nav span-16">
+                        <em>Next Page</em>
+                        <span class="arrow">❧</span>
+                        <a href="scodec-bits.html"> scodec-bits </a>                        
                         
                       </div><div class="tocwrapper show">
       <a class="tochead nav" style="display: none" href="#toc">❦</a>
       <a name="toc"></a>
       <h4 class="toctitle">Contents</h4>
       <div class="tocbody">
-      <div class="current">scodec</div><ol class="toc"> <li class="generated"><div><a href="Contents+in+Depth.html">Contents in Depth</a></div></li><li class="generated"><div><a href="Combined+Pages.html">Combined Pages</a></div></li> </ol></div></div>
+      <div class="current">scodec</div><ol class="toc"> <li><div><a href="scodec-bits.html">scodec-bits</a></div></li><li><div><a href="scodec-core.html">scodec-core</a></div><ol class="toc">  </ol></li><li class="generated"><div><a href="Contents+in+Depth.html">Contents in Depth</a></div></li><li class="generated"><div><a href="Combined+Pages.html">Combined Pages</a></div></li> </ol></div></div>
           </div>
         </div>
         <div class="header">

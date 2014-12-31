@@ -24,8 +24,10 @@
         <script type="text/javascript">
           Pamflet.page.language = 'en';
         </script>
-        
-        
+        <script type="text/javascript" src="js/prettify/prettify.js"></script><script type="text/javascript" src="js/prettify/lang-scala.js"></script><link type="text/css" rel="stylesheet" href="css/prettify.css"/><script type="text/javascript"><!--
+        window.onload=function() { prettyPrint(); };
+      --></script>
+        <link rel="stylesheet" href="css/custom.css" type="text/css" media="screen, projection"/>
         
         
       </head>
@@ -41,7 +43,52 @@
       <a name="toc"></a>
       <h4 class="toctitle">Contents</h4>
       <div class="tocbody">
-      <div><a href="#scodec">scodec</a></div><ol class="toc">  </ol></div></div><h1 id="scodec">scodec<a href="#scodec" class="header-link"><span class="header-link-content">&nbsp;</span></a></h1><p>Hello, world!
+      <div><a href="#scodec">scodec</a></div><ol class="toc"> <li><div><a href="#scodec-bits">scodec-bits</a></div></li><li><div><a href="#scodec-core">scodec-core</a></div><ol class="toc">  </ol></li> </ol></div></div><h1 id="scodec">scodec<a href="#scodec" class="header-link"><span class="header-link-content">&nbsp;</span></a></h1><p>scodec is a suite of libraries for working with binary data. Support ranges from simple, performant data structures for working with bits and bytes to streaming encoding and decoding.
+</p><p>There are three primary modules:
+</p><ul><li>scodec-bits - Zero dependency library that provides persistent data structures, <code>BitVector</code> and <code>ByteVector</code>, for working with binary.
+</li><li>scodec-core - Combinator based library for encoding/decoding values to/from binary.
+</li><li>scodec-stream - Binding between scodec-core and <a href="http://github.com/scalaz/scalaz-stream">scalaz-stream</a> that enables streaming encoding/decoding.
+</li></ul><p>There are a few secondary modules as well:
+</p><ul><li>scodec-spire - Binding between scodec-core and <a href="http://github.com/non/spire">spire</a>, mostly taking advantage of unsigned numeric types.
+</li><li>scodec-protocols - Library of general purpose implementations of common protocols.
+</li></ul><p>This guide goes over each of these modules in detail.
+</p><h1 id="scodec-bits">scodec-bits<a href="#scodec-bits" class="header-link"><span class="header-link-content">&nbsp;</span></a></h1><p>The scodec-bits library contains data structures for working with binary. It has no dependencies on other libraries, which allows it to be used by other libraries without causing dependency conflicts.
+</p><p>The source is on <a href="http://github.com/scodec/scodec-bits">Github</a> and binaries are available on Maven Central under <code>org.typelevel / scodec-bits_${scalaBinaryVersion}</code>. ScalaDoc is available for online browsing at <a href="http://docs.typelevel.org/api/scodec/bits/stable/">typelevel.org</a>. The library adheres to the Typelevel binary compatibility guidelines. In short, versions that share the same major.minor version number are forward binary compatible.
+</p><p>There are two primary data structures in the library, <code>ByteVector</code> and <code>BitVector</code>. Both are immutable collections and have performance characteristics that are optimized for use in the other scodec modules. However, each type has been designed for general purpose usage, even when other scodec modules are not used. For instance, <code>ByteVector</code> can be safely used as a replacement for immutable byte arrays.
+</p><h2 id="ByteVector">ByteVector<a href="#ByteVector" class="header-link"><span class="header-link-content">&nbsp;</span></a></h2><p>The <code>ByteVector</code> type is isomorphic to a <code>scala.collection.immutable.Vector[Byte]</code> but has much better performance characteristics. A <code>ByteVector</code> is represented as a balanced binary tree of chunks. Most operations have asymptotic performance that is logarthmic in the depth of this tree. There are also quite a number of convenience based features, like value based equality, a sensible <code>toString</code>, and many conversions to/from other data types.
+</p><p>It is important to note that <code>ByteVector</code> does not extend any types from the Scala collections framework. For instance, <code>ByteVector</code> is <em>not</em> a <code>scala.collection.immutable.Traversable[Byte]</code>. This allows some deviance, like <code>Long</code> based indexing instead of <code>Int</code> based indexing from standard collections. Additionally, it avoids a large category of bugs, especially as the standard library collections are refactored. Nonetheless, the methods on <code>ByteVector</code> are named to correspond with the methods in the standard library when possible.
+</p><h3 id="Getting+Started">Getting Started<a href="#Getting+Started" class="header-link"><span class="header-link-content">&nbsp;</span></a></h3><p>Let’s create a <code>ByteVector</code> from a literal hexadecimal string:
+</p><pre><code class="prettyprint lang-scala">scala&gt; import scodec.bits._
+import scodec.bits._
+
+scala&gt; val x: ByteVector = hex&quot;deadbeef&quot;
+x: scodec.bits.ByteVector = ByteVector(4 bytes, 0xdeadbeef)
+
+scala&gt; val y: ByteVector = hex&quot;DEADBEEF&quot;
+y: scodec.bits.ByteVector = ByteVector(4 bytes, 0xdeadbeef)
+
+scala&gt; x == y
+res0: Boolean = true
+</code></pre><p>We first start by importing all members of the <code>scodec.bits</code> package, which contains the entirety of this library. We then create two byte vectors from hexadecimal literals, using the <code>hex</code> string interpolator. Finally, we compare them for equality, which returns true, because each vector contains the same bytes.
+</p><p>TODO
+</p><h2 id="BitVector">BitVector<a href="#BitVector" class="header-link"><span class="header-link-content">&nbsp;</span></a></h2><p>The <code>BitVector</code> type is similar to <code>ByteVector</code> with the exception of indexing bits instead of bytes. This allows access and update of specific bits (via <code>apply</code> and <code>update</code>) as well as storage of a bit count that is not evenly divisible by 8.
+</p><h3 id="Getting+Started">Getting Started<a href="#Getting+Started" class="header-link"><span class="header-link-content">&nbsp;</span></a></h3><pre><code class="prettyprint lang-scala">scala&gt; val x: BitVector = bin&quot;00110110101&quot;
+x: scodec.bits.BitVector = BitVector(11 bits, 0x36a)
+
+scala&gt; val y: BitVector = bin&quot;00110110100&quot;
+y: scodec.bits.BitVector = BitVector(11 bits, 0x368)
+
+scala&gt; x == y
+res0: Boolean = false
+
+scala&gt; val z = y.update(10, true)
+z: scodec.bits.BitVector = BitVector(11 bits, 0x36a)
+
+scala&gt; x == z
+res1: Boolean = true
+</code></pre><p>In this example, we create two 10-bit vectors using the <code>bin</code> string interpolator that differ in only the last bit. We then create a third vector, <code>z</code>, by updating the 10th bit of <code>y</code> to true. Comparing <code>x</code> and <code>y</code> for equality returns false whereas comparing <code>x</code> and <code>z</code> returns true.
+</p><p>TODO
+</p><h1 id="scodec-core">scodec-core<a href="#scodec-core" class="header-link"><span class="header-link-content">&nbsp;</span></a></h1><p>TODO
 </p>
           </div>
         </div>

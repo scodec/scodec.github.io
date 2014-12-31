@@ -1,9 +1,9 @@
 <!DOCTYPE html SYSTEM "about:legacy-compat">
-<html>
+<html manifest="pamflet.manifest">
       <head>
         <meta charset="utf-8"/>
         <meta content="width=device-width, initial-scale=1" name="viewport"/>
-        <title>scodec — scodec</title>
+        <title>scodec — scodec-core</title>
         
         <link rel="stylesheet" href="css/blueprint/screen.css" type="text/css" media="screen, projection"/>
         <link rel="stylesheet" href="css/blueprint/grid.css" type="text/css" media="screen and (min-device-width: 800px), projection"/>
@@ -30,32 +30,24 @@
         
       </head>
       <body class="color_scheme-redmond">
-        <a class="page next nav" href="scodec-bits.html">
+        <a class="page prev nav" href="scodec-bits.html">
+            <span class="space">&nbsp;</span>
+            <span class="flip arrow">❧</span>
+          </a><a class="page next nav" href="Contents+in+Depth.html">
             <span class="space">&nbsp;</span>
             <span class="arrow">❧</span>
           </a>
         <div class="container contentswrapper">
           <div class="span-16 prepend-1 append-1 contents">
-            <h1 id="scodec">scodec<a href="#scodec" class="header-link"><span class="header-link-content">&nbsp;</span></a></h1><p>scodec is a suite of libraries for working with binary data. Support ranges from simple, performant data structures for working with bits and bytes to streaming encoding and decoding.
-</p><p>There are three primary modules:
-</p><ul><li>scodec-bits - Zero dependency library that provides persistent data structures, <code>BitVector</code> and <code>ByteVector</code>, for working with binary.
-</li><li>scodec-core - Combinator based library for encoding/decoding values to/from binary.
-</li><li>scodec-stream - Binding between scodec-core and <a href="http://github.com/scalaz/scalaz-stream">scalaz-stream</a> that enables streaming encoding/decoding.
-</li></ul><p>There are a few secondary modules as well:
-</p><ul><li>scodec-spire - Binding between scodec-core and <a href="http://github.com/non/spire">spire</a>, mostly taking advantage of unsigned numeric types.
-</li><li>scodec-protocols - Library of general purpose implementations of common protocols.
-</li></ul><p>This guide goes over each of these modules in detail.
-</p><div class="bottom nav span-16">
-                        <em>Next Page</em>
-                        <span class="arrow">❧</span>
-                        <a href="scodec-bits.html"> scodec-bits </a>                        
+            <h1 id="scodec-core">scodec-core<a href="#scodec-core" class="header-link"><span class="header-link-content">&nbsp;</span></a></h1><p>TODO
+</p><div class="bottom nav end span-16">
                         
                       </div><div class="tocwrapper show">
       <a class="tochead nav" style="display: none" href="#toc">❦</a>
       <a name="toc"></a>
       <h4 class="toctitle">Contents</h4>
       <div class="tocbody">
-      <div class="current">scodec</div><ol class="toc"> <li><div><a href="scodec-bits.html">scodec-bits</a></div></li><li><div><a href="scodec-core.html">scodec-core</a></div><ol class="toc">  </ol></li><li class="generated"><div><a href="Contents+in+Depth.html">Contents in Depth</a></div></li><li class="generated"><div><a href="Combined+Pages.html">Combined Pages</a></div></li> </ol></div></div>
+      <div><a href="index.html">scodec</a></div><ol class="toc"> <li><div><a href="scodec-bits.html">scodec-bits</a></div></li><li><div class="current">scodec-core</div><ol class="toc">  </ol></li><li class="generated"><div><a href="Contents+in+Depth.html">Contents in Depth</a></div></li><li class="generated"><div><a href="Combined+Pages.html">Combined Pages</a></div></li> </ol></div></div>
           </div>
         </div>
         <div class="header">
@@ -63,7 +55,7 @@
         <div class="span-16 prepend-1 append-1">
           <div class="span-16 top nav">
             <div class="span-16 title">
-              <span>scodec</span> 
+              <span>scodec</span> — scodec-core
             </div>
           </div>
         </div>

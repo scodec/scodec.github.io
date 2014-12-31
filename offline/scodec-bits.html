@@ -3,7 +3,7 @@
       <head>
         <meta charset="utf-8"/>
         <meta content="width=device-width, initial-scale=1" name="viewport"/>
-        <title>scodec — Combined Pages</title>
+        <title>scodec — scodec-bits</title>
         
         <link rel="stylesheet" href="css/blueprint/screen.css" type="text/css" media="screen, projection"/>
         <link rel="stylesheet" href="css/blueprint/grid.css" type="text/css" media="screen and (min-device-width: 800px), projection"/>
@@ -32,27 +32,16 @@
         
       </head>
       <body class="color_scheme-redmond">
-        <a class="page prev nav" href="Contents+in+Depth.html">
+        <a class="page prev nav" href="index.html">
             <span class="space">&nbsp;</span>
             <span class="flip arrow">❧</span>
+          </a><a class="page next nav" href="scodec-core.html">
+            <span class="space">&nbsp;</span>
+            <span class="arrow">❧</span>
           </a>
         <div class="container contentswrapper">
           <div class="span-16 prepend-1 append-1 contents">
-            <div class="tocwrapper show">
-      <a class="tochead nav" style="display: none" href="#toc">❦</a>
-      <a name="toc"></a>
-      <h4 class="toctitle">Contents</h4>
-      <div class="tocbody">
-      <div><a href="#scodec">scodec</a></div><ol class="toc"> <li><div><a href="#scodec-bits">scodec-bits</a></div></li><li><div><a href="#scodec-core">scodec-core</a></div><ol class="toc">  </ol></li> </ol></div></div><h1 id="scodec">scodec<a href="#scodec" class="header-link"><span class="header-link-content">&nbsp;</span></a></h1><p>scodec is a suite of libraries for working with binary data. Support ranges from simple, performant data structures for working with bits and bytes to streaming encoding and decoding.
-</p><p>There are three primary modules:
-</p><ul><li>scodec-bits - Zero dependency library that provides persistent data structures, <code>BitVector</code> and <code>ByteVector</code>, for working with binary.
-</li><li>scodec-core - Combinator based library for encoding/decoding values to/from binary.
-</li><li>scodec-stream - Binding between scodec-core and <a href="http://github.com/scalaz/scalaz-stream">scalaz-stream</a> that enables streaming encoding/decoding.
-</li></ul><p>There are a few secondary modules as well:
-</p><ul><li>scodec-spire - Binding between scodec-core and <a href="http://github.com/non/spire">spire</a>, mostly taking advantage of unsigned numeric types.
-</li><li>scodec-protocols - Library of general purpose implementations of common protocols.
-</li></ul><p>This guide goes over each of these modules in detail.
-</p><h1 id="scodec-bits">scodec-bits<a href="#scodec-bits" class="header-link"><span class="header-link-content">&nbsp;</span></a></h1><p>The scodec-bits library contains data structures for working with binary. It has no dependencies on other libraries, which allows it to be used by other libraries without causing dependency conflicts.
+            <h1 id="scodec-bits">scodec-bits<a href="#scodec-bits" class="header-link"><span class="header-link-content">&nbsp;</span></a></h1><p>The scodec-bits library contains data structures for working with binary. It has no dependencies on other libraries, which allows it to be used by other libraries without causing dependency conflicts.
 </p><p>The source is on <a href="http://github.com/scodec/scodec-bits">Github</a> and binaries are available on Maven Central under <code>org.typelevel / scodec-bits_${scalaBinaryVersion}</code>. ScalaDoc is available for online browsing at <a href="http://docs.typelevel.org/api/scodec/bits/stable/">typelevel.org</a>. The library adheres to the Typelevel binary compatibility guidelines. In short, versions that share the same major.minor version number are forward binary compatible.
 </p><p>There are two primary data structures in the library, <code>ByteVector</code> and <code>BitVector</code>. Both are immutable collections and have performance characteristics that are optimized for use in the other scodec modules. However, each type has been designed for general purpose usage, even when other scodec modules are not used. For instance, <code>ByteVector</code> can be safely used as a replacement for immutable byte arrays.
 </p><h2 id="ByteVector">ByteVector<a href="#ByteVector" class="header-link"><span class="header-link-content">&nbsp;</span></a></h2><p>The <code>ByteVector</code> type is isomorphic to a <code>scala.collection.immutable.Vector[Byte]</code> but has much better performance characteristics. A <code>ByteVector</code> is represented as a balanced binary tree of chunks. Most operations have asymptotic performance that is logarthmic in the depth of this tree. There are also quite a number of convenience based features, like value based equality, a sensible <code>toString</code>, and many conversions to/from other data types.
@@ -88,8 +77,17 @@ scala&gt; x == z
 res1: Boolean = true
 </code></pre><p>In this example, we create two 10-bit vectors using the <code>bin</code> string interpolator that differ in only the last bit. We then create a third vector, <code>z</code>, by updating the 10th bit of <code>y</code> to true. Comparing <code>x</code> and <code>y</code> for equality returns false whereas comparing <code>x</code> and <code>z</code> returns true.
 </p><p>TODO
-</p><h1 id="scodec-core">scodec-core<a href="#scodec-core" class="header-link"><span class="header-link-content">&nbsp;</span></a></h1><p>TODO
-</p>
+</p><div class="bottom nav span-16">
+                        <em>Next Page</em>
+                        <span class="arrow">❧</span>
+                        <a href="scodec-core.html"> scodec-core </a>                        
+                        
+                      </div><div class="tocwrapper show">
+      <a class="tochead nav" style="display: none" href="#toc">❦</a>
+      <a name="toc"></a>
+      <h4 class="toctitle">Contents</h4>
+      <div class="tocbody">
+      <div><a href="index.html">scodec</a></div><ol class="toc"> <li><div class="current">scodec-bits</div></li><li><div><a href="scodec-core.html">scodec-core</a></div><ol class="toc">  </ol></li><li class="generated"><div><a href="Contents+in+Depth.html">Contents in Depth</a></div></li><li class="generated"><div><a href="Combined+Pages.html">Combined Pages</a></div></li> </ol></div></div>
           </div>
         </div>
         <div class="header">
@@ -97,7 +95,7 @@ res1: Boolean = true
         <div class="span-16 prepend-1 append-1">
           <div class="span-16 top nav">
             <div class="span-16 title">
-              <span>scodec</span> — Combined Pages
+              <span>scodec</span> — scodec-bits
             </div>
           </div>
         </div>

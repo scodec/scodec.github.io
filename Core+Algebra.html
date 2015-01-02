@@ -186,11 +186,10 @@ trait Codec[A] extends GenCodec[A, A] { ... }
 </p><p>Instances for the Scalaz version of each these type classes is located in the companion object of each trait.
 </p><p>scodec-core defines one additional type class, <code>Transform</code>, which abstracts over the type constructor in the transform operations. It defines a single abstract operation — <code>exmap</code> — and defines concrete versions of <code>xmap</code>, <code>narrow</code>, <code>widen</code>, etc. in terms of <code>exmap</code>. This type class is unlikely to be useful outside of scodec libraries due to the use of <code>scodec.Err</code>. It exists in order to share transform API between <code>Codec</code> and another scodec-core type we’ll see later.
 </p><h2 id="Manually+creating+codecs">Manually creating codecs<a href="#Manually+creating+codecs" class="header-link"><span class="header-link-content">&nbsp;</span></a></h2><p>Codecs are typically created by transforming or combining other codecs. However, we can create a codec manually by writing a class that extends <code>Codec</code> and implements <code>encode</code> and <code>decode</code>.
-</p><p>```scala
-class BitVectorCodec(size: Long) extends Codec[BitVector] {
+</p><pre><code class="prettyprint lang-scala">class BitVectorCodec(size: Long) extends Codec[BitVector] {
   def encode(b: BitVector) = {
     if (b.size == size) \/.right(b)
-    else \/.left(Err(s“expected size ${size} but got ${b.size}”))
+    else \/.left(Err(s&quot;expected size ${size} but got ${b.size}&quot;))
   }
   def decode(b: BitVector) = {
     val (result, remaining) = b.splitAt(size)
@@ -199,7 +198,7 @@ class BitVectorCodec(size: Long) extends Codec[BitVector] {
     else \/.right((remaining, result))
   }
 }
-</p><p>Besides the fundamental types — <code>Codec</code>, <code>Decoder</code>, and <code>Encoder</code> — scodec-core is focused on providing <em>combinators</em>. That is, providing ways to combine two or more codecs in to a new codec, or transform a single codec in to another. We’ve seen a few examples of combinators (e.g., <code>xmap</code>) and we’ll see many more.
+</code></pre><p>Besides the fundamental types — <code>Codec</code>, <code>Decoder</code>, and <code>Encoder</code> — scodec-core is focused on providing <em>combinators</em>. That is, providing ways to combine two or more codecs in to a new codec, or transform a single codec in to another. We’ve seen a few examples of combinators (e.g., <code>xmap</code>) and we’ll see many more.
 </p><p>The combinators exist to make codecs easier to read and write. They promote correctness by allowing a codec to be built from components that are known to be correct. They increase readability by encapsulating boilerplate and wiring logic, leaving the structure of the codec evident.  However, it is easy to get distracted by searching for an elegant combinator based codec implementation when a manually authored codec is appropriate. As you work with scodec, you’ll develop an intuition for when to write codecs manually.
 </p><h2 id="Summary">Summary<a href="#Summary" class="header-link"><span class="header-link-content">&nbsp;</span></a></h2><p>The <code>Codec</code> type is the work horse of scodec-core, which combines a <code>Decoder</code> with an <code>Encoder</code>. Codecs can be transformed in a variety of ways — and we’ll see many more ways in later sections. However, we can always fall back to implementing <code>Codec</code> or even <code>Decoder</code> or <code>Encoder</code> directly if a combinator based approach proves inconvenient.
 </p><div class="bottom nav span-16">

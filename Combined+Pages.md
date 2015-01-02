@@ -455,6 +455,7 @@ class BitVectorCodec(size: Long) extends Codec[BitVector] {
     else \/.right((remaining, result))
   }
 }
+```
 
 Besides the fundamental types -- `Codec`, `Decoder`, and `Encoder` -- scodec-core is focused on providing *combinators*. That is, providing ways to combine two or more codecs in to a new codec, or transform a single codec in to another. We've seen a few examples of combinators (e.g., `xmap`) and we'll see many more.
 

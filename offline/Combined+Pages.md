@@ -437,3 +437,109 @@ def point(a: A): Decoder[A] = new Decoder[A] {
 Instances for the Scalaz version of each these type classes is located in the companion object of each trait.
 
 scodec-core defines one additional type class, `Transform`, which abstracts over the type constructor in the transform operations. It defines a single abstract operation -- `exmap` -- and defines concrete versions of `xmap`, `narrow`, `widen`, etc. in terms of `exmap`. This type class is unlikely to be useful outside of scodec libraries due to the use of `scodec.Err`. It exists in order to share transform API between `Codec` and another scodec-core type we'll see later.
+
+## Manually creating codecs
+
+Codecs are typically created by transforming or combining other codecs. However, we can create a codec manually by writing a class that extends `Codec` and implements `encode` and `decode`.
+
+```scala
+class BitVectorCodec(size: Long) extends Codec[BitVector] {
+  def encode(b: BitVector) = {
+    if (b.size == size) \/.right(b)
+    else \/.left(Err(s"expected size ${size} but got ${b.size}"))
+  }
+  def decode(b: BitVector) = {
+    val (result, remaining) = b.splitAt(size)
+    if (result.size != size)
+      \/.left(new Err.InsufficientBits(size, result.size))
+    else \/.right((remaining, result))
+  }
+}
+
+Besides the fundamental types -- `Codec`, `Decoder`, and `Encoder` -- scodec-core is focused on providing *combinators*. That is, providing ways to combine two or more codecs in to a new codec, or transform a single codec in to another. We've seen a few examples of combinators (e.g., `xmap`) and we'll see many more.
+
+The combinators exist to make codecs easier to read and write. They promote correctness by allowing a codec to be built from components that are known to be correct. They increase readability by encapsulating boilerplate and wiring logic, leaving the structure of the codec evident.  However, it is easy to get distracted by searching for an elegant combinator based codec implementation when a manually authored codec is appropriate. As you work with scodec, you'll develop an intuition for when to write codecs manually.
+
+## Summary
+
+The `Codec` type is the work horse of scodec-core, which combines a `Decoder` with an `Encoder`. Codecs can be transformed in a variety of ways -- and we'll see many more ways in later sections. However, we can always fall back to implementing `Codec` or even `Decoder` or `Encoder` directly if a combinator based approach proves inconvenient.
+
+Simple Value Codecs
+===================
+
+There are a number of pre-defined codecs for simple value types. In this section, we'll look at some of these.
+
+## BitVector and ByteVector
+
+TODO
+
+## Booleans
+
+TODO
+
+## Numerics
+
+TODO
+
+## Strings
+
+TODO
+
+## Constants
+
+TODO
+
+### Literal Constants
+
+TODO
+
+Simple Construtors and Combinators
+==================================
+
+TODO
+
+## Constants
+
+### Literal Constants
+
+## Unit Codecs
+
+TODO - unit, unitM
+
+## Context
+
+TODO - withContext, | syntax
+
+## Miscellaneous
+
+TODO - complete, compact, withToString
+
+Collections
+===========
+
+TODO
+
+Framing
+=======
+
+TODO - fixed size, variable size, etc.
+
+Tuple Codecs
+============
+
+TODO
+
+HList Codecs
+============
+
+TODO
+
+Case Class Codecs
+=================
+
+TODO
+
+Coproduct Codecs
+================
+
+TODO

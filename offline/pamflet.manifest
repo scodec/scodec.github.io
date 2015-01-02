@@ -1,10 +1,18 @@
 CACHE MANIFEST
-# Wed Dec 31 16:25:53 EST 2014
+# Fri Jan 02 11:30:01 EST 2015
 css/custom.css
 index.html
 scodec-bits.html
 scodec-core.html
 Core+Algebra.html
+Simple+Value+Codecs.html
+Simple+Construtors+and+Combinators.html
+Collections.html
+Framing.html
+Tuple+Codecs.html
+HList+Codecs.html
+Case+Class+Codecs.html
+Coproduct+Codecs.html
 Contents+in+Depth.html
 Combined+Pages.html
 img/fork.png

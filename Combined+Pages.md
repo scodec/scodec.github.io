@@ -26,7 +26,7 @@ All of the modules adhere to the Typelevel binary compatibility guidelines. In s
 
 ## Getting Help / Community
 
-To get help with scodec, consider using the [scodec mailing list](https://groups.google.com/forum/#!forum/scodec), using the [scodec tag on StackOverflow](http://stackoverflow.com/questions/tagged/scodec), or mentioning [#scodec on Twitter](https://twitter.com/search?q=scodec&src=sprv).
+To get help with scodec, consider using the [Typelevel mailing list](https://groups.google.com/forum/#!forum/typelevel), using the [scodec tag on StackOverflow](http://stackoverflow.com/questions/tagged/scodec), or mentioning [#scodec on Twitter](https://twitter.com/search?q=scodec&src=sprv).
 
 People are expected to follow the [Typelevel Code of Conduct](http://typelevel.org/conduct.html) when discussing scodec on the Github page, IRC channel, mailing list, or other venues.
 
@@ -43,7 +43,7 @@ There are two primary data structures in the library, `ByteVector` and `BitVecto
 ByteVector
 ----------
 
-The `ByteVector` type is isomorphic to a `scala.collection.immutable.Vector[Byte]` but has much better performance characteristics. A `ByteVector` is represented as a balanced binary tree of chunks. Most operations have asymptotic performance that is logarthmic in the depth of this tree. There are also quite a number of convenience based features, like value based equality, a sensible `toString`, and many conversions to/from other data types.
+The `ByteVector` type is isomorphic to a `scala.collection.immutable.Vector[Byte]` but has much better performance characteristics. A `ByteVector` is represented as a balanced binary tree of chunks. Most operations have asymptotic performance that is logarithmic in the depth of this tree. There are also quite a number of convenience based features, like value based equality, a sensible `toString`, and many conversions to/from other data types.
 
 It is important to note that `ByteVector` does not extend any types from the Scala collections framework. For instance, `ByteVector` is *not* a `scala.collection.immutable.Traversable[Byte]`. This allows some deviance, like `Long` based indexing instead of `Int` based indexing from standard collections. Additionally, it avoids a large category of bugs, especially as the standard library collections are refactored. Nonetheless, the methods on `ByteVector` are named to correspond with the methods in the standard library when possible.
 
@@ -126,9 +126,9 @@ scala> val decoded = Codec[Arrangement].decodeValidValue(arrBinary)
 decoded: Arrangement = Arrangement(Vector(Line(Point(0,0),Point(10,10)), Line(Point(0,10),Point(10,0))))
 ```
 
-We start by importing the primary type in scodec-core, the `Codec` type, along with all implicit codecs defined in `scodec.codecs.implicits`. The latter provides commonly useful implicit codecs, but is opinionated -- for instance, it provides a `Codec[Int]` that encodes to 32-bit 2s complemenet big endian format.
+We start by importing the primary type in scodec-core, the `Codec` type, along with all implicit codecs defined in `scodec.codecs.implicits`. The latter provides commonly useful implicit codecs, but is opinionated -- for instance, it provides a `Codec[Int]` that encodes to 32-bit 2s complement big endian format.
 
-Aside: the predefined implicit codecs are useful at the REPL and when your application does not require a specific binary format. However, scodec-core is designed to support "contract-first" binary formats -- ones in which the format is fixed in stone. For binary serialization to arbitrary formats, consider toos like [scala-pickling](https://github.com/scala/pickling), [Avro](http://avro.apache.org), and [protobuf](https://code.google.com/p/protobuf/).
+Aside: the predefined implicit codecs are useful at the REPL and when your application does not require a specific binary format. However, scodec-core is designed to support "contract-first" binary formats -- ones in which the format is fixed in stone. For binary serialization to arbitrary formats, consider tools like [scala-pickling](https://github.com/scala/pickling), [Avro](http://avro.apache.org), and [protobuf](https://code.google.com/p/protobuf/).
 
 We then create three case classes followed by instantiating them all and assigning the result to the `arr` val. We encode `arr` to binary using `Codec.encodeValid`, then decode the resulting binary back to an `Arrangement`. In this example, both encoding and decoding rely on an implicitly available `Codec[Arrangement]`, which is automatically derived based on *compile time* reflection on the structure of the `Arrangement` class and its product types.
 
@@ -187,9 +187,9 @@ trait Decoder[+A] {
 }
 ```
 
-A decoder defines a single abstract operation, `decode`, which converts a bit vector in to a pair containing the unconsumed bits and a decoded value, or returns an error. For example, a decoder that decodes a 32-bit integer returns an error when the supplied vector has less than 32-bits, and returns the supplied vector less 32-bits otherwise.
+A decoder defines a single abstract operation, `decode`, which converts a bit vector into a pair containing the unconsumed bits and a decoded value, or returns an error. For example, a decoder that decodes a 32-bit integer returns an error when the supplied vector has less than 32-bits, and returns the supplied vector less 32-bits otherwise.
 
-The result type is a disjunction with `scodec.Err` on the left side. `Err` is an open-for-subclassing data type that contains an error message and a context stack. The context stack contains strings that provide context on where the error occurred in a large structure. We saw an example of this earlier, where the context stack represented a path through the `Arrangement` class, in to a `Vector`, and then in to a `Line` and `Point`. The type is open-for-subclassing so that codecs can return domain specific error types and then pattern match on the received type. An `Err` is *not* a subtype of `Throwable`, so it cannot be used (directly) with `scala.util.Try`. Also note that codecs never throw exceptions (or should never!). All errors are communicated via the `Err` type.
+The result type is a disjunction with `scodec.Err` on the left side. `Err` is an open-for-subclassing data type that contains an error message and a context stack. The context stack contains strings that provide context on where the error occurred in a large structure. We saw an example of this earlier, where the context stack represented a path through the `Arrangement` class, into a `Vector`, and then into a `Line` and `Point`. The type is open-for-subclassing so that codecs can return domain specific error types and then pattern match on the received type. An `Err` is *not* a subtype of `Throwable`, so it cannot be used (directly) with `scala.util.Try`. Also note that codecs never throw exceptions (or should never!). All errors are communicated via the `Err` type.
 
 ### map
 
@@ -325,7 +325,7 @@ val tupleCodec: Codec[(Int, Int)] = ...
 val pointCodec: Codec[Point] = tupleCodec.xmap[Point](t => Point(t._1, t._2), pt => (pt.x, pt.y))
 ```
 
-We convert a `Codec[(Int, Int)]` in to a `Codec[Point]` using the `xmap` operation, passing two functions -- one that converts from a `Tuple2[Int, Int]` to a `Point`, and another that converts a `Point` to a `Tuple2[Int, Int]`. Note: there are a few simpler ways to define codecs for case classes that we'll see later.
+We convert a `Codec[(Int, Int)]` into a `Codec[Point]` using the `xmap` operation, passing two functions -- one that converts from a `Tuple2[Int, Int]` to a `Point`, and another that converts a `Point` to a `Tuple2[Int, Int]`. Note: there are a few simpler ways to define codecs for case classes that we'll see later.
 
 ### exmap
 
@@ -373,7 +373,7 @@ val pointCodec: Codec[Point] = tupleCodec.widenOpt(Point.apply, Point.unapply)
 
 ## GenCodec
 
-The `xmap` and related operations allow us to transfrom a `Codec[A]` in to a `Codec[B]`. Nonetheless, we can improve the definitions of the decoder and encoder specific methods (`map`, `contramap`, etc.). With the types as presented, we said that calling `map` on a codec forgot the encoding logic and returned a decoder, and that calling `contramap` on a codec forgot the decoding logic and returned an encoder.
+The `xmap` and related operations allow us to transfrom a `Codec[A]` into a `Codec[B]`. Nonetheless, we can improve the definitions of the decoder and encoder specific methods (`map`, `contramap`, etc.). With the types as presented, we said that calling `map` on a codec forgot the encoding logic and returned a decoder, and that calling `contramap` on a codec forgot the decoding logic and returned an encoder.
 
 We can remedy this somewhat by introducing a new type that is similar to `Codec` in that it is both an `Encoder` and a `Decoder` -- but dissimilar in that it allows the encoding type to differ from the decoding type.
 
@@ -413,7 +413,7 @@ You may have noticed the variance annotations in `Encoder`, `Decoder`, and `GenC
  - `GenCodec` is defined contravariantly in its first type parameter and covariantly in its second type parameter
  - `Codec` is defined invariantly in its type parameter
 
-The variance annotations -- specifically the contravariant ones -- can cause problems with implicit search. At the current time, the implicit search problems cannot be fixed without making `Encoder` invariant. The authors of scodec believe the utility provided by subtyping variance outweighs the inconvenience of the implicit search issues they cause. If you disagree, please weigh-in on the [mailing list](https://groups.google.com/forum/#!forum/scodec) or the [related pull request](https://github.com/scodec/scodec/pull/26).
+The variance annotations -- specifically the contravariant ones -- can cause problems with implicit search. At the current time, the implicit search problems cannot be fixed without making `Encoder` invariant. The authors of scodec believe the utility provided by subtyping variance outweighs the inconvenience of the implicit search issues they cause. If you disagree, please weigh-in on the [mailing list](https://groups.google.com/forum/#!forum/typelevel) or the [related pull request](https://github.com/scodec/scodec/pull/26).
 
 ## For the categorically minded (or Scalaz users)
 
@@ -474,7 +474,7 @@ There are a number of pre-defined codecs for simple value types provided by the 
 
 One of the simplest codecs is an identity for `BitVector`s. That is, a `Codec[BitVector]` that returns the supplied bit vector from `encode` and `decode`. This is provided by the `scodec.codecs.bits` method. This codec has some interesting properties -- it is both _total_ and _greedy_. By total, we mean that it never returns an error from `encode` or `decode`. By greedy, we mean that the `decode` method always consumes the entire input bit vector and returns an empty bit vector as the remaining bits.
 
-The greedy property may seem strange, or at least more specialized than codec for a fixed number of bits -- for instance, a constant width binary field. However, non-greedy codecs can often be built out of greedy codecs. We'll see a general combinator for doing so later, in the Framing section. 
+The greedy property may seem strange, or at least more specialized than codec for a fixed number of bits -- for instance, a constant width binary field. However, non-greedy codecs can often be built out of greedy codecs. We'll see a general combinator for doing so later, in the Framing section.
 
 Nonetheless, constant width binary fields occur often enough to warrant their own built-in constructor. The `scodec.codecs.bits(size: Long)` method returns a `Codec[BitVector]` that decodes exactly `size` bits from the supplied vector, failing to decode with an `Err.InsufficientBits` error if there are less than `size` bits provided. If a bit vector less than `size` bits is supplied to `encode`, it is right-padded with 0s.
 

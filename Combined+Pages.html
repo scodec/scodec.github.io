@@ -1,0 +1,353 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html>
+      <head>
+        <meta charset="utf-8"/>
+        <meta content="width=device-width, initial-scale=1" name="viewport"/>
+        <title>scodec — Combined Pages</title>
+        
+        <link rel="stylesheet" href="css/blueprint/screen.css" type="text/css" media="screen, projection"/>
+        <link rel="stylesheet" href="css/blueprint/grid.css" type="text/css" media="screen and (min-device-width: 800px), projection"/>
+        <link rel="stylesheet" href="css/blueprint/print.css" type="text/css" media="print"/> 
+        <!--[if lt IE 8]>
+          <link rel="stylesheet" href={ relativeBase + "css/blueprint/ie.css" } type="text/css" media="screen, projection"/>
+        <![endif]-->
+        <link rel="stylesheet" href="css/pamflet.css" type="text/css" media="screen, projection"/>
+        <link rel="stylesheet" href="css/pamflet-print.css" type="text/css" media="print"/>
+        <link rel="stylesheet" href="css/pamflet-grid.css" type="text/css" media="screen and (min-device-width: 800px), projection"/>
+        <link rel="stylesheet" href="css/color_scheme-redmond.css" type="text/css" media="screen, projection"/>
+        <link rel="stylesheet" href="css/color_scheme-github.css" type="text/css" media="screen, projection"/>
+        <link rel="stylesheet" href="css/color_scheme-monokai.css" type="text/css" media="screen, projection"/>
+        <link rel="stylesheet" href="css/pamfletheight_2em_2em.css" type="text/css" media="screen and (min-device-width: 800px), projection"/>
+        <script type="text/javascript" src="js/jquery-1.6.2.min.js"></script>
+        <script type="text/javascript" src="js/jquery.collapse.js"></script>
+        <script type="text/javascript" src="js/pamflet.js"></script>
+        <script type="text/javascript">
+          Pamflet.page.language = 'en';
+        </script>
+        <script type="text/javascript" src="js/prettify/prettify.js"></script><script type="text/javascript" src="js/prettify/lang-scala.js"></script><link type="text/css" rel="stylesheet" href="css/prettify.css"/><script type="text/javascript"><!--
+        window.onload=function() { prettyPrint(); };
+      --></script>
+        <link rel="stylesheet" href="css/custom.css" type="text/css" media="screen, projection"/>
+        
+        <script type="text/javascript">
+              Pamflet.twitter = '#scodec';
+            </script>
+      </head>
+      <body class="color_scheme-redmond">
+        <a class="page prev nav" href="Contents+in+Depth.html">
+            <span class="space">&nbsp;</span>
+            <span class="flip arrow">❧</span>
+          </a>
+        <div class="container contentswrapper">
+          <div class="span-16 prepend-1 append-1 contents">
+            <div class="tocwrapper show">
+      <a class="tochead nav" style="display: none" href="#toc">❦</a>
+      <a name="toc"></a>
+      <h4 class="toctitle">Contents</h4>
+      <div class="tocbody">
+      <div><a href="#scodec">scodec</a></div><ol class="toc"> <li><div><a href="#scodec-bits">scodec-bits</a></div></li><li><div><a href="#scodec-core">scodec-core</a></div><ol class="toc"> <li><div><a href="#Core+Algebra">Core Algebra</a></div></li><li><div><a href="#Simple+Value+Codecs">Simple Value Codecs</a></div></li><li><div><a href="#Simple+Construtors+and+Combinators">Simple Construtors and Combinators</a></div></li><li><div><a href="#Collections">Collections</a></div></li><li><div><a href="#Framing">Framing</a></div></li><li><div><a href="#Tuple+Codecs">Tuple Codecs</a></div></li><li><div><a href="#HList+Codecs">HList Codecs</a></div></li><li><div><a href="#Case+Class+Codecs">Case Class Codecs</a></div></li><li><div><a href="#Coproduct+Codecs">Coproduct Codecs</a></div></li> </ol></li> </ol></div></div><h1 id="scodec">scodec<a href="#scodec" class="header-link"><span class="header-link-content">&nbsp;</span></a></h1><p>scodec is a suite of libraries for working with binary data. Support ranges from simple, performant data structures for working with bits and bytes to streaming encoding and decoding.
+</p><p>There are three primary modules:
+</p><ul><li>scodec-bits - Zero dependency library that provides persistent data structures, <code>BitVector</code> and <code>ByteVector</code>, for working with binary.
+</li><li>scodec-core - Combinator based library for encoding/decoding values to/from binary.
+</li><li>scodec-stream - Binding between scodec-core and <a href="http://github.com/scalaz/scalaz-stream">scalaz-stream</a> that enables streaming encoding/decoding.
+</li></ul><p>There are a few secondary modules as well:
+</p><ul><li>scodec-spire - Binding between scodec-core and <a href="http://github.com/non/spire">spire</a>, mostly taking advantage of unsigned numeric types.
+</li><li>scodec-protocols - Library of general purpose implementations of common protocols.
+</li></ul><p>This guide goes over each of these modules in detail.
+</p><h2 id="Getting+Source%2C+Binaries%2C+and+Docs">Getting Source, Binaries, and Docs<a href="#Getting+Source%2C+Binaries%2C+and+Docs" class="header-link"><span class="header-link-content">&nbsp;</span></a></h2><p>Each of the modules are available on GitHub under the <a href="http://github.com/scodec">scodec organization</a>. Binaries are published to Maven Central under the group id <code>org.typelevel</code>. ScalaDoc is available for online browsing at <a href="http://docs.typelevel.org/api/scodec/">typelevel.org</a>. The ScalaDoc has a lot of detail, especially in package level documentation.
+</p><p>All of the modules adhere to the Typelevel binary compatibility guidelines. In short, versions that share the same major.minor version number are forward binary compatible. An exception to this rule is major version 0, which indicates that no binary compatibility is guaranteed from version to version. For example, code that was compiled against scodec-bits 1.0.1 will function with 1.0.4 but not necessarily 1.0.0 or 1.1.0.
+</p><h2 id="Getting+Help+%2F+Community">Getting Help / Community<a href="#Getting+Help+%2F+Community" class="header-link"><span class="header-link-content">&nbsp;</span></a></h2><p>To get help with scodec, consider using the <a href="https://groups.google.com/forum/#!forum/typelevel">Typelevel mailing list</a>, using the <a href="http://stackoverflow.com/questions/tagged/scodec">scodec tag on StackOverflow</a>, or mentioning <a href="https://twitter.com/search?q=scodec&amp;src=sprv">#scodec on Twitter</a>.
+</p><p>People are expected to follow the <a href="http://typelevel.org/conduct.html">Typelevel Code of Conduct</a> when discussing scodec on the Github page, IRC channel, mailing list, or other venues.
+</p><p>Concerns or issues can be sent to Michael Pilquist (mpilquist@gmail.com) or to Typelevel.
+</p><h1 id="scodec-bits">scodec-bits<a href="#scodec-bits" class="header-link"><span class="header-link-content">&nbsp;</span></a></h1><p>The scodec-bits library contains data structures for working with binary. It has no dependencies on other libraries, which allows it to be used by other libraries without causing dependency conflicts.
+</p><p>There are two primary data structures in the library, <code>ByteVector</code> and <code>BitVector</code>. Both are immutable collections and have performance characteristics that are optimized for use in the other scodec modules. However, each type has been designed for general purpose usage, even when other scodec modules are not used. For instance, <code>ByteVector</code> can be safely used as a replacement for immutable byte arrays.
+</p><h2 id="ByteVector">ByteVector<a href="#ByteVector" class="header-link"><span class="header-link-content">&nbsp;</span></a></h2><p>The <code>ByteVector</code> type is isomorphic to a <code>scala.collection.immutable.Vector[Byte]</code> but has much better performance characteristics. A <code>ByteVector</code> is represented as a balanced binary tree of chunks. Most operations have asymptotic performance that is logarithmic in the depth of this tree. There are also quite a number of convenience based features, like value based equality, a sensible <code>toString</code>, and many conversions to/from other data types.
+</p><p>It is important to note that <code>ByteVector</code> does not extend any types from the Scala collections framework. For instance, <code>ByteVector</code> is <em>not</em> a <code>scala.collection.immutable.Traversable[Byte]</code>. This allows some deviance, like <code>Long</code> based indexing instead of <code>Int</code> based indexing from standard collections. Additionally, it avoids a large category of bugs, especially as the standard library collections are refactored. Nonetheless, the methods on <code>ByteVector</code> are named to correspond with the methods in the standard library when possible.
+</p><h3 id="Getting+Started">Getting Started<a href="#Getting+Started" class="header-link"><span class="header-link-content">&nbsp;</span></a></h3><p>Let’s create a <code>ByteVector</code> from a literal hexadecimal string:
+</p><pre><code class="prettyprint lang-scala">scala&gt; import scodec.bits._
+import scodec.bits._
+
+scala&gt; val x: ByteVector = hex&quot;deadbeef&quot;
+x: scodec.bits.ByteVector = ByteVector(4 bytes, 0xdeadbeef)
+
+scala&gt; val y: ByteVector = hex&quot;DEADBEEF&quot;
+y: scodec.bits.ByteVector = ByteVector(4 bytes, 0xdeadbeef)
+
+scala&gt; x == y
+res0: Boolean = true
+</code></pre><p>We first start by importing all members of the <code>scodec.bits</code> package, which contains the entirety of this library. We then create two byte vectors from hexadecimal literals, using the <code>hex</code> string interpolator. Finally, we compare them for equality, which returns true, because each vector contains the same bytes.
+</p><p>TODO
+</p><h2 id="BitVector">BitVector<a href="#BitVector" class="header-link"><span class="header-link-content">&nbsp;</span></a></h2><p>The <code>BitVector</code> type is similar to <code>ByteVector</code> with the exception of indexing bits instead of bytes. This allows access and update of specific bits (via <code>apply</code> and <code>update</code>) as well as storage of a bit count that is not evenly divisible by 8.
+</p><h3 id="Getting+Started">Getting Started<a href="#Getting+Started" class="header-link"><span class="header-link-content">&nbsp;</span></a></h3><pre><code class="prettyprint lang-scala">scala&gt; val x: BitVector = bin&quot;00110110101&quot;
+x: scodec.bits.BitVector = BitVector(11 bits, 0x36a)
+
+scala&gt; val y: BitVector = bin&quot;00110110100&quot;
+y: scodec.bits.BitVector = BitVector(11 bits, 0x368)
+
+scala&gt; x == y
+res0: Boolean = false
+
+scala&gt; val z = y.update(10, true)
+z: scodec.bits.BitVector = BitVector(11 bits, 0x36a)
+
+scala&gt; x == z
+res1: Boolean = true
+</code></pre><p>In this example, we create two 10-bit vectors using the <code>bin</code> string interpolator that differ in only the last bit. We then create a third vector, <code>z</code>, by updating the 10th bit of <code>y</code> to true. Comparing <code>x</code> and <code>y</code> for equality returns false whereas comparing <code>x</code> and <code>z</code> returns true.
+</p><p>TODO
+</p><h1 id="scodec-core">scodec-core<a href="#scodec-core" class="header-link"><span class="header-link-content">&nbsp;</span></a></h1><h3 id="Getting+Started">Getting Started<a href="#Getting+Started" class="header-link"><span class="header-link-content">&nbsp;</span></a></h3><pre><code class="prettyprint lang-scala">scala&gt; import scodec.Codec
+
+scala&gt; import scodec.codecs.implicits._
+
+scala&gt; case class Point(x: Int, y: Int)
+
+scala&gt; case class Line(start: Point, end: Point)
+
+scala&gt; case class Arrangement(lines: Vector[Line])
+
+scala&gt; val arr = Arrangement(Vector(
+  Line(Point(0, 0), Point(10, 10)),
+  Line(Point(0, 10), Point(10, 0))))
+arr: Arrangement = ...
+
+scala&gt; val arrBinary = Codec.encodeValid(arr)
+arrBinary: scodec.bits.BitVector =
+  BitVector(288 bits, 0x0000000200000000000000000000000a0000000a000000000000000a0000000a00000000)
+
+scala&gt; val decoded = Codec[Arrangement].decodeValidValue(arrBinary)
+decoded: Arrangement = Arrangement(Vector(Line(Point(0,0),Point(10,10)), Line(Point(0,10),Point(10,0))))
+</code></pre><p>We start by importing the primary type in scodec-core, the <code>Codec</code> type, along with all implicit codecs defined in <code>scodec.codecs.implicits</code>. The latter provides commonly useful implicit codecs, but is opinionated — for instance, it provides a <code>Codec[Int]</code> that encodes to 32-bit 2s complement big endian format.
+</p><p>Aside: the predefined implicit codecs are useful at the REPL and when your application does not require a specific binary format. However, scodec-core is designed to support “contract-first” binary formats — ones in which the format is fixed in stone. For binary serialization to arbitrary formats, consider tools like <a href="https://github.com/scala/pickling">scala-pickling</a>, <a href="http://avro.apache.org">Avro</a>, and <a href="https://code.google.com/p/protobuf/">protobuf</a>.
+</p><p>We then create three case classes followed by instantiating them all and assigning the result to the <code>arr</code> val. We encode <code>arr</code> to binary using <code>Codec.encodeValid</code>, then decode the resulting binary back to an <code>Arrangement</code>. In this example, both encoding and decoding rely on an implicitly available <code>Codec[Arrangement]</code>, which is automatically derived based on <em>compile time</em> reflection on the structure of the <code>Arrangement</code> class and its product types.
+</p><p>We use <code>encodeValid</code>, which throws an <code>IllegalArgumentException</code> if encoding fails, because we know that our arrangement codec cannot fail to encode. To decode, we summon the implicit arrangement codec via <code>Codec[Arrangement]</code> and then use <code>decodeValidValue</code> for REPL convenience — which throws an <code>IllegalArgumentException</code> if decoding fails and throws away any bits left over after decoding finishes. In this case, we know that decoding will succeed and there will be no remaining bits, so this is safe. It is generally better to use the <code>encode</code> and <code>decode</code> methods instead of the “valid” conveniences.
+</p><p>Running the same code with a different implicit <code>Codec[Int]</code> in scope changes the output accordingly:
+</p><pre><code class="prettyprint lang-scala">
+scala&gt; import scodec.codecs.implicits.{ implicitIntCodec =&gt; _, _ }
+
+scala&gt; implicit val ci = scodec.codecs.uint8
+ci: scodec.Codec[Int] = 8-bit unsigned integer
+
+...
+
+scala&gt; val arrBinary = Codec.encodeValid(arr)
+arrBinary: scodec.bits.BitVector = BitVector(72 bits, 0x0200000a0a000a0a00)
+
+scala&gt; val decoded = Codec.decodeValidValue[Arrangement](arrBinary)
+decoded: Arrangement = Arrangement(Vector(Line(Point(0,0),Point(10,10)), Line(Point(0,10),Point(10,0))))
+</code></pre><p>In this case, we import all predefined implicits except for the <code>Codec[Int]</code> and then we define an implicit <code>Int</code> codec for 8-bit unsigned big endian integers. The resulting encoded binary is 1/4 the size. However, our arrangement codec is no longer total in encoding — that is, it may result in errors. Consider:
+</p><pre><code class="prettyprint lang-scala">scala&gt; val arr2 = Arrangement(Vector(
+  Line(Point(0, 0), Point(10, 10)),
+  Line(Point(0, 10), Point(10, -1))))
+arr2: Arrangement = Arrangement(Vector(Line(Point(0,0),Point(10,10)), Line(Point(0,10),Point(10,-1))))
+
+scala&gt; val encoded = Codec.encode(arr2)
+encoded: scalaz.\/[scodec.Err,scodec.bits.BitVector] =
+  -\/(lines/1/end/y: -1 is less than minimum value 0 for 8-bit unsigned integer)
+
+scala&gt; val encoded = Codec.encodeValid(arr2)
+java.lang.IllegalArgumentException: lines/1/end/y: -1 is less than minimum value 0 for 8-bit unsigned integer
+</code></pre><p>Attempting to encode an arrangement that contains a point with a negative number resulted in an error being returned from <code>encode</code> and an exception being thrown from <code>encodeValid</code>. The error includes the path to the error — <code>lines/1/end/y</code>. In this case, the <code>lines</code> field on <code>Arrangement</code>, the line at the first index of that vector, the <code>end</code> field on that line, and the <code>y</code> field on that point.
+</p><p>If you prefer to avoid using implicits, do not fret! The above example makes use of implicits and uses Shapeless for compile time reflection, but this is built as a layer on top of the core algebra of scodec-core. The library supports a usage model where implicits are not used.
+</p><p>With the first example under our belts, let’s look at the core algebra in detail.
+</p><h1 id="Core+Algebra">Core Algebra<a href="#Core+Algebra" class="header-link"><span class="header-link-content">&nbsp;</span></a></h1><p>We saw the <code>Codec</code> type when we used it to encode a value to binary and decode binary back to a value. The ability to decode and encode come from two fundamental traits, <code>Decoder</code> and <code>Encoder</code>. Let’s look at these in turn.
+</p><h2 id="Decoder">Decoder<a href="#Decoder" class="header-link"><span class="header-link-content">&nbsp;</span></a></h2><pre><code class="prettyprint lang-scala">trait Decoder[+A] {
+  def decode(b: BitVector): Err \/ (BitVector, A)
+}
+</code></pre><p>A decoder defines a single abstract operation, <code>decode</code>, which converts a bit vector into a pair containing the unconsumed bits and a decoded value, or returns an error. For example, a decoder that decodes a 32-bit integer returns an error when the supplied vector has less than 32-bits, and returns the supplied vector less 32-bits otherwise.
+</p><p>The result type is a disjunction with <code>scodec.Err</code> on the left side. <code>Err</code> is an open-for-subclassing data type that contains an error message and a context stack. The context stack contains strings that provide context on where the error occurred in a large structure. We saw an example of this earlier, where the context stack represented a path through the <code>Arrangement</code> class, into a <code>Vector</code>, and then into a <code>Line</code> and <code>Point</code>. The type is open-for-subclassing so that codecs can return domain specific error types and then pattern match on the received type. An <code>Err</code> is <em>not</em> a subtype of <code>Throwable</code>, so it cannot be used (directly) with <code>scala.util.Try</code>. Also note that codecs never throw exceptions (or should never!). All errors are communicated via the <code>Err</code> type.
+</p><h3 id="map">map<a href="#map" class="header-link"><span class="header-link-content">&nbsp;</span></a></h3><p>A function can be mapped over a decoder, resulting in our first combinator:
+</p><pre><code class="prettyprint lang-scala">trait Decoder[+A] { self =&gt;
+  def decode(b: BitVector): Err \/ (BitVector, A)
+  def map[B](f: A =&gt; B): Decoder[B] = new Decoder[B] {
+    def decode(b: BitVector): Err \/ (BitVector, B) =
+      self.decode(b) map { case (rem, a) =&gt; (rem, f(b)) }
+  }
+}
+</code></pre><p>Note that the <em>implementation</em> of the <code>map</code> method is not particularly important — rather, the type signature is the focus.
+</p><p>As a first use case for <code>map</code>, consider creating a decoder for the following case class by reusing the built-in <code>int32</code> codec:
+</p><pre><code class="prettyprint lang-scala">case class Foo(x: Int)
+val fooDecoder: Decoder[Foo] = int32 map { i =&gt; Foo(i) }
+</code></pre><h3 id="emap">emap<a href="#emap" class="header-link"><span class="header-link-content">&nbsp;</span></a></h3><p>The <code>map</code> operation does not allow room for returning an error. We can define a variant of <code>map</code> that allows the supplied function to indicate error:
+</p><pre><code class="prettyprint lang-scala">trait Decoder[+A] { self =&gt;
+  ...
+  def emap[B](f: A =&gt; Err \/ B): Decoder[B] = new Decoder[B] {
+    def decode(b: BitVector): Err \/ (BitVector, B) =
+      self.decode(bits) flatMap { case (rem, a) =&gt;
+        f(a).map { b =&gt; (rem, b) }
+      }
+  }
+}
+</code></pre><h3 id="flatMap">flatMap<a href="#flatMap" class="header-link"><span class="header-link-content">&nbsp;</span></a></h3><p>Further generalizing, we can <code>flatMap</code> a function over a decoder to express that the “next” codec is <em>dependent</em> on the decoded value from the current decoder:
+</p><pre><code class="prettyprint lang-scala">trait Decoder[+A] { self =&gt;
+  ...
+  def flatMap[B](f: A =&gt; Decoder[B]): Decoder[B] = new Decoder[B] {
+    def decode(b: BitVector): Err \/ (BitVector, B) =
+      self.decode(b) flatMap { case (rem, a) =&gt;
+        val next: Codec[B] = f(a)
+        next.decode(rem)
+      }
+  }
+}
+</code></pre><p>The resulting decoder first decodes a value of type <code>A</code> using the original decoder. If that’s successful, it applies the decoded value to the supplied function to get a <code>Decoder[B]</code> and then decodes the bits remaining from decoding <code>A</code> using that decoder.
+</p><p>As mentioned previously, <code>flatMap</code> models a dependency between a decoded value and the decoder to use for the remaining bits. A good use case for this is a bit pattern that first encodes a count followed by a number of records. An implementation of this is not provided because we will see it later in a different context.
+</p><h2 id="Encoder">Encoder<a href="#Encoder" class="header-link"><span class="header-link-content">&nbsp;</span></a></h2><pre><code class="prettyprint lang-scala">trait Encoder[-A] {
+  def encode(a: A): Err \/ BitVector
+}
+</code></pre><p>An encoder defines a single abstract operation, <code>encode</code>, which converts a value to binary or returns an error. This design differs from other libraries by allowing <code>encode</code> to be defined partially over type <code>A</code>. For example, this allows an integer encoder to be defined on a subset of the integers without having to resort to newtypes or wrapper types.
+</p><h3 id="contramap">contramap<a href="#contramap" class="header-link"><span class="header-link-content">&nbsp;</span></a></h3><p>A function can be mapped over an encoder, similar to <code>map</code> on decoder, but unlike <code>map</code>, the supplied function has its arrow reversed — that is, we convert an <code>Encoder[A]</code> to an <code>Encoder[B]</code> with a function <code>B =&gt; A</code>. This may seem strange at first, but all we are doing is using the supplied function to convert a <code>B</code> to an <code>A</code> and then delegating the encoding logic to the original <code>Encoder[A]</code>. This operation is called <code>contramap</code>:
+</p><pre><code class="prettyprint lang-scala">trait Encoder[-A] { self =&gt;
+  def encode(a: A): Err \/ BitVector
+  def contramap[B](f: B =&gt; A): Encoder[B] = new Encoder[B] {
+    def encode(b: B): Err \/ BitVector =
+      self.encode(f(b))
+  }
+}
+</code></pre><h3 id="econtramap">econtramap<a href="#econtramap" class="header-link"><span class="header-link-content">&nbsp;</span></a></h3><p>Like decoder’s <code>map</code>, <code>contramap</code> takes a total function. To use a partial function, there’s <code>econtramap</code>:
+</p><pre><code class="prettyprint lang-scala">trait Encoder[-A] { self =&gt;
+  ...
+  def econtramap[B](f: B =&gt; Err \/ A): Encoder[B] = new Encoder[B] {
+    def encode(b: B): Err \/ BitVector =
+      f(b) flatMap self.encode
+  }
+}
+</code></pre><h3 id="flatMap%3F">flatMap?<a href="#flatMap%3F" class="header-link"><span class="header-link-content">&nbsp;</span></a></h3><p>Unlike decoder, there is no <code>flatMap</code> operation on encoder. Further, there’s no “corresponding” operation — in the way that <code>contramap</code> corresponds to <code>map</code> and <code>econtramap</code> corresponds to <code>emap</code>. To get a feel for why this is, try defining a <code>flatMap</code>-like method. For instance, you could try “reversing the arrows” and substituting <code>Encoder</code> for <code>Decoder</code>, yielding a method like <code>def flatMapLike[B](f: Encoder[B] =&gt; A): Encoder[B]</code> — but you’ll find there’s no reasonable way to implement <code>encode</code> on the returned encoder.
+</p><h2 id="Codec">Codec<a href="#Codec" class="header-link"><span class="header-link-content">&nbsp;</span></a></h2><p>We can now implement <code>Codec</code> as the combination of an encoder and decoder:
+</p><pre><code class="prettyprint lang-scala">trait Codec[A] extends Encoder[A] with Decoder[A]
+</code></pre><p>A codec has no further abstract operations — leaving it with only <code>encode</code> and <code>decode</code>, along with a number of derived operations like <code>map</code> and <code>contramap</code>. However, at least as presented here, calling <code>map</code> on a codec results in a decoder and calling <code>contramap</code> on a codec results in an encoder — effectively “forgetting” how to encode and decode respectively. We need a new set of combinators for working with codecs that does not result in forgetting information.
+</p><h3 id="xmap">xmap<a href="#xmap" class="header-link"><span class="header-link-content">&nbsp;</span></a></h3><p>The codec equivalent to <code>map</code> and <code>contramap</code> is called <code>xmap</code>:
+</p><pre><code class="prettyprint lang-scala">trait Codec[A] extends Encoder[A] with Decoder[A] { self =&gt;
+  def xmap[B](f: A =&gt; B, g: B =&gt; A): Codec[B] = new Codec[B] {
+    def encode(b: B): Err \/ BitVector = self.contramap(g).encode(b)
+    def decode(b: BitVector): Err \/ (BitVector, B) = self.map(f).decode(b)
+  }
+}
+</code></pre><p>Here, we’ve defined <code>xmap</code> in terms of <code>map</code> and <code>contramap</code> although the real implementation is more performant. The <code>xmap</code> operations is one of the most commonly used operations in scodec-core. Consider this example:
+</p><pre><code class="prettyprint lang-scala">case class Point(x: Int, y: Int)
+
+val tupleCodec: Codec[(Int, Int)] = ...
+val pointCodec: Codec[Point] = tupleCodec.xmap[Point](t =&gt; Point(t._1, t._2), pt =&gt; (pt.x, pt.y))
+</code></pre><p>We convert a <code>Codec[(Int, Int)]</code> into a <code>Codec[Point]</code> using the <code>xmap</code> operation, passing two functions — one that converts from a <code>Tuple2[Int, Int]</code> to a <code>Point</code>, and another that converts a <code>Point</code> to a <code>Tuple2[Int, Int]</code>. Note: there are a few simpler ways to define codecs for case classes that we’ll see later.
+</p><h3 id="exmap">exmap<a href="#exmap" class="header-link"><span class="header-link-content">&nbsp;</span></a></h3><p>In a similar fashion to <code>emap</code> and <code>econtramap</code>, the <code>exmap</code> operation is like <code>xmap</code> but allows both functions to be defined partially:
+</p><pre><code class="prettyprint lang-scala">trait Codec[A] extends Encoder[A] with Decoder[A] { self =&gt;
+  ...
+  def exmap[B](f: A =&gt; Err \/ B, g: B =&gt; Err \/ A): Codec[B] = new Codec[B] {
+    def encode(b: B): Err \/ BitVector = self.econtramap(g).encode(b)
+    def decode(b: BitVector): Err \/ (BitVector, B) = self.emap(f).decode(b)
+  }
+}
+</code></pre><h3 id="Additional+transforms">Additional transforms<a href="#Additional+transforms" class="header-link"><span class="header-link-content">&nbsp;</span></a></h3><p>Unlike <code>map</code>, <code>emap</code>, <code>contramap</code>, and <code>econtramap</code>, <code>xmap</code> and  <code>exmap</code> each take two functions. <code>xmap</code> takes two total functions and <code>exmap</code> takes two partial functions. There are two other operations that take two conversion functions — where one of the functions is total and the other is partial.
+</p><pre><code class="prettyprint lang-scala">trait Codec[A] extends Encoder[A] with Decoder[A] { self =&gt;
+  ...
+  def narrow[B](f: A =&gt; Err \/ B, g: B =&gt; A): Codec[B] = exmap(f, right compose g)
+  def widen[B](f: A =&gt; B, g: B =&gt; Err \/ A): Codec[B] = exmap(right compose f, g)
+}
+</code></pre><p>Finally, there’s a variant of <code>widen</code> where the partial function is represented as a <code>B =&gt; Option[A]</code> instead of a <code>B =&gt; Err \/ A</code>.
+</p><pre><code class="prettyprint lang-scala">trait Codec[A] extends Encoder[A] with Decoder[A] { self =&gt;
+  ...
+  def widenOpt[B](f: A =&gt; B, g: B =&gt; Option[A]): Codec[B] = ...
+}
+</code></pre><p>The <code>widenOpt</code> operation is provided to make manual authored case class codecs simpler — by passing the <code>apply</code> and <code>unapply</code> methods from a case class companion. For instance, the earlier example becomes:
+</p><pre><code class="prettyprint lang-scala">case class Point(x: Int, y: Int)
+
+val tupleCodec: Codec[(Int, Int)] = ...
+val pointCodec: Codec[Point] = tupleCodec.widenOpt(Point.apply, Point.unapply)
+</code></pre><h2 id="GenCodec">GenCodec<a href="#GenCodec" class="header-link"><span class="header-link-content">&nbsp;</span></a></h2><p>The <code>xmap</code> and related operations allow us to transfrom a <code>Codec[A]</code> into a <code>Codec[B]</code>. Nonetheless, we can improve the definitions of the decoder and encoder specific methods (<code>map</code>, <code>contramap</code>, etc.). With the types as presented, we said that calling <code>map</code> on a codec forgot the encoding logic and returned a decoder, and that calling <code>contramap</code> on a codec forgot the decoding logic and returned an encoder.
+</p><p>We can remedy this somewhat by introducing a new type that is similar to <code>Codec</code> in that it is both an <code>Encoder</code> and a <code>Decoder</code> — but dissimilar in that it allows the encoding type to differ from the decoding type.
+</p><pre><code class="prettyprint lang-scala">trait GenCodec[-A, +B] extends Encoder[A] with Decoder[B] { self =&gt;
+  override def map[C](f: B =&gt; C): GenCodec[A, C] = GenCodec(this, super.map(f))
+  override def contramap[C](f: C =&gt; A): GenCodec[C, B] = GenCodec(super.contramap(f), this)
+  ...
+  def fuse[AA &lt;: A, BB &gt;: B](implicit ev: BB =:= AA): Codec[BB] = new Codec[BB] {
+    def encode(c: BB) = self.encode(ev(c))
+    def decode(bits: BitVector) = self.decode(bits)
+  }
+}
+
+object GenCodec {
+  def apply[A, B](encoder: Encoder[A], decoder: Decoder[B]): GenCodec[A, B] = new GenCodec[A, B] {
+    override def encode(a: A) = encoder.encode(a)
+    override def decode(bits: BitVector) = decoder.decode(bits)
+  }
+}
+
+trait Codec[A] extends GenCodec[A, A] { ... }
+</code></pre><p>A <code>GenCodec</code> represents the pairing of an <code>Encoder</code> and a <code>Decoder</code>, with potentially different types. Each of the combinators from <code>Encoder</code> and <code>Decoder</code> are overridden such that they return <code>GenCodec</code>s that “remember” the behavior of the non-transformed type. For instance, the <code>map</code> operation on a <code>GenCodec</code> changes the decoding behavior while remembering the encoding behavior.
+</p><p>Hence, <code>GenCodec</code> has two type parameters — the first is the encoding type and the second is the decoding type. Any time that the two types are equal, the <code>fuse</code> can be used to convert the <code>GenCodec[A, A]</code> to a <code>Codec[A]</code>.
+</p><p><code>GenCodec</code> is useful because it allows <em>incremental</em> transforms to be applied to a codec. Further, it plays an important role in the categorical view of codecs, which is discussed later. Still, direct usage of <code>GenCodec</code> is rare.
+</p><h2 id="Variance">Variance<a href="#Variance" class="header-link"><span class="header-link-content">&nbsp;</span></a></h2><p>You may have noticed the variance annotations in <code>Encoder</code>, <code>Decoder</code>, and <code>GenCodec</code>, and the lack of a variance annotation in <code>Codec</code>. Specifically:
+</p><ul><li><code>Encoder</code> is defined contravariantly in its type parameter
+</li><li><code>Decoder</code> is defined covariantly in its type parameter
+</li><li><code>GenCodec</code> is defined contravariantly in its first type parameter and covariantly in its second type parameter
+</li><li><code>Codec</code> is defined invariantly in its type parameter
+</li></ul><p>The variance annotations — specifically the contravariant ones — can cause problems with implicit search. At the current time, the implicit search problems cannot be fixed without making <code>Encoder</code> invariant. The authors of scodec believe the utility provided by subtyping variance outweighs the inconvenience of the implicit search issues they cause. If you disagree, please weigh-in on the <a href="https://groups.google.com/forum/#!forum/typelevel">mailing list</a> or the <a href="https://github.com/scodec/scodec/pull/26">related pull request</a>.
+</p><h2 id="For+the+categorically+minded+%28or+Scalaz+users%29">For the categorically minded (or Scalaz users)<a href="#For+the+categorically+minded+%28or+Scalaz+users%29" class="header-link"><span class="header-link-content">&nbsp;</span></a></h2><p>The core types have a number of type class instances. Note that this section assumes a strong familiarity with Scalaz and can be safely skipped.
+</p><p><code>Decoder</code> has a monad instance, where <code>flatMap</code> is defined as above and the point operation is defined as:
+</p><pre><code class="prettyprint lang-scala">def point(a: A): Decoder[A] = new Decoder[A] {
+  def decode(b: BitVector): Err \/ (BitVector, A) =
+    right((b, a))
+}
+</code></pre><p><code>Encoder</code> has a contravariant functor instance, defined using the <code>contramap</code> operation from above. It also has a corepresentable instance with <code>Err \/ BitVector</code>.
+</p><p><code>GenCodec</code> has a profunctor instance, where <code>mapfst</code> is implemented using <code>contramap</code> and <code>mapsnd</code> is implemented using <code>map</code>.
+</p><p><code>Codec</code> has an invariant (aka exponential) functor instance, using the <code>xmap</code> operation from above.
+</p><p>Instances for the Scalaz version of each these type classes is located in the companion object of each trait.
+</p><p>scodec-core defines one additional type class, <code>Transform</code>, which abstracts over the type constructor in the transform operations. It defines a single abstract operation — <code>exmap</code> — and defines concrete versions of <code>xmap</code>, <code>narrow</code>, <code>widen</code>, etc. in terms of <code>exmap</code>. This type class is unlikely to be useful outside of scodec libraries due to the use of <code>scodec.Err</code>. It exists in order to share transform API between <code>Codec</code> and another scodec-core type we’ll see later.
+</p><h2 id="Manually+creating+codecs">Manually creating codecs<a href="#Manually+creating+codecs" class="header-link"><span class="header-link-content">&nbsp;</span></a></h2><p>Codecs are typically created by transforming or combining other codecs. However, we can create a codec manually by writing a class that extends <code>Codec</code> and implements <code>encode</code> and <code>decode</code>.
+</p><pre><code class="prettyprint lang-scala">class BitVectorCodec(size: Long) extends Codec[BitVector] {
+  def encode(b: BitVector) = {
+    if (b.size == size) \/.right(b)
+    else \/.left(Err(s&quot;expected size ${size} but got ${b.size}&quot;))
+  }
+  def decode(b: BitVector) = {
+    val (result, remaining) = b.splitAt(size)
+    if (result.size != size)
+      \/.left(new Err.InsufficientBits(size, result.size))
+    else \/.right((remaining, result))
+  }
+}
+</code></pre><p>Besides the fundamental types — <code>Codec</code>, <code>Decoder</code>, and <code>Encoder</code> — scodec-core is focused on providing <em>combinators</em>. That is, providing ways to combine two or more codecs in to a new codec, or transform a single codec in to another. We’ve seen a few examples of combinators (e.g., <code>xmap</code>) and we’ll see many more.
+</p><p>The combinators exist to make codecs easier to read and write. They promote correctness by allowing a codec to be built from components that are known to be correct. They increase readability by encapsulating boilerplate and wiring logic, leaving the structure of the codec evident.  However, it is easy to get distracted by searching for an elegant combinator based codec implementation when a manually authored codec is appropriate. As you work with scodec, you’ll develop an intuition for when to write codecs manually.
+</p><h2 id="Summary">Summary<a href="#Summary" class="header-link"><span class="header-link-content">&nbsp;</span></a></h2><p>The <code>Codec</code> type is the work horse of scodec-core, which combines a <code>Decoder</code> with an <code>Encoder</code>. Codecs can be transformed in a variety of ways — and we’ll see many more ways in later sections. However, we can always fall back to implementing <code>Codec</code> or even <code>Decoder</code> or <code>Encoder</code> directly if a combinator based approach proves inconvenient.
+</p><h1 id="Simple+Value+Codecs">Simple Value Codecs<a href="#Simple+Value+Codecs" class="header-link"><span class="header-link-content">&nbsp;</span></a></h1><p>There are a number of pre-defined codecs for simple value types provided by the <code>scodec.codecs</code> object. In this section, we’ll look at some of these.
+</p><h2 id="BitVector+and+ByteVector">BitVector and ByteVector<a href="#BitVector+and+ByteVector" class="header-link"><span class="header-link-content">&nbsp;</span></a></h2><p>One of the simplest codecs is an identity for <code>BitVector</code>s. That is, a <code>Codec[BitVector]</code> that returns the supplied bit vector from <code>encode</code> and <code>decode</code>. This is provided by the <code>scodec.codecs.bits</code> method. This codec has some interesting properties — it is both <em>total</em> and <em>greedy</em>. By total, we mean that it never returns an error from <code>encode</code> or <code>decode</code>. By greedy, we mean that the <code>decode</code> method always consumes the entire input bit vector and returns an empty bit vector as the remaining bits.
+</p><p>The greedy property may seem strange, or at least more specialized than codec for a fixed number of bits — for instance, a constant width binary field. However, non-greedy codecs can often be built out of greedy codecs. We’ll see a general combinator for doing so later, in the Framing section.
+</p><p>Nonetheless, constant width binary fields occur often enough to warrant their own built-in constructor. The <code>scodec.codecs.bits(size: Long)</code> method returns a <code>Codec[BitVector]</code> that decodes exactly <code>size</code> bits from the supplied vector, failing to decode with an <code>Err.InsufficientBits</code> error if there are less than <code>size</code> bits provided. If a bit vector less than <code>size</code> bits is supplied to <code>encode</code>, it is right-padded with 0s.
+</p><p>Similarly, the <code>scodec.codecs.bytes</code> and <code>scodec.codecs.bytes(size: Int)</code> methods return a greedy <code>Codec[ByteVector]</code> and a fixed-width <code>Codec[ByteVector]</code>, where the latter’s size is specified in bytes instead of bits.
+</p><h2 id="Booleans">Booleans<a href="#Booleans" class="header-link"><span class="header-link-content">&nbsp;</span></a></h2><p>TODO
+</p><h2 id="Numerics">Numerics<a href="#Numerics" class="header-link"><span class="header-link-content">&nbsp;</span></a></h2><p>TODO
+</p><h2 id="Strings">Strings<a href="#Strings" class="header-link"><span class="header-link-content">&nbsp;</span></a></h2><p>TODO
+</p><h1 id="Simple+Construtors+and+Combinators">Simple Construtors and Combinators<a href="#Simple+Construtors+and+Combinators" class="header-link"><span class="header-link-content">&nbsp;</span></a></h1><p>TODO
+</p><h2 id="Constants">Constants<a href="#Constants" class="header-link"><span class="header-link-content">&nbsp;</span></a></h2><h3 id="Literal+Constants">Literal Constants<a href="#Literal+Constants" class="header-link"><span class="header-link-content">&nbsp;</span></a></h3><h2 id="Unit+Codecs">Unit Codecs<a href="#Unit+Codecs" class="header-link"><span class="header-link-content">&nbsp;</span></a></h2><p>TODO - unit, unitM
+</p><h2 id="Context">Context<a href="#Context" class="header-link"><span class="header-link-content">&nbsp;</span></a></h2><p>TODO - withContext, | syntax
+</p><h2 id="Miscellaneous">Miscellaneous<a href="#Miscellaneous" class="header-link"><span class="header-link-content">&nbsp;</span></a></h2><p>TODO - complete, compact, withToString
+</p><h1 id="Collections">Collections<a href="#Collections" class="header-link"><span class="header-link-content">&nbsp;</span></a></h1><p>TODO
+</p><h1 id="Framing">Framing<a href="#Framing" class="header-link"><span class="header-link-content">&nbsp;</span></a></h1><p>TODO - fixed size, variable size, etc.
+</p><h1 id="Tuple+Codecs">Tuple Codecs<a href="#Tuple+Codecs" class="header-link"><span class="header-link-content">&nbsp;</span></a></h1><p>TODO
+</p><h1 id="HList+Codecs">HList Codecs<a href="#HList+Codecs" class="header-link"><span class="header-link-content">&nbsp;</span></a></h1><p>TODO
+</p><h1 id="Case+Class+Codecs">Case Class Codecs<a href="#Case+Class+Codecs" class="header-link"><span class="header-link-content">&nbsp;</span></a></h1><p>TODO
+</p><h1 id="Coproduct+Codecs">Coproduct Codecs<a href="#Coproduct+Codecs" class="header-link"><span class="header-link-content">&nbsp;</span></a></h1><p>TODO
+</p>
+          </div>
+        </div>
+        <div class="header">
+          <div class="container">
+        <div class="span-16 prepend-1 append-1">
+          <div class="span-16 top nav">
+            <div class="span-16 title">
+              <span>scodec</span> — Combined Pages
+            </div>
+          </div>
+        </div>
+      </div>
+        </div>
+        <div class="footer">
+          
+        </div>
+        
+        <div class="highlight-outer">
+              <div class="highlight-menu">
+                <ul>
+                  <li><button id="highlight-button-twitter"><img src="img/twitter-bird-dark-bgs.png"/></button></li>
+                </ul>
+              </div>
+            </div>
+      </body>
+    </html>

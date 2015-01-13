@@ -43,7 +43,7 @@
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <span class="name">DecodeResult</span><span class="tparams">[<span name="A">+A</span>]</span><span class="params">(<span name="value">value: <span class="extype" name="scodec.DecodeResult.A">A</span></span>, <span name="remainder">remainder: <a href="http://scodec.org/api/scodec-bits/1.0.5-SNAPSHOT/index.html#scodec.bits.BitVector" class="extype" target="_top">BitVector</a></span>)</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.4/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.4/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+        <span class="name">DecodeResult</span><span class="tparams">[<span name="A">+A</span>]</span><span class="params">(<span name="value">value: <span class="extype" name="scodec.DecodeResult.A">A</span></span>, <span name="remainder">remainder: <a href="http://scodec.org/api/scodec-bits/1.0.5/index.html#scodec.bits.BitVector" class="extype" target="_top">BitVector</a></span>)</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.4/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.4/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
       </span>
       </h4>
       
@@ -106,7 +106,7 @@
         <span class="kind">new</span>
       </span>
       <span class="symbol">
-        <span class="name">DecodeResult</span><span class="params">(<span name="value">value: <span class="extype" name="scodec.DecodeResult.A">A</span></span>, <span name="remainder">remainder: <a href="http://scodec.org/api/scodec-bits/1.0.5-SNAPSHOT/index.html#scodec.bits.BitVector" class="extype" target="_top">BitVector</a></span>)</span>
+        <span class="name">DecodeResult</span><span class="params">(<span name="value">value: <span class="extype" name="scodec.DecodeResult.A">A</span></span>, <span name="remainder">remainder: <a href="http://scodec.org/api/scodec-bits/1.0.5/index.html#scodec.bits.BitVector" class="extype" target="_top">BitVector</a></span>)</span>
       </span>
       </h4><span class="permalink">
       <a href="../index.html#scodec.DecodeResult@&lt;init&gt;(value:A,remainder:scodec.bits.BitVector):scodec.DecodeResult[A]" title="Permalink" target="_top">
@@ -485,6 +485,23 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="scodec.DecodeResult#map" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="map[B](f:A=&gt;B):scodec.DecodeResult[B]"></a>
+      <a id="map[B]((A)⇒B):DecodeResult[B]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">map</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="f">f: (<span class="extype" name="scodec.DecodeResult.A">A</span>) ⇒ <span class="extype" name="scodec.DecodeResult.map.B">B</span></span>)</span><span class="result">: <a href="" class="extype" name="scodec.DecodeResult">DecodeResult</a>[<span class="extype" name="scodec.DecodeResult.map.B">B</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../index.html#scodec.DecodeResult@map[B](f:A=&gt;B):scodec.DecodeResult[B]" title="Permalink" target="_top">
+        <img src="../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Maps the supplied function over the decoded value.</p>
     </li><li name="scodec.DecodeResult#mapRemainder" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="mapRemainder(f:scodec.bits.BitVector=&gt;scodec.bits.BitVector):scodec.DecodeResult[A]"></a>
       <a id="mapRemainder((BitVector)⇒BitVector):DecodeResult[A]"></a>
@@ -494,7 +511,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">mapRemainder</span><span class="params">(<span name="f">f: (<a href="http://scodec.org/api/scodec-bits/1.0.5-SNAPSHOT/index.html#scodec.bits.BitVector" class="extype" target="_top">BitVector</a>) ⇒ <a href="http://scodec.org/api/scodec-bits/1.0.5-SNAPSHOT/index.html#scodec.bits.BitVector" class="extype" target="_top">BitVector</a></span>)</span><span class="result">: <a href="" class="extype" name="scodec.DecodeResult">DecodeResult</a>[<span class="extype" name="scodec.DecodeResult.A">A</span>]</span>
+        <span class="name">mapRemainder</span><span class="params">(<span name="f">f: (<a href="http://scodec.org/api/scodec-bits/1.0.5/index.html#scodec.bits.BitVector" class="extype" target="_top">BitVector</a>) ⇒ <a href="http://scodec.org/api/scodec-bits/1.0.5/index.html#scodec.bits.BitVector" class="extype" target="_top">BitVector</a></span>)</span><span class="result">: <a href="" class="extype" name="scodec.DecodeResult">DecodeResult</a>[<span class="extype" name="scodec.DecodeResult.A">A</span>]</span>
       </span>
       </h4><span class="permalink">
       <a href="../index.html#scodec.DecodeResult@mapRemainder(f:scodec.bits.BitVector=&gt;scodec.bits.BitVector):scodec.DecodeResult[A]" title="Permalink" target="_top">
@@ -502,23 +519,6 @@
       </a>
     </span>
       <p class="shortcomment cmt">Maps the supplied function over the remainder.</p>
-    </li><li name="scodec.DecodeResult#mapValue" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="mapValue[B](f:A=&gt;B):scodec.DecodeResult[B]"></a>
-      <a id="mapValue[B]((A)⇒B):DecodeResult[B]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">mapValue</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="f">f: (<span class="extype" name="scodec.DecodeResult.A">A</span>) ⇒ <span class="extype" name="scodec.DecodeResult.mapValue.B">B</span></span>)</span><span class="result">: <a href="" class="extype" name="scodec.DecodeResult">DecodeResult</a>[<span class="extype" name="scodec.DecodeResult.mapValue.B">B</span>]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../index.html#scodec.DecodeResult@mapValue[B](f:A=&gt;B):scodec.DecodeResult[B]" title="Permalink" target="_top">
-        <img src="../lib/permalink.png" />
-      </a>
-    </span>
-      <p class="shortcomment cmt">Maps the supplied function over the decoded value.</p>
     </li><li name="scodec.TransformSyntax#narrow" visbl="pub" data-isabs="false" fullComment="yes" group="combinators">
       <a id="narrow[B](f:A=&gt;scodec.Attempt[B],g:B=&gt;A):F[B]"></a>
       <a id="narrow[B]((A)⇒Attempt[B],(B)⇒A):DecodeResult[B]"></a>
@@ -601,7 +601,7 @@ a larger to a smaller type. Hence, the name <code>narrow</code>.</p></div><dl cl
         <span class="kind">val</span>
       </span>
       <span class="symbol">
-        <span class="name">remainder</span><span class="result">: <a href="http://scodec.org/api/scodec-bits/1.0.5-SNAPSHOT/index.html#scodec.bits.BitVector" class="extype" target="_top">BitVector</a></span>
+        <span class="name">remainder</span><span class="result">: <a href="http://scodec.org/api/scodec-bits/1.0.5/index.html#scodec.bits.BitVector" class="extype" target="_top">BitVector</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../index.html#scodec.DecodeResult@remainder:scodec.bits.BitVector" title="Permalink" target="_top">

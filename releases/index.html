@@ -86,6 +86,15 @@
 
 <h2 id="scodec-core">scodec-core</h2>
 
+<pre><code>libraryDependencies += "org.scodec" %% "scodec-core" % "1.7.0-SNAPSHOT"
+
+libraryDependencies ++= {
+  if (scalaBinaryVersion.value startsWith "2.10")
+    Seq(compilerPlugin("org.scalamacros" % "paradise" % "2.0.1" cross CrossVersion.full))
+  else Nil
+}
+</code></pre>
+
 <p>As of 1.7.0, scodec-bits is released under the org.scodec group id. Prior to 1.7.0, it was released under the org.typelevel group id. Also as of 1.7.0, scalaz-core is no longer a dependency – instead, interop with scalaz-core is now provided by the scodec-scalaz module.</p>
 
 <table>
@@ -101,6 +110,15 @@
     </tr>
   </thead>
   <tbody>
+    <tr>
+      <td>1.7.0</td>
+      <td>N/A</td>
+      <td><a href="http://scodec.org/api/scodec-core/1.7.0-SNAPSHOT">API</a></td>
+      <td>2.10, 2.11</td>
+      <td>[1.0,2.0)</td>
+      <td>none</td>
+      <td>2.1.0</td>
+    </tr>
     <tr>
       <td>1.6.0</td>
       <td><a href="https://github.com/scodec/scodec/blob/v1.6.0/CHANGELOG.md">Changes</a></td>
@@ -202,6 +220,123 @@
     </tr>
   </tbody>
 </table>
+
+<h2 id="scodec-scalaz">scodec-scalaz</h2>
+
+<pre><code>libraryDependencies += "org.scodec" %% "scodec-scalaz" % "1.0.0-SNAPSHOT"
+</code></pre>
+
+<p>The scodec-scalaz module provides interop between scodec-core and scalaz-core.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Version</th>
+      <th>Changes</th>
+      <th>ScalaDoc</th>
+      <th>Scala</th>
+      <th>scodec-core</th>
+      <th>scalaz</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1.0.0</td>
+      <td>N/A</td>
+      <td><a href="http://scodec.org/api/scodec-scalaz/1.0.0-SNAPSHOT">API</a></td>
+      <td>2.10, 2.11</td>
+      <td>[1.7,1.8)</td>
+      <td>[7.1,7.2)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="scodec-stream">scodec-stream</h2>
+
+<pre><code>libraryDependencies += "org.scodec" %% "scodec-stream" % "0.7.0-SNAPSHOT"
+</code></pre>
+
+<p>The scodec-stream module provides a streaming layer built on top of scodec-core and scalaz-stream. It provides no binary compatibility guarantees until scalaz-stream 1.0 is released.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Version</th>
+      <th>Changes</th>
+      <th>ScalaDoc</th>
+      <th>Scala</th>
+      <th>scodec-core</th>
+      <th>scalaz-stream</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0.7.0</td>
+      <td>N/A</td>
+      <td><a href="http://scodec.org/api/scodec-scalaz/0.7.0-SNAPSHOT">API</a></td>
+      <td>2.10, 2.11</td>
+      <td>[1.7,1.8)</td>
+      <td>0.6a</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="scodec-protocols">scodec-protocols</h2>
+
+<pre><code>libraryDependencies += "org.scodec" %% "scodec-protocols" % "0.6.0-SNAPSHOT"
+</code></pre>
+
+<p>The scodec-protocols module provides implementations of common networking protocols, with a focus on processing libpcap files. It is also a good source of example codecs for real world protocols. It provides no binary compatibility guarantees until scalaz-stream 1.0 is released.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Version</th>
+      <th>Changes</th>
+      <th>ScalaDoc</th>
+      <th>Scala</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0.6.0</td>
+      <td>N/A</td>
+      <td><a href="http://scodec.org/api/scodec-protocols/0.6.0-SNAPSHOT">API</a></td>
+      <td>2.10, 2.11</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="scodec-spire">scodec-spire</h2>
+
+<pre><code>libraryDependencies += "org.scodec" %% "scodec-spire" % "0.1.0-SNAPSHOT"
+</code></pre>
+
+<p>The scodec-spire module provides interop between scodec-core and spire.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Version</th>
+      <th>Changes</th>
+      <th>ScalaDoc</th>
+      <th>Scala</th>
+      <th>scodec-core</th>
+      <th>spire</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0.1.0</td>
+      <td>N/A</td>
+      <td><a href="http://scodec.org/api/scodec-spire/0.1.0-SNAPSHOT">API</a></td>
+      <td>2.10, 2.11</td>
+      <td>[1.7,1.8)</td>
+      <td>[0.9, 0.10)</td>
+    </tr>
+  </tbody>
+</table>
+
 
     </div>
     <div id="sidebar">

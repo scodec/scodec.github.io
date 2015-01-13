@@ -8,34 +8,17 @@ body {
   font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
 }
 
-a {
-  text-decoration: none;
-}
-
-a:link,
-a:visited {
-  color: #03f;
-}
-
-a:hover {
-  color: #f90;
-}
-
 #main {
   position: absolute;
-
   top: 40px;
   left: 280px;
-
   width: 580px;
 }
 
 #main h1 {
   font-size: 40px;
   font-weight: normal;
-
   line-height: 40px;
-
   letter-spacing: -1px;
 }
 
@@ -43,7 +26,6 @@ a:hover {
   margin: 20px 0;
 
   font-size: 15px;
-
   line-height: 20px;
 }
 
@@ -53,49 +35,50 @@ a:hover {
 
 #main li {
   font-size: 15px;
-
   line-height: 20px;
 }
 
-#main ul li {
-  list-style-type: square;
+#main a:link, #main a:visited, #main a:hover {
+  color: black;
 }
 
 #sidebar {
   position: absolute;
-
   top: 40px;
   left: 20px;
   width: 200px;
-
   padding: 20px 20px 0 0;
-
   border-right: 1px solid #ccc;
-
   text-align: right;
+}
+
+#sidebar a {
+  text-decoration: none;
+}
+
+#sidebar a:link, a:visited {
+  color: #03f;
+}
+
+#sidebar a:hover {
+  color: #07f;
 }
 
 #sidebar h2 {
   text-transform: uppercase;
-
   font-size: 13px;
-
   color: #333;
-
   letter-spacing: 1px;
-
   line-height: 20px;
 }
 
 #sidebar ul {
   list-style-type: none;
-
   margin: 20px 0;
 }
 
 #sidebar li {
   font-size: 14px;
-
   line-height: 20px;
 }
 
@@ -114,4 +97,13 @@ pre {
   padding: 5px;
   border: solid 1px;
   border-color: #d8d8d8;
+}
+
+table, tr, th, td {
+  border: 1px solid lightgray;
+  border-spacing: 0px;
+  border-collapse: collapse;
+  padding: 4px;
+  margin: 10px;
+  font-size: 14px;
 }

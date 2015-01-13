@@ -13,6 +13,11 @@
 
 <p>This page lists the releases for the scodec modules. The projects adhere to typical Scala-style semantic versioning / binary compatibility. That is, releases that share the same major.minor version support forward binary compatibility. Code that was compiled against version <code>x.y</code> will link successfully with <code>x.y'</code> when <code>y &lt; y'</code>. Note that the inverse is not necessarily true – when <code>y &gt; y'</code>.</p>
 
+<p>Released versions are published to <a href="http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22org.scodec%22">Maven Central</a> and snapshot versions are published to the <a href="https://oss.sonatype.org/#nexus-search;gav~org.scodec~~~~">Sonatype OSS Nexus</a>. To use snapshot builds from SBT, add the following resolver:</p>
+
+<pre><code>resolvers += "Sonatype Public" at "https://oss.sonatype.org/content/groups/public/"
+</code></pre>
+
 <h2 id="scodec-bits">scodec-bits</h2>
 
 <pre><code>libraryDependencies += "org.scodec" %% "scodec-bits" % "1.0.5"

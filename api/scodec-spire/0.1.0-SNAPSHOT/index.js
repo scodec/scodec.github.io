@@ -1,0 +1,1 @@
+Index.PACKAGES = {"scodec" : [], "scodec.interop" : [], "scodec.interop.spire" : [{"class" : "scodec\/interop\/spire\/package$$SpireCodecEnrichment.html", "name" : "scodec.interop.spire.SpireCodecEnrichment"}]};

@@ -20,6 +20,14 @@ body {
   font-weight: normal;
   line-height: 40px;
   letter-spacing: -1px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#main h2 {
+  font-weight: normal;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 #main p {

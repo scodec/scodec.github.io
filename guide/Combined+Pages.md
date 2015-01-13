@@ -27,7 +27,7 @@ All of the modules adhere to binary compatibility rules. In short, versions that
 
 ## Getting Help
 
-To get help with scodec, consider using the [Typelevel mailing list](https://groups.google.com/forum/#!forum/typelevel), using the [scodec tag on StackOverflow](http://stackoverflow.com/questions/tagged/scodec), or mentioning [#scodec on Twitter](https://twitter.com/search?q=scodec&src=sprv).
+To get help with scodec, consider using the [Typelevel mailing list](https://groups.google.com/forum/#!forum/scodec), using the [scodec tag on StackOverflow](http://stackoverflow.com/questions/tagged/scodec), or mentioning [#scodec on Twitter](https://twitter.com/search?q=scodec&src=sprv).
 
 
 scodec-bits
@@ -412,7 +412,7 @@ You may have noticed the variance annotations in `Encoder`, `Decoder`, and `GenC
  - `GenCodec` is defined contravariantly in its first type parameter and covariantly in its second type parameter
  - `Codec` is defined invariantly in its type parameter
 
-The variance annotations -- specifically the contravariant ones -- can cause problems with implicit search. At the current time, the implicit search problems cannot be fixed without making `Encoder` invariant. The authors of scodec believe the utility provided by subtyping variance outweighs the inconvenience of the implicit search issues they cause. If you disagree, please weigh-in on the [mailing list](https://groups.google.com/forum/#!forum/typelevel) or the [related pull request](https://github.com/scodec/scodec/pull/26).
+The variance annotations -- specifically the contravariant ones -- can cause problems with implicit search. At the current time, the implicit search problems cannot be fixed without making `Encoder` invariant. The authors of scodec believe the utility provided by subtyping variance outweighs the inconvenience of the implicit search issues they cause. If you disagree, please weigh-in on the [mailing list](https://groups.google.com/forum/#!forum/scodec) or the [related pull request](https://github.com/scodec/scodec/pull/26).
 
 ## For the categorically minded
 

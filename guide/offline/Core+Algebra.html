@@ -44,17 +44,19 @@
         <div class="container contentswrapper">
           <div class="span-16 prepend-1 append-1 contents">
             <h1 id="Core+Algebra">Core Algebra<a href="#Core+Algebra" class="header-link"><span class="header-link-content">&nbsp;</span></a></h1><p>We saw the <code>Codec</code> type when we used it to encode a value to binary and decode binary back to a value. The ability to decode and encode come from two fundamental traits, <code>Decoder</code> and <code>Encoder</code>. Let’s look at these in turn.
-</p><h2 id="Decoder">Decoder<a href="#Decoder" class="header-link"><span class="header-link-content">&nbsp;</span></a></h2><pre><code class="prettyprint lang-scala">trait Decoder[+A] {
-  def decode(b: BitVector): Err \/ (BitVector, A)
+</p><h2 id="Decoder">Decoder<a href="#Decoder" class="header-link"><span class="header-link-content">&nbsp;</span></a></h2><pre><code class="prettyprint lang-scala">case class DecodeResult[A](value: A, remainder: BitVector) { ... }
+
+trait Decoder[+A] {
+  def decode(b: BitVector): Attempt[DecodeResult[A]]
 }
-</code></pre><p>A decoder defines a single abstract operation, <code>decode</code>, which converts a bit vector into a pair containing the unconsumed bits and a decoded value, or returns an error. For example, a decoder that decodes a 32-bit integer returns an error when the supplied vector has less than 32-bits, and returns the supplied vector less 32-bits otherwise.
-</p><p>The result type is a disjunction with <code>scodec.Err</code> on the left side. <code>Err</code> is an open-for-subclassing data type that contains an error message and a context stack. The context stack contains strings that provide context on where the error occurred in a large structure. We saw an example of this earlier, where the context stack represented a path through the <code>Arrangement</code> class, into a <code>Vector</code>, and then into a <code>Line</code> and <code>Point</code>. The type is open-for-subclassing so that codecs can return domain specific error types and then pattern match on the received type. An <code>Err</code> is <em>not</em> a subtype of <code>Throwable</code>, so it cannot be used (directly) with <code>scala.util.Try</code>. Also note that codecs never throw exceptions (or should never!). All errors are communicated via the <code>Err</code> type.
+</code></pre><p>A decoder defines a single abstract operation, <code>decode</code>, which attempts to convert a bit vector into a <code>DecodeResult</code>. A <code>DecodeResult</code> is a case class made up of a value of type <code>A</code> and a remainder — bits that are left over, or unconsumed, after decoding has completed. For example, a decoder that decodes a 32-bit integer returns an error when the supplied vector has less than 32-bits, and returns the supplied vector less 32-bits otherwise.
+</p><p>The result type is an <code>Attempt[A]</code>, which is equivalent to an <code>Either[scodec.Err, A]</code>. <code>Err</code> is an open-for-subclassing data type that contains an error message and a context stack. The context stack contains strings that provide context on where the error occurred in a large structure. We saw an example of this earlier, where the context stack represented a path through the <code>Arrangement</code> class, into a <code>Vector</code>, and then into a <code>Line</code> and <code>Point</code>. The type is open-for-subclassing so that codecs can return domain specific error types and then pattern match on the received type. An <code>Err</code> is <em>not</em> a subtype of <code>Throwable</code>, so it cannot be used (directly) with <code>scala.util.Try</code>. Also note that codecs never throw exceptions (or should never!). All errors are communicated via the <code>Err</code> type.
 </p><h3 id="map">map<a href="#map" class="header-link"><span class="header-link-content">&nbsp;</span></a></h3><p>A function can be mapped over a decoder, resulting in our first combinator:
 </p><pre><code class="prettyprint lang-scala">trait Decoder[+A] { self =&gt;
-  def decode(b: BitVector): Err \/ (BitVector, A)
+  def decode(b: BitVector): Attempt[DecodeResult[A]]
   def map[B](f: A =&gt; B): Decoder[B] = new Decoder[B] {
-    def decode(b: BitVector): Err \/ (BitVector, B) =
-      self.decode(b) map { case (rem, a) =&gt; (rem, f(b)) }
+    def decode(b: BitVector): Attempt[DecodeResult[B]] =
+      self.decode(b) map { result =&gt; result map f }
   }
 }
 </code></pre><p>Note that the <em>implementation</em> of the <code>map</code> method is not particularly important — rather, the type signature is the focus.
@@ -64,10 +66,10 @@ val fooDecoder: Decoder[Foo] = int32 map { i =&gt; Foo(i) }
 </code></pre><h3 id="emap">emap<a href="#emap" class="header-link"><span class="header-link-content">&nbsp;</span></a></h3><p>The <code>map</code> operation does not allow room for returning an error. We can define a variant of <code>map</code> that allows the supplied function to indicate error:
 </p><pre><code class="prettyprint lang-scala">trait Decoder[+A] { self =&gt;
   ...
-  def emap[B](f: A =&gt; Err \/ B): Decoder[B] = new Decoder[B] {
-    def decode(b: BitVector): Err \/ (BitVector, B) =
-      self.decode(bits) flatMap { case (rem, a) =&gt;
-        f(a).map { b =&gt; (rem, b) }
+  def emap[B](f: A =&gt; Attempt[B]): Decoder[B] = new Decoder[B] {
+    def decode(b: BitVector): Attempt[DecodeResult[B]] =
+      self.decode(bits) flatMap { result =&gt;
+        f(result.value).map { b =&gt; DecodeResult(b, result.remainder) }
       }
   }
 }
@@ -75,32 +77,32 @@ val fooDecoder: Decoder[Foo] = int32 map { i =&gt; Foo(i) }
 </p><pre><code class="prettyprint lang-scala">trait Decoder[+A] { self =&gt;
   ...
   def flatMap[B](f: A =&gt; Decoder[B]): Decoder[B] = new Decoder[B] {
-    def decode(b: BitVector): Err \/ (BitVector, B) =
-      self.decode(b) flatMap { case (rem, a) =&gt;
-        val next: Codec[B] = f(a)
-        next.decode(rem)
+    def decode(b: BitVector): Attempt[DecodeResult[B]] =
+      self.decode(b) flatMap { result =&gt;
+        val next: Codec[B] = f(result.value)
+        next.decode(result.remainder)
       }
   }
 }
 </code></pre><p>The resulting decoder first decodes a value of type <code>A</code> using the original decoder. If that’s successful, it applies the decoded value to the supplied function to get a <code>Decoder[B]</code> and then decodes the bits remaining from decoding <code>A</code> using that decoder.
 </p><p>As mentioned previously, <code>flatMap</code> models a dependency between a decoded value and the decoder to use for the remaining bits. A good use case for this is a bit pattern that first encodes a count followed by a number of records. An implementation of this is not provided because we will see it later in a different context.
 </p><h2 id="Encoder">Encoder<a href="#Encoder" class="header-link"><span class="header-link-content">&nbsp;</span></a></h2><pre><code class="prettyprint lang-scala">trait Encoder[-A] {
-  def encode(a: A): Err \/ BitVector
+  def encode(a: A): Attempt[BitVector]
 }
 </code></pre><p>An encoder defines a single abstract operation, <code>encode</code>, which converts a value to binary or returns an error. This design differs from other libraries by allowing <code>encode</code> to be defined partially over type <code>A</code>. For example, this allows an integer encoder to be defined on a subset of the integers without having to resort to newtypes or wrapper types.
 </p><h3 id="contramap">contramap<a href="#contramap" class="header-link"><span class="header-link-content">&nbsp;</span></a></h3><p>A function can be mapped over an encoder, similar to <code>map</code> on decoder, but unlike <code>map</code>, the supplied function has its arrow reversed — that is, we convert an <code>Encoder[A]</code> to an <code>Encoder[B]</code> with a function <code>B =&gt; A</code>. This may seem strange at first, but all we are doing is using the supplied function to convert a <code>B</code> to an <code>A</code> and then delegating the encoding logic to the original <code>Encoder[A]</code>. This operation is called <code>contramap</code>:
 </p><pre><code class="prettyprint lang-scala">trait Encoder[-A] { self =&gt;
-  def encode(a: A): Err \/ BitVector
+  def encode(a: A): Attempt[BitVector]
   def contramap[B](f: B =&gt; A): Encoder[B] = new Encoder[B] {
-    def encode(b: B): Err \/ BitVector =
+    def encode(b: B): Attempt[BitVector] =
       self.encode(f(b))
   }
 }
 </code></pre><h3 id="econtramap">econtramap<a href="#econtramap" class="header-link"><span class="header-link-content">&nbsp;</span></a></h3><p>Like decoder’s <code>map</code>, <code>contramap</code> takes a total function. To use a partial function, there’s <code>econtramap</code>:
 </p><pre><code class="prettyprint lang-scala">trait Encoder[-A] { self =&gt;
   ...
-  def econtramap[B](f: B =&gt; Err \/ A): Encoder[B] = new Encoder[B] {
-    def encode(b: B): Err \/ BitVector =
+  def econtramap[B](f: B =&gt; Attempt[A]): Encoder[B] = new Encoder[B] {
+    def encode(b: B): Attempt[BitVector] =
       f(b) flatMap self.encode
   }
 }
@@ -111,11 +113,11 @@ val fooDecoder: Decoder[Foo] = int32 map { i =&gt; Foo(i) }
 </p><h3 id="xmap">xmap<a href="#xmap" class="header-link"><span class="header-link-content">&nbsp;</span></a></h3><p>The codec equivalent to <code>map</code> and <code>contramap</code> is called <code>xmap</code>:
 </p><pre><code class="prettyprint lang-scala">trait Codec[A] extends Encoder[A] with Decoder[A] { self =&gt;
   def xmap[B](f: A =&gt; B, g: B =&gt; A): Codec[B] = new Codec[B] {
-    def encode(b: B): Err \/ BitVector = self.contramap(g).encode(b)
-    def decode(b: BitVector): Err \/ (BitVector, B) = self.map(f).decode(b)
+    def encode(b: B) = self.contramap(g).encode(b)
+    def decode(b: BitVector) = self.map(f).decode(b)
   }
 }
-</code></pre><p>Here, we’ve defined <code>xmap</code> in terms of <code>map</code> and <code>contramap</code> although the real implementation is more performant. The <code>xmap</code> operations is one of the most commonly used operations in scodec-core. Consider this example:
+</code></pre><p>Here, we’ve defined <code>xmap</code> in terms of <code>map</code> and <code>contramap</code>. The <code>xmap</code> operation is one of the most commonly used operations in scodec-core. Consider this example:
 </p><pre><code class="prettyprint lang-scala">case class Point(x: Int, y: Int)
 
 val tupleCodec: Codec[(Int, Int)] = ...
@@ -124,18 +126,18 @@ val pointCodec: Codec[Point] = tupleCodec.xmap[Point](t =&gt; Point(t._1, t._2),
 </p><h3 id="exmap">exmap<a href="#exmap" class="header-link"><span class="header-link-content">&nbsp;</span></a></h3><p>In a similar fashion to <code>emap</code> and <code>econtramap</code>, the <code>exmap</code> operation is like <code>xmap</code> but allows both functions to be defined partially:
 </p><pre><code class="prettyprint lang-scala">trait Codec[A] extends Encoder[A] with Decoder[A] { self =&gt;
   ...
-  def exmap[B](f: A =&gt; Err \/ B, g: B =&gt; Err \/ A): Codec[B] = new Codec[B] {
-    def encode(b: B): Err \/ BitVector = self.econtramap(g).encode(b)
-    def decode(b: BitVector): Err \/ (BitVector, B) = self.emap(f).decode(b)
+  def exmap[B](f: A =&gt; Attempt[B], g: B =&gt; Attempt[A]): Codec[B] = new Codec[B] {
+    def encode(b: B) = self.econtramap(g).encode(b)
+    def decode(b: BitVector) = self.emap(f).decode(b)
   }
 }
 </code></pre><h3 id="Additional+transforms">Additional transforms<a href="#Additional+transforms" class="header-link"><span class="header-link-content">&nbsp;</span></a></h3><p>Unlike <code>map</code>, <code>emap</code>, <code>contramap</code>, and <code>econtramap</code>, <code>xmap</code> and  <code>exmap</code> each take two functions. <code>xmap</code> takes two total functions and <code>exmap</code> takes two partial functions. There are two other operations that take two conversion functions — where one of the functions is total and the other is partial.
 </p><pre><code class="prettyprint lang-scala">trait Codec[A] extends Encoder[A] with Decoder[A] { self =&gt;
   ...
-  def narrow[B](f: A =&gt; Err \/ B, g: B =&gt; A): Codec[B] = exmap(f, right compose g)
-  def widen[B](f: A =&gt; B, g: B =&gt; Err \/ A): Codec[B] = exmap(right compose f, g)
+  def narrow[B](f: A =&gt; Attempt[B], g: B =&gt; A): Codec[B] = exmap(f, right compose g)
+  def widen[B](f: A =&gt; B, g: B =&gt; Attempt[A]): Codec[B] = exmap(right compose f, g)
 }
-</code></pre><p>Finally, there’s a variant of <code>widen</code> where the partial function is represented as a <code>B =&gt; Option[A]</code> instead of a <code>B =&gt; Err \/ A</code>.
+</code></pre><p>Finally, there’s a variant of <code>widen</code> where the partial function is represented as a <code>B =&gt; Option[A]</code> instead of a <code>B =&gt; Attempt[A]</code>.
 </p><pre><code class="prettyprint lang-scala">trait Codec[A] extends Encoder[A] with Decoder[A] { self =&gt;
   ...
   def widenOpt[B](f: A =&gt; B, g: B =&gt; Option[A]): Codec[B] = ...
@@ -145,7 +147,7 @@ val pointCodec: Codec[Point] = tupleCodec.xmap[Point](t =&gt; Point(t._1, t._2),
 
 val tupleCodec: Codec[(Int, Int)] = ...
 val pointCodec: Codec[Point] = tupleCodec.widenOpt(Point.apply, Point.unapply)
-</code></pre><h2 id="GenCodec">GenCodec<a href="#GenCodec" class="header-link"><span class="header-link-content">&nbsp;</span></a></h2><p>The <code>xmap</code> and related operations allow us to transfrom a <code>Codec[A]</code> into a <code>Codec[B]</code>. Nonetheless, we can improve the definitions of the decoder and encoder specific methods (<code>map</code>, <code>contramap</code>, etc.). With the types as presented, we said that calling <code>map</code> on a codec forgot the encoding logic and returned a decoder, and that calling <code>contramap</code> on a codec forgot the decoding logic and returned an encoder.
+</code></pre><h2 id="GenCodec">GenCodec<a href="#GenCodec" class="header-link"><span class="header-link-content">&nbsp;</span></a></h2><p>The <code>xmap</code> and related operations allow us to transform a <code>Codec[A]</code> into a <code>Codec[B]</code>. Nonetheless, we can improve the definitions of the decoder and encoder specific methods (<code>map</code>, <code>contramap</code>, etc.). With the types as presented, we said that calling <code>map</code> on a codec forgot the encoding logic and returned a decoder, and that calling <code>contramap</code> on a codec forgot the decoding logic and returned an encoder.
 </p><p>We can remedy this somewhat by introducing a new type that is similar to <code>Codec</code> in that it is both an <code>Encoder</code> and a <code>Decoder</code> — but dissimilar in that it allows the encoding type to differ from the decoding type.
 </p><pre><code class="prettyprint lang-scala">trait GenCodec[-A, +B] extends Encoder[A] with Decoder[B] { self =&gt;
   override def map[C](f: B =&gt; C): GenCodec[A, C] = GenCodec(this, super.map(f))
@@ -166,7 +168,7 @@ object GenCodec {
 
 trait Codec[A] extends GenCodec[A, A] { ... }
 </code></pre><p>A <code>GenCodec</code> represents the pairing of an <code>Encoder</code> and a <code>Decoder</code>, with potentially different types. Each of the combinators from <code>Encoder</code> and <code>Decoder</code> are overridden such that they return <code>GenCodec</code>s that “remember” the behavior of the non-transformed type. For instance, the <code>map</code> operation on a <code>GenCodec</code> changes the decoding behavior while remembering the encoding behavior.
-</p><p>Hence, <code>GenCodec</code> has two type parameters — the first is the encoding type and the second is the decoding type. Any time that the two types are equal, the <code>fuse</code> can be used to convert the <code>GenCodec[A, A]</code> to a <code>Codec[A]</code>.
+</p><p>Hence, <code>GenCodec</code> has two type parameters — the first is the encoding type and the second is the decoding type. Any time that the two types are equal, the <code>fuse</code> method can be used to convert the <code>GenCodec[A, A]</code> to a <code>Codec[A]</code>.
 </p><p><code>GenCodec</code> is useful because it allows <em>incremental</em> transforms to be applied to a codec. Further, it plays an important role in the categorical view of codecs, which is discussed later. Still, direct usage of <code>GenCodec</code> is rare.
 </p><h2 id="Variance">Variance<a href="#Variance" class="header-link"><span class="header-link-content">&nbsp;</span></a></h2><p>You may have noticed the variance annotations in <code>Encoder</code>, <code>Decoder</code>, and <code>GenCodec</code>, and the lack of a variance annotation in <code>Codec</code>. Specifically:
 </p><ul><li><code>Encoder</code> is defined contravariantly in its type parameter
@@ -174,28 +176,28 @@ trait Codec[A] extends GenCodec[A, A] { ... }
 </li><li><code>GenCodec</code> is defined contravariantly in its first type parameter and covariantly in its second type parameter
 </li><li><code>Codec</code> is defined invariantly in its type parameter
 </li></ul><p>The variance annotations — specifically the contravariant ones — can cause problems with implicit search. At the current time, the implicit search problems cannot be fixed without making <code>Encoder</code> invariant. The authors of scodec believe the utility provided by subtyping variance outweighs the inconvenience of the implicit search issues they cause. If you disagree, please weigh-in on the <a href="https://groups.google.com/forum/#!forum/typelevel">mailing list</a> or the <a href="https://github.com/scodec/scodec/pull/26">related pull request</a>.
-</p><h2 id="For+the+categorically+minded+%28or+Scalaz+users%29">For the categorically minded (or Scalaz users)<a href="#For+the+categorically+minded+%28or+Scalaz+users%29" class="header-link"><span class="header-link-content">&nbsp;</span></a></h2><p>The core types have a number of type class instances. Note that this section assumes a strong familiarity with Scalaz and can be safely skipped.
+</p><h2 id="For+the+categorically+minded">For the categorically minded<a href="#For+the+categorically+minded" class="header-link"><span class="header-link-content">&nbsp;</span></a></h2><p>The core types have a number of type class instances. Note that this section assumes a strong familiarity with the major typeclasses of functional programming and can be safely skipped.
 </p><p><code>Decoder</code> has a monad instance, where <code>flatMap</code> is defined as above and the point operation is defined as:
 </p><pre><code class="prettyprint lang-scala">def point(a: A): Decoder[A] = new Decoder[A] {
-  def decode(b: BitVector): Err \/ (BitVector, A) =
-    right((b, a))
+  def decode(b: BitVector): Attempt[DecodeResult[A]] =
+    Attempt.successful(DecodeResult(a, b))
 }
-</code></pre><p><code>Encoder</code> has a contravariant functor instance, defined using the <code>contramap</code> operation from above. It also has a corepresentable instance with <code>Err \/ BitVector</code>.
+</code></pre><p><code>Encoder</code> has a contravariant functor instance, defined using the <code>contramap</code> operation from above. It also has a corepresentable instance with <code>Attempt[BitVector]</code>.
 </p><p><code>GenCodec</code> has a profunctor instance, where <code>mapfst</code> is implemented using <code>contramap</code> and <code>mapsnd</code> is implemented using <code>map</code>.
 </p><p><code>Codec</code> has an invariant (aka exponential) functor instance, using the <code>xmap</code> operation from above.
-</p><p>Instances for the Scalaz version of each these type classes is located in the companion object of each trait.
+</p><p>Instances for the Scalaz versions of each these type classes are located in the scodec-scalaz module, which is discussed later.
 </p><p>scodec-core defines one additional type class, <code>Transform</code>, which abstracts over the type constructor in the transform operations. It defines a single abstract operation — <code>exmap</code> — and defines concrete versions of <code>xmap</code>, <code>narrow</code>, <code>widen</code>, etc. in terms of <code>exmap</code>. This type class is unlikely to be useful outside of scodec libraries due to the use of <code>scodec.Err</code>. It exists in order to share transform API between <code>Codec</code> and another scodec-core type we’ll see later.
 </p><h2 id="Manually+creating+codecs">Manually creating codecs<a href="#Manually+creating+codecs" class="header-link"><span class="header-link-content">&nbsp;</span></a></h2><p>Codecs are typically created by transforming or combining other codecs. However, we can create a codec manually by writing a class that extends <code>Codec</code> and implements <code>encode</code> and <code>decode</code>.
 </p><pre><code class="prettyprint lang-scala">class BitVectorCodec(size: Long) extends Codec[BitVector] {
   def encode(b: BitVector) = {
-    if (b.size == size) \/.right(b)
-    else \/.left(Err(s&quot;expected size ${size} but got ${b.size}&quot;))
+    if (b.size == size) Attempt.successful(b)
+    else Attempt.failure(Err(s&quot;expected size ${size} but got ${b.size}&quot;))
   }
   def decode(b: BitVector) = {
     val (result, remaining) = b.splitAt(size)
     if (result.size != size)
-      \/.left(new Err.InsufficientBits(size, result.size))
-    else \/.right((remaining, result))
+      Attempt.failure(new Err.InsufficientBits(size, result.size))
+    else Attempt.successful(DecodeResult(result, remaining))
   }
 }
 </code></pre><p>Besides the fundamental types — <code>Codec</code>, <code>Decoder</code>, and <code>Encoder</code> — scodec-core is focused on providing <em>combinators</em>. That is, providing ways to combine two or more codecs in to a new codec, or transform a single codec in to another. We’ve seen a few examples of combinators (e.g., <code>xmap</code>) and we’ll see many more.

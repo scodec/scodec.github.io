@@ -1,91 +1,52 @@
-<!DOCTYPE html SYSTEM "about:legacy-compat">
-<html>
-      <head>
-        <meta charset="utf-8"/>
-        <meta content="width=device-width, initial-scale=1" name="viewport"/>
-        <title>scodec — scodec</title>
-        
-        <link rel="stylesheet" href="css/blueprint/screen.css" type="text/css" media="screen, projection"/>
-        <link rel="stylesheet" href="css/blueprint/grid.css" type="text/css" media="screen and (min-device-width: 800px), projection"/>
-        <link rel="stylesheet" href="css/blueprint/print.css" type="text/css" media="print"/> 
-        <!--[if lt IE 8]>
-          <link rel="stylesheet" href={ relativeBase + "css/blueprint/ie.css" } type="text/css" media="screen, projection"/>
-        <![endif]-->
-        <link rel="stylesheet" href="css/pamflet.css" type="text/css" media="screen, projection"/>
-        <link rel="stylesheet" href="css/pamflet-print.css" type="text/css" media="print"/>
-        <link rel="stylesheet" href="css/pamflet-grid.css" type="text/css" media="screen and (min-device-width: 800px), projection"/>
-        <link rel="stylesheet" href="css/color_scheme-redmond.css" type="text/css" media="screen, projection"/>
-        <link rel="stylesheet" href="css/color_scheme-github.css" type="text/css" media="screen, projection"/>
-        <link rel="stylesheet" href="css/color_scheme-monokai.css" type="text/css" media="screen, projection"/>
-        <link rel="stylesheet" href="css/pamfletheight_2em_2em.css" type="text/css" media="screen and (min-device-width: 800px), projection"/>
-        <script type="text/javascript" src="js/jquery-1.6.2.min.js"></script>
-        <script type="text/javascript" src="js/jquery.collapse.js"></script>
-        <script type="text/javascript" src="js/pamflet.js"></script>
-        <script type="text/javascript">
-          Pamflet.page.language = 'en';
-        </script>
-        
-        <link rel="stylesheet" href="css/custom.css" type="text/css" media="screen, projection"/>
-        
-        <script type="text/javascript">
-              Pamflet.twitter = '#scodec';
-            </script>
-      </head>
-      <body class="color_scheme-redmond">
-        <a class="page next nav" href="scodec-bits.html">
-            <span class="space">&nbsp;</span>
-            <span class="arrow">❧</span>
-          </a>
-        <div class="container contentswrapper">
-          <div class="span-16 prepend-1 append-1 contents">
-            <h1 id="scodec">scodec<a href="#scodec" class="header-link"><span class="header-link-content">&nbsp;</span></a></h1><p>scodec is a suite of libraries for working with binary data. Support ranges from simple, performant data structures for working with bits and bytes to streaming encoding and decoding.
-</p><p>There are three primary modules:
-</p><ul><li>scodec-bits - Zero dependency library that provides persistent data structures, <code>BitVector</code> and <code>ByteVector</code>, for working with binary.
-</li><li>scodec-core - Combinator based library for encoding/decoding values to/from binary.
-</li><li>scodec-stream - Binding between scodec-core and <a href="http://github.com/scalaz/scalaz-stream">scalaz-stream</a> that enables streaming encoding/decoding.
-</li></ul><p>There are a few secondary modules as well:
-</p><ul><li>scodec-spire - Binding between scodec-core and <a href="http://github.com/non/spire">spire</a>, mostly taking advantage of unsigned numeric types.
-</li><li>scodec-protocols - Library of general purpose implementations of common protocols.
-</li></ul><p>This guide goes over each of these modules in detail.
-</p><h2 id="Getting+Source%2C+Binaries%2C+and+Docs">Getting Source, Binaries, and Docs<a href="#Getting+Source%2C+Binaries%2C+and+Docs" class="header-link"><span class="header-link-content">&nbsp;</span></a></h2><p>Each of the modules are available on GitHub under the <a href="http://github.com/scodec">scodec organization</a>. Binaries are published to Maven Central under the group id <code>org.typelevel</code>. ScalaDoc is available for online browsing at <a href="http://docs.typelevel.org/api/scodec/">typelevel.org</a>. The ScalaDoc has a lot of detail, especially in package level documentation.
-</p><p>All of the modules adhere to the Typelevel binary compatibility guidelines. In short, versions that share the same major.minor version number are forward binary compatible. An exception to this rule is major version 0, which indicates that no binary compatibility is guaranteed from version to version. For example, code that was compiled against scodec-bits 1.0.1 will function with 1.0.4 but not necessarily 1.0.0 or 1.1.0.
-</p><h2 id="Getting+Help+%2F+Community">Getting Help / Community<a href="#Getting+Help+%2F+Community" class="header-link"><span class="header-link-content">&nbsp;</span></a></h2><p>To get help with scodec, consider using the <a href="https://groups.google.com/forum/#!forum/typelevel">Typelevel mailing list</a>, using the <a href="http://stackoverflow.com/questions/tagged/scodec">scodec tag on StackOverflow</a>, or mentioning <a href="https://twitter.com/search?q=scodec&amp;src=sprv">#scodec on Twitter</a>.
-</p><p>People are expected to follow the <a href="http://typelevel.org/conduct.html">Typelevel Code of Conduct</a> when discussing scodec on the Github page, IRC channel, mailing list, or other venues.
-</p><p>Concerns or issues can be sent to Michael Pilquist (mpilquist@gmail.com) or to Typelevel.
-</p><div class="bottom nav span-16">
-                        <em>Next Page</em>
-                        <span class="arrow">❧</span>
-                        <a href="scodec-bits.html"> scodec-bits </a>                        
-                        
-                      </div><div class="tocwrapper show">
-      <a class="tochead nav" style="display: none" href="#toc">❦</a>
-      <a name="toc"></a>
-      <h4 class="toctitle">Contents</h4>
-      <div class="tocbody">
-      <div class="current">scodec</div><ol class="toc"> <li><div><a href="scodec-bits.html">scodec-bits</a></div></li><li><div><a href="scodec-core.html">scodec-core</a></div><ol class="toc"> <li><div><a href="Core+Algebra.html">Core Algebra</a></div></li><li><div><a href="Simple+Value+Codecs.html">Simple Value Codecs</a></div></li><li><div><a href="Simple+Construtors+and+Combinators.html">Simple Construtors and Combinators</a></div></li><li><div><a href="Collections.html">Collections</a></div></li><li><div><a href="Framing.html">Framing</a></div></li><li><div><a href="Tuple+Codecs.html">Tuple Codecs</a></div></li><li><div><a href="HList+Codecs.html">HList Codecs</a></div></li><li><div><a href="Case+Class+Codecs.html">Case Class Codecs</a></div></li><li><div><a href="Coproduct+Codecs.html">Coproduct Codecs</a></div></li> </ol></li><li class="generated"><div><a href="Contents+in+Depth.html">Contents in Depth</a></div></li><li class="generated"><div><a href="Combined+Pages.html">Combined Pages</a></div></li> </ol></div></div>
-          </div>
-        </div>
-        <div class="header">
-          <div class="container">
-        <div class="span-16 prepend-1 append-1">
-          <div class="span-16 top nav">
-            <div class="span-16 title">
-              <span>scodec</span> 
-            </div>
-          </div>
-        </div>
-      </div>
-        </div>
-        <div class="footer">
-          
-        </div>
-        
-        <div class="highlight-outer">
-              <div class="highlight-menu">
-                <ul>
-                  <li><button id="highlight-button-twitter"><img src="img/twitter-bird-dark-bgs.png"/></button></li>
-                </ul>
-              </div>
-            </div>
-      </body>
-    </html>
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>scodec - Home</title>
+    <link rel="stylesheet" href="/stylesheet.css">
+    <link rel="stylesheet" href="/pygments.css">
+    <meta name="generator" content="nanoc 3.7.5">
+  </head>
+  <body>
+    <div id="main">
+      <h1 id="scodec">scodec</h1>
+
+<p>scodec is a suite of libraries for working with binary data. Support ranges from simple, performant data structures for working with bits and bytes to streaming encoding and decoding.</p>
+
+<pre><code class="language-scala"><span class="k">import</span> <span class="nn">scodec.bits._</span>
+
+<span class="k">val</span> <span class="n">otp</span> <span class="k">=</span> <span class="n">hex</span><span class="s">"54686973206973206e6f74206120676f6f642070616420746f2075736521"</span><span class="o">.</span><span class="n">bits</span>
+<span class="c1">// otp: scodec.bits.BitVector = BitVector(240 bits, 0x54686973206973206e6f74206120676f6f642070616420746f2075736521)</span>
+
+<span class="k">val</span> <span class="n">bits</span> <span class="k">=</span> <span class="n">hex</span><span class="s">"746be39ece241e0da28b7acd4fad63632249ec5e2e402d5a0b2cd95d0a05"</span><span class="o">.</span><span class="n">bits</span>
+<span class="c1">// bits: scodec.bits.BitVector = BitVector(240 bits, 0x746be39ece241e0da28b7acd4fad63632249ec5e2e402d5a0b2cd95d0a05)</span>
+
+<span class="k">val</span> <span class="n">decoded</span> <span class="k">=</span> <span class="o">(</span><span class="n">bits</span> <span class="o">^</span> <span class="n">otp</span><span class="o">)</span> <span class="n">rotateLeft</span> <span class="mi">3</span>
+<span class="c1">// decoded: scodec.bits.BitVector = BitVector(240 bits, 0x001c576f726b696e6720776974682062696e617279206973206561737921)</span>
+
+<span class="k">import</span> <span class="nn">scodec.codecs._</span>
+
+<span class="k">val</span> <span class="n">msg</span> <span class="k">=</span> <span class="n">variableSizeBytes</span><span class="o">(</span><span class="n">uint16</span><span class="o">,</span> <span class="n">utf8</span><span class="o">).</span><span class="n">decode</span><span class="o">(</span><span class="n">decoded</span><span class="o">).</span><span class="n">require</span><span class="o">.</span><span class="n">value</span>
+<span class="c1">//msg: String = Working with binary is easy!</span></code></pre>
+
+<p>See the documentation for more information or get in touch via the mailing list, StackOverflow, or Twitter.</p>
+
+
+    </div>
+    <div id="sidebar">
+      <img src="scodec-logo.png" alt="logo" id="logo">
+      <h2>Documentation</h2>
+      <ul>
+        <li><a href="guide">Guide</a></li>
+        <li><a href="api">ScalaDoc</a></li>
+      </ul>
+      <h2>Community</h2>
+      <ul>
+        <li><a href="https://groups.google.com/group/scodec/">Mailing List</a></li>
+        <li><a href="https://github.com/scodec/">GitHub</a></li>
+        <li><a href="https://twitter.com/search?q=scodec&src=sprv">Twitter</a></li>
+        <li><a href="http://stackoverflow.com/questions/tagged/scodec">StackOverflow</a></li>
+      </ul>
+    </div>
+  </body>
+</html>

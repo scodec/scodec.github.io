@@ -13,6 +13,7 @@ There are three primary modules:
 
 There are a few secondary modules as well:
 
+ - scodec-scalaz - Binding between scodec-core and [scalaz](http://github.com/scalaz/scalaz), which provides typeclass instances for the types from scodec-bits and scodec-core.
  - scodec-spire - Binding between scodec-core and [spire](http://github.com/non/spire), mostly taking advantage of unsigned numeric types.
  - scodec-protocols - Library of general purpose implementations of common protocols.
 
@@ -20,23 +21,19 @@ This guide goes over each of these modules in detail.
 
 ## Getting Source, Binaries, and Docs
 
-Each of the modules are available on GitHub under the [scodec organization](http://github.com/scodec). Binaries are published to Maven Central under the group id `org.typelevel`. ScalaDoc is available for online browsing at [typelevel.org](http://docs.typelevel.org/api/scodec/). The ScalaDoc has a lot of detail, especially in package level documentation.
+Each of the modules are available on GitHub under the [scodec organization](http://github.com/scodec). Binaries are published to Maven Central under the group id `org.scodec`. ScalaDoc is available for online browsing at [typelevel.org](http://scodec.org/api/). The ScalaDoc has a lot of detail, especially in package level documentation.
 
-All of the modules adhere to the Typelevel binary compatibility guidelines. In short, versions that share the same major.minor version number are forward binary compatible. An exception to this rule is major version 0, which indicates that no binary compatibility is guaranteed from version to version. For example, code that was compiled against scodec-bits 1.0.1 will function with 1.0.4 but not necessarily 1.0.0 or 1.1.0.
+All of the modules adhere to binary compatibility rules. In short, versions that share the same major.minor version number are forward binary compatible. An exception to this rule is major version 0, which indicates that no binary compatibility is guaranteed from version to version. For example, code that was compiled against scodec-bits 1.0.1 will function with 1.0.4 but not necessarily 1.0.0 or 1.1.0.
 
-## Getting Help / Community
+## Getting Help
 
 To get help with scodec, consider using the [Typelevel mailing list](https://groups.google.com/forum/#!forum/typelevel), using the [scodec tag on StackOverflow](http://stackoverflow.com/questions/tagged/scodec), or mentioning [#scodec on Twitter](https://twitter.com/search?q=scodec&src=sprv).
-
-People are expected to follow the [Typelevel Code of Conduct](http://typelevel.org/conduct.html) when discussing scodec on the Github page, IRC channel, mailing list, or other venues.
-
-Concerns or issues can be sent to Michael Pilquist (mpilquist@gmail.com) or to Typelevel.
 
 
 scodec-bits
 ===========
 
-The scodec-bits library contains data structures for working with binary. It has no dependencies on other libraries, which allows it to be used by other libraries without causing dependency conflicts.
+The scodec-bits library contains data structures for working with binary. It has no dependencies, which allows it to be used by other libraries without causing dependency conflicts.
 
 There are two primary data structures in the library, `ByteVector` and `BitVector`. Both are immutable collections and have performance characteristics that are optimized for use in the other scodec modules. However, each type has been designed for general purpose usage, even when other scodec modules are not used. For instance, `ByteVector` can be safely used as a replacement for immutable byte arrays.
 
@@ -118,21 +115,21 @@ scala> val arr = Arrangement(Vector(
   Line(Point(0, 10), Point(10, 0))))
 arr: Arrangement = ...
 
-scala> val arrBinary = Codec.encodeValid(arr)
+scala> val arrBinary = Codec.encode(arr).require
 arrBinary: scodec.bits.BitVector =
   BitVector(288 bits, 0x0000000200000000000000000000000a0000000a000000000000000a0000000a00000000)
 
-scala> val decoded = Codec[Arrangement].decodeValidValue(arrBinary)
+scala> val decoded = Codec[Arrangement].decode(arrBinary).require.valid
 decoded: Arrangement = Arrangement(Vector(Line(Point(0,0),Point(10,10)), Line(Point(0,10),Point(10,0))))
 ```
 
-We start by importing the primary type in scodec-core, the `Codec` type, along with all implicit codecs defined in `scodec.codecs.implicits`. The latter provides commonly useful implicit codecs, but is opinionated -- for instance, it provides a `Codec[Int]` that encodes to 32-bit 2s complement big endian format.
+We start by importing the primary type in scodec-core, the `Codec` type, along with all implicit codecs defined in `scodec.codecs.implicits`. The latter provides commonly useful implicit codecs, but is opinionated -- that is, it decides that a `String` is represented as a 32-bit signed integer whose value is the string length in bytes, followed by the UTF-8 encoding of the stirng.
 
 Aside: the predefined implicit codecs are useful at the REPL and when your application does not require a specific binary format. However, scodec-core is designed to support "contract-first" binary formats -- ones in which the format is fixed in stone. For binary serialization to arbitrary formats, consider tools like [scala-pickling](https://github.com/scala/pickling), [Avro](http://avro.apache.org), and [protobuf](https://code.google.com/p/protobuf/).
 
-We then create three case classes followed by instantiating them all and assigning the result to the `arr` val. We encode `arr` to binary using `Codec.encodeValid`, then decode the resulting binary back to an `Arrangement`. In this example, both encoding and decoding rely on an implicitly available `Codec[Arrangement]`, which is automatically derived based on *compile time* reflection on the structure of the `Arrangement` class and its product types.
+We then create three case classes followed by instantiating them all and assigning the result to the `arr` val. We encode `arr` to binary using `Codec.encode` followed by a call to 'require', then decode the resulting binary back to an `Arrangement`. In this example, both encoding and decoding rely on an implicitly available `Codec[Arrangement]`, which is automatically derived based on *compile time* reflection on the structure of the `Arrangement` class and its product types.
 
-We use `encodeValid`, which throws an `IllegalArgumentException` if encoding fails, because we know that our arrangement codec cannot fail to encode. To decode, we summon the implicit arrangement codec via `Codec[Arrangement]` and then use `decodeValidValue` for REPL convenience -- which throws an `IllegalArgumentException` if decoding fails and throws away any bits left over after decoding finishes. In this case, we know that decoding will succeed and there will be no remaining bits, so this is safe. It is generally better to use the `encode` and `decode` methods instead of the "valid" conveniences.
+We use `encode(...).require`, which throws an `IllegalArgumentException` if encoding fails, because we know that our arrangement codec cannot fail to encode. To decode, we summon the implicit arrangement codec via `Codec[Arrangement]` and then use `decode(...).require.value` for REPL convenience -- which throws an `IllegalArgumentException` if decoding fails and throws away any bits left over after decoding finishes. In this case, we know that decoding will succeed and there will be no remaining bits, so this is safe. It is generally better to avoid use of `require`, as it is unsafe -- because it may throw.
 
 Running the same code with a different implicit `Codec[Int]` in scope changes the output accordingly:
 
@@ -145,10 +142,10 @@ ci: scodec.Codec[Int] = 8-bit unsigned integer
 
 ...
 
-scala> val arrBinary = Codec.encodeValid(arr)
+scala> val arrBinary = Codec.encode(arr).require
 arrBinary: scodec.bits.BitVector = BitVector(72 bits, 0x0200000a0a000a0a00)
 
-scala> val decoded = Codec.decodeValidValue[Arrangement](arrBinary)
+scala> val decoded = Codec.decode[Arrangement](arrBinary).require.value
 decoded: Arrangement = Arrangement(Vector(Line(Point(0,0),Point(10,10)), Line(Point(0,10),Point(10,0))))
 ```
 
@@ -161,14 +158,14 @@ scala> val arr2 = Arrangement(Vector(
 arr2: Arrangement = Arrangement(Vector(Line(Point(0,0),Point(10,10)), Line(Point(0,10),Point(10,-1))))
 
 scala> val encoded = Codec.encode(arr2)
-encoded: scalaz.\/[scodec.Err,scodec.bits.BitVector] =
-  -\/(lines/1/end/y: -1 is less than minimum value 0 for 8-bit unsigned integer)
+encoded: scodec.Attempt[scodec.bits.BitVector] =
+  Failure(lines/1/end/y: -1 is less than minimum value 0 for 8-bit unsigned integer)
 
-scala> val encoded = Codec.encodeValid(arr2)
+scala> val encoded = Codec.encode(arr2).require
 java.lang.IllegalArgumentException: lines/1/end/y: -1 is less than minimum value 0 for 8-bit unsigned integer
 ```
 
-Attempting to encode an arrangement that contains a point with a negative number resulted in an error being returned from `encode` and an exception being thrown from `encodeValid`. The error includes the path to the error -- `lines/1/end/y`. In this case, the `lines` field on `Arrangement`, the line at the first index of that vector, the `end` field on that line, and the `y` field on that point.
+Attempting to encode an arrangement that contains a point with a negative number resulted in an error being returned from `encode` and an exception being thrown from `require`. The error includes the path to the error -- `lines/1/end/y`. In this case, the `lines` field on `Arrangement`, the line at the first index of that vector, the `end` field on that line, and the `y` field on that point.
 
 If you prefer to avoid using implicits, do not fret! The above example makes use of implicits and uses Shapeless for compile time reflection, but this is built as a layer on top of the core algebra of scodec-core. The library supports a usage model where implicits are not used.
 
@@ -182,14 +179,16 @@ We saw the `Codec` type when we used it to encode a value to binary and decode b
 ## Decoder
 
 ```scala
+case class DecodeResult[A](value: A, remainder: BitVector) { ... }
+
 trait Decoder[+A] {
-  def decode(b: BitVector): Err \/ (BitVector, A)
+  def decode(b: BitVector): Attempt[DecodeResult[A]]
 }
 ```
 
-A decoder defines a single abstract operation, `decode`, which converts a bit vector into a pair containing the unconsumed bits and a decoded value, or returns an error. For example, a decoder that decodes a 32-bit integer returns an error when the supplied vector has less than 32-bits, and returns the supplied vector less 32-bits otherwise.
+A decoder defines a single abstract operation, `decode`, which attempts to convert a bit vector into a `DecodeResult`. A `DecodeResult` is a case class made up of a value of type `A` and a remainder -- bits that are left over, or unconsumed, after decoding has completed. For example, a decoder that decodes a 32-bit integer returns an error when the supplied vector has less than 32-bits, and returns the supplied vector less 32-bits otherwise.
 
-The result type is a disjunction with `scodec.Err` on the left side. `Err` is an open-for-subclassing data type that contains an error message and a context stack. The context stack contains strings that provide context on where the error occurred in a large structure. We saw an example of this earlier, where the context stack represented a path through the `Arrangement` class, into a `Vector`, and then into a `Line` and `Point`. The type is open-for-subclassing so that codecs can return domain specific error types and then pattern match on the received type. An `Err` is *not* a subtype of `Throwable`, so it cannot be used (directly) with `scala.util.Try`. Also note that codecs never throw exceptions (or should never!). All errors are communicated via the `Err` type.
+The result type is an `Attempt[A]`, which is equivalent to an `Either[scodec.Err, A]`. `Err` is an open-for-subclassing data type that contains an error message and a context stack. The context stack contains strings that provide context on where the error occurred in a large structure. We saw an example of this earlier, where the context stack represented a path through the `Arrangement` class, into a `Vector`, and then into a `Line` and `Point`. The type is open-for-subclassing so that codecs can return domain specific error types and then pattern match on the received type. An `Err` is *not* a subtype of `Throwable`, so it cannot be used (directly) with `scala.util.Try`. Also note that codecs never throw exceptions (or should never!). All errors are communicated via the `Err` type.
 
 ### map
 
@@ -197,10 +196,10 @@ A function can be mapped over a decoder, resulting in our first combinator:
 
 ```scala
 trait Decoder[+A] { self =>
-  def decode(b: BitVector): Err \/ (BitVector, A)
+  def decode(b: BitVector): Attempt[DecodeResult[A]]
   def map[B](f: A => B): Decoder[B] = new Decoder[B] {
-    def decode(b: BitVector): Err \/ (BitVector, B) =
-      self.decode(b) map { case (rem, a) => (rem, f(b)) }
+    def decode(b: BitVector): Attempt[DecodeResult[B]] =
+      self.decode(b) map { result => result map f }
   }
 }
 ```
@@ -221,10 +220,10 @@ The `map` operation does not allow room for returning an error. We can define a 
 ```scala
 trait Decoder[+A] { self =>
   ...
-  def emap[B](f: A => Err \/ B): Decoder[B] = new Decoder[B] {
-    def decode(b: BitVector): Err \/ (BitVector, B) =
-      self.decode(bits) flatMap { case (rem, a) =>
-        f(a).map { b => (rem, b) }
+  def emap[B](f: A => Attempt[B]): Decoder[B] = new Decoder[B] {
+    def decode(b: BitVector): Attempt[DecodeResult[B]] =
+      self.decode(bits) flatMap { result =>
+        f(result.value).map { b => DecodeResult(b, result.remainder) }
       }
   }
 }
@@ -238,10 +237,10 @@ Further generalizing, we can `flatMap` a function over a decoder to express that
 trait Decoder[+A] { self =>
   ...
   def flatMap[B](f: A => Decoder[B]): Decoder[B] = new Decoder[B] {
-    def decode(b: BitVector): Err \/ (BitVector, B) =
-      self.decode(b) flatMap { case (rem, a) =>
-        val next: Codec[B] = f(a)
-        next.decode(rem)
+    def decode(b: BitVector): Attempt[DecodeResult[B]] =
+      self.decode(b) flatMap { result =>
+        val next: Codec[B] = f(result.value)
+        next.decode(result.remainder)
       }
   }
 }
@@ -255,7 +254,7 @@ As mentioned previously, `flatMap` models a dependency between a decoded value a
 
 ```scala
 trait Encoder[-A] {
-  def encode(a: A): Err \/ BitVector
+  def encode(a: A): Attempt[BitVector]
 }
 ```
 
@@ -267,9 +266,9 @@ A function can be mapped over an encoder, similar to `map` on decoder, but unlik
 
 ```scala
 trait Encoder[-A] { self =>
-  def encode(a: A): Err \/ BitVector
+  def encode(a: A): Attempt[BitVector]
   def contramap[B](f: B => A): Encoder[B] = new Encoder[B] {
-    def encode(b: B): Err \/ BitVector =
+    def encode(b: B): Attempt[BitVector] =
       self.encode(f(b))
   }
 }
@@ -282,8 +281,8 @@ Like decoder's `map`, `contramap` takes a total function. To use a partial funct
 ```scala
 trait Encoder[-A] { self =>
   ...
-  def econtramap[B](f: B => Err \/ A): Encoder[B] = new Encoder[B] {
-    def encode(b: B): Err \/ BitVector =
+  def econtramap[B](f: B => Attempt[A]): Encoder[B] = new Encoder[B] {
+    def encode(b: B): Attempt[BitVector] =
       f(b) flatMap self.encode
   }
 }
@@ -310,13 +309,13 @@ The codec equivalent to `map` and `contramap` is called `xmap`:
 ```scala
 trait Codec[A] extends Encoder[A] with Decoder[A] { self =>
   def xmap[B](f: A => B, g: B => A): Codec[B] = new Codec[B] {
-    def encode(b: B): Err \/ BitVector = self.contramap(g).encode(b)
-    def decode(b: BitVector): Err \/ (BitVector, B) = self.map(f).decode(b)
+    def encode(b: B) = self.contramap(g).encode(b)
+    def decode(b: BitVector) = self.map(f).decode(b)
   }
 }
 ```
 
-Here, we've defined `xmap` in terms of `map` and `contramap` although the real implementation is more performant. The `xmap` operations is one of the most commonly used operations in scodec-core. Consider this example:
+Here, we've defined `xmap` in terms of `map` and `contramap`. The `xmap` operation is one of the most commonly used operations in scodec-core. Consider this example:
 
 ```scala
 case class Point(x: Int, y: Int)
@@ -334,9 +333,9 @@ In a similar fashion to `emap` and `econtramap`, the `exmap` operation is like `
 ```scala
 trait Codec[A] extends Encoder[A] with Decoder[A] { self =>
   ...
-  def exmap[B](f: A => Err \/ B, g: B => Err \/ A): Codec[B] = new Codec[B] {
-    def encode(b: B): Err \/ BitVector = self.econtramap(g).encode(b)
-    def decode(b: BitVector): Err \/ (BitVector, B) = self.emap(f).decode(b)
+  def exmap[B](f: A => Attempt[B], g: B => Attempt[A]): Codec[B] = new Codec[B] {
+    def encode(b: B) = self.econtramap(g).encode(b)
+    def decode(b: BitVector) = self.emap(f).decode(b)
   }
 }
 ```
@@ -348,12 +347,12 @@ Unlike `map`, `emap`, `contramap`, and `econtramap`, `xmap` and  `exmap` each ta
 ```scala
 trait Codec[A] extends Encoder[A] with Decoder[A] { self =>
   ...
-  def narrow[B](f: A => Err \/ B, g: B => A): Codec[B] = exmap(f, right compose g)
-  def widen[B](f: A => B, g: B => Err \/ A): Codec[B] = exmap(right compose f, g)
+  def narrow[B](f: A => Attempt[B], g: B => A): Codec[B] = exmap(f, right compose g)
+  def widen[B](f: A => B, g: B => Attempt[A]): Codec[B] = exmap(right compose f, g)
 }
 ```
 
-Finally, there's a variant of `widen` where the partial function is represented as a `B => Option[A]` instead of a `B => Err \/ A`.
+Finally, there's a variant of `widen` where the partial function is represented as a `B => Option[A]` instead of a `B => Attempt[A]`.
 
 ```scala
 trait Codec[A] extends Encoder[A] with Decoder[A] { self =>
@@ -373,7 +372,7 @@ val pointCodec: Codec[Point] = tupleCodec.widenOpt(Point.apply, Point.unapply)
 
 ## GenCodec
 
-The `xmap` and related operations allow us to transfrom a `Codec[A]` into a `Codec[B]`. Nonetheless, we can improve the definitions of the decoder and encoder specific methods (`map`, `contramap`, etc.). With the types as presented, we said that calling `map` on a codec forgot the encoding logic and returned a decoder, and that calling `contramap` on a codec forgot the decoding logic and returned an encoder.
+The `xmap` and related operations allow us to transform a `Codec[A]` into a `Codec[B]`. Nonetheless, we can improve the definitions of the decoder and encoder specific methods (`map`, `contramap`, etc.). With the types as presented, we said that calling `map` on a codec forgot the encoding logic and returned a decoder, and that calling `contramap` on a codec forgot the decoding logic and returned an encoder.
 
 We can remedy this somewhat by introducing a new type that is similar to `Codec` in that it is both an `Encoder` and a `Decoder` -- but dissimilar in that it allows the encoding type to differ from the decoding type.
 
@@ -400,7 +399,7 @@ trait Codec[A] extends GenCodec[A, A] { ... }
 
 A `GenCodec` represents the pairing of an `Encoder` and a `Decoder`, with potentially different types. Each of the combinators from `Encoder` and `Decoder` are overridden such that they return `GenCodec`s that "remember" the behavior of the non-transformed type. For instance, the `map` operation on a `GenCodec` changes the decoding behavior while remembering the encoding behavior.
 
-Hence, `GenCodec` has two type parameters -- the first is the encoding type and the second is the decoding type. Any time that the two types are equal, the `fuse` can be used to convert the `GenCodec[A, A]` to a `Codec[A]`.
+Hence, `GenCodec` has two type parameters -- the first is the encoding type and the second is the decoding type. Any time that the two types are equal, the `fuse` method can be used to convert the `GenCodec[A, A]` to a `Codec[A]`.
 
 `GenCodec` is useful because it allows *incremental* transforms to be applied to a codec. Further, it plays an important role in the categorical view of codecs, which is discussed later. Still, direct usage of `GenCodec` is rare.
 
@@ -415,26 +414,26 @@ You may have noticed the variance annotations in `Encoder`, `Decoder`, and `GenC
 
 The variance annotations -- specifically the contravariant ones -- can cause problems with implicit search. At the current time, the implicit search problems cannot be fixed without making `Encoder` invariant. The authors of scodec believe the utility provided by subtyping variance outweighs the inconvenience of the implicit search issues they cause. If you disagree, please weigh-in on the [mailing list](https://groups.google.com/forum/#!forum/typelevel) or the [related pull request](https://github.com/scodec/scodec/pull/26).
 
-## For the categorically minded (or Scalaz users)
+## For the categorically minded
 
-The core types have a number of type class instances. Note that this section assumes a strong familiarity with Scalaz and can be safely skipped.
+The core types have a number of type class instances. Note that this section assumes a strong familiarity with the major typeclasses of functional programming and can be safely skipped.
 
 `Decoder` has a monad instance, where `flatMap` is defined as above and the point operation is defined as:
 
 ```scala
 def point(a: A): Decoder[A] = new Decoder[A] {
-  def decode(b: BitVector): Err \/ (BitVector, A) =
-    right((b, a))
+  def decode(b: BitVector): Attempt[DecodeResult[A]] =
+    Attempt.successful(DecodeResult(a, b))
 }
 ```
 
-`Encoder` has a contravariant functor instance, defined using the `contramap` operation from above. It also has a corepresentable instance with `Err \/ BitVector`.
+`Encoder` has a contravariant functor instance, defined using the `contramap` operation from above. It also has a corepresentable instance with `Attempt[BitVector]`.
 
 `GenCodec` has a profunctor instance, where `mapfst` is implemented using `contramap` and `mapsnd` is implemented using `map`.
 
 `Codec` has an invariant (aka exponential) functor instance, using the `xmap` operation from above.
 
-Instances for the Scalaz version of each these type classes is located in the companion object of each trait.
+Instances for the Scalaz versions of each these type classes are located in the scodec-scalaz module, which is discussed later.
 
 scodec-core defines one additional type class, `Transform`, which abstracts over the type constructor in the transform operations. It defines a single abstract operation -- `exmap` -- and defines concrete versions of `xmap`, `narrow`, `widen`, etc. in terms of `exmap`. This type class is unlikely to be useful outside of scodec libraries due to the use of `scodec.Err`. It exists in order to share transform API between `Codec` and another scodec-core type we'll see later.
 
@@ -445,14 +444,14 @@ Codecs are typically created by transforming or combining other codecs. However,
 ```scala
 class BitVectorCodec(size: Long) extends Codec[BitVector] {
   def encode(b: BitVector) = {
-    if (b.size == size) \/.right(b)
-    else \/.left(Err(s"expected size ${size} but got ${b.size}"))
+    if (b.size == size) Attempt.successful(b)
+    else Attempt.failure(Err(s"expected size ${size} but got ${b.size}"))
   }
   def decode(b: BitVector) = {
     val (result, remaining) = b.splitAt(size)
     if (result.size != size)
-      \/.left(new Err.InsufficientBits(size, result.size))
-    else \/.right((remaining, result))
+      Attempt.failure(new Err.InsufficientBits(size, result.size))
+    else Attempt.successful(DecodeResult(result, remaining))
   }
 }
 ```

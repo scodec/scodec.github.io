@@ -47,7 +47,7 @@
       </span>
       </h4>
       
-          <div id="comment" class="fullcommenttop"><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/scodec/${scodecModule.value}/tree/master/src/main/scala/scodec/protocols/TimeStamped.scala" target="_blank">TimeStamped.scala</a></dd></dl><div class="toggleContainer block">
+          <div id="comment" class="fullcommenttop"><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/scodec/${scodecModule.value}/tree/series/0.6.x/src/main/scala/scodec/protocols/TimeStamped.scala" target="_blank">TimeStamped.scala</a></dd></dl><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
           <div class="superTypes hiddenContent"><a href="http://www.scala-lang.org/api/2.11.4/index.html#scala.Serializable" class="extype" target="_top">Serializable</a>, <span class="extype" name="java.io.Serializable">Serializable</span>, <a href="http://www.scala-lang.org/api/2.11.4/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a>, <a href="http://www.scala-lang.org/api/2.11.4/index.html#scala.Any" class="extype" target="_top">Any</a></div>
         </div></div>
@@ -498,22 +498,22 @@ to the writer side of the writer.
     </span>
       
     </li><li name="scodec.protocols.TimeStamped#ordering" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="ordering[A]:Ordering[scodec.protocols.TimeStamped[A]]"></a>
-      <a id="ordering[A]:Ordering[TimeStamped[A]]"></a>
+      <a id="ordering[A](implicitA:Ordering[A]):Ordering[scodec.protocols.TimeStamped[A]]"></a>
+      <a id="ordering[A](Ordering[A]):Ordering[TimeStamped[A]]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier">implicit </span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">ordering</span><span class="tparams">[<span name="A">A</span>]</span><span class="result">: <span class="extype" name="scala.Ordering">Ordering</span>[<a href="TimeStamped.html" class="extype" name="scodec.protocols.TimeStamped">TimeStamped</a>[<span class="extype" name="scodec.protocols.TimeStamped.ordering.A">A</span>]]</span>
+        <span class="name">ordering</span><span class="tparams">[<span name="A">A</span>]</span><span class="params">(<span class="implicit">implicit </span><span name="A">A: <span class="extype" name="scala.Ordering">Ordering</span>[<span class="extype" name="scodec.protocols.TimeStamped.ordering.A">A</span>]</span>)</span><span class="result">: <span class="extype" name="scala.Ordering">Ordering</span>[<a href="TimeStamped.html" class="extype" name="scodec.protocols.TimeStamped">TimeStamped</a>[<span class="extype" name="scodec.protocols.TimeStamped.ordering.A">A</span>]]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../index.html#scodec.protocols.TimeStamped$@ordering[A]:Ordering[scodec.protocols.TimeStamped[A]]" title="Permalink" target="_top">
+      <a href="../../index.html#scodec.protocols.TimeStamped$@ordering[A](implicitA:Ordering[A]):Ordering[scodec.protocols.TimeStamped[A]]" title="Permalink" target="_top">
         <img src="../../lib/permalink.png" />
       </a>
     </span>
-      
+      <p class="shortcomment cmt">Orders values by timestamp, then by value.</p>
     </li><li name="scodec.protocols.TimeStamped#perSecondRate" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="perSecondRate[A,B](f:A=&gt;B)(implicitevidence$1:scalaz.Monoid[B]):scalaz.stream.Process1[scodec.protocols.TimeStamped[A],scodec.protocols.TimeStamped[B]]"></a>
       <a id="perSecondRate[A,B]((A)⇒B)(Monoid[B]):Process1[TimeStamped[A],TimeStamped[B]]"></a>
@@ -661,6 +661,23 @@ values spaced in wall clock time equal to their time deltas. A value of 2.0
 emits values at twice the speed of wall clock time.</p><p>This is particularly useful when timestamped data can be read in bulk (e.g., from a capture file)
 but should be &quot;played back&quot; at real time speeds.
 </p></div></div>
+    </li><li name="scodec.protocols.TimeStamped#timeBasedOrdering" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="timeBasedOrdering[A]:Ordering[scodec.protocols.TimeStamped[A]]"></a>
+      <a id="timeBasedOrdering[A]:Ordering[TimeStamped[A]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">timeBasedOrdering</span><span class="tparams">[<span name="A">A</span>]</span><span class="result">: <span class="extype" name="scala.Ordering">Ordering</span>[<a href="TimeStamped.html" class="extype" name="scodec.protocols.TimeStamped">TimeStamped</a>[<span class="extype" name="scodec.protocols.TimeStamped.timeBasedOrdering.A">A</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scodec.protocols.TimeStamped$@timeBasedOrdering[A]:Ordering[scodec.protocols.TimeStamped[A]]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Orders values by timestamp -- values with the same timestamp are considered equal.</p>
     </li><li name="scala.AnyRef#toString" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="toString():String"></a>
       <a id="toString():String"></a>

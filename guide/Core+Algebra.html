@@ -97,14 +97,17 @@ val fooDecoder: Decoder[Foo] = int32 map { i =&gt; Foo(i) }
 </p><p>As mentioned previously, <code>flatMap</code> models a dependency between a decoded value and the decoder to use for the remaining bits. A good use case for this is a bit pattern that first encodes a count followed by a number of records. An implementation of this is not provided because we will see it later in a different context.
 </p><h2 id="Encoder">Encoder<a href="#Encoder" class="header-link"><span class="header-link-content">&nbsp;</span></a></h2><pre><code class="prettyprint lang-scala">trait Encoder[-A] {
   def encode(a: A): Attempt[BitVector]
+  def sizeBound: SizeBound
 }
-</code></pre><p>An encoder defines a single abstract operation, <code>encode</code>, which converts a value to binary or returns an error. This design differs from other libraries by allowing <code>encode</code> to be defined partially over type <code>A</code>. For example, this allows an integer encoder to be defined on a subset of the integers without having to resort to newtypes or wrapper types.
+</code></pre><p>An encoder defines two abstract operations, <code>encode</code>, which converts a value to binary or returns an error, and <code>sizeBound</code>, which provides an upper and lower bound on the size of the bit vectors created by the encoder. This design differs from other libraries by allowing <code>encode</code> to be defined partially over type <code>A</code>. For example, this allows an integer encoder to be defined on a subset of the integers without having to resort to newtypes or wrapper types.
 </p><h3 id="contramap">contramap<a href="#contramap" class="header-link"><span class="header-link-content">&nbsp;</span></a></h3><p>A function can be mapped over an encoder, similar to <code>map</code> on decoder, but unlike <code>map</code>, the supplied function has its arrow reversed — that is, we convert an <code>Encoder[A]</code> to an <code>Encoder[B]</code> with a function <code>B =&gt; A</code>. This may seem strange at first, but all we are doing is using the supplied function to convert a <code>B</code> to an <code>A</code> and then delegating the encoding logic to the original <code>Encoder[A]</code>. This operation is called <code>contramap</code>:
 </p><pre><code class="prettyprint lang-scala">trait Encoder[-A] { self =&gt;
   def encode(a: A): Attempt[BitVector]
   def contramap[B](f: B =&gt; A): Encoder[B] = new Encoder[B] {
     def encode(b: B): Attempt[BitVector] =
       self.encode(f(b))
+    def sizeBound: SizeBound =
+      self.sizeBound
   }
 }
 </code></pre><h3 id="econtramap">econtramap<a href="#econtramap" class="header-link"><span class="header-link-content">&nbsp;</span></a></h3><p>Like decoder’s <code>map</code>, <code>contramap</code> takes a total function. To use a partial function, there’s <code>econtramap</code>:
@@ -113,6 +116,8 @@ val fooDecoder: Decoder[Foo] = int32 map { i =&gt; Foo(i) }
   def econtramap[B](f: B =&gt; Attempt[A]): Encoder[B] = new Encoder[B] {
     def encode(b: B): Attempt[BitVector] =
       f(b) flatMap self.encode
+    def sizeBound: SizeBound =
+      self.sizeBound
   }
 }
 </code></pre><h3 id="flatMap%3F">flatMap?<a href="#flatMap%3F" class="header-link"><span class="header-link-content">&nbsp;</span></a></h3><p>Unlike decoder, there is no <code>flatMap</code> operation on encoder. Further, there’s no “corresponding” operation — in the way that <code>contramap</code> corresponds to <code>map</code> and <code>econtramap</code> corresponds to <code>emap</code>. To get a feel for why this is, try defining a <code>flatMap</code>-like method. For instance, you could try “reversing the arrows” and substituting <code>Encoder</code> for <code>Decoder</code>, yielding a method like <code>def flatMapLike[B](f: Encoder[B] =&gt; A): Encoder[B]</code> — but you’ll find there’s no reasonable way to implement <code>encode</code> on the returned encoder.
@@ -124,6 +129,7 @@ val fooDecoder: Decoder[Foo] = int32 map { i =&gt; Foo(i) }
   def xmap[B](f: A =&gt; B, g: B =&gt; A): Codec[B] = new Codec[B] {
     def encode(b: B) = self.contramap(g).encode(b)
     def decode(b: BitVector) = self.map(f).decode(b)
+    def sizeBound = self.sizeBound
   }
 }
 </code></pre><p>Here, we’ve defined <code>xmap</code> in terms of <code>map</code> and <code>contramap</code>. The <code>xmap</code> operation is one of the most commonly used operations in scodec-core. Consider this example:
@@ -138,6 +144,7 @@ val pointCodec: Codec[Point] = tupleCodec.xmap[Point](t =&gt; Point(t._1, t._2),
   def exmap[B](f: A =&gt; Attempt[B], g: B =&gt; Attempt[A]): Codec[B] = new Codec[B] {
     def encode(b: B) = self.econtramap(g).encode(b)
     def decode(b: BitVector) = self.emap(f).decode(b)
+    def sizeBound = self.sizeBound
   }
 }
 </code></pre><h3 id="Additional+transforms">Additional transforms<a href="#Additional+transforms" class="header-link"><span class="header-link-content">&nbsp;</span></a></h3><p>Unlike <code>map</code>, <code>emap</code>, <code>contramap</code>, and <code>econtramap</code>, <code>xmap</code> and  <code>exmap</code> each take two functions. <code>xmap</code> takes two total functions and <code>exmap</code> takes two partial functions. There are two other operations that take two conversion functions — where one of the functions is total and the other is partial.
@@ -165,6 +172,7 @@ val pointCodec: Codec[Point] = tupleCodec.widenOpt(Point.apply, Point.unapply)
   def fuse[AA &lt;: A, BB &gt;: B](implicit ev: BB =:= AA): Codec[BB] = new Codec[BB] {
     def encode(c: BB) = self.encode(ev(c))
     def decode(bits: BitVector) = self.decode(bits)
+    def sizeBound = self.sizeBound
   }
 }
 
@@ -172,6 +180,7 @@ object GenCodec {
   def apply[A, B](encoder: Encoder[A], decoder: Decoder[B]): GenCodec[A, B] = new GenCodec[A, B] {
     override def encode(a: A) = encoder.encode(a)
     override def decode(bits: BitVector) = decoder.decode(bits)
+    def sizeBound = encoder.sizeBound
   }
 }
 

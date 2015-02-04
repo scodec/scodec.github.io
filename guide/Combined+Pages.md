@@ -288,10 +288,11 @@ As mentioned previously, `flatMap` models a dependency between a decoded value a
 ```scala
 trait Encoder[-A] {
   def encode(a: A): Attempt[BitVector]
+  def sizeBound: SizeBound
 }
 ```
 
-An encoder defines a single abstract operation, `encode`, which converts a value to binary or returns an error. This design differs from other libraries by allowing `encode` to be defined partially over type `A`. For example, this allows an integer encoder to be defined on a subset of the integers without having to resort to newtypes or wrapper types.
+An encoder defines two abstract operations, `encode`, which converts a value to binary or returns an error, and `sizeBound`, which provides an upper and lower bound on the size of the bit vectors created by the encoder. This design differs from other libraries by allowing `encode` to be defined partially over type `A`. For example, this allows an integer encoder to be defined on a subset of the integers without having to resort to newtypes or wrapper types.
 
 ### contramap
 
@@ -303,6 +304,8 @@ trait Encoder[-A] { self =>
   def contramap[B](f: B => A): Encoder[B] = new Encoder[B] {
     def encode(b: B): Attempt[BitVector] =
       self.encode(f(b))
+    def sizeBound: SizeBound =
+      self.sizeBound
   }
 }
 ```
@@ -317,6 +320,8 @@ trait Encoder[-A] { self =>
   def econtramap[B](f: B => Attempt[A]): Encoder[B] = new Encoder[B] {
     def encode(b: B): Attempt[BitVector] =
       f(b) flatMap self.encode
+    def sizeBound: SizeBound =
+      self.sizeBound
   }
 }
 ```
@@ -344,6 +349,7 @@ trait Codec[A] extends Encoder[A] with Decoder[A] { self =>
   def xmap[B](f: A => B, g: B => A): Codec[B] = new Codec[B] {
     def encode(b: B) = self.contramap(g).encode(b)
     def decode(b: BitVector) = self.map(f).decode(b)
+    def sizeBound = self.sizeBound
   }
 }
 ```
@@ -369,6 +375,7 @@ trait Codec[A] extends Encoder[A] with Decoder[A] { self =>
   def exmap[B](f: A => Attempt[B], g: B => Attempt[A]): Codec[B] = new Codec[B] {
     def encode(b: B) = self.econtramap(g).encode(b)
     def decode(b: BitVector) = self.emap(f).decode(b)
+    def sizeBound = self.sizeBound
   }
 }
 ```
@@ -417,6 +424,7 @@ trait GenCodec[-A, +B] extends Encoder[A] with Decoder[B] { self =>
   def fuse[AA <: A, BB >: B](implicit ev: BB =:= AA): Codec[BB] = new Codec[BB] {
     def encode(c: BB) = self.encode(ev(c))
     def decode(bits: BitVector) = self.decode(bits)
+    def sizeBound = self.sizeBound
   }
 }
 
@@ -424,6 +432,7 @@ object GenCodec {
   def apply[A, B](encoder: Encoder[A], decoder: Decoder[B]): GenCodec[A, B] = new GenCodec[A, B] {
     override def encode(a: A) = encoder.encode(a)
     override def decode(bits: BitVector) = decoder.decode(bits)
+    def sizeBound = encoder.sizeBound
   }
 }
 

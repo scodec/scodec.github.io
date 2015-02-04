@@ -69,7 +69,9 @@ y: scodec.bits.ByteVector = ByteVector(4 bytes, 0xdeadbeef)
 scala&gt; x == y
 res0: Boolean = true
 </code></pre><p>We first start by importing all members of the <code>scodec.bits</code> package, which contains the entirety of this library. We then create two byte vectors from hexadecimal literals, using the <code>hex</code> string interpolator. Finally, we compare them for equality, which returns true, because each vector contains the same bytes.
-</p><p>TODO
+</p><h3 id="Constructing+Byte+Vectors">Constructing Byte Vectors<a href="#Constructing+Byte+Vectors" class="header-link"><span class="header-link-content">&nbsp;</span></a></h3><p>There are a variety of ways to construct byte vectors. The <code>hex</code> string interpolator is useful for testing and REPL experiments but often, it is necessary to construct byte vectors from other data types. Most commonly, a byte vector must be created from a standard library collection, like a <code>Vector[Byte]</code> or <code>Array[Byte]</code>, or a Java NIO <code>ByteBuffer</code>. This is accomplished with the <code>apply</code> method on the <code>ByteVector</code> companion.
+</p><p>When constructing a <code>ByteVector</code> from an array, the array contents are <em>copied</em>. This is the safest behavior, as any mutations to the original byte array do not cause problems with the immuable <code>ByteVector</code>. However, the cost of copying can be prohibitive in some situations. To address this, a byte array can be converted to a <code>ByteVector</code> with a constant time operation — <code>ByteVector.view(array)</code>. Using <code>view</code> requires the byte array to never be modified after the vector is constructed.
+</p><p><code>ByteVector</code>s can also be created from strings in various bases, like hexadecimal, binary, or base 64. For example, to convert a hexadecimal string to a <code>ByteVector</code>, use <code>ByteVector.fromHex(string)</code>. There are quite a number of methods related to base conversions — explore the ScalaDoc of the <code>ByteVector</code> companion object for details.
 </p><h2 id="BitVector">BitVector<a href="#BitVector" class="header-link"><span class="header-link-content">&nbsp;</span></a></h2><p>The <code>BitVector</code> type is similar to <code>ByteVector</code> with the exception of indexing bits instead of bytes. This allows access and update of specific bits (via <code>apply</code> and <code>update</code>) as well as storage of a bit count that is not evenly divisible by 8.
 </p><h3 id="Getting+Started">Getting Started<a href="#Getting+Started" class="header-link"><span class="header-link-content">&nbsp;</span></a></h3><pre><code class="prettyprint lang-scala">scala&gt; val x: BitVector = bin&quot;00110110101&quot;
 x: scodec.bits.BitVector = BitVector(11 bits, 0x36a)
@@ -86,7 +88,13 @@ z: scodec.bits.BitVector = BitVector(11 bits, 0x36a)
 scala&gt; x == z
 res1: Boolean = true
 </code></pre><p>In this example, we create two 10-bit vectors using the <code>bin</code> string interpolator that differ in only the last bit. We then create a third vector, <code>z</code>, by updating the 10th bit of <code>y</code> to true. Comparing <code>x</code> and <code>y</code> for equality returns false whereas comparing <code>x</code> and <code>z</code> returns true.
-</p><p>TODO
+</p><h3 id="Constructing+Bit+Vectors">Constructing Bit Vectors<a href="#Constructing+Bit+Vectors" class="header-link"><span class="header-link-content">&nbsp;</span></a></h3><p><code>BitVector</code>s are constructed in much the same way as <code>ByteVector</code>s. That is, typically via the <code>apply</code> and <code>view</code> methods in the <code>BitVector</code> companion object. Additionally, any <code>ByteVector</code> can be converted to a <code>BitVector</code> via the <code>bits</code> method (e.g., <code>myByteVector.bits</code>) and any <code>BitVector</code> can be converted to a <code>ByteVector</code> via the <code>bytes</code> method.
+</p><p>TODO unfold, nio
+</p><h2 id="Transforms">Transforms<a href="#Transforms" class="header-link"><span class="header-link-content">&nbsp;</span></a></h2><p>Both <code>ByteVector</code>s and <code>BitVector</code>s support a number of different transformations.
+</p><h3 id="Collection+Like+Transforms">Collection Like Transforms<a href="#Collection+Like+Transforms" class="header-link"><span class="header-link-content">&nbsp;</span></a></h3><p>TODO
+</p><h3 id="Bitwise+Transforms">Bitwise Transforms<a href="#Bitwise+Transforms" class="header-link"><span class="header-link-content">&nbsp;</span></a></h3><p>TODO
+</p><h2 id="Base+Conversions">Base Conversions<a href="#Base+Conversions" class="header-link"><span class="header-link-content">&nbsp;</span></a></h2><p>TODO
+</p><h2 id="Cyclic+Redundancy+Checks">Cyclic Redundancy Checks<a href="#Cyclic+Redundancy+Checks" class="header-link"><span class="header-link-content">&nbsp;</span></a></h2><p>TODO
 </p><div class="bottom nav span-16">
                         <em>Next Page</em>
                         <span class="arrow">❧</span>

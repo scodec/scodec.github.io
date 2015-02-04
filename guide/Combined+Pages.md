@@ -64,7 +64,13 @@ res0: Boolean = true
 
 We first start by importing all members of the `scodec.bits` package, which contains the entirety of this library. We then create two byte vectors from hexadecimal literals, using the `hex` string interpolator. Finally, we compare them for equality, which returns true, because each vector contains the same bytes.
 
-TODO
+### Constructing Byte Vectors
+
+There are a variety of ways to construct byte vectors. The `hex` string interpolator is useful for testing and REPL experiments but often, it is necessary to construct byte vectors from other data types. Most commonly, a byte vector must be created from a standard library collection, like a `Vector[Byte]` or `Array[Byte]`, or a Java NIO `ByteBuffer`. This is accomplished with the `apply` method on the `ByteVector` companion.
+
+When constructing a `ByteVector` from an array, the array contents are *copied*. This is the safest behavior, as any mutations to the original byte array do not cause problems with the immuable `ByteVector`. However, the cost of copying can be prohibitive in some situations. To address this, a byte array can be converted to a `ByteVector` with a constant time operation -- `ByteVector.view(array)`. Using `view` requires the byte array to never be modified after the vector is constructed.
+
+`ByteVector`s can also be created from strings in various bases, like hexadecimal, binary, or base 64. For example, to convert a hexadecimal string to a `ByteVector`, use `ByteVector.fromHex(string)`. There are quite a number of methods related to base conversions -- explore the ScalaDoc of the `ByteVector` companion object for details.
 
 BitVector
 ---------
@@ -91,6 +97,33 @@ res1: Boolean = true
 ```
 
 In this example, we create two 10-bit vectors using the `bin` string interpolator that differ in only the last bit. We then create a third vector, `z`, by updating the 10th bit of `y` to true. Comparing `x` and `y` for equality returns false whereas comparing `x` and `z` returns true.
+
+### Constructing Bit Vectors
+
+`BitVector`s are constructed in much the same way as `ByteVector`s. That is, typically via the `apply` and `view` methods in the `BitVector` companion object. Additionally, any `ByteVector` can be converted to a `BitVector` via the `bits` method (e.g., `myByteVector.bits`) and any `BitVector` can be converted to a `ByteVector` via the `bytes` method.
+
+TODO unfold, nio
+
+Transforms
+----------
+
+Both `ByteVector`s and `BitVector`s support a number of different transformations.
+
+### Collection Like Transforms
+
+TODO
+
+### Bitwise Transforms
+
+TODO
+
+Base Conversions
+----------------
+
+TODO
+
+Cyclic Redundancy Checks
+------------------------
 
 TODO
 

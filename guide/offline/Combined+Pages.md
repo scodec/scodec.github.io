@@ -523,7 +523,10 @@ Similarly, the `scodec.codecs.bytes` and `scodec.codecs.bytes(size: Int)` method
 
 ## Booleans
 
-TODO
+The `bool` codec is a `Codec[Boolean]` which encodes a 1-bit vector where `0` represents `false` and `1` represents true.
+
+There's an overload of `bool` which takes a bit count -- `bool(n)` -- which also is a `Codec[Boolean]`. When decoding, it treats `n` consecutive
+`0`s as `false` and all other vectors as `true`. When encoding, `true` is encoded as `n` consecutive `1`s.
 
 ## Numerics
 

@@ -86,7 +86,7 @@
 
 <h2 id="scodec-core">scodec-core</h2>
 
-<pre><code>libraryDependencies += "org.scodec" %% "scodec-core" % "1.7.0-RC2"
+<pre><code>libraryDependencies += "org.scodec" %% "scodec-core" % "1.7.0"
 
 libraryDependencies ++= {
   if (scalaBinaryVersion.value startsWith "2.10")
@@ -111,13 +111,13 @@ libraryDependencies ++= {
   </thead>
   <tbody>
     <tr>
-      <td>1.7.0-RC2</td>
-      <td><a href="https://github.com/scodec/scodec/blob/series/1.7.x/CHANGELOG.md">Changes</a></td>
-      <td><a href="http://scodec.org/api/scodec-core/1.7.0-RC2">API</a></td>
+      <td>1.7.0</td>
+      <td><a href="https://github.com/scodec/scodec/blob/v1.7.0/CHANGELOG.md">Changes</a></td>
+      <td><a href="http://scodec.org/api/scodec-core/1.7.0">API</a></td>
       <td>2.10, 2.11</td>
       <td>[1.0,2.0)</td>
       <td>none</td>
-      <td>2.1.0-RC2</td>
+      <td>2.1.0</td>
     </tr>
     <tr>
       <td>1.6.0</td>
@@ -223,7 +223,7 @@ libraryDependencies ++= {
 
 <h2 id="scodec-scalaz">scodec-scalaz</h2>
 
-<pre><code>libraryDependencies += "org.scodec" %% "scodec-scalaz" % "1.0.0-RC1"
+<pre><code>libraryDependencies += "org.scodec" %% "scodec-scalaz" % "1.0.0"
 </code></pre>
 
 <p>The scodec-scalaz module provides interop between scodec-core and scalaz-core.</p>
@@ -241,9 +241,9 @@ libraryDependencies ++= {
   </thead>
   <tbody>
     <tr>
-      <td>1.0.0-RC1</td>
+      <td>1.0.0</td>
       <td>N/A</td>
-      <td><a href="http://scodec.org/api/scodec-scalaz/1.0.0-RC1">API</a></td>
+      <td><a href="http://scodec.org/api/scodec-scalaz/1.0.0">API</a></td>
       <td>2.10, 2.11</td>
       <td>[1.7,1.8)</td>
       <td>[7.1,7.2)</td>
@@ -253,7 +253,7 @@ libraryDependencies ++= {
 
 <h2 id="scodec-stream">scodec-stream</h2>
 
-<pre><code>libraryDependencies += "org.scodec" %% "scodec-stream" % "0.7.0-SNAPSHOT"
+<pre><code>libraryDependencies += "org.scodec" %% "scodec-stream" % "0.7.0"
 </code></pre>
 
 <p>The scodec-stream module provides a streaming layer built on top of scodec-core and scalaz-stream. It provides no binary compatibility guarantees until scalaz-stream 1.0 is released.</p>
@@ -273,7 +273,7 @@ libraryDependencies ++= {
     <tr>
       <td>0.7.0</td>
       <td>N/A</td>
-      <td><a href="http://scodec.org/api/scodec-scalaz/0.7.0-SNAPSHOT">API</a></td>
+      <td><a href="http://scodec.org/api/scodec-scalaz/0.7.0">API</a></td>
       <td>2.10, 2.11</td>
       <td>[1.7,1.8)</td>
       <td>0.6a</td>
@@ -283,7 +283,7 @@ libraryDependencies ++= {
 
 <h2 id="scodec-protocols">scodec-protocols</h2>
 
-<pre><code>libraryDependencies += "org.scodec" %% "scodec-protocols" % "0.7.0-SNAPSHOT"
+<pre><code>libraryDependencies += "org.scodec" %% "scodec-protocols" % "0.7.0"
 </code></pre>
 
 <p>The scodec-protocols module provides implementations of common networking protocols, with a focus on processing libpcap files. It is also a good source of example codecs for real world protocols. It provides no binary compatibility guarantees until scalaz-stream 1.0 is released.</p>
@@ -302,9 +302,16 @@ libraryDependencies ++= {
     <tr>
       <td>0.7.0</td>
       <td>N/A</td>
-      <td><a href="http://scodec.org/api/scodec-protocols/0.7.0-SNAPSHOT">API</a></td>
+      <td><a href="http://scodec.org/api/scodec-protocols/0.7.0">API</a></td>
       <td>2.10, 2.11</td>
       <td>0.7.0</td>
+    </tr>
+    <tr>
+      <td>0.6.2</td>
+      <td>N/A</td>
+      <td><a href="http://scodec.org/api/scodec-protocols/0.6.2">API</a></td>
+      <td>2.10, 2.11</td>
+      <td>0.6.2</td>
     </tr>
     <tr>
       <td>0.6.1</td>
@@ -325,7 +332,7 @@ libraryDependencies ++= {
 
 <h2 id="scodec-spire">scodec-spire</h2>
 
-<pre><code>libraryDependencies += "org.scodec" %% "scodec-spire" % "0.1.0-SNAPSHOT"
+<pre><code>libraryDependencies += "org.scodec" %% "scodec-spire" % "0.1.0"
 </code></pre>
 
 <p>The scodec-spire module provides interop between scodec-core and spire.</p>
@@ -345,7 +352,7 @@ libraryDependencies ++= {
     <tr>
       <td>0.1.0</td>
       <td>N/A</td>
-      <td><a href="http://scodec.org/api/scodec-spire/0.1.0-SNAPSHOT">API</a></td>
+      <td><a href="http://scodec.org/api/scodec-spire/0.1.0">API</a></td>
       <td>2.10, 2.11</td>
       <td>[1.7,1.8)</td>
       <td>[0.9, 0.10)</td>

@@ -317,8 +317,9 @@ trait Codec[A] extends GenCodec[A, A] { ... }
 </p><p><code>Codec</code> has an invariant (aka exponential) functor instance, using the <code>xmap</code> operation from above.
 </p><p>Instances for the Scalaz versions of each these type classes are located in the scodec-scalaz module, which is discussed later.
 </p><p>scodec-core defines one additional type class, <code>Transform</code>, which abstracts over the type constructor in the transform operations. It defines a single abstract operation — <code>exmap</code> — and defines concrete versions of <code>xmap</code>, <code>narrow</code>, <code>widen</code>, etc. in terms of <code>exmap</code>. This type class is unlikely to be useful outside of scodec libraries due to the use of <code>scodec.Err</code>. It exists in order to share transform API between <code>Codec</code> and another scodec-core type we’ll see later.
-</p><h2 id="Manually+creating+codecs">Manually creating codecs<a href="#Manually+creating+codecs" class="header-link"><span class="header-link-content">&nbsp;</span></a></h2><p>Codecs are typically created by transforming or combining other codecs. However, we can create a codec manually by writing a class that extends <code>Codec</code> and implements <code>encode</code> and <code>decode</code>.
+</p><h2 id="Manually+creating+codecs">Manually creating codecs<a href="#Manually+creating+codecs" class="header-link"><span class="header-link-content">&nbsp;</span></a></h2><p>Codecs are typically created by transforming or combining other codecs. However, we can create a codec manually by writing a class that extends <code>Codec</code> and implements <code>sizeBound</code>, <code>encode</code>, and <code>decode</code>.
 </p><pre><code class="prettyprint lang-scala">class BitVectorCodec(size: Long) extends Codec[BitVector] {
+  def sizeBound = SizeBound.exact(size)
   def encode(b: BitVector) = {
     if (b.size == size) Attempt.successful(b)
     else Attempt.failure(Err(s&quot;expected size ${size} but got ${b.size}&quot;))

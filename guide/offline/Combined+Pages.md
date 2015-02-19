@@ -481,10 +481,11 @@ scodec-core defines one additional type class, `Transform`, which abstracts over
 
 ## Manually creating codecs
 
-Codecs are typically created by transforming or combining other codecs. However, we can create a codec manually by writing a class that extends `Codec` and implements `encode` and `decode`.
+Codecs are typically created by transforming or combining other codecs. However, we can create a codec manually by writing a class that extends `Codec` and implements `sizeBound`, `encode`, and `decode`.
 
 ```scala
 class BitVectorCodec(size: Long) extends Codec[BitVector] {
+  def sizeBound = SizeBound.exact(size)
   def encode(b: BitVector) = {
     if (b.size == size) Attempt.successful(b)
     else Attempt.failure(Err(s"expected size ${size} but got ${b.size}"))

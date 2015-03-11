@@ -48,7 +48,7 @@
       </h4>
       
           <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Companion for <a href="ByteVector.html" class="extype" name="scodec.bits.ByteVector">ByteVector</a>.
-</p></div><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/scodec/${scodecModule.value}/tree/series/1.0.x/src/main/scala/scodec/bits/ByteVector.scala" target="_blank">ByteVector.scala</a></dd></dl><div class="toggleContainer block">
+</p></div><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/scodec/scodec-bits/tree/series/1.0.x/src/main/scala/scodec/bits/ByteVector.scala" target="_blank">ByteVector.scala</a></dd></dl><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
           <div class="superTypes hiddenContent"><a href="http://www.scala-lang.org/api/2.11.4/index.html#scala.Serializable" class="extype" target="_top">Serializable</a>, <span class="extype" name="java.io.Serializable">Serializable</span>, <a href="http://www.scala-lang.org/api/2.11.4/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a>, <a href="http://www.scala-lang.org/api/2.11.4/index.html#scala.Any" class="extype" target="_top">Any</a></div>
         </div></div>
@@ -182,6 +182,25 @@
 is copied to ensure the resulting <code>ByteVector</code> is immutable.
 If this is not desired, use <code><a href="#view(at:Int=&gt;Byte,size:Int):scodec.bits.ByteVector" class="extmbr" name="scodec.bits.ByteVector#view">ByteVector.view</a></code>.</p></div></div>
     </li><li name="scodec.bits.ByteVector#apply" visbl="pub" data-isabs="false" fullComment="yes" group="constructors">
+      <a id="apply(bytes:Array[Byte],offset:Int,length:Int):scodec.bits.ByteVector"></a>
+      <a id="apply(Array[Byte],Int,Int):ByteVector"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">apply</span><span class="params">(<span name="bytes">bytes: <a href="http://www.scala-lang.org/api/2.11.4/index.html#scala.Array" class="extype" target="_top">Array</a>[<a href="http://www.scala-lang.org/api/2.11.4/index.html#scala.Byte" class="extype" target="_top">Byte</a>]</span>, <span name="offset">offset: <a href="http://www.scala-lang.org/api/2.11.4/index.html#scala.Int" class="extype" target="_top">Int</a></span>, <span name="length">length: <a href="http://www.scala-lang.org/api/2.11.4/index.html#scala.Int" class="extype" target="_top">Int</a></span>)</span><span class="result">: <a href="ByteVector.html" class="extype" name="scodec.bits.ByteVector">ByteVector</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scodec.bits.ByteVector$@apply(bytes:Array[Byte],offset:Int,length:Int):scodec.bits.ByteVector" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Constructs a <code>ByteVector</code> from an <code>Array[Byte]</code>, an offset, and a length.</p><div class="fullcomment"><div class="comment cmt"><p>Constructs a <code>ByteVector</code> from an <code>Array[Byte]</code>, an offset, and a length.
+The given <code>Array[Byte]</code> is copied to ensure the resulting <code>ByteVector</code> is immutable.
+If this is not desired, use <code><a href="#view(at:Int=&gt;Byte,size:Int):scodec.bits.ByteVector" class="extmbr" name="scodec.bits.ByteVector#view">ByteVector.view</a></code>.</p></div></div>
+    </li><li name="scodec.bits.ByteVector#apply" visbl="pub" data-isabs="false" fullComment="yes" group="constructors">
       <a id="apply(bytes:Array[Byte]):scodec.bits.ByteVector"></a>
       <a id="apply(Array[Byte]):ByteVector"></a>
       <h4 class="signature">
@@ -197,7 +216,7 @@ If this is not desired, use <code><a href="#view(at:Int=&gt;Byte,size:Int):scode
         <img src="../../lib/permalink.png" />
       </a>
     </span>
-      <p class="shortcomment cmt">Constructs a <code>ByteVector</code> from an <code>Array[Byte]</code>.</p><div class="fullcomment"><div class="comment cmt"><p>Constructs a <code>ByteVector</code> from an <code>Array[Byte]</code>. The given <code>Array[Byte]</code> is
+      <p class="shortcomment cmt">Constructs a <code>ByteVector</code> from an <code>Array[Byte]</code>.</p><div class="fullcomment"><div class="comment cmt"><p>Constructs a <code>ByteVector</code> from an <code>Array[Byte]</code>. The given <code>Array[Byte]</code>
 is copied to ensure the resulting <code>ByteVector</code> is immutable.
 If this is not desired, use <code><a href="#view(at:Int=&gt;Byte,size:Int):scodec.bits.ByteVector" class="extmbr" name="scodec.bits.ByteVector#view">ByteVector.view</a></code>.</p></div></div>
     </li><li name="scodec.bits.ByteVector#apply" visbl="pub" data-isabs="false" fullComment="no" group="constructors">

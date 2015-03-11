@@ -55,14 +55,10 @@ Use <code>copy</code> to copy all underlying bytes to a fresh, array-backed <cod
 standard library collections, though this class does not extend any of the
 standard scala collections. Use <code>toIndexedSeq</code>, <code>toSeq</code>, or <code>toIterable</code>
 to obtain a regular <code>scala.collection</code> type.
-</p></div><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/scodec/${scodecModule.value}/tree/series/1.0.x/src/main/scala/scodec/bits/ByteVector.scala" target="_blank">ByteVector.scala</a></dd></dl><div class="toggleContainer block">
+</p></div><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/scodec/scodec-bits/tree/series/1.0.x/src/main/scala/scodec/bits/ByteVector.scala" target="_blank">ByteVector.scala</a></dd></dl><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
           <div class="superTypes hiddenContent"><a href="http://www.scala-lang.org/api/2.11.4/index.html#scala.Serializable" class="extype" target="_top">Serializable</a>, <span class="extype" name="java.io.Serializable">Serializable</span>, <a href="BitwiseOperations.html" class="extype" name="scodec.bits.BitwiseOperations">BitwiseOperations</a>[<a href="" class="extype" name="scodec.bits.ByteVector">ByteVector</a>, <a href="http://www.scala-lang.org/api/2.11.4/index.html#scala.Int" class="extype" target="_top">Int</a>], <a href="http://www.scala-lang.org/api/2.11.4/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a>, <a href="http://www.scala-lang.org/api/2.11.4/index.html#scala.Any" class="extype" target="_top">Any</a></div>
-        </div><div class="toggleContainer block diagram-container" id="inheritance-diagram-container">
-                <span class="toggle diagram-link">Type Hierarchy</span>
-                <a href="http://docs.scala-lang.org/overviews/scaladoc/usage.html#diagrams" target="_blank" class="diagram-help">Learn more about scaladoc diagrams</a>
-                <div class="diagram" id="inheritance-diagram"><svg class="class-diagram" id="graph4" viewBox="0.00 0.00 315.50 118.00" height="118pt" width="316pt" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"><g transform="scale(1 1) rotate(0) translate(4 114)" class="graph" id="graph0"><polygon points="-4,4 -4,-114 311.5,-114 311.5,4 -4,4" stroke="none" fill="white"></polygon><g class="cluster" id="clust1"></g><g class="cluster" id="clust2"></g><!-- node0 --><g class="node this trait" id="graph4_0"><g id="a_this trait|graph4_0"><a xlink:title="scodec.bits.ByteVector (this trait)" xlink:href="#inheritance-diagram"><polygon points="224,-49 132,-49 132,-24 224,-24 224,-49" stroke="#37657d" fill="#498aad"></polygon><image xlink:href="../../lib/trait_diagram.png" y="-43.5" x="142" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-33.7495" x="162.931" text-anchor="start">ByteVector</text></a></g></g><!-- node1 --><g class="node trait" id="graph4_1"><g id="a_trait|graph4_1"><a xlink:title="scodec.bits.BitwiseOperations" xlink:href="BitwiseOperations.html#inheritance-diagram"><polygon points="194,-110 0,-110 0,-85 194,-85 194,-110" stroke="#37657d" fill="#498aad"></polygon><image xlink:href="../../lib/trait_diagram.png" y="-104.5" x="10" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-94.7495" x="30.7959" text-anchor="start">BitwiseOperations[ByteVector, Int]</text></a></g></g><!-- node1&#45;&gt;node0 --><g class="edge inheritance" id="graph4_1_0"><g id="a_inheritance|graph4_1_0"><a xlink:title="ByteVector is a subtype of BitwiseOperations[ByteVector, Int]"><path d="M117.156,-81.8185C131.016,-71.7228 149.17,-58.4995 162.03,-49.1323" stroke="#d4d4d4" fill="none"></path><polygon points="116.014,-80.4851 113.003,-84.8435 118.075,-83.3142 116.014,-80.4851" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node2 --><g class="node trait" id="graph4_2"><g id="a_trait|graph4_2"><a xlink:title="scala.Serializable"><polygon points="307.5,-110 212.5,-110 212.5,-85 307.5,-85 307.5,-110" stroke="#37657d" fill="#498aad"></polygon><image xlink:href="../../lib/trait_diagram.png" y="-104.5" x="223" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-94.7495" x="243.764" text-anchor="start">Serializable</text></a></g></g><!-- node2&#45;&gt;node0 --><g class="edge inheritance" id="graph4_2_0"><g id="a_inheritance|graph4_2_0"><a xlink:title="ByteVector is a subtype of Serializable"><path d="M239.595,-81.8185C225.564,-71.7228 207.186,-58.4995 194.167,-49.1323" stroke="#d4d4d4" fill="none"></path><polygon points="238.719,-83.3438 243.799,-84.8435 240.763,-80.5027 238.719,-83.3438" stroke="#d4d4d4" fill="none"></polygon></a></g></g></g></svg></div>
-              </div></div>
+        </div></div>
         
 
       <div id="mbrsel">
@@ -617,6 +613,23 @@ does not have <code>n</code> bytes or an error occurs while decoding, an error i
       <p class="shortcomment cmt">Returns a vector with the same contents as this vector but with a single compacted node made up
 by evaluating all internal nodes and concatenating their values.</p>
     </li><li name="scodec.bits.ByteVector#copyToArray" visbl="pub" data-isabs="false" fullComment="no" group="conversions">
+      <a id="copyToArray(xs:Array[Byte],start:Int,offset:Int,size:Int):Unit"></a>
+      <a id="copyToArray(Array[Byte],Int,Int,Int):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">copyToArray</span><span class="params">(<span name="xs">xs: <a href="http://www.scala-lang.org/api/2.11.4/index.html#scala.Array" class="extype" target="_top">Array</a>[<a href="http://www.scala-lang.org/api/2.11.4/index.html#scala.Byte" class="extype" target="_top">Byte</a>]</span>, <span name="start">start: <a href="http://www.scala-lang.org/api/2.11.4/index.html#scala.Int" class="extype" target="_top">Int</a></span>, <span name="offset">offset: <a href="http://www.scala-lang.org/api/2.11.4/index.html#scala.Int" class="extype" target="_top">Int</a></span>, <span name="size">size: <a href="http://www.scala-lang.org/api/2.11.4/index.html#scala.Int" class="extype" target="_top">Int</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.4/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scodec.bits.ByteVector@copyToArray(xs:Array[Byte],start:Int,offset:Int,size:Int):Unit" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Copies <code>size</code> bytes of this vector, starting at index <code>offset</code>, to array <code>xs</code>, beginning at index <code>start</code>.</p>
+    </li><li name="scodec.bits.ByteVector#copyToArray" visbl="pub" data-isabs="false" fullComment="no" group="conversions">
       <a id="copyToArray(xs:Array[Byte],start:Int):Unit"></a>
       <a id="copyToArray(Array[Byte],Int):Unit"></a>
       <h4 class="signature">
@@ -650,6 +663,42 @@ by evaluating all internal nodes and concatenating their values.</p>
       </a>
     </span>
       <p class="shortcomment cmt">Copies the contents of this vector to OutputStream <code>s</code>.</p>
+    </li><li name="scodec.bits.ByteVector#decrypt" visbl="pub" data-isabs="false" fullComment="yes" group="crypto">
+      <a id="decrypt(ci:javax.crypto.Cipher,key:java.security.Key,aparams:Option[java.security.AlgorithmParameters])(implicitsr:java.security.SecureRandom):Either[java.security.GeneralSecurityException,scodec.bits.ByteVector]"></a>
+      <a id="decrypt(Cipher,Key,Option[AlgorithmParameters])(SecureRandom):Either[GeneralSecurityException,ByteVector]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">decrypt</span><span class="params">(<span name="ci">ci: <span class="extype" name="javax.crypto.Cipher">Cipher</span></span>, <span name="key">key: <span class="extype" name="java.security.Key">Key</span></span>, <span name="aparams">aparams: <a href="http://www.scala-lang.org/api/2.11.4/index.html#scala.Option" class="extype" target="_top">Option</a>[<span class="extype" name="java.security.AlgorithmParameters">AlgorithmParameters</span>] = <span class="symbol">None</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="sr">sr: <span class="extype" name="java.security.SecureRandom">SecureRandom</span></span>)</span><span class="result">: <span class="extype" name="scala.Either">Either</span>[<span class="extype" name="java.security.GeneralSecurityException">GeneralSecurityException</span>, <a href="" class="extype" name="scodec.bits.ByteVector">ByteVector</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scodec.bits.ByteVector@decrypt(ci:javax.crypto.Cipher,key:java.security.Key,aparams:Option[java.security.AlgorithmParameters])(implicitsr:java.security.SecureRandom):Either[java.security.GeneralSecurityException,scodec.bits.ByteVector]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Decrypts this byte vector using the specified cipher and key.</p><div class="fullcomment"><div class="comment cmt"><p>Decrypts this byte vector using the specified cipher and key.
+</p></div><dl class="paramcmts block"><dt class="param">ci</dt><dd class="cmt"><p>cipher to use for decryption</p></dd><dt class="param">key</dt><dd class="cmt"><p>key to decrypt with</p></dd><dt class="param">aparams</dt><dd class="cmt"><p>optional algorithm paramaters used for decryption (e.g., initialization vector)</p></dd><dt class="param">sr</dt><dd class="cmt"><p>secure random</p></dd></dl></div>
+    </li><li name="scodec.bits.ByteVector#deflate" visbl="pub" data-isabs="false" fullComment="yes" group="conversions">
+      <a id="deflate(level:Int,strategy:Int,nowrap:Boolean,chunkSize:Int):scodec.bits.ByteVector"></a>
+      <a id="deflate(Int,Int,Boolean,Int):ByteVector"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">deflate</span><span class="params">(<span name="level">level: <a href="http://www.scala-lang.org/api/2.11.4/index.html#scala.Int" class="extype" target="_top">Int</a> = <span class="symbol">Deflater.DEFAULT_COMPRESSION</span></span>, <span name="strategy">strategy: <a href="http://www.scala-lang.org/api/2.11.4/index.html#scala.Int" class="extype" target="_top">Int</a> = <span class="symbol">Deflater.DEFAULT_STRATEGY</span></span>, <span name="nowrap">nowrap: <a href="http://www.scala-lang.org/api/2.11.4/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">false</span></span>, <span name="chunkSize">chunkSize: <a href="http://www.scala-lang.org/api/2.11.4/index.html#scala.Int" class="extype" target="_top">Int</a> = <span class="symbol">4096</span></span>)</span><span class="result">: <a href="" class="extype" name="scodec.bits.ByteVector">ByteVector</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scodec.bits.ByteVector@deflate(level:Int,strategy:Int,nowrap:Boolean,chunkSize:Int):scodec.bits.ByteVector" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Compresses this vector using ZLIB.</p><div class="fullcomment"><div class="comment cmt"><p>Compresses this vector using ZLIB.
+</p></div><dl class="paramcmts block"><dt class="param">level</dt><dd class="cmt"><p>compression level, 0-9, with 0 disabling compression and 9 being highest level of compression -- see <code>java.util.zip.Deflater</code> for details</p></dd><dt class="param">strategy</dt><dd class="cmt"><p>compression strategy -- see <code>java.util.zip.Deflater</code> for details</p></dd><dt class="param">nowrap</dt><dd class="cmt"><p>if true, ZLIB header and checksum will not be used</p></dd><dt class="param">chunkSize</dt><dd class="cmt"><p>buffer size, in bytes, to use when compressing</p></dd></dl></div>
     </li><li name="scodec.bits.ByteVector#digest" visbl="pub" data-isabs="false" fullComment="yes" group="conversions">
       <a id="digest(digest:java.security.MessageDigest):scodec.bits.ByteVector"></a>
       <a id="digest(MessageDigest):ByteVector"></a>
@@ -720,6 +769,24 @@ by evaluating all internal nodes and concatenating their values.</p>
     </span>
       <p class="shortcomment cmt">Returns a vector of all bytes in this vector except the last <code>n</code> bytes.</p><div class="fullcomment"><div class="comment cmt"><p>Returns a vector of all bytes in this vector except the last <code>n</code> bytes.</p><p>The resulting vector's size is <code>0 max (size - n)</code>.
 </p></div></div>
+    </li><li name="scodec.bits.ByteVector#encrypt" visbl="pub" data-isabs="false" fullComment="yes" group="crypto">
+      <a id="encrypt(ci:javax.crypto.Cipher,key:java.security.Key,aparams:Option[java.security.AlgorithmParameters])(implicitsr:java.security.SecureRandom):Either[java.security.GeneralSecurityException,scodec.bits.ByteVector]"></a>
+      <a id="encrypt(Cipher,Key,Option[AlgorithmParameters])(SecureRandom):Either[GeneralSecurityException,ByteVector]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">encrypt</span><span class="params">(<span name="ci">ci: <span class="extype" name="javax.crypto.Cipher">Cipher</span></span>, <span name="key">key: <span class="extype" name="java.security.Key">Key</span></span>, <span name="aparams">aparams: <a href="http://www.scala-lang.org/api/2.11.4/index.html#scala.Option" class="extype" target="_top">Option</a>[<span class="extype" name="java.security.AlgorithmParameters">AlgorithmParameters</span>] = <span class="symbol">None</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="sr">sr: <span class="extype" name="java.security.SecureRandom">SecureRandom</span></span>)</span><span class="result">: <span class="extype" name="scala.Either">Either</span>[<span class="extype" name="java.security.GeneralSecurityException">GeneralSecurityException</span>, <a href="" class="extype" name="scodec.bits.ByteVector">ByteVector</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scodec.bits.ByteVector@encrypt(ci:javax.crypto.Cipher,key:java.security.Key,aparams:Option[java.security.AlgorithmParameters])(implicitsr:java.security.SecureRandom):Either[java.security.GeneralSecurityException,scodec.bits.ByteVector]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Encrypts this byte vector using the specified cipher and key.</p><div class="fullcomment"><div class="comment cmt"><p>Encrypts this byte vector using the specified cipher and key.
+</p></div><dl class="paramcmts block"><dt class="param">ci</dt><dd class="cmt"><p>cipher to use for encryption</p></dd><dt class="param">key</dt><dd class="cmt"><p>key to encrypt with</p></dd><dt class="param">aparams</dt><dd class="cmt"><p>optional algorithm paramaters used for encryption (e.g., initialization vector)</p></dd><dt class="param">sr</dt><dd class="cmt"><p>secure random</p></dd></dl></div>
     </li><li name="scodec.bits.ByteVector#endsWith" visbl="pub" data-isabs="false" fullComment="no" group="collection">
       <a id="endsWith(b:scodec.bits.ByteVector):Boolean"></a>
       <a id="endsWith(ByteVector):Boolean"></a>
@@ -1125,6 +1192,24 @@ by evaluating all internal nodes and concatenating their values.</p>
       </a>
     </span>
       <p class="shortcomment cmt">Finds the first index of the specified byte pattern in this vector.</p><div class="fullcomment"><div class="comment cmt"><p>Finds the first index of the specified byte pattern in this vector.</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>index of slice or -1 if not found</p></dd></dl></div>
+    </li><li name="scodec.bits.ByteVector#inflate" visbl="pub" data-isabs="false" fullComment="yes" group="conversions">
+      <a id="inflate(chunkSize:Int):Either[java.util.zip.DataFormatException,scodec.bits.ByteVector]"></a>
+      <a id="inflate(Int):Either[DataFormatException,ByteVector]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">inflate</span><span class="params">(<span name="chunkSize">chunkSize: <a href="http://www.scala-lang.org/api/2.11.4/index.html#scala.Int" class="extype" target="_top">Int</a> = <span class="symbol">4096</span></span>)</span><span class="result">: <span class="extype" name="scala.Either">Either</span>[<span class="extype" name="java.util.zip.DataFormatException">DataFormatException</span>, <a href="" class="extype" name="scodec.bits.ByteVector">ByteVector</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scodec.bits.ByteVector@inflate(chunkSize:Int):Either[java.util.zip.DataFormatException,scodec.bits.ByteVector]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Decompresses this vector using ZLIB.</p><div class="fullcomment"><div class="comment cmt"><p>Decompresses this vector using ZLIB.
+</p></div><dl class="paramcmts block"><dt class="param">chunkSize</dt><dd class="cmt"><p>buffer size, in bytes, to use when compressing</p></dd></dl></div>
     </li><li name="scodec.bits.ByteVector#init" visbl="pub" data-isabs="false" fullComment="no" group="collection">
       <a id="init:scodec.bits.ByteVector"></a>
       <a id="init:ByteVector"></a>
@@ -2342,6 +2427,9 @@ This method returns a view and hence, is O(1). Call <a href="#compact:scodec.bit
               
             </div><div class="group" name="buffer">
               <h3>Buffering</h3>
+              
+            </div><div class="group" name="crypto">
+              <h3>Cryptography</h3>
               
             </div><div class="group" name="Ungrouped">
               <h3>Ungrouped</h3>

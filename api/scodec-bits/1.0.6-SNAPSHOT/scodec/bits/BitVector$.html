@@ -48,7 +48,7 @@
       </h4>
       
           <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Companion for <a href="BitVector.html" class="extype" name="scodec.bits.BitVector">BitVector</a>.
-</p></div><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/scodec/${scodecModule.value}/tree/series/1.0.x/src/main/scala/scodec/bits/BitVector.scala" target="_blank">BitVector.scala</a></dd></dl><div class="toggleContainer block">
+</p></div><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/scodec/scodec-bits/tree/series/1.0.x/src/main/scala/scodec/bits/BitVector.scala" target="_blank">BitVector.scala</a></dd></dl><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
           <div class="superTypes hiddenContent"><a href="http://www.scala-lang.org/api/2.11.4/index.html#scala.Serializable" class="extype" target="_top">Serializable</a>, <span class="extype" name="java.io.Serializable">Serializable</span>, <a href="http://www.scala-lang.org/api/2.11.4/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a>, <a href="http://www.scala-lang.org/api/2.11.4/index.html#scala.Any" class="extype" target="_top">Any</a></div>
         </div></div>
@@ -537,8 +537,8 @@ This method has runtime O(1).</p></div></div>
       </a>
     </span>
       <p class="shortcomment cmt">Produce a lazy <code>BitVector</code> from the given <code>ReadableByteChannel</code>, using <code>chunkSizeInBytes</code>
-to control the number of bytes read in each chunk (defaulting to 8k).</p><div class="fullcomment"><div class="comment cmt"><p>Produce a lazy <code>BitVector</code> from the given <code>ReadableByteChannel</code>, using <code>chunkSizeInBytes</code>
-to control the number of bytes read in each chunk (defaulting to 8k). This function
+to control the number of bytes read in each chunk (defaulting to 16MB).</p><div class="fullcomment"><div class="comment cmt"><p>Produce a lazy <code>BitVector</code> from the given <code>ReadableByteChannel</code>, using <code>chunkSizeInBytes</code>
+to control the number of bytes read in each chunk (defaulting to 16MB). This function
 does lazy I/O, see <span class="extype" name="scodec.BitVector.fromInputStream">scodec.BitVector.fromInputStream</span> for caveats. The <code>direct</code>
 parameter, if <code>true</code>, allows for (but does not enforce) using a 'direct' <span class="extype" name="java.nio.ByteBuffer">java.nio.ByteBuffer</span>
 for each chunk, which means the buffer and corresponding <code>BitVector</code> chunk may be backed by a
@@ -596,8 +596,8 @@ for each chunk, which means the buffer and corresponding <code>BitVector</code> 
       </a>
     </span>
       <p class="shortcomment cmt">Produce a lazy <code>BitVector</code> from the given <code>InputStream</code>, using <code>chunkSizeInBytes</code>
-to control the number of bytes read in each chunk (defaulting to 4MB).</p><div class="fullcomment"><div class="comment cmt"><p>Produce a lazy <code>BitVector</code> from the given <code>InputStream</code>, using <code>chunkSizeInBytes</code>
-to control the number of bytes read in each chunk (defaulting to 4MB).
+to control the number of bytes read in each chunk (defaulting to 16MB).</p><div class="fullcomment"><div class="comment cmt"><p>Produce a lazy <code>BitVector</code> from the given <code>InputStream</code>, using <code>chunkSizeInBytes</code>
+to control the number of bytes read in each chunk (defaulting to 16MB).
 This simply calls <span class="extype" name="scodec.BitVector.unfold">scodec.BitVector.unfold</span> with a function to extract a series
 of flat byte arrays from the <code>InputStream</code>.</p><p>This function does not handle closing the <code>InputStream</code> and has all the usual
 drawbacks of lazy I/O - <code>I/O</code> exceptions may be raised unexpectedly in pure code as

@@ -758,6 +758,57 @@ to copy all the bytes in this <code>BitVector</code>, unlike <code>compact</code
 may no-op if this <code>BitVector</code> already consists of a single <code>ByteVector</code>
 chunk.
 </p></div></div>
+    </li><li name="scodec.bits.BitVector#decodeAscii" visbl="pub" data-isabs="false" fullComment="no" group="conversions">
+      <a id="decodeAscii:Either[java.nio.charset.CharacterCodingException,String]"></a>
+      <a id="decodeAscii:Either[CharacterCodingException,String]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">decodeAscii</span><span class="result">: <span class="extype" name="scala.Either">Either</span>[<span class="extype" name="java.nio.charset.CharacterCodingException">CharacterCodingException</span>, <span class="extype" name="scala.Predef.String">String</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scodec.bits.BitVector@decodeAscii:Either[java.nio.charset.CharacterCodingException,String]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Decodes this vector as a string using the US-ASCII charset.</p>
+    </li><li name="scodec.bits.BitVector#decodeString" visbl="pub" data-isabs="false" fullComment="no" group="conversions">
+      <a id="decodeString(implicitcharset:java.nio.charset.Charset):Either[java.nio.charset.CharacterCodingException,String]"></a>
+      <a id="decodeString(Charset):Either[CharacterCodingException,String]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">decodeString</span><span class="params">(<span class="implicit">implicit </span><span name="charset">charset: <span class="extype" name="java.nio.charset.Charset">Charset</span></span>)</span><span class="result">: <span class="extype" name="scala.Either">Either</span>[<span class="extype" name="java.nio.charset.CharacterCodingException">CharacterCodingException</span>, <span class="extype" name="scala.Predef.String">String</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scodec.bits.BitVector@decodeString(implicitcharset:java.nio.charset.Charset):Either[java.nio.charset.CharacterCodingException,String]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Decodes this vector as a string using the implicitly available charset.</p>
+    </li><li name="scodec.bits.BitVector#decodeUtf8" visbl="pub" data-isabs="false" fullComment="no" group="conversions">
+      <a id="decodeUtf8:Either[java.nio.charset.CharacterCodingException,String]"></a>
+      <a id="decodeUtf8:Either[CharacterCodingException,String]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">decodeUtf8</span><span class="result">: <span class="extype" name="scala.Either">Either</span>[<span class="extype" name="java.nio.charset.CharacterCodingException">CharacterCodingException</span>, <span class="extype" name="scala.Predef.String">String</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scodec.bits.BitVector@decodeUtf8:Either[java.nio.charset.CharacterCodingException,String]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Decodes this vector as a string using the UTF-8 charset.</p>
     </li><li name="scodec.bits.BitVector#decrypt" visbl="pub" data-isabs="false" fullComment="yes" group="crypto">
       <a id="decrypt(ci:javax.crypto.Cipher,key:java.security.Key,aparams:Option[java.security.AlgorithmParameters])(implicitsr:java.security.SecureRandom):Either[java.security.GeneralSecurityException,scodec.bits.BitVector]"></a>
       <a id="decrypt(Cipher,Key,Option[AlgorithmParameters])(SecureRandom):Either[GeneralSecurityException,BitVector]"></a>

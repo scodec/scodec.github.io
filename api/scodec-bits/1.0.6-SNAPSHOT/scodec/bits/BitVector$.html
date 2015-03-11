@@ -198,7 +198,7 @@ byte is used of each integral value.</p></div></div>
     </span>
       <p class="shortcomment cmt">Constructs a <code>BitVector</code> from an <code>Array[Byte]</code>.</p><div class="fullcomment"><div class="comment cmt"><p>Constructs a <code>BitVector</code> from an <code>Array[Byte]</code>. The given <code>Array[Byte]</code> is
 is copied to ensure the resulting <code>BitVector</code> is immutable.
-If this is not desired, use <code><a href="#view(bs:Array[Byte],sizeInBits:Long):scodec.bits.BitVector" class="extmbr" name="scodec.bits.BitVector#view">BitVector.view</a></code>.</p></div></div>
+If this is not desired, use <code>BitVector.view</code>.</p></div></div>
     </li><li name="scodec.bits.BitVector#apply" visbl="pub" data-isabs="false" fullComment="yes" group="constructors">
       <a id="apply(buffer:java.nio.ByteBuffer):scodec.bits.BitVector"></a>
       <a id="apply(ByteBuffer):BitVector"></a>
@@ -217,7 +217,7 @@ If this is not desired, use <code><a href="#view(bs:Array[Byte],sizeInBits:Long)
     </span>
       <p class="shortcomment cmt">Constructs a <code>BitVector</code> from a <code>ByteBuffer</code>.</p><div class="fullcomment"><div class="comment cmt"><p>Constructs a <code>BitVector</code> from a <code>ByteBuffer</code>. The given <code>ByteBuffer</code> is
 is copied to ensure the resulting <code>BitVector</code> is immutable.
-If this is not desired, use <code><a href="#view(bs:Array[Byte],sizeInBits:Long):scodec.bits.BitVector" class="extmbr" name="scodec.bits.BitVector#view">BitVector.view</a></code>.</p></div></div>
+If this is not desired, use <code>BitVector.view</code>.</p></div></div>
     </li><li name="scodec.bits.BitVector#apply" visbl="pub" data-isabs="false" fullComment="yes" group="constructors">
       <a id="apply(bs:scodec.bits.ByteVector):scodec.bits.BitVector"></a>
       <a id="apply(ByteVector):BitVector"></a>
@@ -361,6 +361,57 @@ This method has runtime O(1).</p></div></div>
       </a>
     </span>
       <p class="shortcomment cmt">Empty bit vector.</p>
+    </li><li name="scodec.bits.BitVector#encodeAscii" visbl="pub" data-isabs="false" fullComment="no" group="constructors">
+      <a id="encodeAscii(str:String):Either[java.nio.charset.CharacterCodingException,scodec.bits.BitVector]"></a>
+      <a id="encodeAscii(String):Either[CharacterCodingException,BitVector]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">encodeAscii</span><span class="params">(<span name="str">str: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Either">Either</span>[<span class="extype" name="java.nio.charset.CharacterCodingException">CharacterCodingException</span>, <a href="BitVector.html" class="extype" name="scodec.bits.BitVector">BitVector</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scodec.bits.BitVector$@encodeAscii(str:String):Either[java.nio.charset.CharacterCodingException,scodec.bits.BitVector]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Encodes the specified string to a <code>BitVector</code> using the US-ASCII charset.</p>
+    </li><li name="scodec.bits.BitVector#encodeString" visbl="pub" data-isabs="false" fullComment="no" group="constructors">
+      <a id="encodeString(str:String)(implicitcharset:java.nio.charset.Charset):Either[java.nio.charset.CharacterCodingException,scodec.bits.BitVector]"></a>
+      <a id="encodeString(String)(Charset):Either[CharacterCodingException,BitVector]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">encodeString</span><span class="params">(<span name="str">str: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="charset">charset: <span class="extype" name="java.nio.charset.Charset">Charset</span></span>)</span><span class="result">: <span class="extype" name="scala.Either">Either</span>[<span class="extype" name="java.nio.charset.CharacterCodingException">CharacterCodingException</span>, <a href="BitVector.html" class="extype" name="scodec.bits.BitVector">BitVector</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scodec.bits.BitVector$@encodeString(str:String)(implicitcharset:java.nio.charset.Charset):Either[java.nio.charset.CharacterCodingException,scodec.bits.BitVector]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Encodes the specified string to a <code>BitVector</code> using the implicitly available <code>Charset</code>.</p>
+    </li><li name="scodec.bits.BitVector#encodeUtf8" visbl="pub" data-isabs="false" fullComment="no" group="constructors">
+      <a id="encodeUtf8(str:String):Either[java.nio.charset.CharacterCodingException,scodec.bits.BitVector]"></a>
+      <a id="encodeUtf8(String):Either[CharacterCodingException,BitVector]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">encodeUtf8</span><span class="params">(<span name="str">str: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Either">Either</span>[<span class="extype" name="java.nio.charset.CharacterCodingException">CharacterCodingException</span>, <a href="BitVector.html" class="extype" name="scodec.bits.BitVector">BitVector</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scodec.bits.BitVector$@encodeUtf8(str:String):Either[java.nio.charset.CharacterCodingException,scodec.bits.BitVector]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Encodes the specified string to a <code>BitVector</code> using the UTF-8 charset.</p>
     </li><li name="scala.AnyRef#eq" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="eq(x$1:AnyRef):Boolean"></a>
       <a id="eq(AnyRef):Boolean"></a>
@@ -539,12 +590,12 @@ This method has runtime O(1).</p></div></div>
       <p class="shortcomment cmt">Produce a lazy <code>BitVector</code> from the given <code>ReadableByteChannel</code>, using <code>chunkSizeInBytes</code>
 to control the number of bytes read in each chunk (defaulting to 16MB).</p><div class="fullcomment"><div class="comment cmt"><p>Produce a lazy <code>BitVector</code> from the given <code>ReadableByteChannel</code>, using <code>chunkSizeInBytes</code>
 to control the number of bytes read in each chunk (defaulting to 16MB). This function
-does lazy I/O, see <span class="extype" name="scodec.BitVector.fromInputStream">scodec.BitVector.fromInputStream</span> for caveats. The <code>direct</code>
-parameter, if <code>true</code>, allows for (but does not enforce) using a 'direct' <span class="extype" name="java.nio.ByteBuffer">java.nio.ByteBuffer</span>
+does lazy I/O, see <a href="#fromInputStream(in:java.io.InputStream,chunkSizeInBytes:Int):scodec.bits.BitVector" class="extmbr" name="scodec.bits.BitVector#fromInputStream">scodec.bits.BitVector.fromInputStream</a> for caveats. The <code>direct</code>
+parameter, if <code>true</code>, allows for (but does not enforce) using a 'direct' <code>java.nio.ByteBuffer</code>
 for each chunk, which means the buffer and corresponding <code>BitVector</code> chunk may be backed by a
 'view' rather than an in-memory array. This may be more efficient for some workloads. See
-<span class="extype" name="java.nio.ByteBuffer">java.nio.ByteBuffer</span> for more information.
-</p></div><dl class="paramcmts block"><dt class="param">chunkSizeInBytes</dt><dd class="cmt"><p>the number of bytes to read in each chunk</p></dd><dt class="param">direct</dt><dd class="cmt"><p>true if we should attempt to use a 'direct' <span class="extype" name="java.nio.ByteBuffer">java.nio.ByteBuffer</span> for reads</p></dd></dl></div>
+<code>java.nio.ByteBuffer</code> for more information.
+</p></div><dl class="paramcmts block"><dt class="param">chunkSizeInBytes</dt><dd class="cmt"><p>the number of bytes to read in each chunk</p></dd><dt class="param">direct</dt><dd class="cmt"><p>true if we should attempt to use a 'direct' <code>java.nio.ByteBuffer</code> for reads</p></dd></dl></div>
     </li><li name="scodec.bits.BitVector#fromHex" visbl="pub" data-isabs="false" fullComment="yes" group="base">
       <a id="fromHex(str:String,alphabet:scodec.bits.Bases.HexAlphabet):Option[scodec.bits.BitVector]"></a>
       <a id="fromHex(String,HexAlphabet):Option[BitVector]"></a>
@@ -598,7 +649,7 @@ for each chunk, which means the buffer and corresponding <code>BitVector</code> 
       <p class="shortcomment cmt">Produce a lazy <code>BitVector</code> from the given <code>InputStream</code>, using <code>chunkSizeInBytes</code>
 to control the number of bytes read in each chunk (defaulting to 16MB).</p><div class="fullcomment"><div class="comment cmt"><p>Produce a lazy <code>BitVector</code> from the given <code>InputStream</code>, using <code>chunkSizeInBytes</code>
 to control the number of bytes read in each chunk (defaulting to 16MB).
-This simply calls <span class="extype" name="scodec.BitVector.unfold">scodec.BitVector.unfold</span> with a function to extract a series
+This simply calls <a href="#unfold[S](s:S)(f:S=&gt;Option[(scodec.bits.BitVector,S)]):scodec.bits.BitVector" class="extmbr" name="scodec.bits.BitVector#unfold">scodec.bits.BitVector.unfold</a> with a function to extract a series
 of flat byte arrays from the <code>InputStream</code>.</p><p>This function does not handle closing the <code>InputStream</code> and has all the usual
 drawbacks of lazy I/O - <code>I/O</code> exceptions may be raised unexpectedly in pure code as
 chunks are forced, and it must memoize the results to prevent the underlying side
@@ -659,7 +710,7 @@ stream to be retained in memory.
       <p class="shortcomment cmt">Produce a lazy <code>BitVector</code> from the given <code>FileChannel</code>, using <code>chunkSizeInBytes</code>
 to control the number of bytes read in each chunk (defaulting to 16MB).</p><div class="fullcomment"><div class="comment cmt"><p>Produce a lazy <code>BitVector</code> from the given <code>FileChannel</code>, using <code>chunkSizeInBytes</code>
 to control the number of bytes read in each chunk (defaulting to 16MB). Unlike
-<span class="extype" name="scodec.BitVector.fromChannel">scodec.BitVector.fromChannel</span>, this memory-maps chunks in, rather than copying
+<a href="#fromChannel(in:java.nio.channels.ReadableByteChannel,chunkSizeInBytes:Int,direct:Boolean):scodec.bits.BitVector" class="extmbr" name="scodec.bits.BitVector#fromChannel">scodec.bits.BitVector.fromChannel</a>, this memory-maps chunks in, rather than copying
 them explicitly.</p><p>Behavior is unspecified if this function is used concurrently with the underlying
 file being written.
 </p></div><dl class="paramcmts block"><dt class="param">chunkSizeInBytes</dt><dd class="cmt"><p>the number of bytes to read in each chunk</p></dd></dl></div>

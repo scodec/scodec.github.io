@@ -180,7 +180,7 @@
     </span>
       <p class="shortcomment cmt">Constructs a <code>ByteVector</code> from a <code>ByteBuffer</code>.</p><div class="fullcomment"><div class="comment cmt"><p>Constructs a <code>ByteVector</code> from a <code>ByteBuffer</code>. The given <code>ByteBuffer</code> is
 is copied to ensure the resulting <code>ByteVector</code> is immutable.
-If this is not desired, use <code><a href="#view(at:Int=&gt;Byte,size:Int):scodec.bits.ByteVector" class="extmbr" name="scodec.bits.ByteVector#view">ByteVector.view</a></code>.</p></div></div>
+If this is not desired, use <code>ByteVector.view</code>.</p></div></div>
     </li><li name="scodec.bits.ByteVector#apply" visbl="pub" data-isabs="false" fullComment="yes" group="constructors">
       <a id="apply(bytes:Array[Byte],offset:Int,length:Int):scodec.bits.ByteVector"></a>
       <a id="apply(Array[Byte],Int,Int):ByteVector"></a>
@@ -199,7 +199,7 @@ If this is not desired, use <code><a href="#view(at:Int=&gt;Byte,size:Int):scode
     </span>
       <p class="shortcomment cmt">Constructs a <code>ByteVector</code> from an <code>Array[Byte]</code>, an offset, and a length.</p><div class="fullcomment"><div class="comment cmt"><p>Constructs a <code>ByteVector</code> from an <code>Array[Byte]</code>, an offset, and a length.
 The given <code>Array[Byte]</code> is copied to ensure the resulting <code>ByteVector</code> is immutable.
-If this is not desired, use <code><a href="#view(at:Int=&gt;Byte,size:Int):scodec.bits.ByteVector" class="extmbr" name="scodec.bits.ByteVector#view">ByteVector.view</a></code>.</p></div></div>
+If this is not desired, use <code>ByteVector.view</code>.</p></div></div>
     </li><li name="scodec.bits.ByteVector#apply" visbl="pub" data-isabs="false" fullComment="yes" group="constructors">
       <a id="apply(bytes:Array[Byte]):scodec.bits.ByteVector"></a>
       <a id="apply(Array[Byte]):ByteVector"></a>
@@ -218,7 +218,7 @@ If this is not desired, use <code><a href="#view(at:Int=&gt;Byte,size:Int):scode
     </span>
       <p class="shortcomment cmt">Constructs a <code>ByteVector</code> from an <code>Array[Byte]</code>.</p><div class="fullcomment"><div class="comment cmt"><p>Constructs a <code>ByteVector</code> from an <code>Array[Byte]</code>. The given <code>Array[Byte]</code>
 is copied to ensure the resulting <code>ByteVector</code> is immutable.
-If this is not desired, use <code><a href="#view(at:Int=&gt;Byte,size:Int):scodec.bits.ByteVector" class="extmbr" name="scodec.bits.ByteVector#view">ByteVector.view</a></code>.</p></div></div>
+If this is not desired, use <code>ByteVector.view</code>.</p></div></div>
     </li><li name="scodec.bits.ByteVector#apply" visbl="pub" data-isabs="false" fullComment="no" group="constructors">
       <a id="apply(bytes:Vector[Byte]):scodec.bits.ByteVector"></a>
       <a id="apply(Vector[Byte]):ByteVector"></a>
@@ -328,6 +328,57 @@ byte is used of each integral value.</p></div></div>
       </a>
     </span>
       <p class="shortcomment cmt">Empty byte vector.</p>
+    </li><li name="scodec.bits.ByteVector#encodeAscii" visbl="pub" data-isabs="false" fullComment="no" group="constructors">
+      <a id="encodeAscii(str:String):Either[java.nio.charset.CharacterCodingException,scodec.bits.ByteVector]"></a>
+      <a id="encodeAscii(String):Either[CharacterCodingException,ByteVector]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">encodeAscii</span><span class="params">(<span name="str">str: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Either">Either</span>[<span class="extype" name="java.nio.charset.CharacterCodingException">CharacterCodingException</span>, <a href="ByteVector.html" class="extype" name="scodec.bits.ByteVector">ByteVector</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scodec.bits.ByteVector$@encodeAscii(str:String):Either[java.nio.charset.CharacterCodingException,scodec.bits.ByteVector]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Encodes the specified string to a <code>ByteVector</code> using the US-ASCII charset.</p>
+    </li><li name="scodec.bits.ByteVector#encodeString" visbl="pub" data-isabs="false" fullComment="no" group="constructors">
+      <a id="encodeString(str:String)(implicitcharset:java.nio.charset.Charset):Either[java.nio.charset.CharacterCodingException,scodec.bits.ByteVector]"></a>
+      <a id="encodeString(String)(Charset):Either[CharacterCodingException,ByteVector]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">encodeString</span><span class="params">(<span name="str">str: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="charset">charset: <span class="extype" name="java.nio.charset.Charset">Charset</span></span>)</span><span class="result">: <span class="extype" name="scala.Either">Either</span>[<span class="extype" name="java.nio.charset.CharacterCodingException">CharacterCodingException</span>, <a href="ByteVector.html" class="extype" name="scodec.bits.ByteVector">ByteVector</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scodec.bits.ByteVector$@encodeString(str:String)(implicitcharset:java.nio.charset.Charset):Either[java.nio.charset.CharacterCodingException,scodec.bits.ByteVector]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Encodes the specified string to a <code>ByteVector</code> using the implicitly available <code>Charset</code>.</p>
+    </li><li name="scodec.bits.ByteVector#encodeUtf8" visbl="pub" data-isabs="false" fullComment="no" group="constructors">
+      <a id="encodeUtf8(str:String):Either[java.nio.charset.CharacterCodingException,scodec.bits.ByteVector]"></a>
+      <a id="encodeUtf8(String):Either[CharacterCodingException,ByteVector]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">encodeUtf8</span><span class="params">(<span name="str">str: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Either">Either</span>[<span class="extype" name="java.nio.charset.CharacterCodingException">CharacterCodingException</span>, <a href="ByteVector.html" class="extype" name="scodec.bits.ByteVector">ByteVector</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scodec.bits.ByteVector$@encodeUtf8(str:String):Either[java.nio.charset.CharacterCodingException,scodec.bits.ByteVector]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Encodes the specified string to a <code>ByteVector</code> using the UTF-8 charset.</p>
     </li><li name="scala.AnyRef#eq" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="eq(x$1:AnyRef):Boolean"></a>
       <a id="eq(AnyRef):Boolean"></a>

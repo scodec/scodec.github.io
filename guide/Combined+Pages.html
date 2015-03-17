@@ -342,8 +342,60 @@ trait Codec[A] extends GenCodec[A, A] { ... }
 </p><h2 id="Booleans">Booleans<a href="#Booleans" class="header-link"><span class="header-link-content">&nbsp;</span></a></h2><p>The <code>bool</code> codec is a <code>Codec[Boolean]</code> which encodes a 1-bit vector where <code>0</code> represents <code>false</code> and <code>1</code> represents true.
 </p><p>There’s an overload of <code>bool</code> which takes a bit count — <code>bool(n)</code> — which also is a <code>Codec[Boolean]</code>. When decoding, it treats <code>n</code> consecutive
 <code>0</code>s as <code>false</code> and all other vectors as <code>true</code>. When encoding, <code>true</code> is encoded as <code>n</code> consecutive <code>1</code>s.
-</p><h2 id="Numerics">Numerics<a href="#Numerics" class="header-link"><span class="header-link-content">&nbsp;</span></a></h2><p>TODO
-</p><h2 id="Strings">Strings<a href="#Strings" class="header-link"><span class="header-link-content">&nbsp;</span></a></h2><p>TODO
+</p><h2 id="Numerics">Numerics<a href="#Numerics" class="header-link"><span class="header-link-content">&nbsp;</span></a></h2><p>Codecs are also provided for various numeric types — <code>Int</code>, <code>Long</code>, <code>Short</code>, <code>Float</code>, and <code>Double</code>. Let’s consider first the integral types, <code>Int</code>, <code>Long</code>, and <code>Short</code>, followed by the non-integral types.
+</p><h3 id="Integral+Types">Integral Types<a href="#Integral+Types" class="header-link"><span class="header-link-content">&nbsp;</span></a></h3><p>There are a number of predefined integral codecs defined by methods named according to the form:
+</p><pre><code class=""> [u]int${size}[L]
+</code></pre><p>where <code>u</code> stands for unsigned, <code>size</code> is replaced by one of <code>8, 16, 24, 32, 64</code>, and <code>L</code> stands for little-endian.
+For each codec of that form, the type is <code>Codec[Int]</code> or <code>Codec[Long]</code> depending on the specified size. Signed
+integer codecs use the 2’s complement encoding.
+</p><p>For example, <code>int32</code> supports 32-bit big-endian 2s complement signed integers, and <code>uint16L</code> supports 16-bit little-endian unsigned integers.
+Note: <code>uint64</code> and <code>uint64L</code> are not provided because a 64-bit unsigned integer does not fit in to a <code>Long</code>.
+</p><p>Additionally, methods of the form <code>[u]int[L](size: Int)</code> and <code>[u]long[L](size: Int)</code> exist to build arbitrarily
+sized codecs, within the limitations of <code>Int</code> and <code>Long</code>. Hence, a 13-bit unsigned integer codec is given by <code>uint(13)</code>.
+</p><p>Similarly, <code>Short</code> codecs are provided by <code>short16</code>, <code>short16L</code>, <code>short(size)</code>, <code>shortL(size)</code>, <code>ushort(size)</code>, and <code>ushortL(size)</code>. The signed methods take a size up to <code>16</code> and the unsigned methods take a size up to <code>15</code>.
+</p><h3 id="Non-Integral+Types">Non-Integral Types<a href="#Non-Integral+Types" class="header-link"><span class="header-link-content">&nbsp;</span></a></h3><p><code>Float</code> and <code>Double</code> codecs are provided by <code>float</code> and <code>double</code>. Both use IEEE754, with the former represented as 32-bits and the latter represented as 64-bits.
+</p><h2 id="Strings">Strings<a href="#Strings" class="header-link"><span class="header-link-content">&nbsp;</span></a></h2><p><code>String</code>s are supported by a variety of codecs.
+</p><p>The rawest form is the <code>string</code> method, which takes an implicit <code>java.nio.charset.Charset</code>. The resulting codec encodes strings using the supplied charset — that is, all of the heavy lifting of converting each character to binary is handled directly by the charset. Hence, the <code>string</code> codec is nothing more than glue between the <code>Codec</code> type and <code>Charset</code>.
+</p><p>There are two convenience codecs defined as well, <code>utf8</code> and <code>ascii</code>, which are simply aliases for the <code>string(charset)</code>, passing the <code>UTF-8</code> and <code>US-ASCII</code> charsets.
+</p><p>Codecs returned from <code>string</code>, including <code>utf8</code> and <code>ascii</code>, are greedy. The byte size / character count is
+<em>not</em> encoded in the binary, and hence, it is not safe to decode a vector that has been concatenated with another vector. For example:
+</p><pre><code class="">scala&gt; val pair = utf8 ~ uint8
+pair: scodec.Codec[(String, Int)] = (UTF-8, 8-bit unsigned integer)
+
+scala&gt; val enc = pair.encode((&quot;Hello&quot;, 48))
+enc: scodec.Attempt[scodec.bits.BitVector] =
+  Successful(BitVector(48 bits, 0x48656c6c6f30))
+
+scala&gt; pair.decode(enc.require)
+res1: scodec.Attempt[scodec.DecodeResult[(String, Int)]] =
+  Failure(cannot acquire 8 bits from a vector that contains
+0 bits)
+</code></pre><p>Here, we create a <code>Codec[(String, Int)]</code> using the <code>utf8</code> codec and a <code>uint8</code> codec. We then encoded the pair <code>(&quot;Hello&quot;, 48)</code> and then tried to decode the result. However, we got a failure indicating there were not enough bits. Let’s try decoding the resulting vector using the <code>utf8</code> codec directly:
+</p><pre><code class="">scala&gt; utf8.decode(enc.require)
+res2: scodec.Attempt[scodec.DecodeResult[String]] =
+  Successful(DecodeResult(Hello0,BitVector(empty)))
+</code></pre><p>The result is <code>&quot;Hello0&quot;</code>, not <code>&quot;Hello&quot;</code> as expected. The <code>utf8</code> codec decoded the entire vector, including the <code>0x30</code> byte that originally was written by the <code>uint8</code> codec.
+</p><p>This greediness property is a feature of <code>string</code> — often, the size of a string field in a binary protocol is provided by some external mechanism. For example, by a record size field that is defined in another part of the message.
+</p><p>There are alternatives to <code>string</code>, <code>utf8</code>, and <code>ascii</code> that encode the string’s byte size in the binary — <code>string32</code>, <code>utf8_32</code>, and <code>ascii32</code>. Executing the same example as above with <code>utf8_32</code> instead of <code>utf8</code> yields the expected result:
+</p><pre><code class="">scala&gt; val pair = utf8_32 ~ uint8
+pair: scodec.Codec[(String, Int)] = (string32(UTF-8), 8-bit unsigned integer)
+
+scala&gt; val enc = pair.encode((&quot;Hello&quot;, 48))
+enc: scodec.Attempt[scodec.bits.BitVector] =
+  Successful(BitVector(80 bits, 0x0000000548656c6c6f30))
+
+scala&gt; val dec = pair.decode(enc.require)
+dec: scodec.Attempt[scodec.DecodeResult[(String, Int)]] =
+  Successful(DecodeResult((Hello,48),BitVector(empty)))
+</code></pre><p>By looking at the encoded binary, we can see that the byte size of the string was encoded in a 32-bit field the preceeded the encoded string.
+</p><p>In order to handle size delimited string fields, like the above, except with artibrary size fields, we can use the <code>variableSizeBytes</code> combinator along with <code>string</code>, <code>utf8</code>, or <code>ascii</code>. The <code>variableSizeBytes</code> combinator is covered in more detail in a later section. For now though, consider the following example, which encodes the byte size of the string in an unsigned little-endian 18-bit integer field.
+</p><pre><code class="">scala&gt; val str18 = variableSizeBytes(uintL(18), utf8)
+str18: scodec.Codec[String] = variableSizeBytes(18-bit unsigned integer, UTF-8)
+
+scala&gt; str18.encode(&quot;Hello&quot;)
+res0: scodec.Attempt[scodec.bits.BitVector] =
+  Successful(BitVector(58 bits, 0x050012195b1b1bc))
+</code></pre><p>This has the same benefits as <code>utf8_32</code> except it allows for an arbitrary size field, rather than being limited to a 32-bit size field.
 </p><h1 id="Simple+Construtors+and+Combinators">Simple Construtors and Combinators<a href="#Simple+Construtors+and+Combinators" class="header-link"><span class="header-link-content">&nbsp;</span></a></h1><p>TODO
 </p><h2 id="Constants">Constants<a href="#Constants" class="header-link"><span class="header-link-content">&nbsp;</span></a></h2><h3 id="Literal+Constants">Literal Constants<a href="#Literal+Constants" class="header-link"><span class="header-link-content">&nbsp;</span></a></h3><h2 id="Unit+Codecs">Unit Codecs<a href="#Unit+Codecs" class="header-link"><span class="header-link-content">&nbsp;</span></a></h2><p>TODO - unit, unitM
 </p><h2 id="Context">Context<a href="#Context" class="header-link"><span class="header-link-content">&nbsp;</span></a></h2><p>TODO - withContext, | syntax

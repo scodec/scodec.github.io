@@ -1,12 +1,12 @@
 CACHE MANIFEST
-# Tue Mar 17 17:48:47 PDT 2015
+# Tue Mar 17 17:58:33 PDT 2015
 css/custom.css
 index.html
 scodec-bits.html
 scodec-core.html
 Core+Algebra.html
 Simple+Value+Codecs.html
-Simple+Construtors+and+Combinators.html
+Simple+Constructors+and+Combinators.html
 Collections.html
 Framing.html
 Tuple+Codecs.html

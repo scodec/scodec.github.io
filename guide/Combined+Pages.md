@@ -624,8 +624,8 @@ res0: scodec.Attempt[scodec.bits.BitVector] =
 
 This has the same benefits as `utf8_32` except it allows for an arbitrary size field, rather than being limited to a 32-bit size field.
 
-Simple Construtors and Combinators
-==================================
+Simple Constructors and Combinators
+===================================
 
 ## Constants
 

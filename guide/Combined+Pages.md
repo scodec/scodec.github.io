@@ -624,8 +624,8 @@ res0: scodec.Attempt[scodec.bits.BitVector] =
 
 This has the same benefits as `utf8_32` except it allows for an arbitrary size field, rather than being limited to a 32-bit size field.
 
-Simple Construtors and Combinators
-==================================
+Simple Constructors and Combinators
+===================================
 
 ## Constants
 
@@ -708,6 +708,12 @@ Context stacking is typically used to provide the path in to a large structure, 
 The `|` operator on a `String` is provided as an alias for `withContext` with the arguments reversed -- e.g., `"x" | codec` is equivalent to `codec.withContext("x")`. In standalone examples, `withContext` is typically clearer but in large structures, where each field in a record is labelled with its name, the `|` syntax may be clearer.
 
 ## Miscellaneous
+
+There are a number of other miscellaneous combinators that are useful.
+
+### Complete
+
+
 
 TODO - complete, compact, withToString
 

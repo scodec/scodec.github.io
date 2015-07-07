@@ -1,0 +1,372 @@
+<!DOCTYPE html >
+<html>
+        <head>
+          <title>bits - scodec.bits</title>
+          <meta name="description" content="bits - scodec.bits" />
+          <meta name="keywords" content="bits scodec.bits" />
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+          
+      <link href="../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript" src="../../lib/jquery.js" id="jquery-js"></script>
+      <script type="text/javascript" src="../../lib/jquery-ui.js"></script>
+      <script type="text/javascript" src="../../lib/template.js"></script>
+      <script type="text/javascript" src="../../lib/tools.tooltip.js"></script>
+      <script type="text/javascript" src="../../lib/modernizr.custom.js"></script><script type="text/javascript" src="../../lib/diagrams.js" id="diagrams-js"></script>
+      <script type="text/javascript">
+         if(top === self) {
+            var url = '../../index.html';
+            var hash = 'scodec.bits.package';
+            var anchor = window.location.hash;
+            var anchor_opt = '';
+            if (anchor.length >= 1)
+              anchor_opt = '@' + anchor.substring(1);
+            window.location.href = url + '#' + hash + anchor_opt;
+         }
+   	  </script>
+    
+        </head>
+        <body class="value">
+      <div id="definition">
+        <img src="../../lib/package_big.png" />
+        <p id="owner"><a href="../package.html" class="extype" name="scodec">scodec</a></p>
+        <h1>bits</h1><span class="permalink">
+      <a href="../../index.html#scodec.bits.package" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      </div>
+
+      <h4 id="signature" class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">package</span>
+      </span>
+      <span class="symbol">
+        <span class="name">bits</span>
+      </span>
+      </h4>
+      
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Provides immutable data types for working with bits and bytes.
+</p></div><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/scodec/scodec-bits/tree/master/jvm/../shared/src/main/scala/scodec/bits/package.scala" target="_blank">package.scala</a></dd><dt>See also</dt><dd><span class="cmt"><p><a href="BitVector.html" class="extype" name="scodec.bits.BitVector">BitVector</a> and <a href="ByteVector.html" class="extype" name="scodec.bits.ByteVector">ByteVector</a>
+</p></span></dd></dl><div class="toggleContainer block">
+          <span class="toggle">Linear Supertypes</span>
+          <div class="superTypes hiddenContent"><a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a>, <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Any" class="extype" target="_top">Any</a></div>
+        </div><div class="toggleContainer block diagram-container" id="content-diagram-container">
+                <span class="toggle diagram-link">Content Hierarchy</span>
+                <a href="http://docs.scala-lang.org/overviews/scaladoc/usage.html#diagrams" target="_blank" class="diagram-help">Learn more about scaladoc diagrams</a>
+                <div class="diagram" id="content-diagram"><svg class="package-diagram" id="graph1" viewBox="0.00 0.00 201.50 94.00" height="94pt" width="202pt" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"><g transform="scale(1 1) rotate(0) translate(4 90)" class="graph" id="graph0"><polygon points="-4,4 -4,-90 197.5,-90 197.5,4 -4,4" stroke="none" fill="white"></polygon><!-- node0 --><g class="node trait" id="graph1_0"><g id="a_trait|graph1_0"><a xlink:title="scodec.bits.ByteVector" xlink:href="ByteVector.html#inheritance-diagram"><polygon points="92,-25 0,-25 0,-0 92,-0 92,-25" stroke="#37657d" fill="#498aad"></polygon><image xlink:href="../../lib/trait_diagram.png" y="-19.5" x="10" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-9.74951" x="30.9312" text-anchor="start">ByteVector</text></a></g></g><!-- node1 --><g class="node trait" id="graph1_1"><g id="a_trait|graph1_1"><a xlink:title="scodec.bits.BitwiseOperations" xlink:href="BitwiseOperations.html#inheritance-diagram"><polygon points="183.5,-86 14.5,-86 14.5,-61 183.5,-61 183.5,-86" stroke="#37657d" fill="#498aad"></polygon><image xlink:href="../../lib/trait_diagram.png" y="-80.5" x="25" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-70.7495" x="45.5273" text-anchor="start">BitwiseOperations[Repr, Idx]</text></a></g></g><!-- node1&#45;&gt;node0 --><g class="edge inheritance" id="graph1_1_0"><g id="a_inheritance|graph1_1_0"><a xlink:title="ByteVector is a subtype of BitwiseOperations[Repr, Idx]"><path d="M85.1024,-57.0291C76.1305,-47.0415 64.6463,-34.2572 56.4493,-25.1323" stroke="#d4d4d4" fill="none"></path><polygon points="83.8857,-58.2933 88.5289,-60.8435 86.4894,-55.9544 83.8857,-58.2933" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node2 --><g class="node trait" id="graph1_2"><g id="a_trait|graph1_2"><a xlink:title="scodec.bits.BitVector" xlink:href="BitVector.html#inheritance-diagram"><polygon points="193.5,-25 110.5,-25 110.5,-0 193.5,-0 193.5,-25" stroke="#37657d" fill="#498aad"></polygon><image xlink:href="../../lib/trait_diagram.png" y="-19.5" x="121" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-9.74951" x="141.601" text-anchor="start">BitVector</text></a></g></g><!-- node1&#45;&gt;node2 --><g class="edge inheritance" id="graph1_1_2"><g id="a_inheritance|graph1_1_2"><a xlink:title="BitVector is a subtype of BitwiseOperations[Repr, Idx]"><path d="M112.898,-57.0291C121.87,-47.0415 133.354,-34.2572 141.551,-25.1323" stroke="#d4d4d4" fill="none"></path><polygon points="111.511,-55.9544 109.471,-60.8435 114.114,-58.2933 111.511,-55.9544" stroke="#d4d4d4" fill="none"></polygon></a></g></g></g></svg></div>
+              </div></div>
+        
+
+      <div id="mbrsel">
+        <div id="textfilter"><span class="pre"></span><span class="input"><input id="mbrsel-input" type="text" accesskey="/" /></span><span class="post"></span></div>
+        <div id="order">
+              <span class="filtertype">Ordering</span>
+              <ol>
+                
+                <li class="alpha in"><span>Alphabetic</span></li>
+                <li class="inherit out"><span>By inheritance</span></li>
+              </ol>
+            </div>
+        <div id="ancestors">
+                <span class="filtertype">Inherited<br />
+                </span>
+                <ol id="linearization">
+                  <li class="in" name="scodec.bits"><span>bits</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                </ol>
+              </div><div id="ancestors">
+            <span class="filtertype"></span>
+            <ol>
+              <li class="hideall out"><span>Hide All</span></li>
+              <li class="showall in"><span>Show all</span></li>
+            </ol>
+            <a href="http://docs.scala-lang.org/overviews/scaladoc/usage.html#members" target="_blank">Learn more about member selection</a>
+          </div>
+        <div id="visbl">
+            <span class="filtertype">Visibility</span>
+            <ol><li class="public in"><span>Public</span></li><li class="all out"><span>All</span></li></ol>
+          </div>
+      </div>
+
+      <div id="template">
+        <div id="allMembers">
+        
+
+        <div id="types" class="types members">
+              <h3>Type Members</h3>
+              <ol><li name="scodec.bits.BinStringSyntax" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="BinStringSyntaxextendsAnyVal"></a>
+      <a id="BinStringSyntax:BinStringSyntax"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">implicit final </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="package$$BinStringSyntax.html"><span class="name">BinStringSyntax</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.AnyVal" class="extype" target="_top">AnyVal</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scodec.bits.package@BinStringSyntaxextendsAnyVal" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Provides the <code>bin</code> string interpolator, which returns <code>BitVector</code> instances from binary strings.</p>
+    </li><li name="scodec.bits.BitVector" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="BitVectorextendsBitwiseOperations[scodec.bits.BitVector,Long]withSerializable"></a>
+      <a id="BitVector:BitVector"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">sealed </span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="BitVector.html"><span class="name">BitVector</span></a><span class="result"> extends <a href="BitwiseOperations.html" class="extype" name="scodec.bits.BitwiseOperations">BitwiseOperations</a>[<a href="BitVector.html" class="extype" name="scodec.bits.BitVector">BitVector</a>, <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Long" class="extype" target="_top">Long</a>] with <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scodec.bits.package@BitVectorextendsBitwiseOperations[scodec.bits.BitVector,Long]withSerializable" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Persistent vector of bits, stored as bytes.</p><div class="fullcomment"><div class="comment cmt"><p>Persistent vector of bits, stored as bytes.</p><p>Bits are numbered left to right, starting at 0.
+</p></div></div>
+    </li><li name="scodec.bits.BitwiseOperations" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="BitwiseOperations[Repr&lt;:scodec.bits.BitwiseOperations[Repr,Idx],Idx]extendsAnyRef"></a>
+      <a id="BitwiseOperations[Repr&lt;:BitwiseOperations[Repr,Idx],Idx]:BitwiseOperations[Repr,Idx]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="BitwiseOperations.html"><span class="name">BitwiseOperations</span></a><span class="tparams">[<span name="Repr">Repr &lt;: <a href="BitwiseOperations.html" class="extype" name="scodec.bits.BitwiseOperations">BitwiseOperations</a>[<span class="extype" name="scodec.bits.BitwiseOperations.Repr">Repr</span>, <span class="extype" name="scodec.bits.BitwiseOperations.Idx">Idx</span>]</span>, <span name="Idx">Idx</span>]</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scodec.bits.package@BitwiseOperations[Repr&lt;:scodec.bits.BitwiseOperations[Repr,Idx],Idx]extendsAnyRef" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Bitwise operations on a value of type <code>Repr</code>.</p><div class="fullcomment"><div class="comment cmt"><p>Bitwise operations on a value of type <code>Repr</code>.
+</p></div><dl class="paramcmts block"><dt class="tparam">Repr</dt><dd class="cmt"><p>type that supports that supports bitwise operations</p></dd><dt class="tparam">Idx</dt><dd class="cmt"><p>numeric index type
+</p></dd></dl></div>
+    </li><li name="scodec.bits.ByteOrdering" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="ByteOrderingextendsAnyRef"></a>
+      <a id="ByteOrdering:ByteOrdering"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">sealed </span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="ByteOrdering.html"><span class="name">ByteOrdering</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scodec.bits.package@ByteOrderingextendsAnyRef" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Enumeration of byte ordering.</p>
+    </li><li name="scodec.bits.ByteVector" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="ByteVectorextendsBitwiseOperations[scodec.bits.ByteVector,Int]withSerializable"></a>
+      <a id="ByteVector:ByteVector"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">sealed </span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="ByteVector.html"><span class="name">ByteVector</span></a><span class="result"> extends <a href="BitwiseOperations.html" class="extype" name="scodec.bits.BitwiseOperations">BitwiseOperations</a>[<a href="ByteVector.html" class="extype" name="scodec.bits.ByteVector">ByteVector</a>, <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Int" class="extype" target="_top">Int</a>] with <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scodec.bits.package@ByteVectorextendsBitwiseOperations[scodec.bits.ByteVector,Int]withSerializable" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">An immutable vector of bytes, backed by a balanced binary tree of
+chunks.</p><div class="fullcomment"><div class="comment cmt"><p>An immutable vector of bytes, backed by a balanced binary tree of
+chunks. Most operations are logarithmic in the depth of this tree,
+including <code>++</code>, <code>:+</code>, <code>+:</code>, <code>update</code>, and <code>insert</code>. Where possible,
+operations return lazy views rather than copying any underlying bytes.
+Use <code>copy</code> to copy all underlying bytes to a fresh, array-backed <code>ByteVector</code>.</p><p>Unless otherwise noted, operations follow the same naming as the scala
+standard library collections, though this class does not extend any of the
+standard scala collections. Use <code>toIndexedSeq</code>, <code>toSeq</code>, or <code>toIterable</code>
+to obtain a regular <code>scala.collection</code> type.
+</p></div></div>
+    </li><li name="scodec.bits.HexStringSyntax" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="HexStringSyntaxextendsAnyVal"></a>
+      <a id="HexStringSyntax:HexStringSyntax"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">implicit final </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="package$$HexStringSyntax.html"><span class="name">HexStringSyntax</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.AnyVal" class="extype" target="_top">AnyVal</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scodec.bits.package@HexStringSyntaxextendsAnyVal" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Provides the <code>hex</code> string interpolator, which returns <code>ByteVector</code> instances from hexadecimal strings.</p>
+    </li></ol>
+            </div>
+
+        
+
+        <div id="values" class="values members">
+              <h3>Value Members</h3>
+              <ol><li name="scodec.bits.Bases" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Bases"></a>
+      <a id="Bases:Bases"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="Bases$.html"><span class="name">Bases</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scodec.bits.package@Bases" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Provides types related to base conversion -- e.g., binary, hexadecimal, and base 64.</p>
+    </li><li name="scodec.bits.BitVector" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="BitVector"></a>
+      <a id="BitVector:BitVector"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="BitVector$.html"><span class="name">BitVector</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scodec.bits.package@BitVector" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Companion for <a href="BitVector.html" class="extype" name="scodec.bits.BitVector">BitVector</a>.</p>
+    </li><li name="scodec.bits.BuildInfo" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="BuildInfo"></a>
+      <a id="BuildInfo:BuildInfo"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="BuildInfo$.html"><span class="name">BuildInfo</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scodec.bits.package@BuildInfo" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">This object was generated by sbt-buildinfo.</p>
+    </li><li name="scodec.bits.ByteOrdering" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ByteOrdering"></a>
+      <a id="ByteOrdering:ByteOrdering"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="ByteOrdering$.html"><span class="name">ByteOrdering</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scodec.bits.package@ByteOrdering" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Companion for <a href="ByteOrdering.html" class="extype" name="scodec.bits.ByteOrdering">ByteOrdering</a>.</p>
+    </li><li name="scodec.bits.ByteVector" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ByteVector"></a>
+      <a id="ByteVector:ByteVector"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="ByteVector$.html"><span class="name">ByteVector</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scodec.bits.package@ByteVector" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Companion for <a href="ByteVector.html" class="extype" name="scodec.bits.ByteVector">ByteVector</a>.</p>
+    </li><li name="scodec.bits.LiteralSyntaxMacros" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="LiteralSyntaxMacros"></a>
+      <a id="LiteralSyntaxMacros:LiteralSyntaxMacros"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="LiteralSyntaxMacros$.html"><span class="name">LiteralSyntaxMacros</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scodec.bits.package@LiteralSyntaxMacros" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Macros that support binary and hexadecimal literals.</p>
+    </li><li name="scodec.bits.crc" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="crc"></a>
+      <a id="crc:crc"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="crc$.html"><span class="name">crc</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scodec.bits.package@crc" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Provides support for calculating cyclic redundancy checks.</p><div class="fullcomment"><div class="comment cmt"><p>Provides support for calculating cyclic redundancy checks.
+</p></div><dl class="attributes block"> <dt>See also</dt><dd><span class="cmt"><p>http://www.repairfaq.org/filipg/LINK/F_crc_v3.html
+</p></span></dd></dl></div>
+    </li></ol>
+            </div>
+
+        
+
+        
+        </div>
+
+        <div id="inheritedMembers">
+        <div class="parent" name="scala.AnyRef">
+              <h3>Inherited from <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a></h3>
+            </div><div class="parent" name="scala.Any">
+              <h3>Inherited from <a href="http://www.scala-lang.org/api/2.11.6/index.html#scala.Any" class="extype" target="_top">Any</a></h3>
+            </div>
+        
+        </div>
+
+        <div id="groupedMembers">
+        <div class="group" name="Ungrouped">
+              <h3>Ungrouped</h3>
+              
+            </div>
+        </div>
+
+      </div>
+
+      <div id="tooltip"></div>
+
+      <div id="footer">  </div>
+
+
+    </body>
+      </html>

@@ -5,7 +5,7 @@
     <title>scodec - Home</title>
     <link rel="stylesheet" href="/stylesheet.css">
     <link rel="stylesheet" href="/pygments.css">
-    <meta name="generator" content="nanoc 3.7.5">
+    <meta name="generator" content="nanoc 3.8.0">
   </head>
   <body>
     <script>
@@ -30,7 +30,7 @@
 
 <h2 id="scodec-bits">scodec-bits</h2>
 
-<pre><code>libraryDependencies += "org.scodec" %% "scodec-bits" % "1.0.10"
+<pre><code>libraryDependencies += "org.scodec" %% "scodec-bits" % "1.0.11"
 </code></pre>
 
 <p>As of 1.0.7, scodec-bits is released for both the JVM and Scala.js.</p>
@@ -48,6 +48,13 @@
     </tr>
   </thead>
   <tbody>
+    <tr>
+      <td>1.0.11</td>
+      <td><a href="https://github.com/scodec/scodec-bits/blob/v1.0.11/CHANGELOG.md">Changes</a></td>
+      <td><a href="/api/scodec-bits/1.0.11">API</a></td>
+      <td>2.10, 2.11, 2.12.0-M3</td>
+      <td>0.6</td>
+    </tr>
     <tr>
       <td>1.0.10</td>
       <td><a href="https://github.com/scodec/scodec-bits/blob/v1.0.10/CHANGELOG.md">Changes</a></td>
@@ -123,7 +130,7 @@
 
 <h2 id="scodec-core">scodec-core</h2>
 
-<pre><code>libraryDependencies += "org.scodec" %% "scodec-core" % "1.8.2"
+<pre><code>libraryDependencies += "org.scodec" %% "scodec-core" % "1.8.3"
 
 libraryDependencies ++= {
   if (scalaBinaryVersion.value startsWith "2.10")
@@ -150,6 +157,16 @@ libraryDependencies ++= {
     </tr>
   </thead>
   <tbody>
+    <tr>
+      <td>1.8.3</td>
+      <td><a href="https://github.com/scodec/scodec/blob/v1.8.3/CHANGELOG.md">Changes</a></td>
+      <td><a href="http://scodec.org/api/scodec-core/1.8.3">API</a></td>
+      <td>2.10, 2.11, 2.12.0-M2</td>
+      <td>0.6</td>
+      <td>[1.0,2.0)</td>
+      <td>none</td>
+      <td>2.2.5</td>
+    </tr>
     <tr>
       <td>1.8.2</td>
       <td><a href="https://github.com/scodec/scodec/blob/v1.8.2/CHANGELOG.md">Changes</a></td>
@@ -363,7 +380,7 @@ libraryDependencies ++= {
 
 <h2 id="scodec-stream">scodec-stream</h2>
 
-<pre><code>libraryDependencies += "org.scodec" %% "scodec-stream" % "0.10.0"
+<pre><code>libraryDependencies += "org.scodec" %% "scodec-stream" % "0.11.0"
 </code></pre>
 
 <p>The scodec-stream module provides a streaming layer built on top of scodec-core and scalaz-stream. It provides no binary compatibility guarantees until scalaz-stream 1.0 is released.</p>
@@ -380,6 +397,14 @@ libraryDependencies ++= {
     </tr>
   </thead>
   <tbody>
+    <tr>
+      <td>0.11.0</td>
+      <td>N/A</td>
+      <td><a href="http://scodec.org/api/scodec-stream/0.11.0">API</a></td>
+      <td>2.10, 2.11</td>
+      <td>[1.8,1.9)</td>
+      <td>0.8</td>
+    </tr>
     <tr>
       <td>0.10.0</td>
       <td>N/A</td>
@@ -425,7 +450,7 @@ libraryDependencies ++= {
 
 <h2 id="scodec-protocols">scodec-protocols</h2>
 
-<pre><code>libraryDependencies += "org.scodec" %% "scodec-protocols" % "0.7.0"
+<pre><code>libraryDependencies += "org.scodec" %% "scodec-protocols" % "0.10.0"
 </code></pre>
 
 <p>The scodec-protocols module provides implementations of common networking protocols, with a focus on processing libpcap files. It is also a good source of example codecs for real world protocols. It provides no binary compatibility guarantees until scalaz-stream 1.0 is released.</p>

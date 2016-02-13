@@ -420,10 +420,10 @@ libraryDependencies ++= {
 
 <h2 id="scodec-stream">scodec-stream</h2>
 
-<pre><code>libraryDependencies += "org.scodec" %% "scodec-stream" % "0.11.0"
+<pre><code>libraryDependencies += "org.scodec" %% "scodec-stream" % "0.12.0"
 </code></pre>
 
-<p>The scodec-stream module provides a streaming layer built on top of scodec-core and scalaz-stream. It provides no binary compatibility guarantees until scalaz-stream 1.0 is released.</p>
+<p>The scodec-stream module provides a streaming layer built on top of scodec-core and fs2 (formerly scalaz-stream). It provides no binary compatibility guarantees until in the 0.x series.</p>
 
 <table>
   <thead>
@@ -437,6 +437,14 @@ libraryDependencies ++= {
     </tr>
   </thead>
   <tbody>
+    <tr>
+      <td>0.12.0</td>
+      <td>N/A</td>
+      <td><a href="http://scodec.org/api/scodec-stream/0.12.0">API</a></td>
+      <td>2.10, 2.11</td>
+      <td>[1.9,1.10)</td>
+      <td>0.8</td>
+    </tr>
     <tr>
       <td>0.11.0</td>
       <td>N/A</td>
@@ -490,10 +498,10 @@ libraryDependencies ++= {
 
 <h2 id="scodec-protocols">scodec-protocols</h2>
 
-<pre><code>libraryDependencies += "org.scodec" %% "scodec-protocols" % "0.10.0"
+<pre><code>libraryDependencies += "org.scodec" %% "scodec-protocols" % "0.13.0"
 </code></pre>
 
-<p>The scodec-protocols module provides implementations of common networking protocols, with a focus on processing libpcap files. It is also a good source of example codecs for real world protocols. It provides no binary compatibility guarantees until scalaz-stream 1.0 is released.</p>
+<p>The scodec-protocols module provides implementations of common networking protocols, with a focus on processing libpcap files. It is also a good source of example codecs for real world protocols. It provides no binary compatibility guarantees in the 0.x series.</p>
 
 <table>
   <thead>
@@ -506,6 +514,20 @@ libraryDependencies ++= {
     </tr>
   </thead>
   <tbody>
+    <tr>
+      <td>0.13.0</td>
+      <td>N/A</td>
+      <td><a href="http://scodec.org/api/scodec-protocols/0.13.0">API</a></td>
+      <td>2.11</td>
+      <td>0.12.0</td>
+    </tr>
+    <tr>
+      <td>0.12.0</td>
+      <td>N/A</td>
+      <td><a href="http://scodec.org/api/scodec-protocols/0.13.0">API</a></td>
+      <td>2.10, 2.11</td>
+      <td>0.11.0</td>
+    </tr>
     <tr>
       <td>0.10.0</td>
       <td>N/A</td>
@@ -574,7 +596,7 @@ libraryDependencies ++= {
 
 <h2 id="scodec-spire">scodec-spire</h2>
 
-<pre><code>libraryDependencies += "org.scodec" %% "scodec-spire" % "0.2.0"
+<pre><code>libraryDependencies += "org.scodec" %% "scodec-spire" % "0.3.0"
 </code></pre>
 
 <p>The scodec-spire module provides interop between scodec-core and spire.</p>
@@ -591,6 +613,14 @@ libraryDependencies ++= {
     </tr>
   </thead>
   <tbody>
+    <tr>
+      <td>0.3.0</td>
+      <td>N/A</td>
+      <td><a href="http://scodec.org/api/scodec-spire/0.3.0">API</a></td>
+      <td>2.10, 2.11</td>
+      <td>[1.9,1.10)</td>
+      <td>[0.11, 0.12)</td>
+    </tr>
     <tr>
       <td>0.2.0</td>
       <td>N/A</td>

@@ -1,0 +1,303 @@
+<!DOCTYPE html >
+<html>
+        <head>
+          <title>encode - scodec.stream.encode</title>
+          <meta name="description" content="encode - scodec.stream.encode" />
+          <meta name="keywords" content="encode scodec.stream.encode" />
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+          
+      <link href="../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript" src="../../../lib/jquery.js" id="jquery-js"></script>
+      <script type="text/javascript" src="../../../lib/jquery-ui.js"></script>
+      <script type="text/javascript" src="../../../lib/template.js"></script>
+      <script type="text/javascript" src="../../../lib/tools.tooltip.js"></script>
+      <script type="text/javascript" src="../../../lib/modernizr.custom.js"></script><script type="text/javascript" src="../../../lib/diagrams.js" id="diagrams-js"></script>
+      <script type="text/javascript">
+         if(top === self) {
+            var url = '../../../index.html';
+            var hash = 'scodec.stream.encode.package';
+            var anchor = window.location.hash;
+            var anchor_opt = '';
+            if (anchor.length >= 1)
+              anchor_opt = '@' + anchor.substring(1);
+            window.location.href = url + '#' + hash + anchor_opt;
+         }
+   	  </script>
+    
+        </head>
+        <body class="value">
+      <div id="definition">
+        <img src="../../../lib/package_big.png" />
+        <p id="owner"><a href="../../package.html" class="extype" name="scodec">scodec</a>.<a href="../package.html" class="extype" name="scodec.stream">stream</a></p>
+        <h1>encode</h1> <span class="permalink">
+      <a href="../../../index.html#scodec.stream.encode.package" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      </div>
+
+      <h4 id="signature" class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">package</span>
+      </span>
+      <span class="symbol">
+        <span class="name">encode</span>
+      </span>
+      </h4>
+      
+          <div id="comment" class="fullcommenttop"><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/scodec/scodec-stream/tree/v0.9.0/src/main/scala/scodec/stream/encode/package.scala" target="_blank">package.scala</a></dd></dl><div class="toggleContainer block">
+          <span class="toggle">Linear Supertypes</span>
+          <div class="superTypes hiddenContent"><span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
+        </div></div>
+        
+
+      <div id="mbrsel">
+        <div id="textfilter"><span class="pre"></span><span class="input"><input id="mbrsel-input" type="text" accesskey="/" /></span><span class="post"></span></div>
+        <div id="order">
+              <span class="filtertype">Ordering</span>
+              <ol>
+                
+                <li class="alpha in"><span>Alphabetic</span></li>
+                <li class="inherit out"><span>By inheritance</span></li>
+              </ol>
+            </div>
+        <div id="ancestors">
+                <span class="filtertype">Inherited<br />
+                </span>
+                <ol id="linearization">
+                  <li class="in" name="scodec.stream.encode"><span>encode</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                </ol>
+              </div><div id="ancestors">
+            <span class="filtertype"></span>
+            <ol>
+              <li class="hideall out"><span>Hide All</span></li>
+              <li class="showall in"><span>Show all</span></li>
+            </ol>
+            <a href="http://docs.scala-lang.org/overviews/scaladoc/usage.html#members" target="_blank">Learn more about member selection</a>
+          </div>
+        <div id="visbl">
+            <span class="filtertype">Visibility</span>
+            <ol><li class="public in"><span>Public</span></li><li class="all out"><span>All</span></li></ol>
+          </div>
+      </div>
+
+      <div id="template">
+        <div id="allMembers">
+        
+
+        <div id="types" class="types members">
+              <h3>Type Members</h3>
+              <ol><li name="scodec.stream.encode.EncodingError" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="EncodingErrorextendsExceptionwithProductwithSerializable"></a>
+      <a id="EncodingError:EncodingError"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="EncodingError.html"><span class="name">EncodingError</span></a><span class="params">(<span name="err">err: <a href="http://scodec.org/api/scodec-core/1.7.1/index.html#scodec.Err" class="extype" target="_top">Err</a></span>)</span><span class="result"> extends <span class="extype" name="scala.Exception">Exception</span> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#scodec.stream.encode.package@EncodingErrorextendsExceptionwithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="scodec.stream.encode.StreamEncoder" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="StreamEncoder[-A]extendsAnyRef"></a>
+      <a id="StreamEncoder[-A]:StreamEncoder[A]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="StreamEncoder.html"><span class="name">StreamEncoder</span></a><span class="tparams">[<span name="A">-A</span>]</span><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#scodec.stream.encode.package@StreamEncoder[-A]extendsAnyRef" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">A streaming encoding process, represented as a <code>Process1[A,BitVector]</code>.</p>
+    </li></ol>
+            </div>
+
+        
+
+        <div id="values" class="values members">
+              <h3>Value Members</h3>
+              <ol><li name="scodec.stream.encode.StreamEncoder" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="StreamEncoder"></a>
+      <a id="StreamEncoder:StreamEncoder"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="StreamEncoder$.html"><span class="name">StreamEncoder</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#scodec.stream.encode.package@StreamEncoder" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="scodec.stream.encode#emit" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="emit(bits:scodec.bits.BitVector):scodec.stream.encode.StreamEncoder[Nothing]"></a>
+      <a id="emit(BitVector):StreamEncoder[Nothing]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">emit</span><span class="params">(<span name="bits">bits: <a href="http://scodec.org/api/scodec-bits/1.0.6/index.html#scodec.bits.BitVector" class="extype" target="_top">BitVector</a></span>)</span><span class="result">: <a href="StreamEncoder.html" class="extype" name="scodec.stream.encode.StreamEncoder">StreamEncoder</a>[<span class="extype" name="scala.Nothing">Nothing</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#scodec.stream.encode.package@emit(bits:scodec.bits.BitVector):scodec.stream.encode.StreamEncoder[Nothing]" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">A <code>StreamEncoder</code> that emits the given <code>BitVector</code>, then halts.</p>
+    </li><li name="scodec.stream.encode#fail" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="fail(err:scodec.Err):scodec.stream.encode.StreamEncoder[Nothing]"></a>
+      <a id="fail(Err):StreamEncoder[Nothing]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">fail</span><span class="params">(<span name="err">err: <a href="http://scodec.org/api/scodec-core/1.7.1/index.html#scodec.Err" class="extype" target="_top">Err</a></span>)</span><span class="result">: <a href="StreamEncoder.html" class="extype" name="scodec.stream.encode.StreamEncoder">StreamEncoder</a>[<span class="extype" name="scala.Nothing">Nothing</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#scodec.stream.encode.package@fail(err:scodec.Err):scodec.stream.encode.StreamEncoder[Nothing]" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The encoder that consumes no input and halts with the given error message.</p>
+    </li><li name="scodec.stream.encode#fail" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="fail(err:Throwable):scodec.stream.encode.StreamEncoder[Nothing]"></a>
+      <a id="fail(Throwable):StreamEncoder[Nothing]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">fail</span><span class="params">(<span name="err">err: <span class="extype" name="scala.Throwable">Throwable</span></span>)</span><span class="result">: <a href="StreamEncoder.html" class="extype" name="scodec.stream.encode.StreamEncoder">StreamEncoder</a>[<span class="extype" name="scala.Nothing">Nothing</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#scodec.stream.encode.package@fail(err:Throwable):scodec.stream.encode.StreamEncoder[Nothing]" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The encoder that consumes no input and halts with the given error.</p>
+    </li><li name="scodec.stream.encode#halt" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="halt:scodec.stream.encode.StreamEncoder[Nothing]"></a>
+      <a id="halt:StreamEncoder[Nothing]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">halt</span><span class="result">: <a href="StreamEncoder.html" class="extype" name="scodec.stream.encode.StreamEncoder">StreamEncoder</a>[<span class="extype" name="scala.Nothing">Nothing</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#scodec.stream.encode.package@halt:scodec.stream.encode.StreamEncoder[Nothing]" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The encoder that consumes no input and emits no values.</p>
+    </li><li name="scodec.stream.encode#many" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="many[A](implicitA:shapeless.Lazy[scodec.Encoder[A]]):scodec.stream.encode.StreamEncoder[A]"></a>
+      <a id="many[A](Lazy[Encoder[A]]):StreamEncoder[A]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">many</span><span class="tparams">[<span name="A">A</span>]</span><span class="params">(<span class="implicit">implicit </span><span name="A">A: <span class="extype" name="shapeless.Lazy">Lazy</span>[<a href="http://scodec.org/api/scodec-core/1.7.1/index.html#scodec.Encoder" class="extype" target="_top">Encoder</a>[<span class="extype" name="scodec.stream.encode.many.A">A</span>]]</span>)</span><span class="result">: <a href="StreamEncoder.html" class="extype" name="scodec.stream.encode.StreamEncoder">StreamEncoder</a>[<span class="extype" name="scodec.stream.encode.many.A">A</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#scodec.stream.encode.package@many[A](implicitA:shapeless.Lazy[scodec.Encoder[A]]):scodec.stream.encode.StreamEncoder[A]" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">A <code>StreamEncoder</code> which encodes a stream of values.</p>
+    </li><li name="scodec.stream.encode#once" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="once[A](implicitA:shapeless.Lazy[scodec.Encoder[A]]):scodec.stream.encode.StreamEncoder[A]"></a>
+      <a id="once[A](Lazy[Encoder[A]]):StreamEncoder[A]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">once</span><span class="tparams">[<span name="A">A</span>]</span><span class="params">(<span class="implicit">implicit </span><span name="A">A: <span class="extype" name="shapeless.Lazy">Lazy</span>[<a href="http://scodec.org/api/scodec-core/1.7.1/index.html#scodec.Encoder" class="extype" target="_top">Encoder</a>[<span class="extype" name="scodec.stream.encode.once.A">A</span>]]</span>)</span><span class="result">: <a href="StreamEncoder.html" class="extype" name="scodec.stream.encode.StreamEncoder">StreamEncoder</a>[<span class="extype" name="scodec.stream.encode.once.A">A</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#scodec.stream.encode.package@once[A](implicitA:shapeless.Lazy[scodec.Encoder[A]]):scodec.stream.encode.StreamEncoder[A]" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">A <code>StreamEncoder</code> which encodes a single value, then halts.</p>
+    </li><li name="scodec.stream.encode#tryOnce" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="tryOnce[A](implicitA:shapeless.Lazy[scodec.Encoder[A]]):scodec.stream.encode.StreamEncoder[A]"></a>
+      <a id="tryOnce[A](Lazy[Encoder[A]]):StreamEncoder[A]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">tryOnce</span><span class="tparams">[<span name="A">A</span>]</span><span class="params">(<span class="implicit">implicit </span><span name="A">A: <span class="extype" name="shapeless.Lazy">Lazy</span>[<a href="http://scodec.org/api/scodec-core/1.7.1/index.html#scodec.Encoder" class="extype" target="_top">Encoder</a>[<span class="extype" name="scodec.stream.encode.tryOnce.A">A</span>]]</span>)</span><span class="result">: <a href="StreamEncoder.html" class="extype" name="scodec.stream.encode.StreamEncoder">StreamEncoder</a>[<span class="extype" name="scodec.stream.encode.tryOnce.A">A</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#scodec.stream.encode.package@tryOnce[A](implicitA:shapeless.Lazy[scodec.Encoder[A]]):scodec.stream.encode.StreamEncoder[A]" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">A <code>StreamEncoder</code> which encodes a single value, then halts.</p><div class="fullcomment"><div class="comment cmt"><p>A <code>StreamEncoder</code> which encodes a single value, then halts.
+Unlike <code>once</code>, encoding failures are converted to normal termination.
+</p></div></div>
+    </li></ol>
+            </div>
+
+        
+
+        
+        </div>
+
+        <div id="inheritedMembers">
+        <div class="parent" name="scala.AnyRef">
+              <h3>Inherited from <span class="extype" name="scala.AnyRef">AnyRef</span></h3>
+            </div><div class="parent" name="scala.Any">
+              <h3>Inherited from <span class="extype" name="scala.Any">Any</span></h3>
+            </div>
+        
+        </div>
+
+        <div id="groupedMembers">
+        <div class="group" name="Ungrouped">
+              <h3>Ungrouped</h3>
+              
+            </div>
+        </div>
+
+      </div>
+
+      <div id="tooltip"></div>
+
+      <div id="footer">  </div>
+
+
+    </body>
+      </html>

@@ -1,0 +1,1175 @@
+<!DOCTYPE html >
+<html>
+        <head>
+          <title>Decoder - scodec.Decoder</title>
+          <meta name="description" content="Decoder - scodec.Decoder" />
+          <meta name="keywords" content="Decoder scodec.Decoder" />
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+          
+      <link href="../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript" src="../lib/jquery.js" id="jquery-js"></script>
+      <script type="text/javascript" src="../lib/jquery-ui.js"></script>
+      <script type="text/javascript" src="../lib/template.js"></script>
+      <script type="text/javascript" src="../lib/tools.tooltip.js"></script>
+      <script type="text/javascript" src="../lib/modernizr.custom.js"></script><script type="text/javascript" src="../lib/diagrams.js" id="diagrams-js"></script>
+      <script type="text/javascript">
+         if(top === self) {
+            var url = '../index.html';
+            var hash = 'scodec.Decoder';
+            var anchor = window.location.hash;
+            var anchor_opt = '';
+            if (anchor.length >= 1)
+              anchor_opt = '@' + anchor.substring(1);
+            window.location.href = url + '#' + hash + anchor_opt;
+         }
+   	  </script>
+    
+        </head>
+        <body class="type">
+      <div id="definition">
+        <a href="Decoder$.html" title="See companion object"><img alt="Trait/Object" src="../lib/trait_to_object_big.png" /></a>
+        <p id="owner"><a href="package.html" class="extype" name="scodec">scodec</a></p>
+        <h1><a href="Decoder$.html" title="See companion object">Decoder</a></h1><h3><span class="morelinks"><div>
+            Related Docs:
+            <a href="Decoder$.html" title="See companion object">object Decoder</a>
+            | <a href="package.html" class="extype" name="scodec">package scodec</a>
+          </div></span></h3><span class="permalink">
+      <a href="../index.html#scodec.Decoder" title="Permalink" target="_top">
+        <img src="../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      </div>
+
+      <h4 id="signature" class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <span class="name">Decoder</span><span class="tparams">[<span name="A">+A</span>]</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a></span>
+      </span>
+      </h4>
+      
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Supports decoding a value of type <code>A</code> from a <code>BitVector</code>.
+</p></div><dl class="attributes block"> <dt>Self Type</dt><dd><a href="" class="extype" name="scodec.Decoder">Decoder</a>[<span class="extype" name="scodec.Decoder.A">A</span>]</dd><dt>Source</dt><dd><a href="https://github.com/scodec/scodec/tree/v1.8.3/shared/src/main/scala/scodec/Decoder.scala" target="_blank">Decoder.scala</a></dd></dl><div class="toggleContainer block">
+          <span class="toggle">Linear Supertypes</span>
+          <div class="superTypes hiddenContent"><a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a>, <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Any" class="extype" target="_top">Any</a></div>
+        </div><div class="toggleContainer block">
+            <span class="toggle">Known Subclasses</span>
+            <div class="subClasses hiddenContent"><a href="Codec.html" class="extype" name="scodec.Codec">Codec</a>, <a href="codecs/DiscriminatorCodec.html" class="extype" name="scodec.codecs.DiscriminatorCodec">DiscriminatorCodec</a>, <a href="GenCodec.html" class="extype" name="scodec.GenCodec">GenCodec</a>, <a href="codecs/Tuple10Codec.html" class="extype" name="scodec.codecs.Tuple10Codec">Tuple10Codec</a>, <a href="codecs/Tuple11Codec.html" class="extype" name="scodec.codecs.Tuple11Codec">Tuple11Codec</a>, <a href="codecs/Tuple12Codec.html" class="extype" name="scodec.codecs.Tuple12Codec">Tuple12Codec</a>, <a href="codecs/Tuple3Codec.html" class="extype" name="scodec.codecs.Tuple3Codec">Tuple3Codec</a>, <a href="codecs/Tuple4Codec.html" class="extype" name="scodec.codecs.Tuple4Codec">Tuple4Codec</a>, <a href="codecs/Tuple5Codec.html" class="extype" name="scodec.codecs.Tuple5Codec">Tuple5Codec</a>, <a href="codecs/Tuple6Codec.html" class="extype" name="scodec.codecs.Tuple6Codec">Tuple6Codec</a>, <a href="codecs/Tuple7Codec.html" class="extype" name="scodec.codecs.Tuple7Codec">Tuple7Codec</a>, <a href="codecs/Tuple8Codec.html" class="extype" name="scodec.codecs.Tuple8Codec">Tuple8Codec</a>, <a href="codecs/Tuple9Codec.html" class="extype" name="scodec.codecs.Tuple9Codec">Tuple9Codec</a>, <a href="codecs/TupleCodec.html" class="extype" name="scodec.codecs.TupleCodec">TupleCodec</a></div>
+          </div><div class="toggleContainer block diagram-container" id="inheritance-diagram-container">
+                <span class="toggle diagram-link">Type Hierarchy</span>
+                <a href="http://docs.scala-lang.org/overviews/scaladoc/usage.html#diagrams" target="_blank" class="diagram-help">Learn more about scaladoc diagrams</a>
+                <div class="diagram" id="inheritance-diagram"><svg class="class-diagram" id="graph1" viewBox="0.00 0.00 546.00 179.50" height="179pt" width="546pt" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"><g transform="scale(1 1) rotate(0) translate(4 175.499)" class="graph" id="graph0"><polygon points="-4,4 -4,-175.499 542,-175.499 542,4 -4,4" stroke="none" fill="white"></polygon><g class="cluster" id="clust1"></g><g class="cluster" id="clust3"></g><g class="cluster" id="clust2"></g><!-- node4 --><g class="node implicit-outgoing class" id="graph1_4"><g id="a_implicit-outgoing class|graph1_4"><a xlink:title="scodec.Decoder can be implicitly converted to TransformSyntax[Decoder, A] by the implicit method TransformSyntax in package scodec" xlink:href="package$$TransformSyntax.html#inheritance-diagram"><polygon points="396,-93 222,-93 222,-68 396,-68 396,-93" stroke="#ababab" fill="#e1e1e1"></polygon><image xlink:href="../lib/class_diagram.png" y="-87.5" x="232" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#7d7d7d" font-size="10.00" font-family="Arial" y="-77.7495" x="252.991" text-anchor="start">TransformSyntax[Decoder, A]</text></a></g></g><!-- node3 --><g class="node implicit-outgoing class" id="graph1_3"><g id="a_implicit-outgoing class|graph1_3"><a xlink:title="scodec.Decoder can be implicitly converted to EnrichedCoproductDecoder[A] by the implicit method EnrichedCoproductDecoder in package scodec" xlink:href="package$$EnrichedCoproductDecoder.html#inheritance-diagram"><polygon points="203.5,-93 24.5,-93 24.5,-68 203.5,-68 203.5,-93" stroke="#ababab" fill="#e1e1e1"></polygon><image xlink:href="../lib/class_diagram.png" y="-87.5" x="35" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#7d7d7d" font-size="10.00" font-family="Arial" y="-77.7495" x="55.7959" text-anchor="start">EnrichedCoproductDecoder[A]</text></a></g></g><!-- node3&#45;&gt;node4 --><!-- node0 --><g class="node this trait" id="graph1_0"><g id="a_this trait|graph1_0"><a xlink:title="scodec.Decoder (this trait)" xlink:href="#inheritance-diagram"><polygon points="513.5,-93 420.5,-93 420.5,-68 513.5,-68 513.5,-93" stroke="#37657d" fill="#498aad"></polygon><image xlink:href="../lib/trait_diagram.png" y="-87.5" x="431" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-77.7495" x="451.599" text-anchor="start">Decoder[A]</text></a></g></g><!-- node0&#45;&gt;node3 --><g class="edge implicit-outgoing" id="0_3"><g id="a_implicit-outgoing|0_3"><a xlink:title="Decoder[A] can be implicitly converted to EnrichedCoproductDecoder[A], TransformSyntax[Decoder, A]"><path d="M429.516,-100.591C422.509,-103.772 415.14,-106.749 408,-109 374.887,-119.437 365.496,-118.712 330.889,-121.499 279.15,-125.665 221.442,-113.945 178.567,-101.983" stroke="#d4d4d4" fill="none"></path><polygon points="178.965,-100.277 173.677,-100.599 178.012,-103.644 178.965,-100.277" stroke="#d4d4d4" fill="#d4d4d4"></polygon></a></g><text fill="#aaaaaa" font-size="10.00" font-family="Arial" y="-120.499" x="312" text-anchor="middle">implicitly</text></g><!-- node1 --><g class="node trait" id="graph1_1"><g id="a_trait|graph1_1"><a xlink:title="scodec.GenCodec" xlink:href="GenCodec.html#inheritance-diagram"><polygon points="525,-25 409,-25 409,-0 525,-0 525,-25" stroke="#37657d" fill="#498aad"></polygon><image xlink:href="../lib/trait_diagram.png" y="-19.5" x="419" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-9.74951" x="439.98" text-anchor="start">GenCodec[A, B]</text></a></g></g><!-- node0&#45;&gt;node1 --><g class="edge inheritance" id="graph1_0_1"><g id="a_inheritance|graph1_0_1"><a xlink:title="GenCodec[A, B] is a subtype of Decoder[A]"><path d="M467,-62.6005C467,-50.8849 467,-35.583 467,-25.1973" stroke="#d4d4d4" fill="none"></path><polygon points="465.25,-62.7005 467,-67.7005 468.75,-62.7006 465.25,-62.7005" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node2 --><g class="node class" id="graph1_2"><g id="a_class|graph1_2"><a xlink:title="scala.AnyRef"><polygon points="505,-171.499 429,-171.499 429,-146.499 505,-146.499 505,-171.499" stroke="#115f3b" fill="#0a955b"></polygon><image xlink:href="../lib/class_diagram.png" y="-165.999" x="439" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-156.249" x="459.714" text-anchor="start">AnyRef</text></a></g></g><!-- node2&#45;&gt;node0 --><g class="edge inheritance" id="graph1_2_0"><g id="a_inheritance|graph1_2_0"><a xlink:title="Decoder[A] is a subtype of AnyRef"><path d="M467,-141.331C467,-126.795 467,-106.078 467,-93.2279" stroke="#d4d4d4" fill="none"></path><polygon points="465.25,-141.38 467,-146.38 468.75,-141.381 465.25,-141.38" stroke="#d4d4d4" fill="none"></polygon></a></g></g></g></svg></div>
+              </div></div>
+        
+
+      <div id="mbrsel">
+        <div id="textfilter"><span class="pre"></span><span class="input"><input id="mbrsel-input" type="text" accesskey="/" /></span><span class="post"></span></div>
+        <div id="order">
+              <span class="filtertype">Ordering</span>
+              <ol>
+                <li class="group out"><span>Grouped</span></li>
+                <li class="alpha in"><span>Alphabetic</span></li>
+                <li class="inherit out"><span>By inheritance</span></li>
+              </ol>
+            </div>
+        <div id="ancestors">
+                <span class="filtertype">Inherited<br />
+                </span>
+                <ol id="linearization">
+                  <li class="in" name="scodec.Decoder"><span>Decoder</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                </ol>
+              </div><div id="ancestors">
+                <span class="filtertype">Implicitly<br />
+                </span>
+                <ol id="implicits"> <li class="in" name="scodec.EnrichedCoproductDecoder" data-hidden="false"><span>by EnrichedCoproductDecoder</span></li><li class="in" name="scodec.TransformSyntax" data-hidden="false"><span>by TransformSyntax</span></li><li class="in" name="scala.Predef.any2stringadd" data-hidden="true"><span>by any2stringadd</span></li><li class="in" name="scala.Predef.StringFormat" data-hidden="true"><span>by StringFormat</span></li><li class="in" name="scala.Predef.Ensuring" data-hidden="true"><span>by Ensuring</span></li><li class="in" name="scala.Predef.ArrowAssoc" data-hidden="true"><span>by ArrowAssoc</span></li>
+                </ol>
+              </div><div id="ancestors">
+            <span class="filtertype"></span>
+            <ol>
+              <li class="hideall out"><span>Hide All</span></li>
+              <li class="showall in"><span>Show all</span></li>
+            </ol>
+          </div>
+        <div id="visbl">
+            <span class="filtertype">Visibility</span>
+            <ol><li class="public in"><span>Public</span></li><li class="all out"><span>All</span></li></ol>
+          </div>
+      </div>
+
+      <div id="template">
+        <div id="allMembers">
+        
+
+        
+
+        <div id="values" class="values members">
+              <h3>Abstract Value Members</h3>
+              <ol><li name="scodec.Decoder#decode" visbl="pub" data-isabs="true" fullComment="yes" group="primary">
+      <a id="decode(bits:scodec.bits.BitVector):scodec.Attempt[scodec.DecodeResult[A]]"></a>
+      <a id="decode(BitVector):Attempt[DecodeResult[A]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">decode</span><span class="params">(<span name="bits">bits: <a href="http://scodec.org/api/scodec-bits/1.0.11/index.html#scodec.bits.BitVector" class="extype" target="_top">BitVector</a></span>)</span><span class="result">: <a href="Attempt.html" class="extype" name="scodec.Attempt">Attempt</a>[<a href="DecodeResult.html" class="extype" name="scodec.DecodeResult">DecodeResult</a>[<span class="extype" name="scodec.Decoder.A">A</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../index.html#scodec.Decoder@decode(bits:scodec.bits.BitVector):scodec.Attempt[scodec.DecodeResult[A]]" title="Permalink" target="_top">
+        <img src="../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Attempts to decode a value of type <code>A</code> from the specified bit vector.</p><div class="fullcomment"><div class="comment cmt"><p>Attempts to decode a value of type <code>A</code> from the specified bit vector.
+</p></div><dl class="paramcmts block"><dt class="param">bits</dt><dd class="cmt"><p>bits to decode</p></dd><dt>returns</dt><dd class="cmt"><p>error if value could not be decoded or the remaining bits and the decoded value</p></dd></dl></div>
+    </li></ol>
+            </div>
+
+        <div id="values" class="values members">
+              <h3>Concrete Value Members</h3>
+              <ol><li name="scala.AnyRef#!=" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="!=(x$1:Any):Boolean"></a>
+      <a id="!=(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Any" class="extype" target="_top">Any</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../index.html#scodec.Decoder@!=(x$1:Any):Boolean" title="Permalink" target="_top">
+        <img src="../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef###" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="##():Int"></a>
+      <a id="##():Int"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $hash$hash" class="name">##</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Int" class="extype" target="_top">Int</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../index.html#scodec.Decoder@##():Int" title="Permalink" target="_top">
+        <img src="../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.Predef.any2stringadd#+" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="+(other:String):String"></a>
+      <a id="+(String):String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $plus" class="implicit">+</span><span class="params">(<span name="other">other: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../index.html#scodec.Decoder@+(other:String):String" title="Permalink" target="_top">
+        <img src="../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="scodec.Decoder">Decoder</a>[<span class="extype" name="scodec.Decoder.A">A</span>] to
+            <span class="extype" name="scala.Predef.any2stringadd">any2stringadd</span>[<a href="" class="extype" name="scodec.Decoder">Decoder</a>[<span class="extype" name="scodec.Decoder.A">A</span>]] performed by method any2stringadd in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>any2stringadd</dd></dl></div>
+    </li><li name="scala.Predef.ArrowAssoc#-&gt;" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="-&gt;[B](y:B):(A,B)"></a>
+      <a id="-&gt;[B](B):(Decoder[A],B)"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $minus$greater" class="implicit">-&gt;</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="y">y: <span class="extype" name="scala.Predef.ArrowAssoc.-&gt;.B">B</span></span>)</span><span class="result">: (<a href="" class="extype" name="scodec.Decoder">Decoder</a>[<span class="extype" name="scodec.Decoder.A">A</span>], <span class="extype" name="scala.Predef.ArrowAssoc.-&gt;.B">B</span>)</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../index.html#scodec.Decoder@-&gt;[B](y:B):(A,B)" title="Permalink" target="_top">
+        <img src="../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="scodec.Decoder">Decoder</a>[<span class="extype" name="scodec.Decoder.A">A</span>] to
+            <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="scodec.Decoder">Decoder</a>[<span class="extype" name="scodec.Decoder.A">A</span>]] performed by method ArrowAssoc in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>ArrowAssoc</dd><dt>Annotations</dt><dd>
+                <span class="name">@inline</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#==" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="==(x$1:Any):Boolean"></a>
+      <a id="==(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Any" class="extype" target="_top">Any</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../index.html#scodec.Decoder@==(x$1:Any):Boolean" title="Permalink" target="_top">
+        <img src="../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scodec.TransformSyntax#as" visbl="pub" data-isabs="false" fullComment="yes" group="combinators">
+      <a id="as[B](implicitas:scodec.Transformer[A,B]):F[B]"></a>
+      <a id="as[B](Transformer[A,B]):Decoder[B]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">as</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span class="implicit">implicit </span><span name="as">as: <a href="Transformer.html" class="extype" name="scodec.Transformer">Transformer</a>[<span class="extype" name="scodec.Decoder.A">A</span>, <span class="extype" name="scodec.TransformSyntax.as.B">B</span>]</span>)</span><span class="result">: <a href="" class="extype" name="scodec.Decoder">Decoder</a>[<span class="extype" name="scodec.TransformSyntax.as.B">B</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../index.html#scodec.Decoder@as[B](implicitas:scodec.Transformer[A,B]):F[B]" title="Permalink" target="_top">
+        <img src="../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Transforms using implicitly available evidence that such a transformation is possible.</p><div class="fullcomment"><div class="comment cmt"><p>Transforms using implicitly available evidence that such a transformation is possible.</p><p>Typical transformations include converting:</p><ul><li>an <code>F[L]</code> for some <code>L &lt;: HList</code> to/from an <code>F[CC]</code> for some case class <code>CC</code>, where the types in the case class are
+   aligned with the types in <code>L</code></li><li>an <code>F[C]</code> for some <code>C &lt;: Coproduct</code> to/from an <code>F[SC]</code> for some sealed class <code>SC</code>, where the component types in
+   the coproduct are the leaf subtypes of the sealed class.</li></ul></div><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="scodec.Decoder">Decoder</a>[<span class="extype" name="scodec.Decoder.A">A</span>] to
+            <a href="package$$TransformSyntax.html" class="extype" name="scodec.TransformSyntax">TransformSyntax</a>[<a href="" class="extype" name="scodec.Decoder">Decoder</a>, <span class="extype" name="scodec.Decoder.A">A</span>] performed by method TransformSyntax in <a href="package.html" class="extype" name="scodec">scodec</a>.
+            
+          </dd><dt>Definition Classes</dt><dd><a href="package$$TransformSyntax.html" class="extype" name="scodec.TransformSyntax">TransformSyntax</a></dd></dl></div>
+    </li><li name="scodec.Decoder#asDecoder" visbl="pub" data-isabs="false" fullComment="no" group="combinators">
+      <a id="asDecoder:scodec.Decoder[A]"></a>
+      <a id="asDecoder:Decoder[A]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">asDecoder</span><span class="result">: <a href="" class="extype" name="scodec.Decoder">Decoder</a>[<span class="extype" name="scodec.Decoder.A">A</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../index.html#scodec.Decoder@asDecoder:scodec.Decoder[A]" title="Permalink" target="_top">
+        <img src="../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Gets this as a <code>Decoder</code>.</p>
+    </li><li name="scala.Any#asInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="asInstanceOf[T0]:T0"></a>
+      <a id="asInstanceOf[T0]:T0"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">asInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Any.asInstanceOf.T0">T0</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../index.html#scodec.Decoder@asInstanceOf[T0]:T0" title="Permalink" target="_top">
+        <img src="../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="scala.AnyRef#clone" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="clone():Object"></a>
+      <a id="clone():AnyRef"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">clone</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../index.html#scodec.Decoder@clone():Object" title="Permalink" target="_top">
+        <img src="../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.CloneNotSupportedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scodec.Decoder#complete" visbl="pub" data-isabs="false" fullComment="no" group="combinators">
+      <a id="complete:scodec.Decoder[A]"></a>
+      <a id="complete:Decoder[A]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">complete</span><span class="result">: <a href="" class="extype" name="scodec.Decoder">Decoder</a>[<span class="extype" name="scodec.Decoder.A">A</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../index.html#scodec.Decoder@complete:scodec.Decoder[A]" title="Permalink" target="_top">
+        <img src="../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Converts this decoder to a new decoder that fails decoding if there are remaining bits.</p>
+    </li><li name="scodec.Decoder#decodeOnly" visbl="pub" data-isabs="false" fullComment="no" group="combinators">
+      <a id="decodeOnly[AA&gt;:A]:scodec.Codec[AA]"></a>
+      <a id="decodeOnly[AA&gt;:A]:Codec[AA]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">decodeOnly</span><span class="tparams">[<span name="AA">AA &gt;: <span class="extype" name="scodec.Decoder.A">A</span></span>]</span><span class="result">: <a href="Codec.html" class="extype" name="scodec.Codec">Codec</a>[<span class="extype" name="scodec.Decoder.decodeOnly.AA">AA</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../index.html#scodec.Decoder@decodeOnly[AA&gt;:A]:scodec.Codec[AA]" title="Permalink" target="_top">
+        <img src="../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Converts this to a codec that fails encoding with an error.</p>
+    </li><li name="scodec.Decoder#decodeValue" visbl="pub" data-isabs="false" fullComment="yes" group="primary">
+      <a id="decodeValue(bits:scodec.bits.BitVector):scodec.Attempt[A]"></a>
+      <a id="decodeValue(BitVector):Attempt[A]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">decodeValue</span><span class="params">(<span name="bits">bits: <a href="http://scodec.org/api/scodec-bits/1.0.11/index.html#scodec.bits.BitVector" class="extype" target="_top">BitVector</a></span>)</span><span class="result">: <a href="Attempt.html" class="extype" name="scodec.Attempt">Attempt</a>[<span class="extype" name="scodec.Decoder.A">A</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../index.html#scodec.Decoder@decodeValue(bits:scodec.bits.BitVector):scodec.Attempt[A]" title="Permalink" target="_top">
+        <img src="../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Attempts to decode a value of type <code>A</code> from the specified bit vector and discards the remaining bits.</p><div class="fullcomment"><div class="comment cmt"><p>Attempts to decode a value of type <code>A</code> from the specified bit vector and discards the remaining bits.
+</p></div><dl class="paramcmts block"><dt class="param">bits</dt><dd class="cmt"><p>bits to decode</p></dd><dt>returns</dt><dd class="cmt"><p>error if value could not be decoded or the decoded value</p></dd></dl></div>
+    </li><li name="scodec.Decoder#emap" visbl="pub" data-isabs="false" fullComment="no" group="combinators">
+      <a id="emap[B](f:A=&gt;scodec.Attempt[B]):scodec.Decoder[B]"></a>
+      <a id="emap[B]((A)⇒Attempt[B]):Decoder[B]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">emap</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="f">f: (<span class="extype" name="scodec.Decoder.A">A</span>) ⇒ <a href="Attempt.html" class="extype" name="scodec.Attempt">Attempt</a>[<span class="extype" name="scodec.Decoder.emap.B">B</span>]</span>)</span><span class="result">: <a href="" class="extype" name="scodec.Decoder">Decoder</a>[<span class="extype" name="scodec.Decoder.emap.B">B</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../index.html#scodec.Decoder@emap[B](f:A=&gt;scodec.Attempt[B]):scodec.Decoder[B]" title="Permalink" target="_top">
+        <img src="../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Converts this decoder to a <code>Decoder[B]</code> using the supplied <code>A =&gt; Attempt[B]</code>.</p>
+    </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ensuring(cond:A=&gt;Boolean,msg:=&gt;Any):A"></a>
+      <a id="ensuring((Decoder[A])⇒Boolean,⇒Any):Decoder[A]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="scodec.Decoder">Decoder</a>[<span class="extype" name="scodec.Decoder.A">A</span>]) ⇒ <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>, <span name="msg">msg: ⇒ <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Any" class="extype" target="_top">Any</a></span>)</span><span class="result">: <a href="" class="extype" name="scodec.Decoder">Decoder</a>[<span class="extype" name="scodec.Decoder.A">A</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../index.html#scodec.Decoder@ensuring(cond:A=&gt;Boolean,msg:=&gt;Any):A" title="Permalink" target="_top">
+        <img src="../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="scodec.Decoder">Decoder</a>[<span class="extype" name="scodec.Decoder.A">A</span>] to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="scodec.Decoder">Decoder</a>[<span class="extype" name="scodec.Decoder.A">A</span>]] performed by method Ensuring in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
+    </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ensuring(cond:A=&gt;Boolean):A"></a>
+      <a id="ensuring((Decoder[A])⇒Boolean):Decoder[A]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="scodec.Decoder">Decoder</a>[<span class="extype" name="scodec.Decoder.A">A</span>]) ⇒ <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>)</span><span class="result">: <a href="" class="extype" name="scodec.Decoder">Decoder</a>[<span class="extype" name="scodec.Decoder.A">A</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../index.html#scodec.Decoder@ensuring(cond:A=&gt;Boolean):A" title="Permalink" target="_top">
+        <img src="../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="scodec.Decoder">Decoder</a>[<span class="extype" name="scodec.Decoder.A">A</span>] to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="scodec.Decoder">Decoder</a>[<span class="extype" name="scodec.Decoder.A">A</span>]] performed by method Ensuring in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
+    </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ensuring(cond:Boolean,msg:=&gt;Any):A"></a>
+      <a id="ensuring(Boolean,⇒Any):Decoder[A]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>, <span name="msg">msg: ⇒ <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Any" class="extype" target="_top">Any</a></span>)</span><span class="result">: <a href="" class="extype" name="scodec.Decoder">Decoder</a>[<span class="extype" name="scodec.Decoder.A">A</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../index.html#scodec.Decoder@ensuring(cond:Boolean,msg:=&gt;Any):A" title="Permalink" target="_top">
+        <img src="../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="scodec.Decoder">Decoder</a>[<span class="extype" name="scodec.Decoder.A">A</span>] to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="scodec.Decoder">Decoder</a>[<span class="extype" name="scodec.Decoder.A">A</span>]] performed by method Ensuring in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
+    </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ensuring(cond:Boolean):A"></a>
+      <a id="ensuring(Boolean):Decoder[A]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>)</span><span class="result">: <a href="" class="extype" name="scodec.Decoder">Decoder</a>[<span class="extype" name="scodec.Decoder.A">A</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../index.html#scodec.Decoder@ensuring(cond:Boolean):A" title="Permalink" target="_top">
+        <img src="../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="scodec.Decoder">Decoder</a>[<span class="extype" name="scodec.Decoder.A">A</span>] to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="scodec.Decoder">Decoder</a>[<span class="extype" name="scodec.Decoder.A">A</span>]] performed by method Ensuring in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
+    </li><li name="scala.AnyRef#eq" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="eq(x$1:AnyRef):Boolean"></a>
+      <a id="eq(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">eq</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../index.html#scodec.Decoder@eq(x$1:AnyRef):Boolean" title="Permalink" target="_top">
+        <img src="../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#equals" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="equals(x$1:Any):Boolean"></a>
+      <a id="equals(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">equals</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Any" class="extype" target="_top">Any</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../index.html#scodec.Decoder@equals(x$1:Any):Boolean" title="Permalink" target="_top">
+        <img src="../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scodec.TransformSyntax#exmap" visbl="pub" data-isabs="false" fullComment="yes" group="combinators">
+      <a id="exmap[B](f:A=&gt;scodec.Attempt[B],g:B=&gt;scodec.Attempt[A]):F[B]"></a>
+      <a id="exmap[B]((A)⇒Attempt[B],(B)⇒Attempt[A]):Decoder[B]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">exmap</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="f">f: (<span class="extype" name="scodec.Decoder.A">A</span>) ⇒ <a href="Attempt.html" class="extype" name="scodec.Attempt">Attempt</a>[<span class="extype" name="scodec.TransformSyntax.exmap.B">B</span>]</span>, <span name="g">g: (<span class="extype" name="scodec.TransformSyntax.exmap.B">B</span>) ⇒ <a href="Attempt.html" class="extype" name="scodec.Attempt">Attempt</a>[<span class="extype" name="scodec.Decoder.A">A</span>]</span>)</span><span class="result">: <a href="" class="extype" name="scodec.Decoder">Decoder</a>[<span class="extype" name="scodec.TransformSyntax.exmap.B">B</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../index.html#scodec.Decoder@exmap[B](f:A=&gt;scodec.Attempt[B],g:B=&gt;scodec.Attempt[A]):F[B]" title="Permalink" target="_top">
+        <img src="../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Transforms using two functions, <code>A =&gt; Attempt[B]</code> and <code>B =&gt; Attempt[A]</code>.</p><div class="fullcomment"><div class="comment cmt"><p>Transforms using two functions, <code>A =&gt; Attempt[B]</code> and <code>B =&gt; Attempt[A]</code>.</p></div><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="scodec.Decoder">Decoder</a>[<span class="extype" name="scodec.Decoder.A">A</span>] to
+            <a href="package$$TransformSyntax.html" class="extype" name="scodec.TransformSyntax">TransformSyntax</a>[<a href="" class="extype" name="scodec.Decoder">Decoder</a>, <span class="extype" name="scodec.Decoder.A">A</span>] performed by method TransformSyntax in <a href="package.html" class="extype" name="scodec">scodec</a>.
+            
+          </dd><dt>Definition Classes</dt><dd><a href="package$$TransformSyntax.html" class="extype" name="scodec.TransformSyntax">TransformSyntax</a></dd></dl></div>
+    </li><li name="scodec.TransformSyntax#exmapc" visbl="pub" data-isabs="false" fullComment="yes" group="combinators">
+      <a id="exmapc[B](f:A=&gt;scodec.Attempt[B])(g:B=&gt;scodec.Attempt[A]):F[B]"></a>
+      <a id="exmapc[B]((A)⇒Attempt[B])((B)⇒Attempt[A]):Decoder[B]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">exmapc</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="f">f: (<span class="extype" name="scodec.Decoder.A">A</span>) ⇒ <a href="Attempt.html" class="extype" name="scodec.Attempt">Attempt</a>[<span class="extype" name="scodec.TransformSyntax.exmapc.B">B</span>]</span>)</span><span class="params">(<span name="g">g: (<span class="extype" name="scodec.TransformSyntax.exmapc.B">B</span>) ⇒ <a href="Attempt.html" class="extype" name="scodec.Attempt">Attempt</a>[<span class="extype" name="scodec.Decoder.A">A</span>]</span>)</span><span class="result">: <a href="" class="extype" name="scodec.Decoder">Decoder</a>[<span class="extype" name="scodec.TransformSyntax.exmapc.B">B</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../index.html#scodec.Decoder@exmapc[B](f:A=&gt;scodec.Attempt[B])(g:B=&gt;scodec.Attempt[A]):F[B]" title="Permalink" target="_top">
+        <img src="../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Curried version of <code>exmap</code>.</p><div class="fullcomment"><div class="comment cmt"><p>Curried version of <code>exmap</code>.</p></div><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="scodec.Decoder">Decoder</a>[<span class="extype" name="scodec.Decoder.A">A</span>] to
+            <a href="package$$TransformSyntax.html" class="extype" name="scodec.TransformSyntax">TransformSyntax</a>[<a href="" class="extype" name="scodec.Decoder">Decoder</a>, <span class="extype" name="scodec.Decoder.A">A</span>] performed by method TransformSyntax in <a href="package.html" class="extype" name="scodec">scodec</a>.
+            
+          </dd><dt>Definition Classes</dt><dd><a href="package$$TransformSyntax.html" class="extype" name="scodec.TransformSyntax">TransformSyntax</a></dd></dl></div>
+    </li><li name="scala.AnyRef#finalize" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="finalize():Unit"></a>
+      <a id="finalize():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">finalize</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../index.html#scodec.Decoder@finalize():Unit" title="Permalink" target="_top">
+        <img src="../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="symbol">classOf[java.lang.Throwable]</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scodec.Decoder#flatMap" visbl="pub" data-isabs="false" fullComment="no" group="combinators">
+      <a id="flatMap[B](f:A=&gt;scodec.Decoder[B]):scodec.Decoder[B]"></a>
+      <a id="flatMap[B]((A)⇒Decoder[B]):Decoder[B]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">flatMap</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="f">f: (<span class="extype" name="scodec.Decoder.A">A</span>) ⇒ <a href="" class="extype" name="scodec.Decoder">Decoder</a>[<span class="extype" name="scodec.Decoder.flatMap.B">B</span>]</span>)</span><span class="result">: <a href="" class="extype" name="scodec.Decoder">Decoder</a>[<span class="extype" name="scodec.Decoder.flatMap.B">B</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../index.html#scodec.Decoder@flatMap[B](f:A=&gt;scodec.Decoder[B]):scodec.Decoder[B]" title="Permalink" target="_top">
+        <img src="../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Converts this decoder to a <code>Decoder[B]</code> using the supplied <code>A =&gt; Decoder[B]</code>.</p>
+    </li><li name="scala.Predef.StringFormat#formatted" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="formatted(fmtstr:String):String"></a>
+      <a id="formatted(String):String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">formatted</span><span class="params">(<span name="fmtstr">fmtstr: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../index.html#scodec.Decoder@formatted(fmtstr:String):String" title="Permalink" target="_top">
+        <img src="../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="scodec.Decoder">Decoder</a>[<span class="extype" name="scodec.Decoder.A">A</span>] to
+            <span class="extype" name="scala.Predef.StringFormat">StringFormat</span>[<a href="" class="extype" name="scodec.Decoder">Decoder</a>[<span class="extype" name="scodec.Decoder.A">A</span>]] performed by method StringFormat in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>StringFormat</dd><dt>Annotations</dt><dd>
+                <span class="name">@inline</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#getClass" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getClass():Class[_]"></a>
+      <a id="getClass():Class[_]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getClass</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.Class">Class</span>[_]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../index.html#scodec.Decoder@getClass():Class[_]" title="Permalink" target="_top">
+        <img src="../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef#hashCode" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="hashCode():Int"></a>
+      <a id="hashCode():Int"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">hashCode</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Int" class="extype" target="_top">Int</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../index.html#scodec.Decoder@hashCode():Int" title="Permalink" target="_top">
+        <img src="../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.Any#isInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="isInstanceOf[T0]:Boolean"></a>
+      <a id="isInstanceOf[T0]:Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">isInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../index.html#scodec.Decoder@isInstanceOf[T0]:Boolean" title="Permalink" target="_top">
+        <img src="../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="scodec.Decoder#map" visbl="pub" data-isabs="false" fullComment="no" group="combinators">
+      <a id="map[B](f:A=&gt;B):scodec.Decoder[B]"></a>
+      <a id="map[B]((A)⇒B):Decoder[B]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">map</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="f">f: (<span class="extype" name="scodec.Decoder.A">A</span>) ⇒ <span class="extype" name="scodec.Decoder.map.B">B</span></span>)</span><span class="result">: <a href="" class="extype" name="scodec.Decoder">Decoder</a>[<span class="extype" name="scodec.Decoder.map.B">B</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../index.html#scodec.Decoder@map[B](f:A=&gt;B):scodec.Decoder[B]" title="Permalink" target="_top">
+        <img src="../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Converts this decoder to a <code>Decoder[B]</code> using the supplied <code>A =&gt; B</code>.</p>
+    </li><li name="scodec.TransformSyntax#narrow" visbl="pub" data-isabs="false" fullComment="yes" group="combinators">
+      <a id="narrow[B](f:A=&gt;scodec.Attempt[B],g:B=&gt;A):F[B]"></a>
+      <a id="narrow[B]((A)⇒Attempt[B],(B)⇒A):Decoder[B]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">narrow</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="f">f: (<span class="extype" name="scodec.Decoder.A">A</span>) ⇒ <a href="Attempt.html" class="extype" name="scodec.Attempt">Attempt</a>[<span class="extype" name="scodec.TransformSyntax.narrow.B">B</span>]</span>, <span name="g">g: (<span class="extype" name="scodec.TransformSyntax.narrow.B">B</span>) ⇒ <span class="extype" name="scodec.Decoder.A">A</span></span>)</span><span class="result">: <a href="" class="extype" name="scodec.Decoder">Decoder</a>[<span class="extype" name="scodec.TransformSyntax.narrow.B">B</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../index.html#scodec.Decoder@narrow[B](f:A=&gt;scodec.Attempt[B],g:B=&gt;A):F[B]" title="Permalink" target="_top">
+        <img src="../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Transforms using two functions, <code>A =&gt; Attempt[B]</code> and <code>B =&gt; A</code>.</p><div class="fullcomment"><div class="comment cmt"><p>Transforms using two functions, <code>A =&gt; Attempt[B]</code> and <code>B =&gt; A</code>.</p><p>The supplied functions form an injection from <code>B</code> to <code>A</code>. Hence, this method converts from
+a larger to a smaller type. Hence, the name <code>narrow</code>.</p></div><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="scodec.Decoder">Decoder</a>[<span class="extype" name="scodec.Decoder.A">A</span>] to
+            <a href="package$$TransformSyntax.html" class="extype" name="scodec.TransformSyntax">TransformSyntax</a>[<a href="" class="extype" name="scodec.Decoder">Decoder</a>, <span class="extype" name="scodec.Decoder.A">A</span>] performed by method TransformSyntax in <a href="package.html" class="extype" name="scodec">scodec</a>.
+            
+          </dd><dt>Definition Classes</dt><dd><a href="package$$TransformSyntax.html" class="extype" name="scodec.TransformSyntax">TransformSyntax</a></dd></dl></div>
+    </li><li name="scodec.TransformSyntax#narrowc" visbl="pub" data-isabs="false" fullComment="yes" group="combinators">
+      <a id="narrowc[B](f:A=&gt;scodec.Attempt[B])(g:B=&gt;A):F[B]"></a>
+      <a id="narrowc[B]((A)⇒Attempt[B])((B)⇒A):Decoder[B]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">narrowc</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="f">f: (<span class="extype" name="scodec.Decoder.A">A</span>) ⇒ <a href="Attempt.html" class="extype" name="scodec.Attempt">Attempt</a>[<span class="extype" name="scodec.TransformSyntax.narrowc.B">B</span>]</span>)</span><span class="params">(<span name="g">g: (<span class="extype" name="scodec.TransformSyntax.narrowc.B">B</span>) ⇒ <span class="extype" name="scodec.Decoder.A">A</span></span>)</span><span class="result">: <a href="" class="extype" name="scodec.Decoder">Decoder</a>[<span class="extype" name="scodec.TransformSyntax.narrowc.B">B</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../index.html#scodec.Decoder@narrowc[B](f:A=&gt;scodec.Attempt[B])(g:B=&gt;A):F[B]" title="Permalink" target="_top">
+        <img src="../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Curried version of <code>narrow</code>.</p><div class="fullcomment"><div class="comment cmt"><p>Curried version of <code>narrow</code>.</p></div><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="scodec.Decoder">Decoder</a>[<span class="extype" name="scodec.Decoder.A">A</span>] to
+            <a href="package$$TransformSyntax.html" class="extype" name="scodec.TransformSyntax">TransformSyntax</a>[<a href="" class="extype" name="scodec.Decoder">Decoder</a>, <span class="extype" name="scodec.Decoder.A">A</span>] performed by method TransformSyntax in <a href="package.html" class="extype" name="scodec">scodec</a>.
+            
+          </dd><dt>Definition Classes</dt><dd><a href="package$$TransformSyntax.html" class="extype" name="scodec.TransformSyntax">TransformSyntax</a></dd></dl></div>
+    </li><li name="scala.AnyRef#ne" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ne(x$1:AnyRef):Boolean"></a>
+      <a id="ne(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">ne</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../index.html#scodec.Decoder@ne(x$1:AnyRef):Boolean" title="Permalink" target="_top">
+        <img src="../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#notify" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="notify():Unit"></a>
+      <a id="notify():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">notify</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../index.html#scodec.Decoder@notify():Unit" title="Permalink" target="_top">
+        <img src="../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#notifyAll" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="notifyAll():Unit"></a>
+      <a id="notifyAll():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">notifyAll</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../index.html#scodec.Decoder@notifyAll():Unit" title="Permalink" target="_top">
+        <img src="../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scodec.EnrichedCoproductDecoder#selectDecoder" visbl="pub" data-isabs="false" fullComment="yes" group="coproduct">
+      <a id="selectDecoder[A](implicitsel:shapeless.ops.coproduct.Selector[C,A]):scodec.Decoder[Option[A]]"></a>
+      <a id="selectDecoder[A](Selector[A,A]):Decoder[Option[A]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">selectDecoder</span><span class="tparams">[<span name="A">A</span>]</span><span class="params">(<span class="implicit">implicit </span><span name="sel">sel: <span class="extype" name="shapeless.ops.coproduct.Selector">Selector</span>[<span class="extype" name="scodec.Decoder.A">A</span>, <span class="extype" name="scodec.EnrichedCoproductDecoder.selectDecoder.A">A</span>]</span>)</span><span class="result">: <a href="" class="extype" name="scodec.Decoder">Decoder</a>[<a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Option" class="extype" target="_top">Option</a>[<span class="extype" name="scodec.EnrichedCoproductDecoder.selectDecoder.A">A</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../index.html#scodec.Decoder@selectDecoder[A](implicitsel:shapeless.ops.coproduct.Selector[C,A]):scodec.Decoder[Option[A]]" title="Permalink" target="_top">
+        <img src="../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">When called on a <code>Decoder[C]</code> where <code>C</code> is a coproduct containing type <code>A</code>, converts to a <code>Decoder[Option[A]]</code>.</p><div class="fullcomment"><div class="comment cmt"><p>When called on a <code>Decoder[C]</code> where <code>C</code> is a coproduct containing type <code>A</code>, converts to a <code>Decoder[Option[A]]</code>.</p></div><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="scodec.Decoder">Decoder</a>[<span class="extype" name="scodec.Decoder.A">A</span>] to
+            <a href="package$$EnrichedCoproductDecoder.html" class="extype" name="scodec.EnrichedCoproductDecoder">EnrichedCoproductDecoder</a>[<span class="extype" name="scodec.Decoder.A">A</span>] performed by method EnrichedCoproductDecoder in <a href="package.html" class="extype" name="scodec">scodec</a>.
+            This conversion will take place only if A is a subclass of Coproduct (A &lt;: <span class="extype" name="shapeless.Coproduct">Coproduct</span>).
+          </dd><dt>Definition Classes</dt><dd><a href="package$$EnrichedCoproductDecoder.html" class="extype" name="scodec.EnrichedCoproductDecoder">EnrichedCoproductDecoder</a></dd></dl></div>
+    </li><li name="scala.AnyRef#synchronized" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="synchronized[T0](x$1:=&gt;T0):T0"></a>
+      <a id="synchronized[T0](⇒T0):T0"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">synchronized</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="params">(<span name="arg0">arg0: ⇒ <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>)</span><span class="result">: <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../index.html#scodec.Decoder@synchronized[T0](x$1:=&gt;T0):T0" title="Permalink" target="_top">
+        <img src="../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#toString" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="toString():String"></a>
+      <a id="toString():String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">toString</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../index.html#scodec.Decoder@toString():String" title="Permalink" target="_top">
+        <img src="../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait():Unit"></a>
+      <a id="wait():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../index.html#scodec.Decoder@wait():Unit" title="Permalink" target="_top">
+        <img src="../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait(x$1:Long,x$2:Int):Unit"></a>
+      <a id="wait(Long,Int):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a></span>, <span name="arg1">arg1: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Int" class="extype" target="_top">Int</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../index.html#scodec.Decoder@wait(x$1:Long,x$2:Int):Unit" title="Permalink" target="_top">
+        <img src="../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait(x$1:Long):Unit"></a>
+      <a id="wait(Long):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../index.html#scodec.Decoder@wait(x$1:Long):Unit" title="Permalink" target="_top">
+        <img src="../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scodec.TransformSyntax#widen" visbl="pub" data-isabs="false" fullComment="yes" group="combinators">
+      <a id="widen[B](f:A=&gt;B,g:B=&gt;scodec.Attempt[A]):F[B]"></a>
+      <a id="widen[B]((A)⇒B,(B)⇒Attempt[A]):Decoder[B]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">widen</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="f">f: (<span class="extype" name="scodec.Decoder.A">A</span>) ⇒ <span class="extype" name="scodec.TransformSyntax.widen.B">B</span></span>, <span name="g">g: (<span class="extype" name="scodec.TransformSyntax.widen.B">B</span>) ⇒ <a href="Attempt.html" class="extype" name="scodec.Attempt">Attempt</a>[<span class="extype" name="scodec.Decoder.A">A</span>]</span>)</span><span class="result">: <a href="" class="extype" name="scodec.Decoder">Decoder</a>[<span class="extype" name="scodec.TransformSyntax.widen.B">B</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../index.html#scodec.Decoder@widen[B](f:A=&gt;B,g:B=&gt;scodec.Attempt[A]):F[B]" title="Permalink" target="_top">
+        <img src="../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Transforms using two functions, <code>A =&gt; B</code> and <code>B =&gt; Attempt[A]</code>.</p><div class="fullcomment"><div class="comment cmt"><p>Transforms using two functions, <code>A =&gt; B</code> and <code>B =&gt; Attempt[A]</code>.</p><p>The supplied functions form an injection from <code>A</code> to <code>B</code>. Hence, this method converts from
+a smaller to a larger type. Hence, the name <code>widen</code>.</p></div><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="scodec.Decoder">Decoder</a>[<span class="extype" name="scodec.Decoder.A">A</span>] to
+            <a href="package$$TransformSyntax.html" class="extype" name="scodec.TransformSyntax">TransformSyntax</a>[<a href="" class="extype" name="scodec.Decoder">Decoder</a>, <span class="extype" name="scodec.Decoder.A">A</span>] performed by method TransformSyntax in <a href="package.html" class="extype" name="scodec">scodec</a>.
+            
+          </dd><dt>Definition Classes</dt><dd><a href="package$$TransformSyntax.html" class="extype" name="scodec.TransformSyntax">TransformSyntax</a></dd></dl></div>
+    </li><li name="scodec.TransformSyntax#widenOpt" visbl="pub" data-isabs="false" fullComment="yes" group="combinators">
+      <a id="widenOpt[B](f:A=&gt;B,g:B=&gt;Option[A]):F[B]"></a>
+      <a id="widenOpt[B]((A)⇒B,(B)⇒Option[A]):Decoder[B]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">widenOpt</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="f">f: (<span class="extype" name="scodec.Decoder.A">A</span>) ⇒ <span class="extype" name="scodec.TransformSyntax.widenOpt.B">B</span></span>, <span name="g">g: (<span class="extype" name="scodec.TransformSyntax.widenOpt.B">B</span>) ⇒ <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Option" class="extype" target="_top">Option</a>[<span class="extype" name="scodec.Decoder.A">A</span>]</span>)</span><span class="result">: <a href="" class="extype" name="scodec.Decoder">Decoder</a>[<span class="extype" name="scodec.TransformSyntax.widenOpt.B">B</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../index.html#scodec.Decoder@widenOpt[B](f:A=&gt;B,g:B=&gt;Option[A]):F[B]" title="Permalink" target="_top">
+        <img src="../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Transforms using two functions, <code>A =&gt; B</code> and <code>B =&gt; Option[A]</code>.</p><div class="fullcomment"><div class="comment cmt"><p>Transforms using two functions, <code>A =&gt; B</code> and <code>B =&gt; Option[A]</code>.</p><p>Particularly useful when combined with case class apply/unapply. E.g., <code>widenOpt(fa, Foo.apply, Foo.unapply)</code>.
+</p></div><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="scodec.Decoder">Decoder</a>[<span class="extype" name="scodec.Decoder.A">A</span>] to
+            <a href="package$$TransformSyntax.html" class="extype" name="scodec.TransformSyntax">TransformSyntax</a>[<a href="" class="extype" name="scodec.Decoder">Decoder</a>, <span class="extype" name="scodec.Decoder.A">A</span>] performed by method TransformSyntax in <a href="package.html" class="extype" name="scodec">scodec</a>.
+            
+          </dd><dt>Definition Classes</dt><dd><a href="package$$TransformSyntax.html" class="extype" name="scodec.TransformSyntax">TransformSyntax</a></dd></dl></div>
+    </li><li name="scodec.TransformSyntax#widenOptc" visbl="pub" data-isabs="false" fullComment="yes" group="combinators">
+      <a id="widenOptc[B](f:A=&gt;B)(g:B=&gt;Option[A]):F[B]"></a>
+      <a id="widenOptc[B]((A)⇒B)((B)⇒Option[A]):Decoder[B]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">widenOptc</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="f">f: (<span class="extype" name="scodec.Decoder.A">A</span>) ⇒ <span class="extype" name="scodec.TransformSyntax.widenOptc.B">B</span></span>)</span><span class="params">(<span name="g">g: (<span class="extype" name="scodec.TransformSyntax.widenOptc.B">B</span>) ⇒ <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Option" class="extype" target="_top">Option</a>[<span class="extype" name="scodec.Decoder.A">A</span>]</span>)</span><span class="result">: <a href="" class="extype" name="scodec.Decoder">Decoder</a>[<span class="extype" name="scodec.TransformSyntax.widenOptc.B">B</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../index.html#scodec.Decoder@widenOptc[B](f:A=&gt;B)(g:B=&gt;Option[A]):F[B]" title="Permalink" target="_top">
+        <img src="../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Curried version of <code>widenOpt</code>.</p><div class="fullcomment"><div class="comment cmt"><p>Curried version of <code>widenOpt</code>.</p></div><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="scodec.Decoder">Decoder</a>[<span class="extype" name="scodec.Decoder.A">A</span>] to
+            <a href="package$$TransformSyntax.html" class="extype" name="scodec.TransformSyntax">TransformSyntax</a>[<a href="" class="extype" name="scodec.Decoder">Decoder</a>, <span class="extype" name="scodec.Decoder.A">A</span>] performed by method TransformSyntax in <a href="package.html" class="extype" name="scodec">scodec</a>.
+            
+          </dd><dt>Definition Classes</dt><dd><a href="package$$TransformSyntax.html" class="extype" name="scodec.TransformSyntax">TransformSyntax</a></dd></dl></div>
+    </li><li name="scodec.TransformSyntax#widenc" visbl="pub" data-isabs="false" fullComment="yes" group="combinators">
+      <a id="widenc[B](f:A=&gt;B)(g:B=&gt;scodec.Attempt[A]):F[B]"></a>
+      <a id="widenc[B]((A)⇒B)((B)⇒Attempt[A]):Decoder[B]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">widenc</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="f">f: (<span class="extype" name="scodec.Decoder.A">A</span>) ⇒ <span class="extype" name="scodec.TransformSyntax.widenc.B">B</span></span>)</span><span class="params">(<span name="g">g: (<span class="extype" name="scodec.TransformSyntax.widenc.B">B</span>) ⇒ <a href="Attempt.html" class="extype" name="scodec.Attempt">Attempt</a>[<span class="extype" name="scodec.Decoder.A">A</span>]</span>)</span><span class="result">: <a href="" class="extype" name="scodec.Decoder">Decoder</a>[<span class="extype" name="scodec.TransformSyntax.widenc.B">B</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../index.html#scodec.Decoder@widenc[B](f:A=&gt;B)(g:B=&gt;scodec.Attempt[A]):F[B]" title="Permalink" target="_top">
+        <img src="../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Curried version of <code>widen</code>.</p><div class="fullcomment"><div class="comment cmt"><p>Curried version of <code>widen</code>.</p></div><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="scodec.Decoder">Decoder</a>[<span class="extype" name="scodec.Decoder.A">A</span>] to
+            <a href="package$$TransformSyntax.html" class="extype" name="scodec.TransformSyntax">TransformSyntax</a>[<a href="" class="extype" name="scodec.Decoder">Decoder</a>, <span class="extype" name="scodec.Decoder.A">A</span>] performed by method TransformSyntax in <a href="package.html" class="extype" name="scodec">scodec</a>.
+            
+          </dd><dt>Definition Classes</dt><dd><a href="package$$TransformSyntax.html" class="extype" name="scodec.TransformSyntax">TransformSyntax</a></dd></dl></div>
+    </li><li name="scodec.TransformSyntax#xmap" visbl="pub" data-isabs="false" fullComment="yes" group="combinators">
+      <a id="xmap[B](f:A=&gt;B,g:B=&gt;A):F[B]"></a>
+      <a id="xmap[B]((A)⇒B,(B)⇒A):Decoder[B]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">xmap</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="f">f: (<span class="extype" name="scodec.Decoder.A">A</span>) ⇒ <span class="extype" name="scodec.TransformSyntax.xmap.B">B</span></span>, <span name="g">g: (<span class="extype" name="scodec.TransformSyntax.xmap.B">B</span>) ⇒ <span class="extype" name="scodec.Decoder.A">A</span></span>)</span><span class="result">: <a href="" class="extype" name="scodec.Decoder">Decoder</a>[<span class="extype" name="scodec.TransformSyntax.xmap.B">B</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../index.html#scodec.Decoder@xmap[B](f:A=&gt;B,g:B=&gt;A):F[B]" title="Permalink" target="_top">
+        <img src="../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Transforms using the isomorphism described by two functions, <code>A =&gt; B</code> and <code>B =&gt; A</code>.</p><div class="fullcomment"><div class="comment cmt"><p>Transforms using the isomorphism described by two functions, <code>A =&gt; B</code> and <code>B =&gt; A</code>.</p></div><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="scodec.Decoder">Decoder</a>[<span class="extype" name="scodec.Decoder.A">A</span>] to
+            <a href="package$$TransformSyntax.html" class="extype" name="scodec.TransformSyntax">TransformSyntax</a>[<a href="" class="extype" name="scodec.Decoder">Decoder</a>, <span class="extype" name="scodec.Decoder.A">A</span>] performed by method TransformSyntax in <a href="package.html" class="extype" name="scodec">scodec</a>.
+            
+          </dd><dt>Definition Classes</dt><dd><a href="package$$TransformSyntax.html" class="extype" name="scodec.TransformSyntax">TransformSyntax</a></dd></dl></div>
+    </li><li name="scodec.TransformSyntax#xmapc" visbl="pub" data-isabs="false" fullComment="yes" group="combinators">
+      <a id="xmapc[B](f:A=&gt;B)(g:B=&gt;A):F[B]"></a>
+      <a id="xmapc[B]((A)⇒B)((B)⇒A):Decoder[B]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">xmapc</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="f">f: (<span class="extype" name="scodec.Decoder.A">A</span>) ⇒ <span class="extype" name="scodec.TransformSyntax.xmapc.B">B</span></span>)</span><span class="params">(<span name="g">g: (<span class="extype" name="scodec.TransformSyntax.xmapc.B">B</span>) ⇒ <span class="extype" name="scodec.Decoder.A">A</span></span>)</span><span class="result">: <a href="" class="extype" name="scodec.Decoder">Decoder</a>[<span class="extype" name="scodec.TransformSyntax.xmapc.B">B</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../index.html#scodec.Decoder@xmapc[B](f:A=&gt;B)(g:B=&gt;A):F[B]" title="Permalink" target="_top">
+        <img src="../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Curried version of <code>xmap</code>.</p><div class="fullcomment"><div class="comment cmt"><p>Curried version of <code>xmap</code>.</p></div><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="scodec.Decoder">Decoder</a>[<span class="extype" name="scodec.Decoder.A">A</span>] to
+            <a href="package$$TransformSyntax.html" class="extype" name="scodec.TransformSyntax">TransformSyntax</a>[<a href="" class="extype" name="scodec.Decoder">Decoder</a>, <span class="extype" name="scodec.Decoder.A">A</span>] performed by method TransformSyntax in <a href="package.html" class="extype" name="scodec">scodec</a>.
+            
+          </dd><dt>Definition Classes</dt><dd><a href="package$$TransformSyntax.html" class="extype" name="scodec.TransformSyntax">TransformSyntax</a></dd></dl></div>
+    </li><li name="scala.Predef.ArrowAssoc#→" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="→[B](y:B):(A,B)"></a>
+      <a id="→[B](B):(Decoder[A],B)"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $u2192" class="implicit">→</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="y">y: <span class="extype" name="scala.Predef.ArrowAssoc.→.B">B</span></span>)</span><span class="result">: (<a href="" class="extype" name="scodec.Decoder">Decoder</a>[<span class="extype" name="scodec.Decoder.A">A</span>], <span class="extype" name="scala.Predef.ArrowAssoc.→.B">B</span>)</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../index.html#scodec.Decoder@→[B](y:B):(A,B)" title="Permalink" target="_top">
+        <img src="../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="scodec.Decoder">Decoder</a>[<span class="extype" name="scodec.Decoder.A">A</span>] to
+            <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="scodec.Decoder">Decoder</a>[<span class="extype" name="scodec.Decoder.A">A</span>]] performed by method ArrowAssoc in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>ArrowAssoc</dd></dl></div>
+    </li></ol>
+            </div>
+
+        <div id="values" class="values members">
+              <h3>Shadowed Implicit Value Members</h3>
+              <ol><li name="scodec.EnrichedCoproductDecoder#self" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="self:scodec.Decoder[C]"></a>
+      <a id="self:Decoder[A]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit shadowed">self</span><span class="result">: <a href="" class="extype" name="scodec.Decoder">Decoder</a>[<span class="extype" name="scodec.Decoder.A">A</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../index.html#scodec.Decoder@self:scodec.Decoder[C]" title="Permalink" target="_top">
+        <img src="../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="scodec.Decoder">Decoder</a>[<span class="extype" name="scodec.Decoder.A">A</span>] to
+            <a href="package$$EnrichedCoproductDecoder.html" class="extype" name="scodec.EnrichedCoproductDecoder">EnrichedCoproductDecoder</a>[<span class="extype" name="scodec.Decoder.A">A</span>] performed by method EnrichedCoproductDecoder in <a href="package.html" class="extype" name="scodec">scodec</a>.
+            This conversion will take place only if A is a subclass of Coproduct (A &lt;: <span class="extype" name="shapeless.Coproduct">Coproduct</span>).
+          </dd><dt class="implicit">Shadowing</dt><dd>This implicitly inherited member is ambiguous. One or more implicitly inherited members have similar signatures, so calling this member may produce an ambiguous implicit conversion compiler error.<br />To access this member you can use a <a href="http://stackoverflow.com/questions/2087250/what-is-the-purpose-of-type-ascription-in-scala" target="_blank">type ascription</a>:<br /><div class="cmt"><pre>(decoder: EnrichedCoproductDecoder[A]).self</pre></div></dd><dt>Definition Classes</dt><dd><a href="package$$EnrichedCoproductDecoder.html" class="extype" name="scodec.EnrichedCoproductDecoder">EnrichedCoproductDecoder</a></dd></dl></div>
+    </li><li name="scodec.TransformSyntax#self" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="self:F[A]"></a>
+      <a id="self:Decoder[A]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit shadowed">self</span><span class="result">: <a href="" class="extype" name="scodec.Decoder">Decoder</a>[<span class="extype" name="scodec.Decoder.A">A</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../index.html#scodec.Decoder@self:F[A]" title="Permalink" target="_top">
+        <img src="../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Supports <a href="package$$TransformSyntax.html" class="extype" name="scodec.TransformSyntax">TransformSyntax</a>.</p><div class="fullcomment"><div class="comment cmt"><p>Supports <a href="package$$TransformSyntax.html" class="extype" name="scodec.TransformSyntax">TransformSyntax</a>.</p></div><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="scodec.Decoder">Decoder</a>[<span class="extype" name="scodec.Decoder.A">A</span>] to
+            <a href="package$$TransformSyntax.html" class="extype" name="scodec.TransformSyntax">TransformSyntax</a>[<a href="" class="extype" name="scodec.Decoder">Decoder</a>, <span class="extype" name="scodec.Decoder.A">A</span>] performed by method TransformSyntax in <a href="package.html" class="extype" name="scodec">scodec</a>.
+            
+          </dd><dt class="implicit">Shadowing</dt><dd>This implicitly inherited member is ambiguous. One or more implicitly inherited members have similar signatures, so calling this member may produce an ambiguous implicit conversion compiler error.<br />To access this member you can use a <a href="http://stackoverflow.com/questions/2087250/what-is-the-purpose-of-type-ascription-in-scala" target="_blank">type ascription</a>:<br /><div class="cmt"><pre>(decoder: TransformSyntax[Decoder, A]).self</pre></div></dd><dt>Definition Classes</dt><dd><a href="package$$TransformSyntax.html" class="extype" name="scodec.TransformSyntax">TransformSyntax</a></dd></dl></div>
+    </li></ol>
+            </div>
+
+        <div id="values" class="values members">
+              <h3>Deprecated Value Members</h3>
+              <ol><li name="scodec.TransformSyntax#pxmap" visbl="pub" data-isabs="false" fullComment="yes" group="combinators">
+      <a id="pxmap[B](f:A=&gt;B,g:B=&gt;Option[A]):F[B]"></a>
+      <a id="pxmap[B]((A)⇒B,(B)⇒Option[A]):Decoder[B]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit deprecated" title="Deprecated: (Since version 1.7.0) Use widenOpt instead">pxmap</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="f">f: (<span class="extype" name="scodec.Decoder.A">A</span>) ⇒ <span class="extype" name="scodec.TransformSyntax.pxmap.B">B</span></span>, <span name="g">g: (<span class="extype" name="scodec.TransformSyntax.pxmap.B">B</span>) ⇒ <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Option" class="extype" target="_top">Option</a>[<span class="extype" name="scodec.Decoder.A">A</span>]</span>)</span><span class="result">: <a href="" class="extype" name="scodec.Decoder">Decoder</a>[<span class="extype" name="scodec.TransformSyntax.pxmap.B">B</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../index.html#scodec.Decoder@pxmap[B](f:A=&gt;B,g:B=&gt;Option[A]):F[B]" title="Permalink" target="_top">
+        <img src="../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Transforms using two functions, <code>A =&gt; B</code> and <code>B =&gt; Option[A]</code>.</p><div class="fullcomment"><div class="comment cmt"><p>Transforms using two functions, <code>A =&gt; B</code> and <code>B =&gt; Option[A]</code>.</p><p>Particularly useful when combined with case class apply/unapply. E.g., <code>pxmap(fa, Foo.apply, Foo.unapply)</code>.
+</p></div><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="scodec.Decoder">Decoder</a>[<span class="extype" name="scodec.Decoder.A">A</span>] to
+            <a href="package$$TransformSyntax.html" class="extype" name="scodec.TransformSyntax">TransformSyntax</a>[<a href="" class="extype" name="scodec.Decoder">Decoder</a>, <span class="extype" name="scodec.Decoder.A">A</span>] performed by method TransformSyntax in <a href="package.html" class="extype" name="scodec">scodec</a>.
+            
+          </dd><dt>Definition Classes</dt><dd><a href="package$$TransformSyntax.html" class="extype" name="scodec.TransformSyntax">TransformSyntax</a></dd><dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 1.7.0)</i> Use widenOpt instead</p></dd></dl></div>
+    </li></ol>
+            </div>
+        </div>
+
+        <div id="inheritedMembers">
+        <div class="parent" name="scala.AnyRef">
+              <h3>Inherited from <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a></h3>
+            </div><div class="parent" name="scala.Any">
+              <h3>Inherited from <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Any" class="extype" target="_top">Any</a></h3>
+            </div>
+        <div class="conversion" name="scodec.EnrichedCoproductDecoder">
+              <h3>Inherited by implicit conversion EnrichedCoproductDecoder from
+                <a href="" class="extype" name="scodec.Decoder">Decoder</a>[<span class="extype" name="scodec.Decoder.A">A</span>] to <a href="package$$EnrichedCoproductDecoder.html" class="extype" name="scodec.EnrichedCoproductDecoder">EnrichedCoproductDecoder</a>[<span class="extype" name="scodec.Decoder.A">A</span>]
+              </h3>
+            </div><div class="conversion" name="scodec.TransformSyntax">
+              <h3>Inherited by implicit conversion TransformSyntax from
+                <a href="" class="extype" name="scodec.Decoder">Decoder</a>[<span class="extype" name="scodec.Decoder.A">A</span>] to <a href="package$$TransformSyntax.html" class="extype" name="scodec.TransformSyntax">TransformSyntax</a>[<a href="" class="extype" name="scodec.Decoder">Decoder</a>, <span class="extype" name="scodec.Decoder.A">A</span>]
+              </h3>
+            </div><div class="conversion" name="scala.Predef.any2stringadd">
+              <h3>Inherited by implicit conversion any2stringadd from
+                <a href="" class="extype" name="scodec.Decoder">Decoder</a>[<span class="extype" name="scodec.Decoder.A">A</span>] to <span class="extype" name="scala.Predef.any2stringadd">any2stringadd</span>[<a href="" class="extype" name="scodec.Decoder">Decoder</a>[<span class="extype" name="scodec.Decoder.A">A</span>]]
+              </h3>
+            </div><div class="conversion" name="scala.Predef.StringFormat">
+              <h3>Inherited by implicit conversion StringFormat from
+                <a href="" class="extype" name="scodec.Decoder">Decoder</a>[<span class="extype" name="scodec.Decoder.A">A</span>] to <span class="extype" name="scala.Predef.StringFormat">StringFormat</span>[<a href="" class="extype" name="scodec.Decoder">Decoder</a>[<span class="extype" name="scodec.Decoder.A">A</span>]]
+              </h3>
+            </div><div class="conversion" name="scala.Predef.Ensuring">
+              <h3>Inherited by implicit conversion Ensuring from
+                <a href="" class="extype" name="scodec.Decoder">Decoder</a>[<span class="extype" name="scodec.Decoder.A">A</span>] to <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="scodec.Decoder">Decoder</a>[<span class="extype" name="scodec.Decoder.A">A</span>]]
+              </h3>
+            </div><div class="conversion" name="scala.Predef.ArrowAssoc">
+              <h3>Inherited by implicit conversion ArrowAssoc from
+                <a href="" class="extype" name="scodec.Decoder">Decoder</a>[<span class="extype" name="scodec.Decoder.A">A</span>] to <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="scodec.Decoder">Decoder</a>[<span class="extype" name="scodec.Decoder.A">A</span>]]
+              </h3>
+            </div>
+        </div>
+
+        <div id="groupedMembers">
+        <div class="group" name="primary">
+              <h3>Primary Members</h3>
+              
+            </div><div class="group" name="combinators">
+              <h3>Basic Combinators</h3>
+              
+            </div><div class="group" name="coproduct">
+              <h3>Coproduct Support</h3>
+              
+            </div><div class="group" name="Ungrouped">
+              <h3>Ungrouped</h3>
+              
+            </div>
+        </div>
+
+      </div>
+
+      <div id="tooltip"></div>
+
+      <div id="footer">  </div>
+
+
+    </body>
+      </html>

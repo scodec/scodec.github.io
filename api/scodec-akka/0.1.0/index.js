@@ -1,1 +1,0 @@
-Index.PACKAGES = {"scodec" : [], "scodec.interop" : [], "scodec.interop.akka" : [{"class" : "scodec\/interop\/akka\/package$$EnrichedByteString.html", "name" : "scodec.interop.akka.EnrichedByteString"}, {"class" : "scodec\/interop\/akka\/package$$EnrichedByteVector.html", "name" : "scodec.interop.akka.EnrichedByteVector"}]};

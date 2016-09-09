@@ -1,0 +1,134 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html manifest="pamflet.manifest">
+      <head>
+        <meta charset="utf-8"/>
+        <meta content="width=device-width, initial-scale=1" name="viewport"/>
+        <title>scodec — scodec-bits</title>
+        
+        <link rel="stylesheet" href="css/blueprint/screen.css" type="text/css" media="screen, projection"/>
+        <link rel="stylesheet" href="css/blueprint/grid.css" type="text/css" media="screen and (min-device-width: 800px), projection"/>
+        <link rel="stylesheet" href="css/blueprint/print.css" type="text/css" media="print"/> 
+        <!--[if lt IE 8]>
+          <link rel="stylesheet" href={ relativeBase + "css/blueprint/ie.css" } type="text/css" media="screen, projection"/>
+        <![endif]-->
+        <link rel="stylesheet" href="css/pamflet.css" type="text/css" media="screen, projection"/>
+        <link rel="stylesheet" href="css/pamflet-print.css" type="text/css" media="print"/>
+        <link rel="stylesheet" href="css/pamflet-grid.css" type="text/css" media="screen and (min-device-width: 800px), projection"/>
+        <link rel="stylesheet" href="css/color_scheme-redmond.css" type="text/css" media="screen, projection"/>
+        <link rel="stylesheet" href="css/color_scheme-github.css" type="text/css" media="screen, projection"/>
+        <link rel="stylesheet" href="css/color_scheme-monokai.css" type="text/css" media="screen, projection"/>
+        <link rel="stylesheet" href="css/pamfletheight_2em_2em.css" type="text/css" media="screen and (min-device-width: 800px), projection"/>
+        <script type="text/javascript" src="js/jquery-1.6.2.min.js"></script>
+        <script type="text/javascript" src="js/jquery.collapse.js"></script>
+        <script type="text/javascript" src="js/pamflet.js"></script>
+        <script type="text/javascript">
+          Pamflet.page.language = 'en';
+        </script>
+        <script type="text/javascript" src="js/prettify/prettify.js"></script><script type="text/javascript" src="js/prettify/lang-scala.js"></script><link type="text/css" rel="stylesheet" href="css/prettify.css"/><script type="text/javascript"><!--
+        window.onload=function() { prettyPrint(); };
+      --></script>
+        <link rel="stylesheet" href="css/custom.css" type="text/css" media="screen, projection"/>
+        <script type="text/javascript">
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-41236326-2']);
+            _gaq.push(['_trackPageview']);
+            (function() {
+              var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+              ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+              var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+            </script>
+        <script type="text/javascript">
+              Pamflet.twitter = '#scodec';
+            </script>
+      </head>
+      <body class="color_scheme-redmond">
+        <a class="page prev nav" href="index.html">
+            <span class="space">&nbsp;</span>
+            <span class="flip arrow">❧</span>
+          </a><a class="page next nav" href="scodec-core.html">
+            <span class="space">&nbsp;</span>
+            <span class="arrow">❧</span>
+          </a>
+        <div class="container contentswrapper">
+          <div class="span-16 prepend-1 append-1 contents">
+            <h1 id="scodec-bits">scodec-bits<a href="#scodec-bits" class="header-link"><span class="header-link-content">&nbsp;</span></a></h1><p>The scodec-bits library contains data structures for working with binary. It has no dependencies, which allows it to be used by other libraries without causing dependency conflicts.
+</p><p>There are two primary data structures in the library, <code>ByteVector</code> and <code>BitVector</code>. Both are immutable collections and have performance characteristics that are optimized for use in the other scodec modules. However, each type has been designed for general purpose usage, even when other scodec modules are not used. For instance, <code>ByteVector</code> can be safely used as a replacement for immutable byte arrays.
+</p><h2 id="ByteVector">ByteVector<a href="#ByteVector" class="header-link"><span class="header-link-content">&nbsp;</span></a></h2><p>The <code>ByteVector</code> type is isomorphic to a <code>scala.collection.immutable.Vector[Byte]</code> but has much better performance characteristics. A <code>ByteVector</code> is represented as a balanced binary tree of chunks. Most operations have asymptotic performance that is logarithmic in the depth of this tree. There are also quite a number of convenience based features, like value based equality, a sensible <code>toString</code>, and many conversions to/from other data types.
+</p><p>It is important to note that <code>ByteVector</code> does not extend any types from the Scala collections framework. For instance, <code>ByteVector</code> is <em>not</em> a <code>scala.collection.immutable.Traversable[Byte]</code>. This allows some deviance, like <code>Long</code> based indexing instead of <code>Int</code> based indexing from standard collections. Additionally, it avoids a large category of bugs, especially as the standard library collections are refactored. Nonetheless, the methods on <code>ByteVector</code> are named to correspond with the methods in the standard library when possible.
+</p><h3 id="Getting+Started">Getting Started<a href="#Getting+Started" class="header-link"><span class="header-link-content">&nbsp;</span></a></h3><p>Let’s create a <code>ByteVector</code> from a literal hexadecimal string:
+</p><pre><code class="prettyprint lang-scala">scala&gt; import scodec.bits._
+import scodec.bits._
+
+scala&gt; val x: ByteVector = hex&quot;deadbeef&quot;
+x: scodec.bits.ByteVector = ByteVector(4 bytes, 0xdeadbeef)
+
+scala&gt; val y: ByteVector = hex&quot;DEADBEEF&quot;
+y: scodec.bits.ByteVector = ByteVector(4 bytes, 0xdeadbeef)
+
+scala&gt; x == y
+res0: Boolean = true
+</code></pre><p>We first start by importing all members of the <code>scodec.bits</code> package, which contains the entirety of this library. We then create two byte vectors from hexadecimal literals, using the <code>hex</code> string interpolator. Finally, we compare them for equality, which returns true, because each vector contains the same bytes.
+</p><h3 id="Constructing+Byte+Vectors">Constructing Byte Vectors<a href="#Constructing+Byte+Vectors" class="header-link"><span class="header-link-content">&nbsp;</span></a></h3><p>There are a variety of ways to construct byte vectors. The <code>hex</code> string interpolator is useful for testing and REPL experiments but often, it is necessary to construct byte vectors from other data types. Most commonly, a byte vector must be created from a standard library collection, like a <code>Vector[Byte]</code> or <code>Array[Byte]</code>, or a Java NIO <code>ByteBuffer</code>. This is accomplished with the <code>apply</code> method on the <code>ByteVector</code> companion.
+</p><p>When constructing a <code>ByteVector</code> from an array, the array contents are <em>copied</em>. This is the safest behavior, as any mutations to the original byte array do not cause problems with the immuable <code>ByteVector</code>. However, the cost of copying can be prohibitive in some situations. To address this, a byte array can be converted to a <code>ByteVector</code> with a constant time operation — <code>ByteVector.view(array)</code>. Using <code>view</code> requires the byte array to never be modified after the vector is constructed.
+</p><p><code>ByteVector</code>s can also be created from strings in various bases, like hexadecimal, binary, or base 64. For example, to convert a hexadecimal string to a <code>ByteVector</code>, use <code>ByteVector.fromHex(string)</code>. There are quite a number of methods related to base conversions — explore the ScalaDoc of the <code>ByteVector</code> companion object for details.
+</p><h2 id="BitVector">BitVector<a href="#BitVector" class="header-link"><span class="header-link-content">&nbsp;</span></a></h2><p>The <code>BitVector</code> type is similar to <code>ByteVector</code> with the exception of indexing bits instead of bytes. This allows access and update of specific bits (via <code>apply</code> and <code>update</code>) as well as storage of a bit count that is not evenly divisible by 8.
+</p><h3 id="Getting+Started">Getting Started<a href="#Getting+Started" class="header-link"><span class="header-link-content">&nbsp;</span></a></h3><pre><code class="prettyprint lang-scala">scala&gt; val x: BitVector = bin&quot;00110110101&quot;
+x: scodec.bits.BitVector = BitVector(11 bits, 0x36a)
+
+scala&gt; val y: BitVector = bin&quot;00110110100&quot;
+y: scodec.bits.BitVector = BitVector(11 bits, 0x368)
+
+scala&gt; x == y
+res0: Boolean = false
+
+scala&gt; val z = y.update(10, true)
+z: scodec.bits.BitVector = BitVector(11 bits, 0x36a)
+
+scala&gt; x == z
+res1: Boolean = true
+</code></pre><p>In this example, we create two 10-bit vectors using the <code>bin</code> string interpolator that differ in only the last bit. We then create a third vector, <code>z</code>, by updating the 10th bit of <code>y</code> to true. Comparing <code>x</code> and <code>y</code> for equality returns false whereas comparing <code>x</code> and <code>z</code> returns true.
+</p><h3 id="Constructing+Bit+Vectors">Constructing Bit Vectors<a href="#Constructing+Bit+Vectors" class="header-link"><span class="header-link-content">&nbsp;</span></a></h3><p><code>BitVector</code>s are constructed in much the same way as <code>ByteVector</code>s. That is, typically via the <code>apply</code> and <code>view</code> methods in the <code>BitVector</code> companion object. Additionally, any <code>ByteVector</code> can be converted to a <code>BitVector</code> via the <code>bits</code> method (e.g., <code>myByteVector.bits</code>) and any <code>BitVector</code> can be converted to a <code>ByteVector</code> via the <code>bytes</code> method.
+</p><p>TODO unfold, nio
+</p><h2 id="Transforms">Transforms<a href="#Transforms" class="header-link"><span class="header-link-content">&nbsp;</span></a></h2><p>Both <code>ByteVector</code>s and <code>BitVector</code>s support a number of different transformations.
+</p><h3 id="Collection+Like+Transforms">Collection Like Transforms<a href="#Collection+Like+Transforms" class="header-link"><span class="header-link-content">&nbsp;</span></a></h3><p>TODO
+</p><h3 id="Bitwise+Transforms">Bitwise Transforms<a href="#Bitwise+Transforms" class="header-link"><span class="header-link-content">&nbsp;</span></a></h3><p>TODO
+</p><h2 id="Base+Conversions">Base Conversions<a href="#Base+Conversions" class="header-link"><span class="header-link-content">&nbsp;</span></a></h2><p>TODO
+</p><h2 id="Cyclic+Redundancy+Checks">Cyclic Redundancy Checks<a href="#Cyclic+Redundancy+Checks" class="header-link"><span class="header-link-content">&nbsp;</span></a></h2><p>TODO
+</p><div class="bottom nav span-16">
+                        <em>Next Page</em>
+                        <span class="arrow">❧</span>
+                        <a href="scodec-core.html"> scodec-core </a>                        
+                        
+                      </div><div class="tocwrapper show">
+      <a class="tochead nav" style="display: none" href="#toc">❦</a>
+      <a name="toc"></a>
+      <h4 class="toctitle">Contents</h4>
+      <div class="tocbody">
+      <div><a href="index.html">scodec</a></div><ol class="toc"> <li><div class="current">scodec-bits</div></li><li><div><a href="scodec-core.html">scodec-core</a></div><ol class="toc"> <li><div><a href="Core+Algebra.html">Core Algebra</a></div></li><li><div><a href="Simple+Value+Codecs.html">Simple Value Codecs</a></div></li><li><div><a href="Simple+Constructors+and+Combinators.html">Simple Constructors and Combinators</a></div></li><li><div><a href="Collections.html">Collections</a></div></li><li><div><a href="Framing.html">Framing</a></div></li><li><div><a href="Tuple+Codecs.html">Tuple Codecs</a></div></li><li><div><a href="HList+Codecs.html">HList Codecs</a></div></li><li><div><a href="Case+Class+Codecs.html">Case Class Codecs</a></div></li><li><div><a href="Coproduct+Codecs.html">Coproduct Codecs</a></div></li> </ol></li><li class="generated"><div><a href="Contents+in+Depth.html">Contents in Depth</a></div></li><li class="generated"><div><a href="Combined+Pages.html">Combined Pages</a></div></li> </ol></div></div>
+          </div>
+        </div>
+        <div class="header">
+          <div class="container">
+        <div class="span-16 prepend-1 append-1">
+          <div class="span-16 top nav">
+            <div class="span-16 title">
+              <span>scodec</span> — scodec-bits
+            </div>
+          </div>
+        </div>
+      </div>
+        </div>
+        <div class="footer">
+          
+        </div>
+        
+        <div class="highlight-outer">
+              <div class="highlight-menu">
+                <ul>
+                  <li><button id="highlight-button-twitter"><img src="img/twitter-bird-dark-bgs.png"/></button></li>
+                </ul>
+              </div>
+            </div>
+      </body>
+    </html>

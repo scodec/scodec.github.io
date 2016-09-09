@@ -1,0 +1,261 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html>
+      <head>
+        <meta charset="utf-8"/>
+        <meta content="width=device-width, initial-scale=1" name="viewport"/>
+        <title>scodec — Core Algebra</title>
+        
+        <link rel="stylesheet" href="css/blueprint/screen.css" type="text/css" media="screen, projection"/>
+        <link rel="stylesheet" href="css/blueprint/grid.css" type="text/css" media="screen and (min-device-width: 800px), projection"/>
+        <link rel="stylesheet" href="css/blueprint/print.css" type="text/css" media="print"/> 
+        <!--[if lt IE 8]>
+          <link rel="stylesheet" href={ relativeBase + "css/blueprint/ie.css" } type="text/css" media="screen, projection"/>
+        <![endif]-->
+        <link rel="stylesheet" href="css/pamflet.css" type="text/css" media="screen, projection"/>
+        <link rel="stylesheet" href="css/pamflet-print.css" type="text/css" media="print"/>
+        <link rel="stylesheet" href="css/pamflet-grid.css" type="text/css" media="screen and (min-device-width: 800px), projection"/>
+        <link rel="stylesheet" href="css/color_scheme-redmond.css" type="text/css" media="screen, projection"/>
+        <link rel="stylesheet" href="css/color_scheme-github.css" type="text/css" media="screen, projection"/>
+        <link rel="stylesheet" href="css/color_scheme-monokai.css" type="text/css" media="screen, projection"/>
+        <link rel="stylesheet" href="css/pamfletheight_2em_2em.css" type="text/css" media="screen and (min-device-width: 800px), projection"/>
+        <script type="text/javascript" src="js/jquery-1.6.2.min.js"></script>
+        <script type="text/javascript" src="js/jquery.collapse.js"></script>
+        <script type="text/javascript" src="js/pamflet.js"></script>
+        <script type="text/javascript">
+          Pamflet.page.language = 'en';
+        </script>
+        <script type="text/javascript" src="js/prettify/prettify.js"></script><script type="text/javascript" src="js/prettify/lang-scala.js"></script><link type="text/css" rel="stylesheet" href="css/prettify.css"/><script type="text/javascript"><!--
+        window.onload=function() { prettyPrint(); };
+      --></script>
+        <link rel="stylesheet" href="css/custom.css" type="text/css" media="screen, projection"/>
+        <script type="text/javascript">
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-41236326-2']);
+            _gaq.push(['_trackPageview']);
+            (function() {
+              var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+              ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+              var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+            </script>
+        <script type="text/javascript">
+              Pamflet.twitter = '#scodec';
+            </script>
+      </head>
+      <body class="color_scheme-redmond">
+        <a class="page prev nav" href="scodec-core.html">
+            <span class="space">&nbsp;</span>
+            <span class="flip arrow">❧</span>
+          </a><a class="page next nav" href="Simple+Value+Codecs.html">
+            <span class="space">&nbsp;</span>
+            <span class="arrow">❧</span>
+          </a>
+        <div class="container contentswrapper">
+          <div class="span-16 prepend-1 append-1 contents">
+            <h1 id="Core+Algebra">Core Algebra<a href="#Core+Algebra" class="header-link"><span class="header-link-content">&nbsp;</span></a></h1><p>We saw the <code>Codec</code> type when we used it to encode a value to binary and decode binary back to a value. The ability to decode and encode come from two fundamental traits, <code>Decoder</code> and <code>Encoder</code>. Let’s look at these in turn.
+</p><h2 id="Decoder">Decoder<a href="#Decoder" class="header-link"><span class="header-link-content">&nbsp;</span></a></h2><pre><code class="prettyprint lang-scala">case class DecodeResult[A](value: A, remainder: BitVector) { ... }
+
+trait Decoder[+A] {
+  def decode(b: BitVector): Attempt[DecodeResult[A]]
+}
+</code></pre><p>A decoder defines a single abstract operation, <code>decode</code>, which attempts to convert a bit vector into a <code>DecodeResult</code>. A <code>DecodeResult</code> is a case class made up of a value of type <code>A</code> and a remainder — bits that are left over, or unconsumed, after decoding has completed. For example, a decoder that decodes a 32-bit integer returns an error when the supplied vector has less than 32-bits, and returns the supplied vector less 32-bits otherwise.
+</p><p>The result type is an <code>Attempt[A]</code>, which is equivalent to an <code>Either[scodec.Err, A]</code>. <code>Err</code> is an open-for-subclassing data type that contains an error message and a context stack. The context stack contains strings that provide context on where the error occurred in a large structure. We saw an example of this earlier, where the context stack represented a path through the <code>Arrangement</code> class, into a <code>Vector</code>, and then into a <code>Line</code> and <code>Point</code>. The type is open-for-subclassing so that codecs can return domain specific error types and then pattern match on the received type. An <code>Err</code> is <em>not</em> a subtype of <code>Throwable</code>, so it cannot be used (directly) with <code>scala.util.Try</code>. Also note that codecs never throw exceptions (or should never!). All errors are communicated via the <code>Err</code> type.
+</p><h3 id="map">map<a href="#map" class="header-link"><span class="header-link-content">&nbsp;</span></a></h3><p>A function can be mapped over a decoder, resulting in our first combinator:
+</p><pre><code class="prettyprint lang-scala">trait Decoder[+A] { self =&gt;
+  def decode(b: BitVector): Attempt[DecodeResult[A]]
+  def map[B](f: A =&gt; B): Decoder[B] = new Decoder[B] {
+    def decode(b: BitVector): Attempt[DecodeResult[B]] =
+      self.decode(b) map { result =&gt; result map f }
+  }
+}
+</code></pre><p>Note that the <em>implementation</em> of the <code>map</code> method is not particularly important — rather, the type signature is the focus.
+</p><p>As a first use case for <code>map</code>, consider creating a decoder for the following case class by reusing the built-in <code>int32</code> codec:
+</p><pre><code class="prettyprint lang-scala">case class Foo(x: Int)
+val fooDecoder: Decoder[Foo] = int32 map { i =&gt; Foo(i) }
+</code></pre><h3 id="emap">emap<a href="#emap" class="header-link"><span class="header-link-content">&nbsp;</span></a></h3><p>The <code>map</code> operation does not allow room for returning an error. We can define a variant of <code>map</code> that allows the supplied function to indicate error:
+</p><pre><code class="prettyprint lang-scala">trait Decoder[+A] { self =&gt;
+  ...
+  def emap[B](f: A =&gt; Attempt[B]): Decoder[B] = new Decoder[B] {
+    def decode(b: BitVector): Attempt[DecodeResult[B]] =
+      self.decode(bits) flatMap { result =&gt;
+        f(result.value).map { b =&gt; DecodeResult(b, result.remainder) }
+      }
+  }
+}
+</code></pre><h3 id="flatMap">flatMap<a href="#flatMap" class="header-link"><span class="header-link-content">&nbsp;</span></a></h3><p>Further generalizing, we can <code>flatMap</code> a function over a decoder to express that the “next” codec is <em>dependent</em> on the decoded value from the current decoder:
+</p><pre><code class="prettyprint lang-scala">trait Decoder[+A] { self =&gt;
+  ...
+  def flatMap[B](f: A =&gt; Decoder[B]): Decoder[B] = new Decoder[B] {
+    def decode(b: BitVector): Attempt[DecodeResult[B]] =
+      self.decode(b) flatMap { result =&gt;
+        val next: Codec[B] = f(result.value)
+        next.decode(result.remainder)
+      }
+  }
+}
+</code></pre><p>The resulting decoder first decodes a value of type <code>A</code> using the original decoder. If that’s successful, it applies the decoded value to the supplied function to get a <code>Decoder[B]</code> and then decodes the bits remaining from decoding <code>A</code> using that decoder.
+</p><p>As mentioned previously, <code>flatMap</code> models a dependency between a decoded value and the decoder to use for the remaining bits. A good use case for this is a bit pattern that first encodes a count followed by a number of records. An implementation of this is not provided because we will see it later in a different context.
+</p><h2 id="Encoder">Encoder<a href="#Encoder" class="header-link"><span class="header-link-content">&nbsp;</span></a></h2><pre><code class="prettyprint lang-scala">trait Encoder[-A] {
+  def encode(a: A): Attempt[BitVector]
+  def sizeBound: SizeBound
+}
+</code></pre><p>An encoder defines two abstract operations, <code>encode</code>, which converts a value to binary or returns an error, and <code>sizeBound</code>, which provides an upper and lower bound on the size of the bit vectors created by the encoder. This design differs from other libraries by allowing <code>encode</code> to be defined partially over type <code>A</code>. For example, this allows an integer encoder to be defined on a subset of the integers without having to resort to newtypes or wrapper types.
+</p><h3 id="contramap">contramap<a href="#contramap" class="header-link"><span class="header-link-content">&nbsp;</span></a></h3><p>A function can be mapped over an encoder, similar to <code>map</code> on decoder, but unlike <code>map</code>, the supplied function has its arrow reversed — that is, we convert an <code>Encoder[A]</code> to an <code>Encoder[B]</code> with a function <code>B =&gt; A</code>. This may seem strange at first, but all we are doing is using the supplied function to convert a <code>B</code> to an <code>A</code> and then delegating the encoding logic to the original <code>Encoder[A]</code>. This operation is called <code>contramap</code>:
+</p><pre><code class="prettyprint lang-scala">trait Encoder[-A] { self =&gt;
+  def encode(a: A): Attempt[BitVector]
+  def contramap[B](f: B =&gt; A): Encoder[B] = new Encoder[B] {
+    def encode(b: B): Attempt[BitVector] =
+      self.encode(f(b))
+    def sizeBound: SizeBound =
+      self.sizeBound
+  }
+}
+</code></pre><h3 id="econtramap">econtramap<a href="#econtramap" class="header-link"><span class="header-link-content">&nbsp;</span></a></h3><p>Like decoder’s <code>map</code>, <code>contramap</code> takes a total function. To use a partial function, there’s <code>econtramap</code>:
+</p><pre><code class="prettyprint lang-scala">trait Encoder[-A] { self =&gt;
+  ...
+  def econtramap[B](f: B =&gt; Attempt[A]): Encoder[B] = new Encoder[B] {
+    def encode(b: B): Attempt[BitVector] =
+      f(b) flatMap self.encode
+    def sizeBound: SizeBound =
+      self.sizeBound
+  }
+}
+</code></pre><h3 id="flatMap%3F">flatMap?<a href="#flatMap%3F" class="header-link"><span class="header-link-content">&nbsp;</span></a></h3><p>Unlike decoder, there is no <code>flatMap</code> operation on encoder. Further, there’s no “corresponding” operation — in the way that <code>contramap</code> corresponds to <code>map</code> and <code>econtramap</code> corresponds to <code>emap</code>. To get a feel for why this is, try defining a <code>flatMap</code>-like method. For instance, you could try “reversing the arrows” and substituting <code>Encoder</code> for <code>Decoder</code>, yielding a method like <code>def flatMapLike[B](f: Encoder[B] =&gt; A): Encoder[B]</code> — but you’ll find there’s no reasonable way to implement <code>encode</code> on the returned encoder.
+</p><h2 id="Codec">Codec<a href="#Codec" class="header-link"><span class="header-link-content">&nbsp;</span></a></h2><p>We can now implement <code>Codec</code> as the combination of an encoder and decoder:
+</p><pre><code class="prettyprint lang-scala">trait Codec[A] extends Encoder[A] with Decoder[A]
+</code></pre><p>A codec has no further abstract operations — leaving it with only <code>encode</code> and <code>decode</code>, along with a number of derived operations like <code>map</code> and <code>contramap</code>. However, at least as presented here, calling <code>map</code> on a codec results in a decoder and calling <code>contramap</code> on a codec results in an encoder — effectively “forgetting” how to encode and decode respectively. We need a new set of combinators for working with codecs that does not result in forgetting information.
+</p><h3 id="xmap">xmap<a href="#xmap" class="header-link"><span class="header-link-content">&nbsp;</span></a></h3><p>The codec equivalent to <code>map</code> and <code>contramap</code> is called <code>xmap</code>:
+</p><pre><code class="prettyprint lang-scala">trait Codec[A] extends Encoder[A] with Decoder[A] { self =&gt;
+  def xmap[B](f: A =&gt; B, g: B =&gt; A): Codec[B] = new Codec[B] {
+    def encode(b: B) = self.contramap(g).encode(b)
+    def decode(b: BitVector) = self.map(f).decode(b)
+    def sizeBound = self.sizeBound
+  }
+}
+</code></pre><p>Here, we’ve defined <code>xmap</code> in terms of <code>map</code> and <code>contramap</code>. The <code>xmap</code> operation is one of the most commonly used operations in scodec-core. Consider this example:
+</p><pre><code class="prettyprint lang-scala">case class Point(x: Int, y: Int)
+
+val tupleCodec: Codec[(Int, Int)] = ...
+val pointCodec: Codec[Point] = tupleCodec.xmap[Point](t =&gt; Point(t._1, t._2), pt =&gt; (pt.x, pt.y))
+</code></pre><p>We convert a <code>Codec[(Int, Int)]</code> into a <code>Codec[Point]</code> using the <code>xmap</code> operation, passing two functions — one that converts from a <code>Tuple2[Int, Int]</code> to a <code>Point</code>, and another that converts a <code>Point</code> to a <code>Tuple2[Int, Int]</code>. Note: there are a few simpler ways to define codecs for case classes that we’ll see later.
+</p><h3 id="exmap">exmap<a href="#exmap" class="header-link"><span class="header-link-content">&nbsp;</span></a></h3><p>In a similar fashion to <code>emap</code> and <code>econtramap</code>, the <code>exmap</code> operation is like <code>xmap</code> but allows both functions to be defined partially:
+</p><pre><code class="prettyprint lang-scala">trait Codec[A] extends Encoder[A] with Decoder[A] { self =&gt;
+  ...
+  def exmap[B](f: A =&gt; Attempt[B], g: B =&gt; Attempt[A]): Codec[B] = new Codec[B] {
+    def encode(b: B) = self.econtramap(g).encode(b)
+    def decode(b: BitVector) = self.emap(f).decode(b)
+    def sizeBound = self.sizeBound
+  }
+}
+</code></pre><h3 id="Additional+transforms">Additional transforms<a href="#Additional+transforms" class="header-link"><span class="header-link-content">&nbsp;</span></a></h3><p>Unlike <code>map</code>, <code>emap</code>, <code>contramap</code>, and <code>econtramap</code>, <code>xmap</code> and  <code>exmap</code> each take two functions. <code>xmap</code> takes two total functions and <code>exmap</code> takes two partial functions. There are two other operations that take two conversion functions — where one of the functions is total and the other is partial.
+</p><pre><code class="prettyprint lang-scala">trait Codec[A] extends Encoder[A] with Decoder[A] { self =&gt;
+  ...
+  def narrow[B](f: A =&gt; Attempt[B], g: B =&gt; A): Codec[B] = exmap(f, right compose g)
+  def widen[B](f: A =&gt; B, g: B =&gt; Attempt[A]): Codec[B] = exmap(right compose f, g)
+}
+</code></pre><p>Finally, there’s a variant of <code>widen</code> where the partial function is represented as a <code>B =&gt; Option[A]</code> instead of a <code>B =&gt; Attempt[A]</code>.
+</p><pre><code class="prettyprint lang-scala">trait Codec[A] extends Encoder[A] with Decoder[A] { self =&gt;
+  ...
+  def widenOpt[B](f: A =&gt; B, g: B =&gt; Option[A]): Codec[B] = ...
+}
+</code></pre><p>The <code>widenOpt</code> operation is provided to make manual authored case class codecs simpler — by passing the <code>apply</code> and <code>unapply</code> methods from a case class companion. For instance, the earlier example becomes:
+</p><pre><code class="prettyprint lang-scala">case class Point(x: Int, y: Int)
+
+val tupleCodec: Codec[(Int, Int)] = ...
+val pointCodec: Codec[Point] = tupleCodec.widenOpt(Point.apply, Point.unapply)
+</code></pre><h2 id="GenCodec">GenCodec<a href="#GenCodec" class="header-link"><span class="header-link-content">&nbsp;</span></a></h2><p>The <code>xmap</code> and related operations allow us to transform a <code>Codec[A]</code> into a <code>Codec[B]</code>. Nonetheless, we can improve the definitions of the decoder and encoder specific methods (<code>map</code>, <code>contramap</code>, etc.). With the types as presented, we said that calling <code>map</code> on a codec forgot the encoding logic and returned a decoder, and that calling <code>contramap</code> on a codec forgot the decoding logic and returned an encoder.
+</p><p>We can remedy this somewhat by introducing a new type that is similar to <code>Codec</code> in that it is both an <code>Encoder</code> and a <code>Decoder</code> — but dissimilar in that it allows the encoding type to differ from the decoding type.
+</p><pre><code class="prettyprint lang-scala">trait GenCodec[-A, +B] extends Encoder[A] with Decoder[B] { self =&gt;
+  override def map[C](f: B =&gt; C): GenCodec[A, C] = GenCodec(this, super.map(f))
+  override def contramap[C](f: C =&gt; A): GenCodec[C, B] = GenCodec(super.contramap(f), this)
+  ...
+  def fuse[AA &lt;: A, BB &gt;: B](implicit ev: BB =:= AA): Codec[BB] = new Codec[BB] {
+    def encode(c: BB) = self.encode(ev(c))
+    def decode(bits: BitVector) = self.decode(bits)
+    def sizeBound = self.sizeBound
+  }
+}
+
+object GenCodec {
+  def apply[A, B](encoder: Encoder[A], decoder: Decoder[B]): GenCodec[A, B] = new GenCodec[A, B] {
+    override def encode(a: A) = encoder.encode(a)
+    override def decode(bits: BitVector) = decoder.decode(bits)
+    def sizeBound = encoder.sizeBound
+  }
+}
+
+trait Codec[A] extends GenCodec[A, A] { ... }
+</code></pre><p>A <code>GenCodec</code> represents the pairing of an <code>Encoder</code> and a <code>Decoder</code>, with potentially different types. Each of the combinators from <code>Encoder</code> and <code>Decoder</code> are overridden such that they return <code>GenCodec</code>s that “remember” the behavior of the non-transformed type. For instance, the <code>map</code> operation on a <code>GenCodec</code> changes the decoding behavior while remembering the encoding behavior.
+</p><p>Hence, <code>GenCodec</code> has two type parameters — the first is the encoding type and the second is the decoding type. Any time that the two types are equal, the <code>fuse</code> method can be used to convert the <code>GenCodec[A, A]</code> to a <code>Codec[A]</code>.
+</p><p><code>GenCodec</code> is useful because it allows <em>incremental</em> transforms to be applied to a codec. Further, it plays an important role in the categorical view of codecs, which is discussed later. Still, direct usage of <code>GenCodec</code> is rare.
+</p><h2 id="Variance">Variance<a href="#Variance" class="header-link"><span class="header-link-content">&nbsp;</span></a></h2><p>You may have noticed the variance annotations in <code>Encoder</code>, <code>Decoder</code>, and <code>GenCodec</code>, and the lack of a variance annotation in <code>Codec</code>. Specifically:
+</p><ul><li><code>Encoder</code> is defined contravariantly in its type parameter
+</li><li><code>Decoder</code> is defined covariantly in its type parameter
+</li><li><code>GenCodec</code> is defined contravariantly in its first type parameter and covariantly in its second type parameter
+</li><li><code>Codec</code> is defined invariantly in its type parameter
+</li></ul><p>The variance annotations — specifically the contravariant ones — can cause problems with implicit search. At the current time, the implicit search problems cannot be fixed without making <code>Encoder</code> invariant. The authors of scodec believe the utility provided by subtyping variance outweighs the inconvenience of the implicit search issues they cause. If you disagree, please weigh-in on the <a href="https://groups.google.com/forum/#!forum/scodec">mailing list</a> or the <a href="https://github.com/scodec/scodec/pull/26">related pull request</a>.
+</p><h2 id="For+the+categorically+minded">For the categorically minded<a href="#For+the+categorically+minded" class="header-link"><span class="header-link-content">&nbsp;</span></a></h2><p>The core types have a number of type class instances. Note that this section assumes a strong familiarity with the major typeclasses of functional programming and can be safely skipped.
+</p><p><code>Decoder</code> has a monad instance, where <code>flatMap</code> is defined as above and the point operation is defined as:
+</p><pre><code class="prettyprint lang-scala">def point(a: A): Decoder[A] = new Decoder[A] {
+  def decode(b: BitVector): Attempt[DecodeResult[A]] =
+    Attempt.successful(DecodeResult(a, b))
+}
+</code></pre><p><code>Encoder</code> has a contravariant functor instance, defined using the <code>contramap</code> operation from above. It also has a corepresentable instance with <code>Attempt[BitVector]</code>.
+</p><p><code>GenCodec</code> has a profunctor instance, where <code>mapfst</code> is implemented using <code>contramap</code> and <code>mapsnd</code> is implemented using <code>map</code>.
+</p><p><code>Codec</code> has an invariant (aka exponential) functor instance, using the <code>xmap</code> operation from above.
+</p><p>Instances for the Scalaz versions of each these type classes are located in the scodec-scalaz module, which is discussed later.
+</p><p>scodec-core defines one additional type class, <code>Transform</code>, which abstracts over the type constructor in the transform operations. It defines a single abstract operation — <code>exmap</code> — and defines concrete versions of <code>xmap</code>, <code>narrow</code>, <code>widen</code>, etc. in terms of <code>exmap</code>. This type class is unlikely to be useful outside of scodec libraries due to the use of <code>scodec.Err</code>. It exists in order to share transform API between <code>Codec</code> and another scodec-core type we’ll see later.
+</p><h2 id="Manually+creating+codecs">Manually creating codecs<a href="#Manually+creating+codecs" class="header-link"><span class="header-link-content">&nbsp;</span></a></h2><p>Codecs are typically created by transforming or combining other codecs. However, we can create a codec manually by writing a class that extends <code>Codec</code> and implements <code>sizeBound</code>, <code>encode</code>, and <code>decode</code>.
+</p><pre><code class="prettyprint lang-scala">class BitVectorCodec(size: Long) extends Codec[BitVector] {
+  def sizeBound = SizeBound.exact(size)
+  def encode(b: BitVector) = {
+    if (b.size == size) Attempt.successful(b)
+    else Attempt.failure(Err(s&quot;expected size ${size} but got ${b.size}&quot;))
+  }
+  def decode(b: BitVector) = {
+    val (result, remaining) = b.splitAt(size)
+    if (result.size != size)
+      Attempt.failure(new Err.InsufficientBits(size, result.size))
+    else Attempt.successful(DecodeResult(result, remaining))
+  }
+}
+</code></pre><p>Besides the fundamental types — <code>Codec</code>, <code>Decoder</code>, and <code>Encoder</code> — scodec-core is focused on providing <em>combinators</em>. That is, providing ways to combine two or more codecs in to a new codec, or transform a single codec in to another. We’ve seen a few examples of combinators (e.g., <code>xmap</code>) and we’ll see many more.
+</p><p>The combinators exist to make codecs easier to read and write. They promote correctness by allowing a codec to be built from components that are known to be correct. They increase readability by encapsulating boilerplate and wiring logic, leaving the structure of the codec evident.  However, it is easy to get distracted by searching for an elegant combinator based codec implementation when a manually authored codec is appropriate. As you work with scodec, you’ll develop an intuition for when to write codecs manually.
+</p><h2 id="Summary">Summary<a href="#Summary" class="header-link"><span class="header-link-content">&nbsp;</span></a></h2><p>The <code>Codec</code> type is the work horse of scodec-core, which combines a <code>Decoder</code> with an <code>Encoder</code>. Codecs can be transformed in a variety of ways — and we’ll see many more ways in later sections. However, we can always fall back to implementing <code>Codec</code> or even <code>Decoder</code> or <code>Encoder</code> directly if a combinator based approach proves inconvenient.
+</p><div class="bottom nav span-16">
+                        <em>Next Page</em>
+                        <span class="arrow">❧</span>
+                        <a href="Simple+Value+Codecs.html"> Simple Value Codecs </a>                        
+                        
+                      </div><div class="tocwrapper show">
+      <a class="tochead nav" style="display: none" href="#toc">❦</a>
+      <a name="toc"></a>
+      <h4 class="toctitle">Contents</h4>
+      <div class="tocbody">
+      <div><a href="index.html">scodec</a></div><ol class="toc"> <li><div><a href="scodec-bits.html">scodec-bits</a></div></li><li><div><a href="scodec-core.html">scodec-core</a></div><ol class="toc"> <li><div class="current">Core Algebra</div></li><li><div><a href="Simple+Value+Codecs.html">Simple Value Codecs</a></div></li><li><div><a href="Simple+Constructors+and+Combinators.html">Simple Constructors and Combinators</a></div></li><li><div><a href="Collections.html">Collections</a></div></li><li><div><a href="Framing.html">Framing</a></div></li><li><div><a href="Tuple+Codecs.html">Tuple Codecs</a></div></li><li><div><a href="HList+Codecs.html">HList Codecs</a></div></li><li><div><a href="Case+Class+Codecs.html">Case Class Codecs</a></div></li><li><div><a href="Coproduct+Codecs.html">Coproduct Codecs</a></div></li> </ol></li><li class="generated"><div><a href="Contents+in+Depth.html">Contents in Depth</a></div></li><li class="generated"><div><a href="Combined+Pages.html">Combined Pages</a></div></li> </ol></div></div>
+          </div>
+        </div>
+        <div class="header">
+          <div class="container">
+        <div class="span-16 prepend-1 append-1">
+          <div class="span-16 top nav">
+            <div class="span-16 title">
+              <span>scodec</span> — Core Algebra
+            </div>
+          </div>
+        </div>
+      </div>
+        </div>
+        <div class="footer">
+          
+        </div>
+        
+        <div class="highlight-outer">
+              <div class="highlight-menu">
+                <ul>
+                  <li><button id="highlight-button-twitter"><img src="img/twitter-bird-dark-bgs.png"/></button></li>
+                </ul>
+              </div>
+            </div>
+      </body>
+    </html>

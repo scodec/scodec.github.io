@@ -1,0 +1,102 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html manifest="pamflet.manifest">
+      <head>
+        <meta charset="utf-8"/>
+        <meta content="width=device-width, initial-scale=1" name="viewport"/>
+        <title>scodec — Contents in Depth</title>
+        
+        <link rel="stylesheet" href="css/blueprint/screen.css" type="text/css" media="screen, projection"/>
+        <link rel="stylesheet" href="css/blueprint/grid.css" type="text/css" media="screen and (min-device-width: 800px), projection"/>
+        <link rel="stylesheet" href="css/blueprint/print.css" type="text/css" media="print"/> 
+        <!--[if lt IE 8]>
+          <link rel="stylesheet" href={ relativeBase + "css/blueprint/ie.css" } type="text/css" media="screen, projection"/>
+        <![endif]-->
+        <link rel="stylesheet" href="css/pamflet.css" type="text/css" media="screen, projection"/>
+        <link rel="stylesheet" href="css/pamflet-print.css" type="text/css" media="print"/>
+        <link rel="stylesheet" href="css/pamflet-grid.css" type="text/css" media="screen and (min-device-width: 800px), projection"/>
+        <link rel="stylesheet" href="css/color_scheme-redmond.css" type="text/css" media="screen, projection"/>
+        <link rel="stylesheet" href="css/color_scheme-github.css" type="text/css" media="screen, projection"/>
+        <link rel="stylesheet" href="css/color_scheme-monokai.css" type="text/css" media="screen, projection"/>
+        <link rel="stylesheet" href="css/pamfletheight_2em_2em.css" type="text/css" media="screen and (min-device-width: 800px), projection"/>
+        <script type="text/javascript" src="js/jquery-1.6.2.min.js"></script>
+        <script type="text/javascript" src="js/jquery.collapse.js"></script>
+        <script type="text/javascript" src="js/pamflet.js"></script>
+        <script type="text/javascript">
+          Pamflet.page.language = 'en';
+        </script>
+        
+        <link rel="stylesheet" href="css/custom.css" type="text/css" media="screen, projection"/>
+        <script type="text/javascript">
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-41236326-2']);
+            _gaq.push(['_trackPageview']);
+            (function() {
+              var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+              ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+              var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+            </script>
+        <script type="text/javascript">
+              Pamflet.twitter = '#scodec';
+            </script>
+      </head>
+      <body class="color_scheme-redmond">
+        <a class="page prev nav" href="Coproduct+Codecs.html">
+            <span class="space">&nbsp;</span>
+            <span class="flip arrow">❧</span>
+          </a><a class="page next nav" href="Combined+Pages.html">
+            <span class="space">&nbsp;</span>
+            <span class="arrow">❧</span>
+          </a>
+        <div class="container contentswrapper">
+          <div class="span-16 prepend-1 append-1 contents">
+            <div class="tocwrapper show">
+      <a class="tochead nav" style="display: none" href="#toc">❦</a>
+      <a name="toc"></a>
+      <h4 class="toctitle">Contents</h4>
+      <div class="tocbody">
+      <div><a href="index.html">scodec</a></div><ul class="outline"> <li> <a href="index.html#Getting+Source%2C+Binaries%2C+and+Docs">Getting Source, Binaries, and Docs </a> </li><li> <a href="index.html#Getting+Help">Getting Help </a> </li> </ul><ol class="toc"> <li><div><a href="scodec-bits.html">scodec-bits</a></div><ul class="outline"> <li> <a href="scodec-bits.html#ByteVector">ByteVector </a>
+              <ul class="outline"> <li> <a href="scodec-bits.html#Getting+Started">Getting Started </a> </li><li> <a href="scodec-bits.html#Constructing+Byte+Vectors">Constructing Byte Vectors </a> </li> </ul>
+            </li><li> <a href="scodec-bits.html#BitVector">BitVector </a>
+              <ul class="outline"> <li> <a href="scodec-bits.html#Getting+Started">Getting Started </a> </li><li> <a href="scodec-bits.html#Constructing+Bit+Vectors">Constructing Bit Vectors </a> </li> </ul>
+            </li><li> <a href="scodec-bits.html#Transforms">Transforms </a>
+              <ul class="outline"> <li> <a href="scodec-bits.html#Collection+Like+Transforms">Collection Like Transforms </a> </li><li> <a href="scodec-bits.html#Bitwise+Transforms">Bitwise Transforms </a> </li> </ul>
+            </li><li> <a href="scodec-bits.html#Base+Conversions">Base Conversions </a> </li><li> <a href="scodec-bits.html#Cyclic+Redundancy+Checks">Cyclic Redundancy Checks </a> </li> </ul></li><li><div><a href="scodec-core.html">scodec-core</a></div><ul class="outline"> <li> <a href="scodec-core.html#Getting+Started">Getting Started </a> </li> </ul><ol class="toc"> <li><div><a href="Core+Algebra.html">Core Algebra</a></div><ul class="outline"> <li> <a href="Core+Algebra.html#Decoder">Decoder </a>
+              <ul class="outline"> <li> <a href="Core+Algebra.html#map">map </a> </li><li> <a href="Core+Algebra.html#emap">emap </a> </li><li> <a href="Core+Algebra.html#flatMap">flatMap </a> </li> </ul>
+            </li><li> <a href="Core+Algebra.html#Encoder">Encoder </a>
+              <ul class="outline"> <li> <a href="Core+Algebra.html#contramap">contramap </a> </li><li> <a href="Core+Algebra.html#econtramap">econtramap </a> </li><li> <a href="Core+Algebra.html#flatMap%3F">flatMap? </a> </li> </ul>
+            </li><li> <a href="Core+Algebra.html#Codec">Codec </a>
+              <ul class="outline"> <li> <a href="Core+Algebra.html#xmap">xmap </a> </li><li> <a href="Core+Algebra.html#exmap">exmap </a> </li><li> <a href="Core+Algebra.html#Additional+transforms">Additional transforms </a> </li> </ul>
+            </li><li> <a href="Core+Algebra.html#GenCodec">GenCodec </a> </li><li> <a href="Core+Algebra.html#Variance">Variance </a> </li><li> <a href="Core+Algebra.html#For+the+categorically+minded">For the categorically minded </a> </li><li> <a href="Core+Algebra.html#Manually+creating+codecs">Manually creating codecs </a> </li><li> <a href="Core+Algebra.html#Summary">Summary </a> </li> </ul></li><li><div><a href="Simple+Value+Codecs.html">Simple Value Codecs</a></div><ul class="outline"> <li> <a href="Simple+Value+Codecs.html#BitVector+and+ByteVector">BitVector and ByteVector </a> </li><li> <a href="Simple+Value+Codecs.html#Booleans">Booleans </a> </li><li> <a href="Simple+Value+Codecs.html#Numerics">Numerics </a>
+              <ul class="outline"> <li> <a href="Simple+Value+Codecs.html#Integral+Types">Integral Types </a> </li><li> <a href="Simple+Value+Codecs.html#Non-Integral+Types">Non-Integral Types </a> </li> </ul>
+            </li><li> <a href="Simple+Value+Codecs.html#Strings">Strings </a> </li> </ul></li><li><div><a href="Simple+Constructors+and+Combinators.html">Simple Constructors and Combinators</a></div><ul class="outline"> <li> <a href="Simple+Constructors+and+Combinators.html#Constants">Constants </a>
+              <ul class="outline"> <li> <a href="Simple+Constructors+and+Combinators.html#Literal+Constants">Literal Constants </a> </li> </ul>
+            </li><li> <a href="Simple+Constructors+and+Combinators.html#Unit+Codecs">Unit Codecs </a> </li><li> <a href="Simple+Constructors+and+Combinators.html#Context">Context </a> </li><li> <a href="Simple+Constructors+and+Combinators.html#Miscellaneous">Miscellaneous </a>
+              <ul class="outline"> <li> <a href="Simple+Constructors+and+Combinators.html#Complete">Complete </a> </li> </ul>
+            </li> </ul></li><li><div><a href="Collections.html">Collections</a></div></li><li><div><a href="Framing.html">Framing</a></div></li><li><div><a href="Tuple+Codecs.html">Tuple Codecs</a></div></li><li><div><a href="HList+Codecs.html">HList Codecs</a></div></li><li><div><a href="Case+Class+Codecs.html">Case Class Codecs</a></div></li><li><div><a href="Coproduct+Codecs.html">Coproduct Codecs</a></div></li> </ol></li><li class="generated"><div class="current">Contents in Depth</div></li><li class="generated"><div><a href="Combined+Pages.html">Combined Pages</a></div></li> </ol></div></div>
+          </div>
+        </div>
+        <div class="header">
+          <div class="container">
+        <div class="span-16 prepend-1 append-1">
+          <div class="span-16 top nav">
+            <div class="span-16 title">
+              <span>scodec</span> — Contents in Depth
+            </div>
+          </div>
+        </div>
+      </div>
+        </div>
+        <div class="footer">
+          
+        </div>
+        
+        <div class="highlight-outer">
+              <div class="highlight-menu">
+                <ul>
+                  <li><button id="highlight-button-twitter"><img src="img/twitter-bird-dark-bgs.png"/></button></li>
+                </ul>
+              </div>
+            </div>
+      </body>
+    </html>

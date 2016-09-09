@@ -1,0 +1,151 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html>
+      <head>
+        <meta charset="utf-8"/>
+        <meta content="width=device-width, initial-scale=1" name="viewport"/>
+        <title>scodec — Simple Value Codecs</title>
+        
+        <link rel="stylesheet" href="css/blueprint/screen.css" type="text/css" media="screen, projection"/>
+        <link rel="stylesheet" href="css/blueprint/grid.css" type="text/css" media="screen and (min-device-width: 800px), projection"/>
+        <link rel="stylesheet" href="css/blueprint/print.css" type="text/css" media="print"/> 
+        <!--[if lt IE 8]>
+          <link rel="stylesheet" href={ relativeBase + "css/blueprint/ie.css" } type="text/css" media="screen, projection"/>
+        <![endif]-->
+        <link rel="stylesheet" href="css/pamflet.css" type="text/css" media="screen, projection"/>
+        <link rel="stylesheet" href="css/pamflet-print.css" type="text/css" media="print"/>
+        <link rel="stylesheet" href="css/pamflet-grid.css" type="text/css" media="screen and (min-device-width: 800px), projection"/>
+        <link rel="stylesheet" href="css/color_scheme-redmond.css" type="text/css" media="screen, projection"/>
+        <link rel="stylesheet" href="css/color_scheme-github.css" type="text/css" media="screen, projection"/>
+        <link rel="stylesheet" href="css/color_scheme-monokai.css" type="text/css" media="screen, projection"/>
+        <link rel="stylesheet" href="css/pamfletheight_2em_2em.css" type="text/css" media="screen and (min-device-width: 800px), projection"/>
+        <script type="text/javascript" src="js/jquery-1.6.2.min.js"></script>
+        <script type="text/javascript" src="js/jquery.collapse.js"></script>
+        <script type="text/javascript" src="js/pamflet.js"></script>
+        <script type="text/javascript">
+          Pamflet.page.language = 'en';
+        </script>
+        
+        <link rel="stylesheet" href="css/custom.css" type="text/css" media="screen, projection"/>
+        <script type="text/javascript">
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-41236326-2']);
+            _gaq.push(['_trackPageview']);
+            (function() {
+              var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+              ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+              var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+            </script>
+        <script type="text/javascript">
+              Pamflet.twitter = '#scodec';
+            </script>
+      </head>
+      <body class="color_scheme-redmond">
+        <a class="page prev nav" href="Core+Algebra.html">
+            <span class="space">&nbsp;</span>
+            <span class="flip arrow">❧</span>
+          </a><a class="page next nav" href="Simple+Constructors+and+Combinators.html">
+            <span class="space">&nbsp;</span>
+            <span class="arrow">❧</span>
+          </a>
+        <div class="container contentswrapper">
+          <div class="span-16 prepend-1 append-1 contents">
+            <h1 id="Simple+Value+Codecs">Simple Value Codecs<a href="#Simple+Value+Codecs" class="header-link"><span class="header-link-content">&nbsp;</span></a></h1><p>There are a number of pre-defined codecs for simple value types provided by the <code>scodec.codecs</code> object. In this section, we’ll look at some of these.
+</p><h2 id="BitVector+and+ByteVector">BitVector and ByteVector<a href="#BitVector+and+ByteVector" class="header-link"><span class="header-link-content">&nbsp;</span></a></h2><p>One of the simplest codecs is an identity for <code>BitVector</code>s. That is, a <code>Codec[BitVector]</code> that returns the supplied bit vector from <code>encode</code> and <code>decode</code>. This is provided by the <code>scodec.codecs.bits</code> method. This codec has some interesting properties — it is both <em>total</em> and <em>greedy</em>. By total, we mean that it never returns an error from <code>encode</code> or <code>decode</code>. By greedy, we mean that the <code>decode</code> method always consumes the entire input bit vector and returns an empty bit vector as the remaining bits.
+</p><p>The greedy property may seem strange, or at least more specialized than codec for a fixed number of bits — for instance, a constant width binary field. However, non-greedy codecs can often be built out of greedy codecs. We’ll see a general combinator for doing so later, in the Framing section.
+</p><p>Nonetheless, constant width binary fields occur often enough to warrant their own built-in constructor. The <code>scodec.codecs.bits(size: Long)</code> method returns a <code>Codec[BitVector]</code> that decodes exactly <code>size</code> bits from the supplied vector, failing to decode with an <code>Err.InsufficientBits</code> error if there are less than <code>size</code> bits provided. If a bit vector less than <code>size</code> bits is supplied to <code>encode</code>, it is right-padded with 0s.
+</p><p>Similarly, the <code>scodec.codecs.bytes</code> and <code>scodec.codecs.bytes(size: Int)</code> methods return a greedy <code>Codec[ByteVector]</code> and a fixed-width <code>Codec[ByteVector]</code>, where the latter’s size is specified in bytes instead of bits.
+</p><h2 id="Booleans">Booleans<a href="#Booleans" class="header-link"><span class="header-link-content">&nbsp;</span></a></h2><p>The <code>bool</code> codec is a <code>Codec[Boolean]</code> which encodes a 1-bit vector where <code>0</code> represents <code>false</code> and <code>1</code> represents true.
+</p><p>There’s an overload of <code>bool</code> which takes a bit count — <code>bool(n)</code> — which also is a <code>Codec[Boolean]</code>. When decoding, it treats <code>n</code> consecutive
+<code>0</code>s as <code>false</code> and all other vectors as <code>true</code>. When encoding, <code>true</code> is encoded as <code>n</code> consecutive <code>1</code>s.
+</p><h2 id="Numerics">Numerics<a href="#Numerics" class="header-link"><span class="header-link-content">&nbsp;</span></a></h2><p>Codecs are also provided for various numeric types — <code>Int</code>, <code>Long</code>, <code>Short</code>, <code>Float</code>, and <code>Double</code>. Let’s consider first the integral types, <code>Int</code>, <code>Long</code>, and <code>Short</code>, followed by the non-integral types.
+</p><h3 id="Integral+Types">Integral Types<a href="#Integral+Types" class="header-link"><span class="header-link-content">&nbsp;</span></a></h3><p>There are a number of predefined integral codecs defined by methods named according to the form:
+</p><pre><code class=""> [u]int${size}[L]
+</code></pre><p>where <code>u</code> stands for unsigned, <code>size</code> is replaced by one of <code>8, 16, 24, 32, 64</code>, and <code>L</code> stands for little-endian.
+For each codec of that form, the type is <code>Codec[Int]</code> or <code>Codec[Long]</code> depending on the specified size. Signed
+integer codecs use the 2’s complement encoding.
+</p><p>For example, <code>int32</code> supports 32-bit big-endian 2s complement signed integers, and <code>uint16L</code> supports 16-bit little-endian unsigned integers.
+Note: <code>uint64</code> and <code>uint64L</code> are not provided because a 64-bit unsigned integer does not fit in to a <code>Long</code>.
+</p><p>Additionally, methods of the form <code>[u]int[L](size: Int)</code> and <code>[u]long[L](size: Int)</code> exist to build arbitrarily
+sized codecs, within the limitations of <code>Int</code> and <code>Long</code>. Hence, a 13-bit unsigned integer codec is given by <code>uint(13)</code>.
+</p><p>Similarly, <code>Short</code> codecs are provided by <code>short16</code>, <code>short16L</code>, <code>short(size)</code>, <code>shortL(size)</code>, <code>ushort(size)</code>, and <code>ushortL(size)</code>. The signed methods take a size up to <code>16</code> and the unsigned methods take a size up to <code>15</code>.
+</p><h3 id="Non-Integral+Types">Non-Integral Types<a href="#Non-Integral+Types" class="header-link"><span class="header-link-content">&nbsp;</span></a></h3><p><code>Float</code> and <code>Double</code> codecs are provided by <code>float</code> and <code>double</code>. Both use IEEE754, with the former represented as 32-bits and the latter represented as 64-bits.
+</p><h2 id="Strings">Strings<a href="#Strings" class="header-link"><span class="header-link-content">&nbsp;</span></a></h2><p><code>String</code>s are supported by a variety of codecs.
+</p><p>The rawest form is the <code>string</code> method, which takes an implicit <code>java.nio.charset.Charset</code>. The resulting codec encodes strings using the supplied charset — that is, all of the heavy lifting of converting each character to binary is handled directly by the charset. Hence, the <code>string</code> codec is nothing more than glue between the <code>Codec</code> type and <code>Charset</code>.
+</p><p>There are two convenience codecs defined as well, <code>utf8</code> and <code>ascii</code>, which are simply aliases for the <code>string(charset)</code>, passing the <code>UTF-8</code> and <code>US-ASCII</code> charsets.
+</p><p>Codecs returned from <code>string</code>, including <code>utf8</code> and <code>ascii</code>, are greedy. The byte size / character count is
+<em>not</em> encoded in the binary, and hence, it is not safe to decode a vector that has been concatenated with another vector. For example:
+</p><pre><code class="">scala&gt; val pair = utf8 ~ uint8
+pair: scodec.Codec[(String, Int)] = (UTF-8, 8-bit unsigned integer)
+
+scala&gt; val enc = pair.encode((&quot;Hello&quot;, 48))
+enc: scodec.Attempt[scodec.bits.BitVector] =
+  Successful(BitVector(48 bits, 0x48656c6c6f30))
+
+scala&gt; pair.decode(enc.require)
+res1: scodec.Attempt[scodec.DecodeResult[(String, Int)]] =
+  Failure(cannot acquire 8 bits from a vector that contains
+0 bits)
+</code></pre><p>Here, we create a <code>Codec[(String, Int)]</code> using the <code>utf8</code> codec and a <code>uint8</code> codec. We then encoded the pair <code>(&quot;Hello&quot;, 48)</code> and then tried to decode the result. However, we got a failure indicating there were not enough bits. Let’s try decoding the resulting vector using the <code>utf8</code> codec directly:
+</p><pre><code class="">scala&gt; utf8.decode(enc.require)
+res2: scodec.Attempt[scodec.DecodeResult[String]] =
+  Successful(DecodeResult(Hello0,BitVector(empty)))
+</code></pre><p>The result is <code>&quot;Hello0&quot;</code>, not <code>&quot;Hello&quot;</code> as expected. The <code>utf8</code> codec decoded the entire vector, including the <code>0x30</code> byte that originally was written by the <code>uint8</code> codec.
+</p><p>This greediness property is a feature of <code>string</code> — often, the size of a string field in a binary protocol is provided by some external mechanism. For example, by a record size field that is defined in another part of the message.
+</p><p>There are alternatives to <code>string</code>, <code>utf8</code>, and <code>ascii</code> that encode the string’s byte size in the binary — <code>string32</code>, <code>utf8_32</code>, and <code>ascii32</code>. Executing the same example as above with <code>utf8_32</code> instead of <code>utf8</code> yields the expected result:
+</p><pre><code class="">scala&gt; val pair = utf8_32 ~ uint8
+pair: scodec.Codec[(String, Int)] = (string32(UTF-8), 8-bit unsigned integer)
+
+scala&gt; val enc = pair.encode((&quot;Hello&quot;, 48))
+enc: scodec.Attempt[scodec.bits.BitVector] =
+  Successful(BitVector(80 bits, 0x0000000548656c6c6f30))
+
+scala&gt; val dec = pair.decode(enc.require)
+dec: scodec.Attempt[scodec.DecodeResult[(String, Int)]] =
+  Successful(DecodeResult((Hello,48),BitVector(empty)))
+</code></pre><p>By looking at the encoded binary, we can see that the byte size of the string was encoded in a 32-bit field the preceeded the encoded string.
+</p><p>In order to handle size delimited string fields, like the above, except with artibrary size fields, we can use the <code>variableSizeBytes</code> combinator along with <code>string</code>, <code>utf8</code>, or <code>ascii</code>. The <code>variableSizeBytes</code> combinator is covered in more detail in a later section. For now though, consider the following example, which encodes the byte size of the string in an unsigned little-endian 18-bit integer field.
+</p><pre><code class="">scala&gt; val str18 = variableSizeBytes(uintL(18), utf8)
+str18: scodec.Codec[String] = variableSizeBytes(18-bit unsigned integer, UTF-8)
+
+scala&gt; str18.encode(&quot;Hello&quot;)
+res0: scodec.Attempt[scodec.bits.BitVector] =
+  Successful(BitVector(58 bits, 0x050012195b1b1bc))
+</code></pre><p>This has the same benefits as <code>utf8_32</code> except it allows for an arbitrary size field, rather than being limited to a 32-bit size field.
+</p><div class="bottom nav span-16">
+                        <em>Next Page</em>
+                        <span class="arrow">❧</span>
+                        <a href="Simple+Constructors+and+Combinators.html"> Simple Constructors and Combinators </a>                        
+                        
+                      </div><div class="tocwrapper show">
+      <a class="tochead nav" style="display: none" href="#toc">❦</a>
+      <a name="toc"></a>
+      <h4 class="toctitle">Contents</h4>
+      <div class="tocbody">
+      <div><a href="index.html">scodec</a></div><ol class="toc"> <li><div><a href="scodec-bits.html">scodec-bits</a></div></li><li><div><a href="scodec-core.html">scodec-core</a></div><ol class="toc"> <li><div><a href="Core+Algebra.html">Core Algebra</a></div></li><li><div class="current">Simple Value Codecs</div></li><li><div><a href="Simple+Constructors+and+Combinators.html">Simple Constructors and Combinators</a></div></li><li><div><a href="Collections.html">Collections</a></div></li><li><div><a href="Framing.html">Framing</a></div></li><li><div><a href="Tuple+Codecs.html">Tuple Codecs</a></div></li><li><div><a href="HList+Codecs.html">HList Codecs</a></div></li><li><div><a href="Case+Class+Codecs.html">Case Class Codecs</a></div></li><li><div><a href="Coproduct+Codecs.html">Coproduct Codecs</a></div></li> </ol></li><li class="generated"><div><a href="Contents+in+Depth.html">Contents in Depth</a></div></li><li class="generated"><div><a href="Combined+Pages.html">Combined Pages</a></div></li> </ol></div></div>
+          </div>
+        </div>
+        <div class="header">
+          <div class="container">
+        <div class="span-16 prepend-1 append-1">
+          <div class="span-16 top nav">
+            <div class="span-16 title">
+              <span>scodec</span> — Simple Value Codecs
+            </div>
+          </div>
+        </div>
+      </div>
+        </div>
+        <div class="footer">
+          
+        </div>
+        
+        <div class="highlight-outer">
+              <div class="highlight-menu">
+                <ul>
+                  <li><button id="highlight-button-twitter"><img src="img/twitter-bird-dark-bgs.png"/></button></li>
+                </ul>
+              </div>
+            </div>
+      </body>
+    </html>

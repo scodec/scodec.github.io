@@ -1,0 +1,1995 @@
+<!DOCTYPE html >
+<html>
+        <head>
+          <title>psi - scodec.protocols.mpeg.transport.psi</title>
+          <meta name="description" content="psi - scodec.protocols.mpeg.transport.psi" />
+          <meta name="keywords" content="psi scodec.protocols.mpeg.transport.psi" />
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+          
+      <link href="../../../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../../../../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript" src="../../../../../lib/jquery.js" id="jquery-js"></script>
+      <script type="text/javascript" src="../../../../../lib/jquery-ui.js"></script>
+      <script type="text/javascript" src="../../../../../lib/template.js"></script>
+      <script type="text/javascript" src="../../../../../lib/tools.tooltip.js"></script>
+      <script type="text/javascript" src="../../../../../lib/modernizr.custom.js"></script><script type="text/javascript" src="../../../../../lib/diagrams.js" id="diagrams-js"></script>
+      <script type="text/javascript">
+         if(top === self) {
+            var url = '../../../../../index.html';
+            var hash = 'scodec.protocols.mpeg.transport.psi.package';
+            var anchor = window.location.hash;
+            var anchor_opt = '';
+            if (anchor.length >= 1)
+              anchor_opt = '@' + anchor.substring(1);
+            window.location.href = url + '#' + hash + anchor_opt;
+         }
+   	  </script>
+    
+        </head>
+        <body class="value">
+      <div id="definition">
+        <img alt="Package" src="../../../../../lib/package_big.png" />
+        <p id="owner"><a href="../../../../package.html" class="extype" name="scodec">scodec</a>.<a href="../../../package.html" class="extype" name="scodec.protocols">protocols</a>.<a href="../../package.html" class="extype" name="scodec.protocols.mpeg">mpeg</a>.<a href="../package.html" class="extype" name="scodec.protocols.mpeg.transport">transport</a></p>
+        <h1>psi</h1><span class="permalink">
+      <a href="../../../../../index.html#scodec.protocols.mpeg.transport.psi.package" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      </div>
+
+      <h4 id="signature" class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">package</span>
+      </span>
+      <span class="symbol">
+        <span class="name">psi</span>
+      </span>
+      </h4>
+      
+          <div id="comment" class="fullcommenttop"></div>
+        
+
+      <div id="mbrsel">
+        <div id="textfilter"><span class="pre"></span><span class="input"><input id="mbrsel-input" type="text" accesskey="/" /></span><span class="post"></span></div>
+        
+        
+        <div id="visbl">
+            <span class="filtertype">Visibility</span>
+            <ol><li class="public in"><span>Public</span></li><li class="all out"><span>All</span></li></ol>
+          </div>
+      </div>
+
+      <div id="template">
+        <div id="allMembers">
+        
+
+        <div id="types" class="types members">
+              <h3>Type Members</h3>
+              <ol><li name="scodec.protocols.mpeg.transport.psi.AlignmentType" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="AlignmentTypeextendsAnyRef"></a>
+      <a id="AlignmentType:AlignmentType"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">sealed </span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="AlignmentType.html"><span class="name">AlignmentType</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#scodec.protocols.mpeg.transport.psi.package@AlignmentTypeextendsAnyRef" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scodec.protocols.mpeg.transport.psi.AudioStreamDescriptor" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="AudioStreamDescriptorextendsTransportStreamDescriptorwithProgramStreamDescriptorwithProductwithSerializable"></a>
+      <a id="AudioStreamDescriptor:AudioStreamDescriptor"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="AudioStreamDescriptor.html"><span class="name">AudioStreamDescriptor</span></a><span class="params">(<span name="freeFormatFlag">freeFormatFlag: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>, <span name="id">id: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>, <span name="layer">layer: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>, <span name="variableRateAudioIndicator">variableRateAudioIndicator: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>)</span><span class="result"> extends <a href="TransportStreamDescriptor.html" class="extype" name="scodec.protocols.mpeg.transport.psi.TransportStreamDescriptor">TransportStreamDescriptor</a> with <a href="ProgramStreamDescriptor.html" class="extype" name="scodec.protocols.mpeg.transport.psi.ProgramStreamDescriptor">ProgramStreamDescriptor</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#scodec.protocols.mpeg.transport.psi.package@AudioStreamDescriptorextendsTransportStreamDescriptorwithProgramStreamDescriptorwithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scodec.protocols.mpeg.transport.psi.AudioType" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="AudioTypeextendsAnyRef"></a>
+      <a id="AudioType:AudioType"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">sealed </span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="AudioType.html"><span class="name">AudioType</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#scodec.protocols.mpeg.transport.psi.package@AudioTypeextendsAnyRef" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scodec.protocols.mpeg.transport.psi.CADescriptor" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="CADescriptorextendsTransportStreamDescriptorwithProgramStreamDescriptorwithProductwithSerializable"></a>
+      <a id="CADescriptor:CADescriptor"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="CADescriptor.html"><span class="name">CADescriptor</span></a><span class="params">(<span name="caSystemId">caSystemId: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>, <span name="caPid">caPid: <a href="../Pid.html" class="extype" name="scodec.protocols.mpeg.transport.Pid">Pid</a></span>, <span name="privateData">privateData: <a href="http://scodec.org/api/scodec-bits/1.1.0/index.html#scodec.bits.ByteVector" class="extype" target="_top">ByteVector</a></span>)</span><span class="result"> extends <a href="TransportStreamDescriptor.html" class="extype" name="scodec.protocols.mpeg.transport.psi.TransportStreamDescriptor">TransportStreamDescriptor</a> with <a href="ProgramStreamDescriptor.html" class="extype" name="scodec.protocols.mpeg.transport.psi.ProgramStreamDescriptor">ProgramStreamDescriptor</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#scodec.protocols.mpeg.transport.psi.package@CADescriptorextendsTransportStreamDescriptorwithProgramStreamDescriptorwithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scodec.protocols.mpeg.transport.psi.ConditionalAccessDescriptor" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ConditionalAccessDescriptorextendsProductwithSerializable"></a>
+      <a id="ConditionalAccessDescriptor:ConditionalAccessDescriptor"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="ConditionalAccessDescriptor.html"><span class="name">ConditionalAccessDescriptor</span></a><span class="params">(<span name="systemId">systemId: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>, <span name="pid">pid: <a href="../Pid.html" class="extype" name="scodec.protocols.mpeg.transport.Pid">Pid</a></span>, <span name="privateData">privateData: <a href="http://scodec.org/api/scodec-bits/1.1.0/index.html#scodec.bits.BitVector" class="extype" target="_top">BitVector</a></span>)</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#scodec.protocols.mpeg.transport.psi.package@ConditionalAccessDescriptorextendsProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scodec.protocols.mpeg.transport.psi.ConditionalAccessSection" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ConditionalAccessSectionextendsExtendedSectionwithProductwithSerializable"></a>
+      <a id="ConditionalAccessSection:ConditionalAccessSection"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="ConditionalAccessSection.html"><span class="name">ConditionalAccessSection</span></a><span class="params">(<span name="extension">extension: <a href="SectionExtension.html" class="extype" name="scodec.protocols.mpeg.transport.psi.SectionExtension">SectionExtension</a></span>, <span name="descriptors">descriptors: <span class="extype" name="scala.List">List</span>[<a href="ConditionalAccessDescriptor.html" class="extype" name="scodec.protocols.mpeg.transport.psi.ConditionalAccessDescriptor">ConditionalAccessDescriptor</a>]</span>)</span><span class="result"> extends <a href="ExtendedSection.html" class="extype" name="scodec.protocols.mpeg.transport.psi.ExtendedSection">ExtendedSection</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#scodec.protocols.mpeg.transport.psi.package@ConditionalAccessSectionextendsExtendedSectionwithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scodec.protocols.mpeg.transport.psi.ConditionalAccessTable" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ConditionalAccessTableextendsTablewithProductwithSerializable"></a>
+      <a id="ConditionalAccessTable:ConditionalAccessTable"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="ConditionalAccessTable.html"><span class="name">ConditionalAccessTable</span></a><span class="params">(<span name="version">version: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>, <span name="current">current: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>, <span name="descriptors">descriptors: <span class="extype" name="scala.List">List</span>[<a href="ConditionalAccessDescriptor.html" class="extype" name="scodec.protocols.mpeg.transport.psi.ConditionalAccessDescriptor">ConditionalAccessDescriptor</a>]</span>)</span><span class="result"> extends <a href="Table.html" class="extype" name="scodec.protocols.mpeg.transport.psi.Table">Table</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#scodec.protocols.mpeg.transport.psi.package@ConditionalAccessTableextendsTablewithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scodec.protocols.mpeg.transport.psi.CopyrightDescriptor" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="CopyrightDescriptorextendsTransportStreamDescriptorwithProgramStreamDescriptorwithProductwithSerializable"></a>
+      <a id="CopyrightDescriptor:CopyrightDescriptor"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="CopyrightDescriptor.html"><span class="name">CopyrightDescriptor</span></a><span class="params">(<span name="copyrightIdentifier">copyrightIdentifier: <a href="http://scodec.org/api/scodec-bits/1.1.0/index.html#scodec.bits.ByteVector" class="extype" target="_top">ByteVector</a></span>, <span name="additionalCopyrightInfo">additionalCopyrightInfo: <a href="http://scodec.org/api/scodec-bits/1.1.0/index.html#scodec.bits.ByteVector" class="extype" target="_top">ByteVector</a></span>)</span><span class="result"> extends <a href="TransportStreamDescriptor.html" class="extype" name="scodec.protocols.mpeg.transport.psi.TransportStreamDescriptor">TransportStreamDescriptor</a> with <a href="ProgramStreamDescriptor.html" class="extype" name="scodec.protocols.mpeg.transport.psi.ProgramStreamDescriptor">ProgramStreamDescriptor</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#scodec.protocols.mpeg.transport.psi.package@CopyrightDescriptorextendsTransportStreamDescriptorwithProgramStreamDescriptorwithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scodec.protocols.mpeg.transport.psi.DataStreamAlignmentDescriptor" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="DataStreamAlignmentDescriptorextendsTransportStreamDescriptorwithProgramStreamDescriptorwithProductwithSerializable"></a>
+      <a id="DataStreamAlignmentDescriptor:DataStreamAlignmentDescriptor"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="DataStreamAlignmentDescriptor.html"><span class="name">DataStreamAlignmentDescriptor</span></a><span class="params">(<span name="alignmentType">alignmentType: <a href="AlignmentType.html" class="extype" name="scodec.protocols.mpeg.transport.psi.AlignmentType">AlignmentType</a></span>)</span><span class="result"> extends <a href="TransportStreamDescriptor.html" class="extype" name="scodec.protocols.mpeg.transport.psi.TransportStreamDescriptor">TransportStreamDescriptor</a> with <a href="ProgramStreamDescriptor.html" class="extype" name="scodec.protocols.mpeg.transport.psi.ProgramStreamDescriptor">ProgramStreamDescriptor</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#scodec.protocols.mpeg.transport.psi.package@DataStreamAlignmentDescriptorextendsTransportStreamDescriptorwithProgramStreamDescriptorwithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scodec.protocols.mpeg.transport.psi.EsIdAndChannel" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="EsIdAndChannelextendsProductwithSerializable"></a>
+      <a id="EsIdAndChannel:EsIdAndChannel"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="EsIdAndChannel.html"><span class="name">EsIdAndChannel</span></a><span class="params">(<span name="esId">esId: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>, <span name="flexMuxChannel">flexMuxChannel: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>)</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#scodec.protocols.mpeg.transport.psi.package@EsIdAndChannelextendsProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scodec.protocols.mpeg.transport.psi.ExtendedSection" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="ExtendedSectionextendsSection"></a>
+      <a id="ExtendedSection:ExtendedSection"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="ExtendedSection.html"><span class="name">ExtendedSection</span></a><span class="result"> extends <a href="Section.html" class="extype" name="scodec.protocols.mpeg.transport.psi.Section">Section</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#scodec.protocols.mpeg.transport.psi.package@ExtendedSectionextendsSection" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scodec.protocols.mpeg.transport.psi.ExternalEsIdDescriptor" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ExternalEsIdDescriptorextendsTransportStreamDescriptorwithProgramStreamDescriptorwithProductwithSerializable"></a>
+      <a id="ExternalEsIdDescriptor:ExternalEsIdDescriptor"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="ExternalEsIdDescriptor.html"><span class="name">ExternalEsIdDescriptor</span></a><span class="params">(<span name="esternalEsId">esternalEsId: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>)</span><span class="result"> extends <a href="TransportStreamDescriptor.html" class="extype" name="scodec.protocols.mpeg.transport.psi.TransportStreamDescriptor">TransportStreamDescriptor</a> with <a href="ProgramStreamDescriptor.html" class="extype" name="scodec.protocols.mpeg.transport.psi.ProgramStreamDescriptor">ProgramStreamDescriptor</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#scodec.protocols.mpeg.transport.psi.package@ExternalEsIdDescriptorextendsTransportStreamDescriptorwithProgramStreamDescriptorwithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scodec.protocols.mpeg.transport.psi.FmcDescriptor" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="FmcDescriptorextendsTransportStreamDescriptorwithProgramStreamDescriptorwithProductwithSerializable"></a>
+      <a id="FmcDescriptor:FmcDescriptor"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="FmcDescriptor.html"><span class="name">FmcDescriptor</span></a><span class="params">(<span name="channels">channels: <span class="extype" name="scala.Vector">Vector</span>[<a href="EsIdAndChannel.html" class="extype" name="scodec.protocols.mpeg.transport.psi.EsIdAndChannel">EsIdAndChannel</a>]</span>)</span><span class="result"> extends <a href="TransportStreamDescriptor.html" class="extype" name="scodec.protocols.mpeg.transport.psi.TransportStreamDescriptor">TransportStreamDescriptor</a> with <a href="ProgramStreamDescriptor.html" class="extype" name="scodec.protocols.mpeg.transport.psi.ProgramStreamDescriptor">ProgramStreamDescriptor</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#scodec.protocols.mpeg.transport.psi.package@FmcDescriptorextendsTransportStreamDescriptorwithProgramStreamDescriptorwithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scodec.protocols.mpeg.transport.psi.FmxBufferSizeDescriptor" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="FmxBufferSizeDescriptorextendsTransportStreamDescriptorwithProgramStreamDescriptorwithProductwithSerializable"></a>
+      <a id="FmxBufferSizeDescriptor:FmxBufferSizeDescriptor"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="FmxBufferSizeDescriptor.html"><span class="name">FmxBufferSizeDescriptor</span></a><span class="params">(<span name="flexMuxBufferDescriptor">flexMuxBufferDescriptor: <a href="http://scodec.org/api/scodec-bits/1.1.0/index.html#scodec.bits.ByteVector" class="extype" target="_top">ByteVector</a></span>)</span><span class="result"> extends <a href="TransportStreamDescriptor.html" class="extype" name="scodec.protocols.mpeg.transport.psi.TransportStreamDescriptor">TransportStreamDescriptor</a> with <a href="ProgramStreamDescriptor.html" class="extype" name="scodec.protocols.mpeg.transport.psi.ProgramStreamDescriptor">ProgramStreamDescriptor</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#scodec.protocols.mpeg.transport.psi.package@FmxBufferSizeDescriptorextendsTransportStreamDescriptorwithProgramStreamDescriptorwithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scodec.protocols.mpeg.transport.psi.GroupedSections" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="GroupedSections[+A&lt;:scodec.protocols.mpeg.transport.psi.Section]extendsAnyRef"></a>
+      <a id="GroupedSections[+A&lt;:Section]:GroupedSections[A]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">sealed abstract </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="GroupedSections.html"><span class="name">GroupedSections</span></a><span class="tparams">[<span name="A">+A &lt;: <a href="Section.html" class="extype" name="scodec.protocols.mpeg.transport.psi.Section">Section</a></span>]</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#scodec.protocols.mpeg.transport.psi.package@GroupedSections[+A&lt;:scodec.protocols.mpeg.transport.psi.Section]extendsAnyRef" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Group of sections that make up a logical message.</p><div class="fullcomment"><div class="comment cmt"><p>Group of sections that make up a logical message.</p><p>Intermediate representation between sections and tables. All sections must share the same table id.
+</p></div></div>
+    </li><li name="scodec.protocols.mpeg.transport.psi.GroupingError" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="GroupingErrorextendsMpegErrorwithProductwithSerializable"></a>
+      <a id="GroupingError:GroupingError"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="GroupingError.html"><span class="name">GroupingError</span></a><span class="params">(<span name="tableId">tableId: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>, <span name="tableIdExtension">tableIdExtension: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Option" class="extype" target="_top">Option</a>[<a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a>]</span>, <span name="message">message: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result"> extends <a href="../../MpegError.html" class="extype" name="scodec.protocols.mpeg.MpegError">MpegError</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#scodec.protocols.mpeg.transport.psi.package@GroupingErrorextendsMpegErrorwithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scodec.protocols.mpeg.transport.psi.HierarchyDescriptor" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="HierarchyDescriptorextendsTransportStreamDescriptorwithProgramStreamDescriptorwithProductwithSerializable"></a>
+      <a id="HierarchyDescriptor:HierarchyDescriptor"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="HierarchyDescriptor.html"><span class="name">HierarchyDescriptor</span></a><span class="params">(<span name="hierarchyType">hierarchyType: <a href="HierarchyType.html" class="extype" name="scodec.protocols.mpeg.transport.psi.HierarchyType">HierarchyType</a></span>, <span name="hierarchyLayerIndex">hierarchyLayerIndex: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>, <span name="hierarchyEmbeddedLayerIndex">hierarchyEmbeddedLayerIndex: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>, <span name="hierarchyChannel">hierarchyChannel: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>)</span><span class="result"> extends <a href="TransportStreamDescriptor.html" class="extype" name="scodec.protocols.mpeg.transport.psi.TransportStreamDescriptor">TransportStreamDescriptor</a> with <a href="ProgramStreamDescriptor.html" class="extype" name="scodec.protocols.mpeg.transport.psi.ProgramStreamDescriptor">ProgramStreamDescriptor</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#scodec.protocols.mpeg.transport.psi.package@HierarchyDescriptorextendsTransportStreamDescriptorwithProgramStreamDescriptorwithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scodec.protocols.mpeg.transport.psi.HierarchyType" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="HierarchyTypeextendsAnyRef"></a>
+      <a id="HierarchyType:HierarchyType"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">sealed </span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="HierarchyType.html"><span class="name">HierarchyType</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#scodec.protocols.mpeg.transport.psi.package@HierarchyTypeextendsAnyRef" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scodec.protocols.mpeg.transport.psi.IbpDescriptor" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="IbpDescriptorextendsTransportStreamDescriptorwithProgramStreamDescriptorwithProductwithSerializable"></a>
+      <a id="IbpDescriptor:IbpDescriptor"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="IbpDescriptor.html"><span class="name">IbpDescriptor</span></a><span class="params">(<span name="closedGopFlag">closedGopFlag: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>, <span name="identicalGopFlag">identicalGopFlag: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>, <span name="maxGopLength">maxGopLength: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>)</span><span class="result"> extends <a href="TransportStreamDescriptor.html" class="extype" name="scodec.protocols.mpeg.transport.psi.TransportStreamDescriptor">TransportStreamDescriptor</a> with <a href="ProgramStreamDescriptor.html" class="extype" name="scodec.protocols.mpeg.transport.psi.ProgramStreamDescriptor">ProgramStreamDescriptor</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#scodec.protocols.mpeg.transport.psi.package@IbpDescriptorextendsTransportStreamDescriptorwithProgramStreamDescriptorwithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scodec.protocols.mpeg.transport.psi.IodDescriptor" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="IodDescriptorextendsTransportStreamDescriptorwithProgramStreamDescriptorwithProductwithSerializable"></a>
+      <a id="IodDescriptor:IodDescriptor"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="IodDescriptor.html"><span class="name">IodDescriptor</span></a><span class="params">(<span name="scopeOfIodLabel">scopeOfIodLabel: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Byte" class="extype" target="_top">Byte</a></span>, <span name="iodLabel">iodLabel: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Byte" class="extype" target="_top">Byte</a></span>, <span name="initialObjectDescriptor">initialObjectDescriptor: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Byte" class="extype" target="_top">Byte</a></span>)</span><span class="result"> extends <a href="TransportStreamDescriptor.html" class="extype" name="scodec.protocols.mpeg.transport.psi.TransportStreamDescriptor">TransportStreamDescriptor</a> with <a href="ProgramStreamDescriptor.html" class="extype" name="scodec.protocols.mpeg.transport.psi.ProgramStreamDescriptor">ProgramStreamDescriptor</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#scodec.protocols.mpeg.transport.psi.package@IodDescriptorextendsTransportStreamDescriptorwithProgramStreamDescriptorwithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scodec.protocols.mpeg.transport.psi.Iso639LanguageDescriptor" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Iso639LanguageDescriptorextendsTransportStreamDescriptorwithProgramStreamDescriptorwithProductwithSerializable"></a>
+      <a id="Iso639LanguageDescriptor:Iso639LanguageDescriptor"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="Iso639LanguageDescriptor.html"><span class="name">Iso639LanguageDescriptor</span></a><span class="params">(<span name="languageFields">languageFields: <span class="extype" name="scala.Vector">Vector</span>[<a href="LanguageField.html" class="extype" name="scodec.protocols.mpeg.transport.psi.LanguageField">LanguageField</a>]</span>)</span><span class="result"> extends <a href="TransportStreamDescriptor.html" class="extype" name="scodec.protocols.mpeg.transport.psi.TransportStreamDescriptor">TransportStreamDescriptor</a> with <a href="ProgramStreamDescriptor.html" class="extype" name="scodec.protocols.mpeg.transport.psi.ProgramStreamDescriptor">ProgramStreamDescriptor</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#scodec.protocols.mpeg.transport.psi.package@Iso639LanguageDescriptorextendsTransportStreamDescriptorwithProgramStreamDescriptorwithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scodec.protocols.mpeg.transport.psi.KnownDescriptor" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="KnownDescriptorextendsAnyRef"></a>
+      <a id="KnownDescriptor:KnownDescriptor"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="KnownDescriptor.html"><span class="name">KnownDescriptor</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#scodec.protocols.mpeg.transport.psi.package@KnownDescriptorextendsAnyRef" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scodec.protocols.mpeg.transport.psi.LanguageField" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="LanguageFieldextendsProductwithSerializable"></a>
+      <a id="LanguageField:LanguageField"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="LanguageField.html"><span class="name">LanguageField</span></a><span class="params">(<span name="iso639LanguageCode">iso639LanguageCode: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="audioType">audioType: <a href="AudioType.html" class="extype" name="scodec.protocols.mpeg.transport.psi.AudioType">AudioType</a></span>)</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#scodec.protocols.mpeg.transport.psi.package@LanguageFieldextendsProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scodec.protocols.mpeg.transport.psi.MaximumBitrateDescriptor" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="MaximumBitrateDescriptorextendsTransportStreamDescriptorwithProductwithSerializable"></a>
+      <a id="MaximumBitrateDescriptor:MaximumBitrateDescriptor"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="MaximumBitrateDescriptor.html"><span class="name">MaximumBitrateDescriptor</span></a><span class="params">(<span name="maximumBitrate">maximumBitrate: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>)</span><span class="result"> extends <a href="TransportStreamDescriptor.html" class="extype" name="scodec.protocols.mpeg.transport.psi.TransportStreamDescriptor">TransportStreamDescriptor</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#scodec.protocols.mpeg.transport.psi.package@MaximumBitrateDescriptorextendsTransportStreamDescriptorwithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scodec.protocols.mpeg.transport.psi.Mpeg1Only" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Mpeg1OnlyextendsProductwithSerializable"></a>
+      <a id="Mpeg1Only:Mpeg1Only"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="Mpeg1Only.html"><span class="name">Mpeg1Only</span></a><span class="params">(<span name="profileAndLevelIndication">profileAndLevelIndication: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>, <span name="chromaFormat">chromaFormat: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>, <span name="frameRateExtensionFlag">frameRateExtensionFlag: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>)</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#scodec.protocols.mpeg.transport.psi.package@Mpeg1OnlyextendsProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scodec.protocols.mpeg.transport.psi.Mpeg4AudioDescriptor" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Mpeg4AudioDescriptorextendsTransportStreamDescriptorwithProgramStreamDescriptorwithProductwithSerializable"></a>
+      <a id="Mpeg4AudioDescriptor:Mpeg4AudioDescriptor"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="Mpeg4AudioDescriptor.html"><span class="name">Mpeg4AudioDescriptor</span></a><span class="params">(<span name="mpeg4AudioProfileAndLevel">mpeg4AudioProfileAndLevel: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Byte" class="extype" target="_top">Byte</a></span>)</span><span class="result"> extends <a href="TransportStreamDescriptor.html" class="extype" name="scodec.protocols.mpeg.transport.psi.TransportStreamDescriptor">TransportStreamDescriptor</a> with <a href="ProgramStreamDescriptor.html" class="extype" name="scodec.protocols.mpeg.transport.psi.ProgramStreamDescriptor">ProgramStreamDescriptor</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#scodec.protocols.mpeg.transport.psi.package@Mpeg4AudioDescriptorextendsTransportStreamDescriptorwithProgramStreamDescriptorwithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scodec.protocols.mpeg.transport.psi.Mpeg4VideoDescriptor" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Mpeg4VideoDescriptorextendsTransportStreamDescriptorwithProgramStreamDescriptorwithProductwithSerializable"></a>
+      <a id="Mpeg4VideoDescriptor:Mpeg4VideoDescriptor"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="Mpeg4VideoDescriptor.html"><span class="name">Mpeg4VideoDescriptor</span></a><span class="params">(<span name="mpeg4VisualProfileAndLevel">mpeg4VisualProfileAndLevel: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Byte" class="extype" target="_top">Byte</a></span>)</span><span class="result"> extends <a href="TransportStreamDescriptor.html" class="extype" name="scodec.protocols.mpeg.transport.psi.TransportStreamDescriptor">TransportStreamDescriptor</a> with <a href="ProgramStreamDescriptor.html" class="extype" name="scodec.protocols.mpeg.transport.psi.ProgramStreamDescriptor">ProgramStreamDescriptor</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#scodec.protocols.mpeg.transport.psi.package@Mpeg4VideoDescriptorextendsTransportStreamDescriptorwithProgramStreamDescriptorwithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scodec.protocols.mpeg.transport.psi.MultiplexBufferDescriptor" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="MultiplexBufferDescriptorextendsTransportStreamDescriptorwithProgramStreamDescriptorwithProductwithSerializable"></a>
+      <a id="MultiplexBufferDescriptor:MultiplexBufferDescriptor"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="MultiplexBufferDescriptor.html"><span class="name">MultiplexBufferDescriptor</span></a><span class="params">(<span name="mbBufferSize">mbBufferSize: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>, <span name="tbLeakRate">tbLeakRate: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>)</span><span class="result"> extends <a href="TransportStreamDescriptor.html" class="extype" name="scodec.protocols.mpeg.transport.psi.TransportStreamDescriptor">TransportStreamDescriptor</a> with <a href="ProgramStreamDescriptor.html" class="extype" name="scodec.protocols.mpeg.transport.psi.ProgramStreamDescriptor">ProgramStreamDescriptor</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#scodec.protocols.mpeg.transport.psi.package@MultiplexBufferDescriptorextendsTransportStreamDescriptorwithProgramStreamDescriptorwithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scodec.protocols.mpeg.transport.psi.MultiplexBufferUtilizationDescriptor" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="MultiplexBufferUtilizationDescriptorextendsTransportStreamDescriptorwithProgramStreamDescriptorwithProductwithSerializable"></a>
+      <a id="MultiplexBufferUtilizationDescriptor:MultiplexBufferUtilizationDescriptor"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="MultiplexBufferUtilizationDescriptor.html"><span class="name">MultiplexBufferUtilizationDescriptor</span></a><span class="params">(<span name="boundValidFlag">boundValidFlag: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>, <span name="ltwOffsetLowerBound">ltwOffsetLowerBound: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>, <span name="ltwOffsetUpperBound">ltwOffsetUpperBound: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>)</span><span class="result"> extends <a href="TransportStreamDescriptor.html" class="extype" name="scodec.protocols.mpeg.transport.psi.TransportStreamDescriptor">TransportStreamDescriptor</a> with <a href="ProgramStreamDescriptor.html" class="extype" name="scodec.protocols.mpeg.transport.psi.ProgramStreamDescriptor">ProgramStreamDescriptor</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#scodec.protocols.mpeg.transport.psi.package@MultiplexBufferUtilizationDescriptorextendsTransportStreamDescriptorwithProgramStreamDescriptorwithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scodec.protocols.mpeg.transport.psi.MuxCodeDescriptor" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="MuxCodeDescriptorextendsTransportStreamDescriptorwithProgramStreamDescriptorwithProductwithSerializable"></a>
+      <a id="MuxCodeDescriptor:MuxCodeDescriptor"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="MuxCodeDescriptor.html"><span class="name">MuxCodeDescriptor</span></a><span class="params">(<span name="muxCodeTableEntry">muxCodeTableEntry: <a href="http://scodec.org/api/scodec-bits/1.1.0/index.html#scodec.bits.ByteVector" class="extype" target="_top">ByteVector</a></span>)</span><span class="result"> extends <a href="TransportStreamDescriptor.html" class="extype" name="scodec.protocols.mpeg.transport.psi.TransportStreamDescriptor">TransportStreamDescriptor</a> with <a href="ProgramStreamDescriptor.html" class="extype" name="scodec.protocols.mpeg.transport.psi.ProgramStreamDescriptor">ProgramStreamDescriptor</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#scodec.protocols.mpeg.transport.psi.package@MuxCodeDescriptorextendsTransportStreamDescriptorwithProgramStreamDescriptorwithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scodec.protocols.mpeg.transport.psi.PrivateDataIndicatorDescriptor" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="PrivateDataIndicatorDescriptorextendsTransportStreamDescriptorwithProgramStreamDescriptorwithProductwithSerializable"></a>
+      <a id="PrivateDataIndicatorDescriptor:PrivateDataIndicatorDescriptor"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="PrivateDataIndicatorDescriptor.html"><span class="name">PrivateDataIndicatorDescriptor</span></a><span class="params">(<span name="privateDataIndicator">privateDataIndicator: <a href="http://scodec.org/api/scodec-bits/1.1.0/index.html#scodec.bits.ByteVector" class="extype" target="_top">ByteVector</a></span>)</span><span class="result"> extends <a href="TransportStreamDescriptor.html" class="extype" name="scodec.protocols.mpeg.transport.psi.TransportStreamDescriptor">TransportStreamDescriptor</a> with <a href="ProgramStreamDescriptor.html" class="extype" name="scodec.protocols.mpeg.transport.psi.ProgramStreamDescriptor">ProgramStreamDescriptor</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#scodec.protocols.mpeg.transport.psi.package@PrivateDataIndicatorDescriptorextendsTransportStreamDescriptorwithProgramStreamDescriptorwithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scodec.protocols.mpeg.transport.psi.ProgramAssociationSection" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ProgramAssociationSectionextendsExtendedSectionwithProductwithSerializable"></a>
+      <a id="ProgramAssociationSection:ProgramAssociationSection"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="ProgramAssociationSection.html"><span class="name">ProgramAssociationSection</span></a><span class="params">(<span name="extension">extension: <a href="SectionExtension.html" class="extype" name="scodec.protocols.mpeg.transport.psi.SectionExtension">SectionExtension</a></span>, <span name="pidMappings">pidMappings: <span class="extype" name="scala.Vector">Vector</span>[(<a href="../ProgramNumber.html" class="extype" name="scodec.protocols.mpeg.transport.ProgramNumber">ProgramNumber</a>, <a href="../Pid.html" class="extype" name="scodec.protocols.mpeg.transport.Pid">Pid</a>)]</span>)</span><span class="result"> extends <a href="ExtendedSection.html" class="extype" name="scodec.protocols.mpeg.transport.psi.ExtendedSection">ExtendedSection</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#scodec.protocols.mpeg.transport.psi.package@ProgramAssociationSectionextendsExtendedSectionwithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scodec.protocols.mpeg.transport.psi.ProgramAssociationTable" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ProgramAssociationTableextendsTablewithProductwithSerializable"></a>
+      <a id="ProgramAssociationTable:ProgramAssociationTable"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="ProgramAssociationTable.html"><span class="name">ProgramAssociationTable</span></a><span class="params">(<span name="tsid">tsid: <a href="../TransportStreamId.html" class="extype" name="scodec.protocols.mpeg.transport.TransportStreamId">TransportStreamId</a></span>, <span name="version">version: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>, <span name="current">current: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>, <span name="programByPid">programByPid: <span class="extype" name="scala.Predef.Map">Map</span>[<a href="../ProgramNumber.html" class="extype" name="scodec.protocols.mpeg.transport.ProgramNumber">ProgramNumber</a>, <a href="../Pid.html" class="extype" name="scodec.protocols.mpeg.transport.Pid">Pid</a>]</span>)</span><span class="result"> extends <a href="Table.html" class="extype" name="scodec.protocols.mpeg.transport.psi.Table">Table</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#scodec.protocols.mpeg.transport.psi.package@ProgramAssociationTableextendsTablewithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scodec.protocols.mpeg.transport.psi.ProgramMapRecord" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ProgramMapRecordextendsProductwithSerializable"></a>
+      <a id="ProgramMapRecord:ProgramMapRecord"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="ProgramMapRecord.html"><span class="name">ProgramMapRecord</span></a><span class="params">(<span name="pid">pid: <a href="../Pid.html" class="extype" name="scodec.protocols.mpeg.transport.Pid">Pid</a></span>, <span name="descriptors">descriptors: <span class="extype" name="scala.List">List</span>[<a href="Descriptor$.html#Descriptor=Either[scodec.protocols.mpeg.transport.psi.UnknownDescriptor,scodec.protocols.mpeg.transport.psi.KnownDescriptor]" class="extmbr" name="scodec.protocols.mpeg.transport.psi.Descriptor.Descriptor">Descriptor</a>]</span>)</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#scodec.protocols.mpeg.transport.psi.package@ProgramMapRecordextendsProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scodec.protocols.mpeg.transport.psi.ProgramMapSection" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ProgramMapSectionextendsExtendedSectionwithProductwithSerializable"></a>
+      <a id="ProgramMapSection:ProgramMapSection"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="ProgramMapSection.html"><span class="name">ProgramMapSection</span></a><span class="params">(<span name="extension">extension: <a href="SectionExtension.html" class="extype" name="scodec.protocols.mpeg.transport.psi.SectionExtension">SectionExtension</a></span>, <span name="pcrPid">pcrPid: <a href="../Pid.html" class="extype" name="scodec.protocols.mpeg.transport.Pid">Pid</a></span>, <span name="programInfoDescriptors">programInfoDescriptors: <span class="extype" name="scala.List">List</span>[<a href="Descriptor$.html#Descriptor=Either[scodec.protocols.mpeg.transport.psi.UnknownDescriptor,scodec.protocols.mpeg.transport.psi.KnownDescriptor]" class="extmbr" name="scodec.protocols.mpeg.transport.psi.Descriptor.Descriptor">Descriptor</a>]</span>, <span name="componentStreamMapping">componentStreamMapping: <span class="extype" name="scala.Vector">Vector</span>[(<a href="StreamType.html" class="extype" name="scodec.protocols.mpeg.transport.psi.StreamType">StreamType</a>, <a href="ProgramMapRecord.html" class="extype" name="scodec.protocols.mpeg.transport.psi.ProgramMapRecord">ProgramMapRecord</a>)]</span>)</span><span class="result"> extends <a href="ExtendedSection.html" class="extype" name="scodec.protocols.mpeg.transport.psi.ExtendedSection">ExtendedSection</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#scodec.protocols.mpeg.transport.psi.package@ProgramMapSectionextendsExtendedSectionwithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scodec.protocols.mpeg.transport.psi.ProgramMapTable" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ProgramMapTableextendsTablewithProductwithSerializable"></a>
+      <a id="ProgramMapTable:ProgramMapTable"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="ProgramMapTable.html"><span class="name">ProgramMapTable</span></a><span class="params">(<span name="programNumber">programNumber: <a href="../ProgramNumber.html" class="extype" name="scodec.protocols.mpeg.transport.ProgramNumber">ProgramNumber</a></span>, <span name="version">version: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>, <span name="current">current: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>, <span name="pcrPid">pcrPid: <a href="../Pid.html" class="extype" name="scodec.protocols.mpeg.transport.Pid">Pid</a></span>, <span name="programInfoDescriptors">programInfoDescriptors: <span class="extype" name="scala.List">List</span>[<a href="Descriptor$.html#Descriptor=Either[scodec.protocols.mpeg.transport.psi.UnknownDescriptor,scodec.protocols.mpeg.transport.psi.KnownDescriptor]" class="extmbr" name="scodec.protocols.mpeg.transport.psi.Descriptor.Descriptor">Descriptor</a>]</span>, <span name="componentStreamMapping">componentStreamMapping: <span class="extype" name="scala.Predef.Map">Map</span>[<a href="StreamType.html" class="extype" name="scodec.protocols.mpeg.transport.psi.StreamType">StreamType</a>, <span class="extype" name="scala.List">List</span>[<a href="ProgramMapRecord.html" class="extype" name="scodec.protocols.mpeg.transport.psi.ProgramMapRecord">ProgramMapRecord</a>]]</span>)</span><span class="result"> extends <a href="Table.html" class="extype" name="scodec.protocols.mpeg.transport.psi.Table">Table</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#scodec.protocols.mpeg.transport.psi.package@ProgramMapTableextendsTablewithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scodec.protocols.mpeg.transport.psi.ProgramStreamDescriptor" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="ProgramStreamDescriptorextendsKnownDescriptor"></a>
+      <a id="ProgramStreamDescriptor:ProgramStreamDescriptor"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">sealed </span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="ProgramStreamDescriptor.html"><span class="name">ProgramStreamDescriptor</span></a><span class="result"> extends <a href="KnownDescriptor.html" class="extype" name="scodec.protocols.mpeg.transport.psi.KnownDescriptor">KnownDescriptor</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#scodec.protocols.mpeg.transport.psi.package@ProgramStreamDescriptorextendsKnownDescriptor" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scodec.protocols.mpeg.transport.psi.RegistrationDescriptor" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="RegistrationDescriptorextendsTransportStreamDescriptorwithProgramStreamDescriptorwithProductwithSerializable"></a>
+      <a id="RegistrationDescriptor:RegistrationDescriptor"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="RegistrationDescriptor.html"><span class="name">RegistrationDescriptor</span></a><span class="params">(<span name="formatIdentifier">formatIdentifier: <a href="http://scodec.org/api/scodec-bits/1.1.0/index.html#scodec.bits.ByteVector" class="extype" target="_top">ByteVector</a></span>, <span name="additionalIdentificationInfo">additionalIdentificationInfo: <a href="http://scodec.org/api/scodec-bits/1.1.0/index.html#scodec.bits.ByteVector" class="extype" target="_top">ByteVector</a></span>)</span><span class="result"> extends <a href="TransportStreamDescriptor.html" class="extype" name="scodec.protocols.mpeg.transport.psi.TransportStreamDescriptor">TransportStreamDescriptor</a> with <a href="ProgramStreamDescriptor.html" class="extype" name="scodec.protocols.mpeg.transport.psi.ProgramStreamDescriptor">ProgramStreamDescriptor</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#scodec.protocols.mpeg.transport.psi.package@RegistrationDescriptorextendsTransportStreamDescriptorwithProgramStreamDescriptorwithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scodec.protocols.mpeg.transport.psi.Section" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="SectionextendsAnyRef"></a>
+      <a id="Section:Section"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="Section.html"><span class="name">Section</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#scodec.protocols.mpeg.transport.psi.package@SectionextendsAnyRef" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scodec.protocols.mpeg.transport.psi.SectionCodec" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="SectionCodecextendsCodec[scodec.protocols.mpeg.transport.psi.Section]"></a>
+      <a id="SectionCodec:SectionCodec"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="SectionCodec.html"><span class="name">SectionCodec</span></a><span class="result"> extends <a href="http://scodec.org/api/scodec-core/1.10.2/index.html#scodec.Codec" class="extype" target="_top">Codec</a>[<a href="Section.html" class="extype" name="scodec.protocols.mpeg.transport.psi.Section">Section</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#scodec.protocols.mpeg.transport.psi.package@SectionCodecextendsCodec[scodec.protocols.mpeg.transport.psi.Section]" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scodec.protocols.mpeg.transport.psi.SectionExtension" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="SectionExtensionextendsProductwithSerializable"></a>
+      <a id="SectionExtension:SectionExtension"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="SectionExtension.html"><span class="name">SectionExtension</span></a><span class="params">(<span name="tableIdExtension">tableIdExtension: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>, <span name="version">version: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>, <span name="current">current: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>, <span name="sectionNumber">sectionNumber: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>, <span name="lastSectionNumber">lastSectionNumber: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>)</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#scodec.protocols.mpeg.transport.psi.package@SectionExtensionextendsProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scodec.protocols.mpeg.transport.psi.SectionFragmentCodec" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="SectionFragmentCodec[A]extendsAnyRef"></a>
+      <a id="SectionFragmentCodec[A]:SectionFragmentCodec[A]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="SectionFragmentCodec.html"><span class="name">SectionFragmentCodec</span></a><span class="tparams">[<span name="A">A</span>]</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#scodec.protocols.mpeg.transport.psi.package@SectionFragmentCodec[A]extendsAnyRef" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scodec.protocols.mpeg.transport.psi.SectionHeader" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="SectionHeaderextendsProductwithSerializable"></a>
+      <a id="SectionHeader:SectionHeader"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="SectionHeader.html"><span class="name">SectionHeader</span></a><span class="params">(<span name="tableId">tableId: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>, <span name="extendedSyntax">extendedSyntax: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>, <span name="privateBits">privateBits: <a href="http://scodec.org/api/scodec-bits/1.1.0/index.html#scodec.bits.BitVector" class="extype" target="_top">BitVector</a></span>, <span name="length">length: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>)</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#scodec.protocols.mpeg.transport.psi.package@SectionHeaderextendsProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scodec.protocols.mpeg.transport.psi.SlDescriptor" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="SlDescriptorextendsTransportStreamDescriptorwithProductwithSerializable"></a>
+      <a id="SlDescriptor:SlDescriptor"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="SlDescriptor.html"><span class="name">SlDescriptor</span></a><span class="params">(<span name="esId">esId: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>)</span><span class="result"> extends <a href="TransportStreamDescriptor.html" class="extype" name="scodec.protocols.mpeg.transport.psi.TransportStreamDescriptor">TransportStreamDescriptor</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#scodec.protocols.mpeg.transport.psi.package@SlDescriptorextendsTransportStreamDescriptorwithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scodec.protocols.mpeg.transport.psi.SmoothingBufferDescriptor" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="SmoothingBufferDescriptorextendsTransportStreamDescriptorwithProgramStreamDescriptorwithProductwithSerializable"></a>
+      <a id="SmoothingBufferDescriptor:SmoothingBufferDescriptor"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="SmoothingBufferDescriptor.html"><span class="name">SmoothingBufferDescriptor</span></a><span class="params">(<span name="sbLeakRate">sbLeakRate: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>, <span name="sbSize">sbSize: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>)</span><span class="result"> extends <a href="TransportStreamDescriptor.html" class="extype" name="scodec.protocols.mpeg.transport.psi.TransportStreamDescriptor">TransportStreamDescriptor</a> with <a href="ProgramStreamDescriptor.html" class="extype" name="scodec.protocols.mpeg.transport.psi.ProgramStreamDescriptor">ProgramStreamDescriptor</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#scodec.protocols.mpeg.transport.psi.package@SmoothingBufferDescriptorextendsTransportStreamDescriptorwithProgramStreamDescriptorwithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scodec.protocols.mpeg.transport.psi.StdDescriptor" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="StdDescriptorextendsTransportStreamDescriptorwithProductwithSerializable"></a>
+      <a id="StdDescriptor:StdDescriptor"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="StdDescriptor.html"><span class="name">StdDescriptor</span></a><span class="params">(<span name="leakValidFlag">leakValidFlag: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>)</span><span class="result"> extends <a href="TransportStreamDescriptor.html" class="extype" name="scodec.protocols.mpeg.transport.psi.TransportStreamDescriptor">TransportStreamDescriptor</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#scodec.protocols.mpeg.transport.psi.package@StdDescriptorextendsTransportStreamDescriptorwithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scodec.protocols.mpeg.transport.psi.StreamType" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="StreamTypeextendsProductwithSerializable"></a>
+      <a id="StreamType:StreamType"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="StreamType.html"><span class="name">StreamType</span></a><span class="params">(<span name="value">value: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>)</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#scodec.protocols.mpeg.transport.psi.package@StreamTypeextendsProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scodec.protocols.mpeg.transport.psi.SystemClockDescriptor" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="SystemClockDescriptorextendsTransportStreamDescriptorwithProgramStreamDescriptorwithProductwithSerializable"></a>
+      <a id="SystemClockDescriptor:SystemClockDescriptor"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="SystemClockDescriptor.html"><span class="name">SystemClockDescriptor</span></a><span class="params">(<span name="externalClockReferenceIndicator">externalClockReferenceIndicator: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>, <span name="clockAccuracyInteger">clockAccuracyInteger: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>, <span name="clockAccuracyExponent">clockAccuracyExponent: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>)</span><span class="result"> extends <a href="TransportStreamDescriptor.html" class="extype" name="scodec.protocols.mpeg.transport.psi.TransportStreamDescriptor">TransportStreamDescriptor</a> with <a href="ProgramStreamDescriptor.html" class="extype" name="scodec.protocols.mpeg.transport.psi.ProgramStreamDescriptor">ProgramStreamDescriptor</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#scodec.protocols.mpeg.transport.psi.package@SystemClockDescriptorextendsTransportStreamDescriptorwithProgramStreamDescriptorwithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scodec.protocols.mpeg.transport.psi.Table" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="TableextendsAnyRef"></a>
+      <a id="Table:Table"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="Table.html"><span class="name">Table</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#scodec.protocols.mpeg.transport.psi.package@TableextendsAnyRef" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Indicates the implementor can be treated as a message delivered in an MPEG transport stream.</p><div class="fullcomment"><div class="comment cmt"><p>Indicates the implementor can be treated as a message delivered in an MPEG transport stream.</p><p>This library differentiates tables from sections. Sections are the actual messages delivered
+in the transport stream whereas tables are the result of grouping multiple related sections
+together in to a single logical message.
+</p></div></div>
+    </li><li name="scodec.protocols.mpeg.transport.psi.TableBuilder" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="TableBuilderextendsAnyRef"></a>
+      <a id="TableBuilder:TableBuilder"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="TableBuilder.html"><span class="name">TableBuilder</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#scodec.protocols.mpeg.transport.psi.package@TableBuilderextendsAnyRef" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scodec.protocols.mpeg.transport.psi.TableBuildingError" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="TableBuildingErrorextendsMpegErrorwithProductwithSerializable"></a>
+      <a id="TableBuildingError:TableBuildingError"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="TableBuildingError.html"><span class="name">TableBuildingError</span></a><span class="params">(<span name="tableId">tableId: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>, <span name="message">message: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result"> extends <a href="../../MpegError.html" class="extype" name="scodec.protocols.mpeg.MpegError">MpegError</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#scodec.protocols.mpeg.transport.psi.package@TableBuildingErrorextendsMpegErrorwithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scodec.protocols.mpeg.transport.psi.TableSupport" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="TableSupport[T&lt;:scodec.protocols.mpeg.transport.psi.Table]extendsAnyRef"></a>
+      <a id="TableSupport[T&lt;:Table]:TableSupport[T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="TableSupport.html"><span class="name">TableSupport</span></a><span class="tparams">[<span name="T">T &lt;: <a href="Table.html" class="extype" name="scodec.protocols.mpeg.transport.psi.Table">Table</a></span>]</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#scodec.protocols.mpeg.transport.psi.package@TableSupport[T&lt;:scodec.protocols.mpeg.transport.psi.Table]extendsAnyRef" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scodec.protocols.mpeg.transport.psi.TargetBackgroundGridDescriptor" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="TargetBackgroundGridDescriptorextendsTransportStreamDescriptorwithProgramStreamDescriptorwithProductwithSerializable"></a>
+      <a id="TargetBackgroundGridDescriptor:TargetBackgroundGridDescriptor"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="TargetBackgroundGridDescriptor.html"><span class="name">TargetBackgroundGridDescriptor</span></a><span class="params">(<span name="horizontalSize">horizontalSize: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>, <span name="verticalSize">verticalSize: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>, <span name="aspectRatioInformation">aspectRatioInformation: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>)</span><span class="result"> extends <a href="TransportStreamDescriptor.html" class="extype" name="scodec.protocols.mpeg.transport.psi.TransportStreamDescriptor">TransportStreamDescriptor</a> with <a href="ProgramStreamDescriptor.html" class="extype" name="scodec.protocols.mpeg.transport.psi.ProgramStreamDescriptor">ProgramStreamDescriptor</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#scodec.protocols.mpeg.transport.psi.package@TargetBackgroundGridDescriptorextendsTransportStreamDescriptorwithProgramStreamDescriptorwithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scodec.protocols.mpeg.transport.psi.TransportStreamDescriptor" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="TransportStreamDescriptorextendsKnownDescriptor"></a>
+      <a id="TransportStreamDescriptor:TransportStreamDescriptor"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">sealed </span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="TransportStreamDescriptor.html"><span class="name">TransportStreamDescriptor</span></a><span class="result"> extends <a href="KnownDescriptor.html" class="extype" name="scodec.protocols.mpeg.transport.psi.KnownDescriptor">KnownDescriptor</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#scodec.protocols.mpeg.transport.psi.package@TransportStreamDescriptorextendsKnownDescriptor" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scodec.protocols.mpeg.transport.psi.TransportStreamEvent" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="TransportStreamEventextendsAnyRef"></a>
+      <a id="TransportStreamEvent:TransportStreamEvent"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="TransportStreamEvent.html"><span class="name">TransportStreamEvent</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#scodec.protocols.mpeg.transport.psi.package@TransportStreamEventextendsAnyRef" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scodec.protocols.mpeg.transport.psi.TransportStreamIndex" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="TransportStreamIndexextendsAnyRef"></a>
+      <a id="TransportStreamIndex:TransportStreamIndex"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">sealed abstract </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="TransportStreamIndex.html"><span class="name">TransportStreamIndex</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#scodec.protocols.mpeg.transport.psi.package@TransportStreamIndexextendsAnyRef" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scodec.protocols.mpeg.transport.psi.UnknownDescriptor" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="UnknownDescriptorextendsProductwithSerializable"></a>
+      <a id="UnknownDescriptor:UnknownDescriptor"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="UnknownDescriptor.html"><span class="name">UnknownDescriptor</span></a><span class="params">(<span name="tag">tag: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>, <span name="length">length: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>, <span name="data">data: <a href="http://scodec.org/api/scodec-bits/1.1.0/index.html#scodec.bits.ByteVector" class="extype" target="_top">ByteVector</a></span>)</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#scodec.protocols.mpeg.transport.psi.package@UnknownDescriptorextendsProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scodec.protocols.mpeg.transport.psi.VideoStreamDescriptor" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="VideoStreamDescriptorextendsTransportStreamDescriptorwithProgramStreamDescriptorwithProductwithSerializable"></a>
+      <a id="VideoStreamDescriptor:VideoStreamDescriptor"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="VideoStreamDescriptor.html"><span class="name">VideoStreamDescriptor</span></a><span class="params">(<span name="multipleFrameRateFlag">multipleFrameRateFlag: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>, <span name="frameRateCode">frameRateCode: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>, <span name="mpeg1OnlyFlag">mpeg1OnlyFlag: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>, <span name="constrainedParameter">constrainedParameter: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>, <span name="stillPictureFlag">stillPictureFlag: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>, <span name="mpeg1Only">mpeg1Only: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Option" class="extype" target="_top">Option</a>[<a href="Mpeg1Only.html" class="extype" name="scodec.protocols.mpeg.transport.psi.Mpeg1Only">Mpeg1Only</a>]</span>)</span><span class="result"> extends <a href="TransportStreamDescriptor.html" class="extype" name="scodec.protocols.mpeg.transport.psi.TransportStreamDescriptor">TransportStreamDescriptor</a> with <a href="ProgramStreamDescriptor.html" class="extype" name="scodec.protocols.mpeg.transport.psi.ProgramStreamDescriptor">ProgramStreamDescriptor</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#scodec.protocols.mpeg.transport.psi.package@VideoStreamDescriptorextendsTransportStreamDescriptorwithProgramStreamDescriptorwithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scodec.protocols.mpeg.transport.psi.VideoWindowDescriptor" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="VideoWindowDescriptorextendsTransportStreamDescriptorwithProgramStreamDescriptorwithProductwithSerializable"></a>
+      <a id="VideoWindowDescriptor:VideoWindowDescriptor"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="VideoWindowDescriptor.html"><span class="name">VideoWindowDescriptor</span></a><span class="params">(<span name="horizontalOffset">horizontalOffset: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>, <span name="verticalOffset">verticalOffset: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>, <span name="windowPriority">windowPriority: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>)</span><span class="result"> extends <a href="TransportStreamDescriptor.html" class="extype" name="scodec.protocols.mpeg.transport.psi.TransportStreamDescriptor">TransportStreamDescriptor</a> with <a href="ProgramStreamDescriptor.html" class="extype" name="scodec.protocols.mpeg.transport.psi.ProgramStreamDescriptor">ProgramStreamDescriptor</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#scodec.protocols.mpeg.transport.psi.package@VideoWindowDescriptorextendsTransportStreamDescriptorwithProgramStreamDescriptorwithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li></ol>
+            </div>
+
+        
+
+        <div id="values" class="values members">
+              <h3>Value Members</h3>
+              <ol><li name="scodec.protocols.mpeg.transport.psi.AlignmentType" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="AlignmentType"></a>
+      <a id="AlignmentType:AlignmentType"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="AlignmentType$.html"><span class="name">AlignmentType</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#scodec.protocols.mpeg.transport.psi.package@AlignmentType" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scodec.protocols.mpeg.transport.psi.AudioStreamDescriptor" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="AudioStreamDescriptor"></a>
+      <a id="AudioStreamDescriptor:AudioStreamDescriptor"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="AudioStreamDescriptor$.html"><span class="name">AudioStreamDescriptor</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#scodec.protocols.mpeg.transport.psi.package@AudioStreamDescriptor" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scodec.protocols.mpeg.transport.psi.AudioType" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="AudioType"></a>
+      <a id="AudioType:AudioType"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="AudioType$.html"><span class="name">AudioType</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#scodec.protocols.mpeg.transport.psi.package@AudioType" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scodec.protocols.mpeg.transport.psi.CADescriptor" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="CADescriptor"></a>
+      <a id="CADescriptor:CADescriptor"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="CADescriptor$.html"><span class="name">CADescriptor</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#scodec.protocols.mpeg.transport.psi.package@CADescriptor" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scodec.protocols.mpeg.transport.psi.ConditionalAccessDescriptor" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ConditionalAccessDescriptor"></a>
+      <a id="ConditionalAccessDescriptor:ConditionalAccessDescriptor"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="ConditionalAccessDescriptor$.html"><span class="name">ConditionalAccessDescriptor</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#scodec.protocols.mpeg.transport.psi.package@ConditionalAccessDescriptor" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scodec.protocols.mpeg.transport.psi.ConditionalAccessSection" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ConditionalAccessSection"></a>
+      <a id="ConditionalAccessSection:ConditionalAccessSection"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="ConditionalAccessSection$.html"><span class="name">ConditionalAccessSection</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#scodec.protocols.mpeg.transport.psi.package@ConditionalAccessSection" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scodec.protocols.mpeg.transport.psi.ConditionalAccessTable" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ConditionalAccessTable"></a>
+      <a id="ConditionalAccessTable:ConditionalAccessTable"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="ConditionalAccessTable$.html"><span class="name">ConditionalAccessTable</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#scodec.protocols.mpeg.transport.psi.package@ConditionalAccessTable" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scodec.protocols.mpeg.transport.psi.CopyrightDescriptor" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="CopyrightDescriptor"></a>
+      <a id="CopyrightDescriptor:CopyrightDescriptor"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="CopyrightDescriptor$.html"><span class="name">CopyrightDescriptor</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#scodec.protocols.mpeg.transport.psi.package@CopyrightDescriptor" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scodec.protocols.mpeg.transport.psi.DataStreamAlignmentDescriptor" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="DataStreamAlignmentDescriptor"></a>
+      <a id="DataStreamAlignmentDescriptor:DataStreamAlignmentDescriptor"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="DataStreamAlignmentDescriptor$.html"><span class="name">DataStreamAlignmentDescriptor</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#scodec.protocols.mpeg.transport.psi.package@DataStreamAlignmentDescriptor" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scodec.protocols.mpeg.transport.psi.Descriptor" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Descriptor"></a>
+      <a id="Descriptor:Descriptor"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="Descriptor$.html"><span class="name">Descriptor</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#scodec.protocols.mpeg.transport.psi.package@Descriptor" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scodec.protocols.mpeg.transport.psi.EsIdAndChannel" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="EsIdAndChannel"></a>
+      <a id="EsIdAndChannel:EsIdAndChannel"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="EsIdAndChannel$.html"><span class="name">EsIdAndChannel</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#scodec.protocols.mpeg.transport.psi.package@EsIdAndChannel" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scodec.protocols.mpeg.transport.psi.ExternalEsIdDescriptor" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ExternalEsIdDescriptor"></a>
+      <a id="ExternalEsIdDescriptor:ExternalEsIdDescriptor"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="ExternalEsIdDescriptor$.html"><span class="name">ExternalEsIdDescriptor</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#scodec.protocols.mpeg.transport.psi.package@ExternalEsIdDescriptor" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scodec.protocols.mpeg.transport.psi.FmcDescriptor" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="FmcDescriptor"></a>
+      <a id="FmcDescriptor:FmcDescriptor"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="FmcDescriptor$.html"><span class="name">FmcDescriptor</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#scodec.protocols.mpeg.transport.psi.package@FmcDescriptor" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scodec.protocols.mpeg.transport.psi.FmxBufferSizeDescriptor" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="FmxBufferSizeDescriptor"></a>
+      <a id="FmxBufferSizeDescriptor:FmxBufferSizeDescriptor"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="FmxBufferSizeDescriptor$.html"><span class="name">FmxBufferSizeDescriptor</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#scodec.protocols.mpeg.transport.psi.package@FmxBufferSizeDescriptor" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scodec.protocols.mpeg.transport.psi.GroupedSections" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="GroupedSections"></a>
+      <a id="GroupedSections:GroupedSections"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="GroupedSections$.html"><span class="name">GroupedSections</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#scodec.protocols.mpeg.transport.psi.package@GroupedSections" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scodec.protocols.mpeg.transport.psi.GroupingError" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="GroupingError"></a>
+      <a id="GroupingError:GroupingError"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="GroupingError$.html"><span class="name">GroupingError</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#scodec.protocols.mpeg.transport.psi.package@GroupingError" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scodec.protocols.mpeg.transport.psi.HierarchyDescriptor" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="HierarchyDescriptor"></a>
+      <a id="HierarchyDescriptor:HierarchyDescriptor"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="HierarchyDescriptor$.html"><span class="name">HierarchyDescriptor</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#scodec.protocols.mpeg.transport.psi.package@HierarchyDescriptor" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scodec.protocols.mpeg.transport.psi.HierarchyType" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="HierarchyType"></a>
+      <a id="HierarchyType:HierarchyType"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="HierarchyType$.html"><span class="name">HierarchyType</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#scodec.protocols.mpeg.transport.psi.package@HierarchyType" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scodec.protocols.mpeg.transport.psi.IbpDescriptor" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="IbpDescriptor"></a>
+      <a id="IbpDescriptor:IbpDescriptor"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="IbpDescriptor$.html"><span class="name">IbpDescriptor</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#scodec.protocols.mpeg.transport.psi.package@IbpDescriptor" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scodec.protocols.mpeg.transport.psi.IodDescriptor" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="IodDescriptor"></a>
+      <a id="IodDescriptor:IodDescriptor"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="IodDescriptor$.html"><span class="name">IodDescriptor</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#scodec.protocols.mpeg.transport.psi.package@IodDescriptor" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scodec.protocols.mpeg.transport.psi.Iso639LanguageDescriptor" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Iso639LanguageDescriptor"></a>
+      <a id="Iso639LanguageDescriptor:Iso639LanguageDescriptor"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="Iso639LanguageDescriptor$.html"><span class="name">Iso639LanguageDescriptor</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#scodec.protocols.mpeg.transport.psi.package@Iso639LanguageDescriptor" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scodec.protocols.mpeg.transport.psi.LanguageField" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="LanguageField"></a>
+      <a id="LanguageField:LanguageField"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="LanguageField$.html"><span class="name">LanguageField</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#scodec.protocols.mpeg.transport.psi.package@LanguageField" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scodec.protocols.mpeg.transport.psi.MaximumBitrateDescriptor" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="MaximumBitrateDescriptor"></a>
+      <a id="MaximumBitrateDescriptor:MaximumBitrateDescriptor"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="MaximumBitrateDescriptor$.html"><span class="name">MaximumBitrateDescriptor</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#scodec.protocols.mpeg.transport.psi.package@MaximumBitrateDescriptor" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scodec.protocols.mpeg.transport.psi.Mpeg1Only" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Mpeg1Only"></a>
+      <a id="Mpeg1Only:Mpeg1Only"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="Mpeg1Only$.html"><span class="name">Mpeg1Only</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#scodec.protocols.mpeg.transport.psi.package@Mpeg1Only" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scodec.protocols.mpeg.transport.psi.Mpeg4AudioDescriptor" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Mpeg4AudioDescriptor"></a>
+      <a id="Mpeg4AudioDescriptor:Mpeg4AudioDescriptor"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="Mpeg4AudioDescriptor$.html"><span class="name">Mpeg4AudioDescriptor</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#scodec.protocols.mpeg.transport.psi.package@Mpeg4AudioDescriptor" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scodec.protocols.mpeg.transport.psi.Mpeg4VideoDescriptor" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Mpeg4VideoDescriptor"></a>
+      <a id="Mpeg4VideoDescriptor:Mpeg4VideoDescriptor"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="Mpeg4VideoDescriptor$.html"><span class="name">Mpeg4VideoDescriptor</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#scodec.protocols.mpeg.transport.psi.package@Mpeg4VideoDescriptor" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scodec.protocols.mpeg.transport.psi.MultiplexBufferDescriptor" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="MultiplexBufferDescriptor"></a>
+      <a id="MultiplexBufferDescriptor:MultiplexBufferDescriptor"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="MultiplexBufferDescriptor$.html"><span class="name">MultiplexBufferDescriptor</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#scodec.protocols.mpeg.transport.psi.package@MultiplexBufferDescriptor" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scodec.protocols.mpeg.transport.psi.MultiplexBufferUtilizationDescriptor" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="MultiplexBufferUtilizationDescriptor"></a>
+      <a id="MultiplexBufferUtilizationDescriptor:MultiplexBufferUtilizationDescriptor"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="MultiplexBufferUtilizationDescriptor$.html"><span class="name">MultiplexBufferUtilizationDescriptor</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#scodec.protocols.mpeg.transport.psi.package@MultiplexBufferUtilizationDescriptor" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scodec.protocols.mpeg.transport.psi.MuxCodeDescriptor" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="MuxCodeDescriptor"></a>
+      <a id="MuxCodeDescriptor:MuxCodeDescriptor"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="MuxCodeDescriptor$.html"><span class="name">MuxCodeDescriptor</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#scodec.protocols.mpeg.transport.psi.package@MuxCodeDescriptor" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scodec.protocols.mpeg.transport.psi.PrivateDataIndicatorDescriptor" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="PrivateDataIndicatorDescriptor"></a>
+      <a id="PrivateDataIndicatorDescriptor:PrivateDataIndicatorDescriptor"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="PrivateDataIndicatorDescriptor$.html"><span class="name">PrivateDataIndicatorDescriptor</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#scodec.protocols.mpeg.transport.psi.package@PrivateDataIndicatorDescriptor" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scodec.protocols.mpeg.transport.psi.ProgramAssociationSection" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ProgramAssociationSection"></a>
+      <a id="ProgramAssociationSection:ProgramAssociationSection"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="ProgramAssociationSection$.html"><span class="name">ProgramAssociationSection</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#scodec.protocols.mpeg.transport.psi.package@ProgramAssociationSection" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scodec.protocols.mpeg.transport.psi.ProgramAssociationTable" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ProgramAssociationTable"></a>
+      <a id="ProgramAssociationTable:ProgramAssociationTable"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="ProgramAssociationTable$.html"><span class="name">ProgramAssociationTable</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#scodec.protocols.mpeg.transport.psi.package@ProgramAssociationTable" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scodec.protocols.mpeg.transport.psi.ProgramMapRecord" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ProgramMapRecord"></a>
+      <a id="ProgramMapRecord:ProgramMapRecord"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="ProgramMapRecord$.html"><span class="name">ProgramMapRecord</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#scodec.protocols.mpeg.transport.psi.package@ProgramMapRecord" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scodec.protocols.mpeg.transport.psi.ProgramMapSection" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ProgramMapSection"></a>
+      <a id="ProgramMapSection:ProgramMapSection"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="ProgramMapSection$.html"><span class="name">ProgramMapSection</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#scodec.protocols.mpeg.transport.psi.package@ProgramMapSection" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scodec.protocols.mpeg.transport.psi.ProgramMapTable" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ProgramMapTable"></a>
+      <a id="ProgramMapTable:ProgramMapTable"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="ProgramMapTable$.html"><span class="name">ProgramMapTable</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#scodec.protocols.mpeg.transport.psi.package@ProgramMapTable" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scodec.protocols.mpeg.transport.psi.RegistrationDescriptor" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="RegistrationDescriptor"></a>
+      <a id="RegistrationDescriptor:RegistrationDescriptor"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="RegistrationDescriptor$.html"><span class="name">RegistrationDescriptor</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#scodec.protocols.mpeg.transport.psi.package@RegistrationDescriptor" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scodec.protocols.mpeg.transport.psi.SectionCodec" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="SectionCodec"></a>
+      <a id="SectionCodec:SectionCodec"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="SectionCodec$.html"><span class="name">SectionCodec</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#scodec.protocols.mpeg.transport.psi.package@SectionCodec" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scodec.protocols.mpeg.transport.psi.SectionExtension" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="SectionExtension"></a>
+      <a id="SectionExtension:SectionExtension"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="SectionExtension$.html"><span class="name">SectionExtension</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#scodec.protocols.mpeg.transport.psi.package@SectionExtension" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scodec.protocols.mpeg.transport.psi.SectionFragmentCodec" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="SectionFragmentCodec"></a>
+      <a id="SectionFragmentCodec:SectionFragmentCodec"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="SectionFragmentCodec$.html"><span class="name">SectionFragmentCodec</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#scodec.protocols.mpeg.transport.psi.package@SectionFragmentCodec" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scodec.protocols.mpeg.transport.psi.SectionHeader" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="SectionHeader"></a>
+      <a id="SectionHeader:SectionHeader"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="SectionHeader$.html"><span class="name">SectionHeader</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#scodec.protocols.mpeg.transport.psi.package@SectionHeader" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scodec.protocols.mpeg.transport.psi.SlDescriptor" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="SlDescriptor"></a>
+      <a id="SlDescriptor:SlDescriptor"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="SlDescriptor$.html"><span class="name">SlDescriptor</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#scodec.protocols.mpeg.transport.psi.package@SlDescriptor" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scodec.protocols.mpeg.transport.psi.SmoothingBufferDescriptor" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="SmoothingBufferDescriptor"></a>
+      <a id="SmoothingBufferDescriptor:SmoothingBufferDescriptor"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="SmoothingBufferDescriptor$.html"><span class="name">SmoothingBufferDescriptor</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#scodec.protocols.mpeg.transport.psi.package@SmoothingBufferDescriptor" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scodec.protocols.mpeg.transport.psi.StdDescriptor" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="StdDescriptor"></a>
+      <a id="StdDescriptor:StdDescriptor"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="StdDescriptor$.html"><span class="name">StdDescriptor</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#scodec.protocols.mpeg.transport.psi.package@StdDescriptor" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scodec.protocols.mpeg.transport.psi.SystemClockDescriptor" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="SystemClockDescriptor"></a>
+      <a id="SystemClockDescriptor:SystemClockDescriptor"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="SystemClockDescriptor$.html"><span class="name">SystemClockDescriptor</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#scodec.protocols.mpeg.transport.psi.package@SystemClockDescriptor" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scodec.protocols.mpeg.transport.psi.TableBuilder" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="TableBuilder"></a>
+      <a id="TableBuilder:TableBuilder"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="TableBuilder$.html"><span class="name">TableBuilder</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#scodec.protocols.mpeg.transport.psi.package@TableBuilder" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scodec.protocols.mpeg.transport.psi.TableSupport" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="TableSupport"></a>
+      <a id="TableSupport:TableSupport"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="TableSupport$.html"><span class="name">TableSupport</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#scodec.protocols.mpeg.transport.psi.package@TableSupport" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scodec.protocols.mpeg.transport.psi.TargetBackgroundGridDescriptor" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="TargetBackgroundGridDescriptor"></a>
+      <a id="TargetBackgroundGridDescriptor:TargetBackgroundGridDescriptor"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="TargetBackgroundGridDescriptor$.html"><span class="name">TargetBackgroundGridDescriptor</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#scodec.protocols.mpeg.transport.psi.package@TargetBackgroundGridDescriptor" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scodec.protocols.mpeg.transport.psi.TransportStreamEvent" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="TransportStreamEvent"></a>
+      <a id="TransportStreamEvent:TransportStreamEvent"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="TransportStreamEvent$.html"><span class="name">TransportStreamEvent</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#scodec.protocols.mpeg.transport.psi.package@TransportStreamEvent" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scodec.protocols.mpeg.transport.psi.TransportStreamIndex" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="TransportStreamIndex"></a>
+      <a id="TransportStreamIndex:TransportStreamIndex"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="TransportStreamIndex$.html"><span class="name">TransportStreamIndex</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#scodec.protocols.mpeg.transport.psi.package@TransportStreamIndex" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scodec.protocols.mpeg.transport.psi.UnknownDescriptor" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="UnknownDescriptor"></a>
+      <a id="UnknownDescriptor:UnknownDescriptor"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="UnknownDescriptor$.html"><span class="name">UnknownDescriptor</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#scodec.protocols.mpeg.transport.psi.package@UnknownDescriptor" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scodec.protocols.mpeg.transport.psi.VideoStreamDescriptor" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="VideoStreamDescriptor"></a>
+      <a id="VideoStreamDescriptor:VideoStreamDescriptor"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="VideoStreamDescriptor$.html"><span class="name">VideoStreamDescriptor</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#scodec.protocols.mpeg.transport.psi.package@VideoStreamDescriptor" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scodec.protocols.mpeg.transport.psi.VideoWindowDescriptor" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="VideoWindowDescriptor"></a>
+      <a id="VideoWindowDescriptor:VideoWindowDescriptor"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="VideoWindowDescriptor$.html"><span class="name">VideoWindowDescriptor</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#scodec.protocols.mpeg.transport.psi.package@VideoWindowDescriptor" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li></ol>
+            </div>
+
+        
+
+        
+        </div>
+
+        <div id="inheritedMembers">
+        
+        
+        </div>
+
+        <div id="groupedMembers">
+        <div class="group" name="Ungrouped">
+              <h3>Ungrouped</h3>
+              
+            </div>
+        </div>
+
+      </div>
+
+      <div id="tooltip"></div>
+
+      <div id="footer">  </div>
+
+
+    </body>
+      </html>

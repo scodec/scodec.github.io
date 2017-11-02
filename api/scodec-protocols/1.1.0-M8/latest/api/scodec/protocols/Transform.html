@@ -1,0 +1,991 @@
+<!DOCTYPE html >
+<html>
+        <head>
+          <title>Transform - scodec.protocols.Transform</title>
+          <meta name="description" content="Transform - scodec.protocols.Transform" />
+          <meta name="keywords" content="Transform scodec.protocols.Transform" />
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+          
+      <link href="../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript" src="../../lib/jquery.js" id="jquery-js"></script>
+      <script type="text/javascript" src="../../lib/jquery-ui.js"></script>
+      <script type="text/javascript" src="../../lib/template.js"></script>
+      <script type="text/javascript" src="../../lib/tools.tooltip.js"></script>
+      <script type="text/javascript" src="../../lib/modernizr.custom.js"></script><script type="text/javascript" src="../../lib/diagrams.js" id="diagrams-js"></script>
+      <script type="text/javascript">
+         if(top === self) {
+            var url = '../../index.html';
+            var hash = 'scodec.protocols.Transform';
+            var anchor = window.location.hash;
+            var anchor_opt = '';
+            if (anchor.length >= 1)
+              anchor_opt = '@' + anchor.substring(1);
+            window.location.href = url + '#' + hash + anchor_opt;
+         }
+   	  </script>
+    
+        </head>
+        <body class="type">
+      <div id="definition">
+        <a href="Transform$.html" title="See companion object"><img alt="Class/Object" src="../../lib/class_to_object_big.png" /></a>
+        <p id="owner"><a href="../package.html" class="extype" name="scodec">scodec</a>.<a href="package.html" class="extype" name="scodec.protocols">protocols</a></p>
+        <h1><a href="Transform$.html" title="See companion object">Transform</a></h1><h3><span class="morelinks"><div>
+            Related Docs:
+            <a href="Transform$.html" title="See companion object">object Transform</a>
+            | <a href="package.html" class="extype" name="scodec.protocols">package protocols</a>
+          </div></span></h3><span class="permalink">
+      <a href="../../index.html#scodec.protocols.Transform" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      </div>
+
+      <h4 id="signature" class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">sealed abstract </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <span class="name">Transform</span><span class="tparams">[<span name="I">-I</span>, <span name="O">+O</span>]</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a></span>
+      </span>
+      </h4>
+      
+          <div id="comment" class="fullcommenttop"><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/scodec/scodec-protocols/tree/v1.1.0-M8/src/main/scala/scodec/protocols/Transform.scala" target="_blank">Transform.scala</a></dd></dl><div class="toggleContainer block">
+          <span class="toggle">Linear Supertypes</span>
+          <div class="superTypes hiddenContent"><a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a>, <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Any" class="extype" target="_top">Any</a></div>
+        </div></div>
+        
+
+      <div id="mbrsel">
+        <div id="textfilter"><span class="pre"></span><span class="input"><input id="mbrsel-input" type="text" accesskey="/" /></span><span class="post"></span></div>
+        <div id="order">
+              <span class="filtertype">Ordering</span>
+              <ol>
+                
+                <li class="alpha in"><span>Alphabetic</span></li>
+                <li class="inherit out"><span>By Inheritance</span></li>
+              </ol>
+            </div>
+        <div id="ancestors">
+                <span class="filtertype">Inherited<br />
+                </span>
+                <ol id="linearization">
+                  <li class="in" name="scodec.protocols.Transform"><span>Transform</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                </ol>
+              </div><div id="ancestors">
+                <span class="filtertype">Implicitly<br />
+                </span>
+                <ol id="implicits"> <li class="in" name="scala.Predef.any2stringadd" data-hidden="true"><span>by any2stringadd</span></li><li class="in" name="scala.Predef.StringFormat" data-hidden="true"><span>by StringFormat</span></li><li class="in" name="scala.Predef.Ensuring" data-hidden="true"><span>by Ensuring</span></li><li class="in" name="scala.Predef.ArrowAssoc" data-hidden="true"><span>by ArrowAssoc</span></li>
+                </ol>
+              </div><div id="ancestors">
+            <span class="filtertype"></span>
+            <ol>
+              <li class="hideall out"><span>Hide All</span></li>
+              <li class="showall in"><span>Show All</span></li>
+            </ol>
+          </div>
+        <div id="visbl">
+            <span class="filtertype">Visibility</span>
+            <ol><li class="public in"><span>Public</span></li><li class="all out"><span>All</span></li></ol>
+          </div>
+      </div>
+
+      <div id="template">
+        <div id="allMembers">
+        
+
+        <div id="types" class="types members">
+              <h3>Type Members</h3>
+              <ol><li name="scodec.protocols.Transform.S" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="S"></a>
+      <a id="S:S"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">type</span>
+      </span>
+      <span class="symbol">
+        <span class="name">S</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scodec.protocols.Transform@S" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li></ol>
+            </div>
+
+        <div id="values" class="values members">
+              <h3>Abstract Value Members</h3>
+              <ol><li name="scodec.protocols.Transform#initial" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="initial:Transform.this.S"></a>
+      <a id="initial:S"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">initial</span><span class="result">: <a href="#S" class="extmbr" name="scodec.protocols.Transform.S">S</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scodec.protocols.Transform@initial:Transform.this.S" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scodec.protocols.Transform#onComplete" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="onComplete:Transform.this.S=&gt;fs2.Segment[O,Unit]"></a>
+      <a id="onComplete:(S)⇒Segment[O,Unit]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">onComplete</span><span class="result">: (<a href="#S" class="extmbr" name="scodec.protocols.Transform.S">S</a>) ⇒ <span class="extype" name="fs2.Segment">Segment</span>[<span class="extype" name="scodec.protocols.Transform.O">O</span>, <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Unit" class="extype" target="_top">Unit</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scodec.protocols.Transform@onComplete:Transform.this.S=&gt;fs2.Segment[O,Unit]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scodec.protocols.Transform#transform" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="transform:(Transform.this.S,I)=&gt;fs2.Segment[O,Transform.this.S]"></a>
+      <a id="transform:(S,I)⇒Segment[O,S]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">transform</span><span class="result">: (<a href="#S" class="extmbr" name="scodec.protocols.Transform.S">S</a>, <span class="extype" name="scodec.protocols.Transform.I">I</span>) ⇒ <span class="extype" name="fs2.Segment">Segment</span>[<span class="extype" name="scodec.protocols.Transform.O">O</span>, <a href="#S" class="extmbr" name="scodec.protocols.Transform.S">S</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scodec.protocols.Transform@transform:(Transform.this.S,I)=&gt;fs2.Segment[O,Transform.this.S]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li></ol>
+            </div>
+
+        <div id="values" class="values members">
+              <h3>Concrete Value Members</h3>
+              <ol><li name="scala.AnyRef#!=" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="!=(x$1:Any):Boolean"></a>
+      <a id="!=(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Any" class="extype" target="_top">Any</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scodec.protocols.Transform@!=(x$1:Any):Boolean" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef###" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="##():Int"></a>
+      <a id="##():Int"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $hash$hash" class="name">##</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scodec.protocols.Transform@##():Int" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.Predef.any2stringadd#+" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="+(other:String):String"></a>
+      <a id="+(String):String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $plus" class="implicit">+</span><span class="params">(<span name="other">other: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scodec.protocols.Transform@+(other:String):String" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="scodec.protocols.Transform">Transform</a>[<span class="extype" name="scodec.protocols.Transform.I">I</span>, <span class="extype" name="scodec.protocols.Transform.O">O</span>] to
+            <span class="extype" name="scala.Predef.any2stringadd">any2stringadd</span>[<a href="" class="extype" name="scodec.protocols.Transform">Transform</a>[<span class="extype" name="scodec.protocols.Transform.I">I</span>, <span class="extype" name="scodec.protocols.Transform.O">O</span>]] performed by method any2stringadd in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>any2stringadd</dd></dl></div>
+    </li><li name="scala.Predef.ArrowAssoc#-&gt;" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="-&gt;[B](y:B):(A,B)"></a>
+      <a id="-&gt;[B](B):(Transform[I,O],B)"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $minus$greater" class="implicit">-&gt;</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="y">y: <span class="extype" name="scala.Predef.ArrowAssoc.-&gt;.B">B</span></span>)</span><span class="result">: (<a href="" class="extype" name="scodec.protocols.Transform">Transform</a>[<span class="extype" name="scodec.protocols.Transform.I">I</span>, <span class="extype" name="scodec.protocols.Transform.O">O</span>], <span class="extype" name="scala.Predef.ArrowAssoc.-&gt;.B">B</span>)</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scodec.protocols.Transform@-&gt;[B](y:B):(A,B)" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="scodec.protocols.Transform">Transform</a>[<span class="extype" name="scodec.protocols.Transform.I">I</span>, <span class="extype" name="scodec.protocols.Transform.O">O</span>] to
+            <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="scodec.protocols.Transform">Transform</a>[<span class="extype" name="scodec.protocols.Transform.I">I</span>, <span class="extype" name="scodec.protocols.Transform.O">O</span>]] performed by method ArrowAssoc in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>ArrowAssoc</dd><dt>Annotations</dt><dd>
+                <span class="name">@inline</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#==" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="==(x$1:Any):Boolean"></a>
+      <a id="==(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Any" class="extype" target="_top">Any</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scodec.protocols.Transform@==(x$1:Any):Boolean" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scodec.protocols.Transform#andThen" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="andThen[O2](t:scodec.protocols.Transform[O,O2]):scodec.protocols.Transform.Aux[(Transform.this.S,t.S),I,O2]"></a>
+      <a id="andThen[O2](Transform[O,O2]):Aux[(S,S),I,O2]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">andThen</span><span class="tparams">[<span name="O2">O2</span>]</span><span class="params">(<span name="t">t: <a href="" class="extype" name="scodec.protocols.Transform">Transform</a>[<span class="extype" name="scodec.protocols.Transform.O">O</span>, <span class="extype" name="scodec.protocols.Transform.andThen.O2">O2</span>]</span>)</span><span class="result">: <a href="Transform$.html#Aux[S0,-I,+O]=scodec.protocols.Transform[I,O]{typeS=S0}" class="extmbr" name="scodec.protocols.Transform.Aux">Aux</a>[(<a href="#S" class="extmbr" name="scodec.protocols.Transform.S">S</a>, <a href="#S" class="extmbr" name="scodec.protocols.Transform.S">S</a>), <span class="extype" name="scodec.protocols.Transform.I">I</span>, <span class="extype" name="scodec.protocols.Transform.andThen.O2">O2</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scodec.protocols.Transform@andThen[O2](t:scodec.protocols.Transform[O,O2]):scodec.protocols.Transform.Aux[(Transform.this.S,t.S),I,O2]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scala.Any#asInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="asInstanceOf[T0]:T0"></a>
+      <a id="asInstanceOf[T0]:T0"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">asInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Any.asInstanceOf.T0">T0</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scodec.protocols.Transform@asInstanceOf[T0]:T0" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="scodec.protocols.Transform#choice" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="choice[I2,O2&gt;:O](t:scodec.protocols.Transform[I2,O2]):scodec.protocols.Transform.Aux[(Transform.this.S,t.S),Either[I,I2],O2]"></a>
+      <a id="choice[I2,O2&gt;:O](Transform[I2,O2]):Aux[(S,S),Either[I,I2],O2]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">choice</span><span class="tparams">[<span name="I2">I2</span>, <span name="O2">O2 &gt;: <span class="extype" name="scodec.protocols.Transform.O">O</span></span>]</span><span class="params">(<span name="t">t: <a href="" class="extype" name="scodec.protocols.Transform">Transform</a>[<span class="extype" name="scodec.protocols.Transform.choice.I2">I2</span>, <span class="extype" name="scodec.protocols.Transform.choice.O2">O2</span>]</span>)</span><span class="result">: <a href="Transform$.html#Aux[S0,-I,+O]=scodec.protocols.Transform[I,O]{typeS=S0}" class="extmbr" name="scodec.protocols.Transform.Aux">Aux</a>[(<a href="#S" class="extmbr" name="scodec.protocols.Transform.S">S</a>, <a href="#S" class="extmbr" name="scodec.protocols.Transform.S">S</a>), <span class="extype" name="scala.Either">Either</span>[<span class="extype" name="scodec.protocols.Transform.I">I</span>, <span class="extype" name="scodec.protocols.Transform.choice.I2">I2</span>], <span class="extype" name="scodec.protocols.Transform.choice.O2">O2</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scodec.protocols.Transform@choice[I2,O2&gt;:O](t:scodec.protocols.Transform[I2,O2]):scodec.protocols.Transform.Aux[(Transform.this.S,t.S),Either[I,I2],O2]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scala.AnyRef#clone" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="clone():Object"></a>
+      <a id="clone():AnyRef"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">clone</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scodec.protocols.Transform@clone():Object" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.CloneNotSupportedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scodec.protocols.Transform#contramap" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="contramap[I2](f:I2=&gt;I):scodec.protocols.Transform.Aux[Transform.this.S,I2,O]"></a>
+      <a id="contramap[I2]((I2)⇒I):Aux[S,I2,O]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">contramap</span><span class="tparams">[<span name="I2">I2</span>]</span><span class="params">(<span name="f">f: (<span class="extype" name="scodec.protocols.Transform.contramap.I2">I2</span>) ⇒ <span class="extype" name="scodec.protocols.Transform.I">I</span></span>)</span><span class="result">: <a href="Transform$.html#Aux[S0,-I,+O]=scodec.protocols.Transform[I,O]{typeS=S0}" class="extmbr" name="scodec.protocols.Transform.Aux">Aux</a>[<a href="#S" class="extmbr" name="scodec.protocols.Transform.S">S</a>, <span class="extype" name="scodec.protocols.Transform.contramap.I2">I2</span>, <span class="extype" name="scodec.protocols.Transform.O">O</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scodec.protocols.Transform@contramap[I2](f:I2=&gt;I):scodec.protocols.Transform.Aux[Transform.this.S,I2,O]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scodec.protocols.Transform#either" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="either[I2,O2](t:scodec.protocols.Transform[I2,O2]):scodec.protocols.Transform.Aux[(Transform.this.S,t.S),Either[I,I2],Either[O,O2]]"></a>
+      <a id="either[I2,O2](Transform[I2,O2]):Aux[(S,S),Either[I,I2],Either[O,O2]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">either</span><span class="tparams">[<span name="I2">I2</span>, <span name="O2">O2</span>]</span><span class="params">(<span name="t">t: <a href="" class="extype" name="scodec.protocols.Transform">Transform</a>[<span class="extype" name="scodec.protocols.Transform.either.I2">I2</span>, <span class="extype" name="scodec.protocols.Transform.either.O2">O2</span>]</span>)</span><span class="result">: <a href="Transform$.html#Aux[S0,-I,+O]=scodec.protocols.Transform[I,O]{typeS=S0}" class="extmbr" name="scodec.protocols.Transform.Aux">Aux</a>[(<a href="#S" class="extmbr" name="scodec.protocols.Transform.S">S</a>, <a href="#S" class="extmbr" name="scodec.protocols.Transform.S">S</a>), <span class="extype" name="scala.Either">Either</span>[<span class="extype" name="scodec.protocols.Transform.I">I</span>, <span class="extype" name="scodec.protocols.Transform.either.I2">I2</span>], <span class="extype" name="scala.Either">Either</span>[<span class="extype" name="scodec.protocols.Transform.O">O</span>, <span class="extype" name="scodec.protocols.Transform.either.O2">O2</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scodec.protocols.Transform@either[I2,O2](t:scodec.protocols.Transform[I2,O2]):scodec.protocols.Transform.Aux[(Transform.this.S,t.S),Either[I,I2],Either[O,O2]]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ensuring(cond:A=&gt;Boolean,msg:=&gt;Any):A"></a>
+      <a id="ensuring((Transform[I,O])⇒Boolean,⇒Any):Transform[I,O]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="scodec.protocols.Transform">Transform</a>[<span class="extype" name="scodec.protocols.Transform.I">I</span>, <span class="extype" name="scodec.protocols.Transform.O">O</span>]) ⇒ <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>, <span name="msg">msg: ⇒ <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Any" class="extype" target="_top">Any</a></span>)</span><span class="result">: <a href="" class="extype" name="scodec.protocols.Transform">Transform</a>[<span class="extype" name="scodec.protocols.Transform.I">I</span>, <span class="extype" name="scodec.protocols.Transform.O">O</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scodec.protocols.Transform@ensuring(cond:A=&gt;Boolean,msg:=&gt;Any):A" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="scodec.protocols.Transform">Transform</a>[<span class="extype" name="scodec.protocols.Transform.I">I</span>, <span class="extype" name="scodec.protocols.Transform.O">O</span>] to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="scodec.protocols.Transform">Transform</a>[<span class="extype" name="scodec.protocols.Transform.I">I</span>, <span class="extype" name="scodec.protocols.Transform.O">O</span>]] performed by method Ensuring in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
+    </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ensuring(cond:A=&gt;Boolean):A"></a>
+      <a id="ensuring((Transform[I,O])⇒Boolean):Transform[I,O]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="scodec.protocols.Transform">Transform</a>[<span class="extype" name="scodec.protocols.Transform.I">I</span>, <span class="extype" name="scodec.protocols.Transform.O">O</span>]) ⇒ <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>)</span><span class="result">: <a href="" class="extype" name="scodec.protocols.Transform">Transform</a>[<span class="extype" name="scodec.protocols.Transform.I">I</span>, <span class="extype" name="scodec.protocols.Transform.O">O</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scodec.protocols.Transform@ensuring(cond:A=&gt;Boolean):A" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="scodec.protocols.Transform">Transform</a>[<span class="extype" name="scodec.protocols.Transform.I">I</span>, <span class="extype" name="scodec.protocols.Transform.O">O</span>] to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="scodec.protocols.Transform">Transform</a>[<span class="extype" name="scodec.protocols.Transform.I">I</span>, <span class="extype" name="scodec.protocols.Transform.O">O</span>]] performed by method Ensuring in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
+    </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ensuring(cond:Boolean,msg:=&gt;Any):A"></a>
+      <a id="ensuring(Boolean,⇒Any):Transform[I,O]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>, <span name="msg">msg: ⇒ <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Any" class="extype" target="_top">Any</a></span>)</span><span class="result">: <a href="" class="extype" name="scodec.protocols.Transform">Transform</a>[<span class="extype" name="scodec.protocols.Transform.I">I</span>, <span class="extype" name="scodec.protocols.Transform.O">O</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scodec.protocols.Transform@ensuring(cond:Boolean,msg:=&gt;Any):A" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="scodec.protocols.Transform">Transform</a>[<span class="extype" name="scodec.protocols.Transform.I">I</span>, <span class="extype" name="scodec.protocols.Transform.O">O</span>] to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="scodec.protocols.Transform">Transform</a>[<span class="extype" name="scodec.protocols.Transform.I">I</span>, <span class="extype" name="scodec.protocols.Transform.O">O</span>]] performed by method Ensuring in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
+    </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ensuring(cond:Boolean):A"></a>
+      <a id="ensuring(Boolean):Transform[I,O]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>)</span><span class="result">: <a href="" class="extype" name="scodec.protocols.Transform">Transform</a>[<span class="extype" name="scodec.protocols.Transform.I">I</span>, <span class="extype" name="scodec.protocols.Transform.O">O</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scodec.protocols.Transform@ensuring(cond:Boolean):A" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="scodec.protocols.Transform">Transform</a>[<span class="extype" name="scodec.protocols.Transform.I">I</span>, <span class="extype" name="scodec.protocols.Transform.O">O</span>] to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="scodec.protocols.Transform">Transform</a>[<span class="extype" name="scodec.protocols.Transform.I">I</span>, <span class="extype" name="scodec.protocols.Transform.O">O</span>]] performed by method Ensuring in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
+    </li><li name="scala.AnyRef#eq" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="eq(x$1:AnyRef):Boolean"></a>
+      <a id="eq(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">eq</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scodec.protocols.Transform@eq(x$1:AnyRef):Boolean" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#equals" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="equals(x$1:Any):Boolean"></a>
+      <a id="equals(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">equals</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Any" class="extype" target="_top">Any</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scodec.protocols.Transform@equals(x$1:Any):Boolean" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef#finalize" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="finalize():Unit"></a>
+      <a id="finalize():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">finalize</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scodec.protocols.Transform@finalize():Unit" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="symbol">classOf[java.lang.Throwable]</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scodec.protocols.Transform#first" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="first[A]:scodec.protocols.Transform.Aux[Transform.this.S,(I,A),(O,A)]"></a>
+      <a id="first[A]:Aux[S,(I,A),(O,A)]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">first</span><span class="tparams">[<span name="A">A</span>]</span><span class="result">: <a href="Transform$.html#Aux[S0,-I,+O]=scodec.protocols.Transform[I,O]{typeS=S0}" class="extmbr" name="scodec.protocols.Transform.Aux">Aux</a>[<a href="#S" class="extmbr" name="scodec.protocols.Transform.S">S</a>, (<span class="extype" name="scodec.protocols.Transform.I">I</span>, <span class="extype" name="scodec.protocols.Transform.first.A">A</span>), (<span class="extype" name="scodec.protocols.Transform.O">O</span>, <span class="extype" name="scodec.protocols.Transform.first.A">A</span>)]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scodec.protocols.Transform@first[A]:scodec.protocols.Transform.Aux[Transform.this.S,(I,A),(O,A)]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scala.Predef.StringFormat#formatted" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="formatted(fmtstr:String):String"></a>
+      <a id="formatted(String):String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">formatted</span><span class="params">(<span name="fmtstr">fmtstr: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scodec.protocols.Transform@formatted(fmtstr:String):String" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="scodec.protocols.Transform">Transform</a>[<span class="extype" name="scodec.protocols.Transform.I">I</span>, <span class="extype" name="scodec.protocols.Transform.O">O</span>] to
+            <span class="extype" name="scala.Predef.StringFormat">StringFormat</span>[<a href="" class="extype" name="scodec.protocols.Transform">Transform</a>[<span class="extype" name="scodec.protocols.Transform.I">I</span>, <span class="extype" name="scodec.protocols.Transform.O">O</span>]] performed by method StringFormat in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>StringFormat</dd><dt>Annotations</dt><dd>
+                <span class="name">@inline</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#getClass" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getClass():Class[_]"></a>
+      <a id="getClass():Class[_]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getClass</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.Class">Class</span>[_]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scodec.protocols.Transform@getClass():Class[_]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef#hashCode" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="hashCode():Int"></a>
+      <a id="hashCode():Int"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">hashCode</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scodec.protocols.Transform@hashCode():Int" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.Any#isInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="isInstanceOf[T0]:Boolean"></a>
+      <a id="isInstanceOf[T0]:Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">isInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scodec.protocols.Transform@isInstanceOf[T0]:Boolean" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="scodec.protocols.Transform#left" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="left[A]:scodec.protocols.Transform.Aux[Transform.this.S,Either[I,A],Either[O,A]]"></a>
+      <a id="left[A]:Aux[S,Either[I,A],Either[O,A]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">left</span><span class="tparams">[<span name="A">A</span>]</span><span class="result">: <a href="Transform$.html#Aux[S0,-I,+O]=scodec.protocols.Transform[I,O]{typeS=S0}" class="extmbr" name="scodec.protocols.Transform.Aux">Aux</a>[<a href="#S" class="extmbr" name="scodec.protocols.Transform.S">S</a>, <span class="extype" name="scala.Either">Either</span>[<span class="extype" name="scodec.protocols.Transform.I">I</span>, <span class="extype" name="scodec.protocols.Transform.left.A">A</span>], <span class="extype" name="scala.Either">Either</span>[<span class="extype" name="scodec.protocols.Transform.O">O</span>, <span class="extype" name="scodec.protocols.Transform.left.A">A</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scodec.protocols.Transform@left[A]:scodec.protocols.Transform.Aux[Transform.this.S,Either[I,A],Either[O,A]]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scodec.protocols.Transform#lens" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="lens[I2,O2](get:I2=&gt;I,set:(I2,O)=&gt;O2):scodec.protocols.Transform.Aux[Transform.this.S,I2,O2]"></a>
+      <a id="lens[I2,O2]((I2)⇒I,(I2,O)⇒O2):Aux[S,I2,O2]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">lens</span><span class="tparams">[<span name="I2">I2</span>, <span name="O2">O2</span>]</span><span class="params">(<span name="get">get: (<span class="extype" name="scodec.protocols.Transform.lens.I2">I2</span>) ⇒ <span class="extype" name="scodec.protocols.Transform.I">I</span></span>, <span name="set">set: (<span class="extype" name="scodec.protocols.Transform.lens.I2">I2</span>, <span class="extype" name="scodec.protocols.Transform.O">O</span>) ⇒ <span class="extype" name="scodec.protocols.Transform.lens.O2">O2</span></span>)</span><span class="result">: <a href="Transform$.html#Aux[S0,-I,+O]=scodec.protocols.Transform[I,O]{typeS=S0}" class="extmbr" name="scodec.protocols.Transform.Aux">Aux</a>[<a href="#S" class="extmbr" name="scodec.protocols.Transform.S">S</a>, <span class="extype" name="scodec.protocols.Transform.lens.I2">I2</span>, <span class="extype" name="scodec.protocols.Transform.lens.O2">O2</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scodec.protocols.Transform@lens[I2,O2](get:I2=&gt;I,set:(I2,O)=&gt;O2):scodec.protocols.Transform.Aux[Transform.this.S,I2,O2]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scodec.protocols.Transform#map" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="map[O2](f:O=&gt;O2):scodec.protocols.Transform.Aux[Transform.this.S,I,O2]"></a>
+      <a id="map[O2]((O)⇒O2):Aux[S,I,O2]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">map</span><span class="tparams">[<span name="O2">O2</span>]</span><span class="params">(<span name="f">f: (<span class="extype" name="scodec.protocols.Transform.O">O</span>) ⇒ <span class="extype" name="scodec.protocols.Transform.map.O2">O2</span></span>)</span><span class="result">: <a href="Transform$.html#Aux[S0,-I,+O]=scodec.protocols.Transform[I,O]{typeS=S0}" class="extmbr" name="scodec.protocols.Transform.Aux">Aux</a>[<a href="#S" class="extmbr" name="scodec.protocols.Transform.S">S</a>, <span class="extype" name="scodec.protocols.Transform.I">I</span>, <span class="extype" name="scodec.protocols.Transform.map.O2">O2</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scodec.protocols.Transform@map[O2](f:O=&gt;O2):scodec.protocols.Transform.Aux[Transform.this.S,I,O2]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scala.AnyRef#ne" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ne(x$1:AnyRef):Boolean"></a>
+      <a id="ne(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">ne</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scodec.protocols.Transform@ne(x$1:AnyRef):Boolean" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#notify" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="notify():Unit"></a>
+      <a id="notify():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">notify</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scodec.protocols.Transform@notify():Unit" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#notifyAll" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="notifyAll():Unit"></a>
+      <a id="notifyAll():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">notifyAll</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scodec.protocols.Transform@notifyAll():Unit" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scodec.protocols.Transform#right" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="right[A]:scodec.protocols.Transform.Aux[Transform.this.S,Either[A,I],Either[A,O]]"></a>
+      <a id="right[A]:Aux[S,Either[A,I],Either[A,O]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">right</span><span class="tparams">[<span name="A">A</span>]</span><span class="result">: <a href="Transform$.html#Aux[S0,-I,+O]=scodec.protocols.Transform[I,O]{typeS=S0}" class="extmbr" name="scodec.protocols.Transform.Aux">Aux</a>[<a href="#S" class="extmbr" name="scodec.protocols.Transform.S">S</a>, <span class="extype" name="scala.Either">Either</span>[<span class="extype" name="scodec.protocols.Transform.right.A">A</span>, <span class="extype" name="scodec.protocols.Transform.I">I</span>], <span class="extype" name="scala.Either">Either</span>[<span class="extype" name="scodec.protocols.Transform.right.A">A</span>, <span class="extype" name="scodec.protocols.Transform.O">O</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scodec.protocols.Transform@right[A]:scodec.protocols.Transform.Aux[Transform.this.S,Either[A,I],Either[A,O]]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scodec.protocols.Transform#second" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="second[A]:scodec.protocols.Transform.Aux[Transform.this.S,(A,I),(A,O)]"></a>
+      <a id="second[A]:Aux[S,(A,I),(A,O)]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">second</span><span class="tparams">[<span name="A">A</span>]</span><span class="result">: <a href="Transform$.html#Aux[S0,-I,+O]=scodec.protocols.Transform[I,O]{typeS=S0}" class="extmbr" name="scodec.protocols.Transform.Aux">Aux</a>[<a href="#S" class="extmbr" name="scodec.protocols.Transform.S">S</a>, (<span class="extype" name="scodec.protocols.Transform.second.A">A</span>, <span class="extype" name="scodec.protocols.Transform.I">I</span>), (<span class="extype" name="scodec.protocols.Transform.second.A">A</span>, <span class="extype" name="scodec.protocols.Transform.O">O</span>)]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scodec.protocols.Transform@second[A]:scodec.protocols.Transform.Aux[Transform.this.S,(A,I),(A,O)]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scodec.protocols.Transform#semilens" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="semilens[I2,O2](extract:I2=&gt;Either[O2,I],inject:(I2,O)=&gt;O2):scodec.protocols.Transform.Aux[Transform.this.S,I2,O2]"></a>
+      <a id="semilens[I2,O2]((I2)⇒Either[O2,I],(I2,O)⇒O2):Aux[S,I2,O2]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">semilens</span><span class="tparams">[<span name="I2">I2</span>, <span name="O2">O2</span>]</span><span class="params">(<span name="extract">extract: (<span class="extype" name="scodec.protocols.Transform.semilens.I2">I2</span>) ⇒ <span class="extype" name="scala.Either">Either</span>[<span class="extype" name="scodec.protocols.Transform.semilens.O2">O2</span>, <span class="extype" name="scodec.protocols.Transform.I">I</span>]</span>, <span name="inject">inject: (<span class="extype" name="scodec.protocols.Transform.semilens.I2">I2</span>, <span class="extype" name="scodec.protocols.Transform.O">O</span>) ⇒ <span class="extype" name="scodec.protocols.Transform.semilens.O2">O2</span></span>)</span><span class="result">: <a href="Transform$.html#Aux[S0,-I,+O]=scodec.protocols.Transform[I,O]{typeS=S0}" class="extmbr" name="scodec.protocols.Transform.Aux">Aux</a>[<a href="#S" class="extmbr" name="scodec.protocols.Transform.S">S</a>, <span class="extype" name="scodec.protocols.Transform.semilens.I2">I2</span>, <span class="extype" name="scodec.protocols.Transform.semilens.O2">O2</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scodec.protocols.Transform@semilens[I2,O2](extract:I2=&gt;Either[O2,I],inject:(I2,O)=&gt;O2):scodec.protocols.Transform.Aux[Transform.this.S,I2,O2]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scodec.protocols.Transform#semipass" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="semipass[I2,O2&gt;:O](extract:I2=&gt;Either[O2,I]):scodec.protocols.Transform.Aux[Transform.this.S,I2,O2]"></a>
+      <a id="semipass[I2,O2&gt;:O]((I2)⇒Either[O2,I]):Aux[S,I2,O2]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">semipass</span><span class="tparams">[<span name="I2">I2</span>, <span name="O2">O2 &gt;: <span class="extype" name="scodec.protocols.Transform.O">O</span></span>]</span><span class="params">(<span name="extract">extract: (<span class="extype" name="scodec.protocols.Transform.semipass.I2">I2</span>) ⇒ <span class="extype" name="scala.Either">Either</span>[<span class="extype" name="scodec.protocols.Transform.semipass.O2">O2</span>, <span class="extype" name="scodec.protocols.Transform.I">I</span>]</span>)</span><span class="result">: <a href="Transform$.html#Aux[S0,-I,+O]=scodec.protocols.Transform[I,O]{typeS=S0}" class="extmbr" name="scodec.protocols.Transform.Aux">Aux</a>[<a href="#S" class="extmbr" name="scodec.protocols.Transform.S">S</a>, <span class="extype" name="scodec.protocols.Transform.semipass.I2">I2</span>, <span class="extype" name="scodec.protocols.Transform.semipass.O2">O2</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scodec.protocols.Transform@semipass[I2,O2&gt;:O](extract:I2=&gt;Either[O2,I]):scodec.protocols.Transform.Aux[Transform.this.S,I2,O2]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scala.AnyRef#synchronized" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="synchronized[T0](x$1:=&gt;T0):T0"></a>
+      <a id="synchronized[T0](⇒T0):T0"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">synchronized</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="params">(<span name="arg0">arg0: ⇒ <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>)</span><span class="result">: <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scodec.protocols.Transform@synchronized[T0](x$1:=&gt;T0):T0" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scodec.protocols.Transform#toPipe" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="toPipe[F[_]]:fs2.Pipe[F,I,O]"></a>
+      <a id="toPipe[F[_]]:Pipe[F,I,O]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">toPipe</span><span class="tparams">[<span name="F">F<span class="tparams">[<span name="_">_</span>]</span></span>]</span><span class="result">: <span class="extype" name="fs2.Pipe">Pipe</span>[<span class="extype" name="scodec.protocols.Transform.toPipe.F">F</span>, <span class="extype" name="scodec.protocols.Transform.I">I</span>, <span class="extype" name="scodec.protocols.Transform.O">O</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scodec.protocols.Transform@toPipe[F[_]]:fs2.Pipe[F,I,O]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scala.AnyRef#toString" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="toString():String"></a>
+      <a id="toString():String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">toString</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scodec.protocols.Transform@toString():String" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait():Unit"></a>
+      <a id="wait():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scodec.protocols.Transform@wait():Unit" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait(x$1:Long,x$2:Int):Unit"></a>
+      <a id="wait(Long,Int):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Long" class="extype" target="_top">Long</a></span>, <span name="arg1">arg1: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scodec.protocols.Transform@wait(x$1:Long,x$2:Int):Unit" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait(x$1:Long):Unit"></a>
+      <a id="wait(Long):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Long" class="extype" target="_top">Long</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scodec.protocols.Transform@wait(x$1:Long):Unit" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scodec.protocols.Transform#xmapState" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="xmapState[S2](g:Transform.this.S=&gt;S2)(f:S2=&gt;Transform.this.S):scodec.protocols.Transform.Aux[S2,I,O]"></a>
+      <a id="xmapState[S2]((S)⇒S2)((S2)⇒S):Aux[S2,I,O]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">xmapState</span><span class="tparams">[<span name="S2">S2</span>]</span><span class="params">(<span name="g">g: (<a href="#S" class="extmbr" name="scodec.protocols.Transform.S">S</a>) ⇒ <span class="extype" name="scodec.protocols.Transform.xmapState.S2">S2</span></span>)</span><span class="params">(<span name="f">f: (<span class="extype" name="scodec.protocols.Transform.xmapState.S2">S2</span>) ⇒ <a href="#S" class="extmbr" name="scodec.protocols.Transform.S">S</a></span>)</span><span class="result">: <a href="Transform$.html#Aux[S0,-I,+O]=scodec.protocols.Transform[I,O]{typeS=S0}" class="extmbr" name="scodec.protocols.Transform.Aux">Aux</a>[<span class="extype" name="scodec.protocols.Transform.xmapState.S2">S2</span>, <span class="extype" name="scodec.protocols.Transform.I">I</span>, <span class="extype" name="scodec.protocols.Transform.O">O</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scodec.protocols.Transform@xmapState[S2](g:Transform.this.S=&gt;S2)(f:S2=&gt;Transform.this.S):scodec.protocols.Transform.Aux[S2,I,O]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scala.Predef.ArrowAssoc#→" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="→[B](y:B):(A,B)"></a>
+      <a id="→[B](B):(Transform[I,O],B)"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $u2192" class="implicit">→</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="y">y: <span class="extype" name="scala.Predef.ArrowAssoc.→.B">B</span></span>)</span><span class="result">: (<a href="" class="extype" name="scodec.protocols.Transform">Transform</a>[<span class="extype" name="scodec.protocols.Transform.I">I</span>, <span class="extype" name="scodec.protocols.Transform.O">O</span>], <span class="extype" name="scala.Predef.ArrowAssoc.→.B">B</span>)</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scodec.protocols.Transform@→[B](y:B):(A,B)" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="scodec.protocols.Transform">Transform</a>[<span class="extype" name="scodec.protocols.Transform.I">I</span>, <span class="extype" name="scodec.protocols.Transform.O">O</span>] to
+            <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="scodec.protocols.Transform">Transform</a>[<span class="extype" name="scodec.protocols.Transform.I">I</span>, <span class="extype" name="scodec.protocols.Transform.O">O</span>]] performed by method ArrowAssoc in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>ArrowAssoc</dd></dl></div>
+    </li></ol>
+            </div>
+
+        
+
+        
+        </div>
+
+        <div id="inheritedMembers">
+        <div class="parent" name="scala.AnyRef">
+              <h3>Inherited from <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a></h3>
+            </div><div class="parent" name="scala.Any">
+              <h3>Inherited from <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Any" class="extype" target="_top">Any</a></h3>
+            </div>
+        <div class="conversion" name="scala.Predef.any2stringadd">
+              <h3>Inherited by implicit conversion any2stringadd from
+                <a href="" class="extype" name="scodec.protocols.Transform">Transform</a>[<span class="extype" name="scodec.protocols.Transform.I">I</span>, <span class="extype" name="scodec.protocols.Transform.O">O</span>] to <span class="extype" name="scala.Predef.any2stringadd">any2stringadd</span>[<a href="" class="extype" name="scodec.protocols.Transform">Transform</a>[<span class="extype" name="scodec.protocols.Transform.I">I</span>, <span class="extype" name="scodec.protocols.Transform.O">O</span>]]
+              </h3>
+            </div><div class="conversion" name="scala.Predef.StringFormat">
+              <h3>Inherited by implicit conversion StringFormat from
+                <a href="" class="extype" name="scodec.protocols.Transform">Transform</a>[<span class="extype" name="scodec.protocols.Transform.I">I</span>, <span class="extype" name="scodec.protocols.Transform.O">O</span>] to <span class="extype" name="scala.Predef.StringFormat">StringFormat</span>[<a href="" class="extype" name="scodec.protocols.Transform">Transform</a>[<span class="extype" name="scodec.protocols.Transform.I">I</span>, <span class="extype" name="scodec.protocols.Transform.O">O</span>]]
+              </h3>
+            </div><div class="conversion" name="scala.Predef.Ensuring">
+              <h3>Inherited by implicit conversion Ensuring from
+                <a href="" class="extype" name="scodec.protocols.Transform">Transform</a>[<span class="extype" name="scodec.protocols.Transform.I">I</span>, <span class="extype" name="scodec.protocols.Transform.O">O</span>] to <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="scodec.protocols.Transform">Transform</a>[<span class="extype" name="scodec.protocols.Transform.I">I</span>, <span class="extype" name="scodec.protocols.Transform.O">O</span>]]
+              </h3>
+            </div><div class="conversion" name="scala.Predef.ArrowAssoc">
+              <h3>Inherited by implicit conversion ArrowAssoc from
+                <a href="" class="extype" name="scodec.protocols.Transform">Transform</a>[<span class="extype" name="scodec.protocols.Transform.I">I</span>, <span class="extype" name="scodec.protocols.Transform.O">O</span>] to <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="scodec.protocols.Transform">Transform</a>[<span class="extype" name="scodec.protocols.Transform.I">I</span>, <span class="extype" name="scodec.protocols.Transform.O">O</span>]]
+              </h3>
+            </div>
+        </div>
+
+        <div id="groupedMembers">
+        <div class="group" name="Ungrouped">
+              <h3>Ungrouped</h3>
+              
+            </div>
+        </div>
+
+      </div>
+
+      <div id="tooltip"></div>
+
+      <div id="footer">  </div>
+
+
+    </body>
+      </html>

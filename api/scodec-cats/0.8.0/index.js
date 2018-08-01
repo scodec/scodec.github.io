@@ -1,0 +1,1 @@
+Index.PACKAGES = {"scodec" : [], "scodec.cats" : [{"object" : "scodec\/cats\/BuildInfo$.html", "name" : "scodec.cats.BuildInfo"}], "scodec.interop" : [], "scodec.interop.cats" : [{"class" : "scodec\/interop\/cats\/package$$EitherErrSyntax.html", "name" : "scodec.interop.cats.EitherErrSyntax"}]};

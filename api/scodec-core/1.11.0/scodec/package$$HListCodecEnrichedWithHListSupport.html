@@ -1,0 +1,683 @@
+<!DOCTYPE html >
+<html>
+        <head>
+          <title>HListCodecEnrichedWithHListSupport - scodec.HListCodecEnrichedWithHListSupport</title>
+          <meta name="description" content="HListCodecEnrichedWithHListSupport - scodec.HListCodecEnrichedWithHListSupport" />
+          <meta name="keywords" content="HListCodecEnrichedWithHListSupport scodec.HListCodecEnrichedWithHListSupport" />
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+          
+      <link href="../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript" src="../lib/jquery.js" id="jquery-js"></script>
+      <script type="text/javascript" src="../lib/jquery-ui.js"></script>
+      <script type="text/javascript" src="../lib/template.js"></script>
+      <script type="text/javascript" src="../lib/tools.tooltip.js"></script>
+      <script type="text/javascript" src="../lib/modernizr.custom.js"></script><script type="text/javascript" src="../lib/diagrams.js" id="diagrams-js"></script>
+      <script type="text/javascript">
+         if(top === self) {
+            var url = '../index.html';
+            var hash = 'scodec.package$$HListCodecEnrichedWithHListSupport';
+            var anchor = window.location.hash;
+            var anchor_opt = '';
+            if (anchor.length >= 1)
+              anchor_opt = '@' + anchor.substring(1);
+            window.location.href = url + '#' + hash + anchor_opt;
+         }
+   	  </script>
+    
+        </head>
+        <body class="type">
+      <div id="definition">
+        <img alt="Class" src="../lib/class_big.png" />
+        <p id="owner"><a href="package.html" class="extype" name="scodec">scodec</a></p>
+        <h1>HListCodecEnrichedWithHListSupport</h1><h3><span class="morelinks"><div>Related Doc:
+            <a href="package.html" class="extype" name="scodec">package scodec</a>
+          </div></span></h3><span class="permalink">
+      <a href="../index.html#scodec.package$$HListCodecEnrichedWithHListSupport" title="Permalink" target="_top">
+        <img src="../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      </div>
+
+      <h4 id="signature" class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">implicit final </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <span class="name">HListCodecEnrichedWithHListSupport</span><span class="tparams">[<span name="L">L &lt;: <span class="extype" name="shapeless.HList">HList</span></span>]</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.12/index.html#scala.AnyVal" class="extype" target="_top">AnyVal</a></span>
+      </span>
+      </h4>
+      
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Provides common operations on a <code>Codec[HList]</code>.</p></div><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/scodec/scodec/tree/v1.11.0/shared/src/main/scala/scodec/package.scala" target="_blank">package.scala</a></dd></dl><div class="toggleContainer block">
+          <span class="toggle">Linear Supertypes</span>
+          <div class="superTypes hiddenContent"><a href="http://www.scala-lang.org/api/2.11.12/index.html#scala.AnyVal" class="extype" target="_top">AnyVal</a>, <a href="http://www.scala-lang.org/api/2.11.12/index.html#scala.Any" class="extype" target="_top">Any</a></div>
+        </div></div>
+        
+
+      <div id="mbrsel">
+        <div id="textfilter"><span class="pre"></span><span class="input"><input id="mbrsel-input" type="text" accesskey="/" /></span><span class="post"></span></div>
+        <div id="order">
+              <span class="filtertype">Ordering</span>
+              <ol>
+                <li class="group out"><span>Grouped</span></li>
+                <li class="alpha in"><span>Alphabetic</span></li>
+                <li class="inherit out"><span>By Inheritance</span></li>
+              </ol>
+            </div>
+        <div id="ancestors">
+                <span class="filtertype">Inherited<br />
+                </span>
+                <ol id="linearization">
+                  <li class="in" name="scodec.HListCodecEnrichedWithHListSupport"><span>HListCodecEnrichedWithHListSupport</span></li><li class="in" name="scala.AnyVal"><span>AnyVal</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                </ol>
+              </div><div id="ancestors">
+                <span class="filtertype">Implicitly<br />
+                </span>
+                <ol id="implicits"> <li class="in" name="scala.Predef.any2stringadd" data-hidden="true"><span>by any2stringadd</span></li><li class="in" name="scala.Predef.StringFormat" data-hidden="true"><span>by StringFormat</span></li><li class="in" name="scala.Predef.Ensuring" data-hidden="true"><span>by Ensuring</span></li><li class="in" name="scala.Predef.ArrowAssoc" data-hidden="true"><span>by ArrowAssoc</span></li>
+                </ol>
+              </div><div id="ancestors">
+            <span class="filtertype"></span>
+            <ol>
+              <li class="hideall out"><span>Hide All</span></li>
+              <li class="showall in"><span>Show All</span></li>
+            </ol>
+          </div>
+        <div id="visbl">
+            <span class="filtertype">Visibility</span>
+            <ol><li class="public in"><span>Public</span></li><li class="all out"><span>All</span></li></ol>
+          </div>
+      </div>
+
+      <div id="template">
+        <div id="allMembers">
+        <div id="constructors" class="members">
+              <h3>Instance Constructors</h3>
+              <ol><li name="scodec.HListCodecEnrichedWithHListSupport#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="&lt;init&gt;(self:scodec.Codec[L]):scodec.package.HListCodecEnrichedWithHListSupport[L]"></a>
+      <a id="&lt;init&gt;:HListCodecEnrichedWithHListSupport[L]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">new</span>
+      </span>
+      <span class="symbol">
+        <span class="name">HListCodecEnrichedWithHListSupport</span><span class="params">(<span name="self">self: <a href="Codec.html" class="extype" name="scodec.Codec">Codec</a>[<span class="extype" name="scodec.HListCodecEnrichedWithHListSupport.L">L</span>]</span>)</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../index.html#scodec.package$$HListCodecEnrichedWithHListSupport@&lt;init&gt;(self:scodec.Codec[L]):scodec.package.HListCodecEnrichedWithHListSupport[L]" title="Permalink" target="_top">
+        <img src="../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li></ol>
+            </div>
+
+        
+
+        
+
+        <div id="values" class="values members">
+              <h3>Value Members</h3>
+              <ol><li name="scala.Any#!=" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="!=(x$1:Any):Boolean"></a>
+      <a id="!=(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.11.12/index.html#scala.Any" class="extype" target="_top">Any</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.12/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../index.html#scodec.package$$HListCodecEnrichedWithHListSupport@!=(x$1:Any):Boolean" title="Permalink" target="_top">
+        <img src="../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="scala.Any###" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="##():Int"></a>
+      <a id="##():Int"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $hash$hash" class="name">##</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.12/index.html#scala.Int" class="extype" target="_top">Int</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../index.html#scodec.package$$HListCodecEnrichedWithHListSupport@##():Int" title="Permalink" target="_top">
+        <img src="../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="scala.Predef.any2stringadd#+" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="+(other:String):String"></a>
+      <a id="+(String):String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $plus" class="implicit">+</span><span class="params">(<span name="other">other: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../index.html#scodec.package$$HListCodecEnrichedWithHListSupport@+(other:String):String" title="Permalink" target="_top">
+        <img src="../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="scodec.HListCodecEnrichedWithHListSupport">HListCodecEnrichedWithHListSupport</a>[<span class="extype" name="scodec.HListCodecEnrichedWithHListSupport.L">L</span>] to
+            <span class="extype" name="scala.Predef.any2stringadd">any2stringadd</span>[<a href="" class="extype" name="scodec.HListCodecEnrichedWithHListSupport">HListCodecEnrichedWithHListSupport</a>[<span class="extype" name="scodec.HListCodecEnrichedWithHListSupport.L">L</span>]] performed by method any2stringadd in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>any2stringadd</dd></dl></div>
+    </li><li name="scala.Predef.ArrowAssoc#-&gt;" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="-&gt;[B](y:B):(A,B)"></a>
+      <a id="-&gt;[B](B):(HListCodecEnrichedWithHListSupport[L],B)"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $minus$greater" class="implicit">-&gt;</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="y">y: <span class="extype" name="scala.Predef.ArrowAssoc.-&gt;.B">B</span></span>)</span><span class="result">: (<a href="" class="extype" name="scodec.HListCodecEnrichedWithHListSupport">HListCodecEnrichedWithHListSupport</a>[<span class="extype" name="scodec.HListCodecEnrichedWithHListSupport.L">L</span>], <span class="extype" name="scala.Predef.ArrowAssoc.-&gt;.B">B</span>)</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../index.html#scodec.package$$HListCodecEnrichedWithHListSupport@-&gt;[B](y:B):(A,B)" title="Permalink" target="_top">
+        <img src="../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="scodec.HListCodecEnrichedWithHListSupport">HListCodecEnrichedWithHListSupport</a>[<span class="extype" name="scodec.HListCodecEnrichedWithHListSupport.L">L</span>] to
+            <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="scodec.HListCodecEnrichedWithHListSupport">HListCodecEnrichedWithHListSupport</a>[<span class="extype" name="scodec.HListCodecEnrichedWithHListSupport.L">L</span>]] performed by method ArrowAssoc in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>ArrowAssoc</dd><dt>Annotations</dt><dd>
+                <span class="name">@inline</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li name="scodec.HListCodecEnrichedWithHListSupport#:+" visbl="pub" data-isabs="false" fullComment="yes" group="hlist">
+      <a id=":+[B,LB&lt;:shapeless.HList](codec:scodec.Codec[B])(implicitprepend:shapeless.ops.hlist.Prepend.Aux[L,shapeless.::[B,shapeless.HNil],LB],implicitinit:shapeless.ops.hlist.Init.Aux[LB,L],implicitlast:shapeless.ops.hlist.Last.Aux[LB,B]):scodec.Codec[LB]"></a>
+      <a id=":+[B,LB&lt;:HList](Codec[B])(shapeless.ops.hlist.Prepend.Aux[L,::[B,HNil],LB],Aux[LB,L],Aux[LB,B]):Codec[LB]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $colon$plus" class="name">:+</span><span class="tparams">[<span name="B">B</span>, <span name="LB">LB &lt;: <span class="extype" name="shapeless.HList">HList</span></span>]</span><span class="params">(<span name="codec">codec: <a href="Codec.html" class="extype" name="scodec.Codec">Codec</a>[<span class="extype" name="scodec.HListCodecEnrichedWithHListSupport.:+.B">B</span>]</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="prepend">prepend: <span class="extype" name="shapeless.ops.hlist.LowPriorityPrepend.Aux">shapeless.ops.hlist.Prepend.Aux</span>[<span class="extype" name="scodec.HListCodecEnrichedWithHListSupport.L">L</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="scodec.HListCodecEnrichedWithHListSupport.:+.B">B</span>, <span class="extype" name="shapeless.HNil">HNil</span>], <span class="extype" name="scodec.HListCodecEnrichedWithHListSupport.:+.LB">LB</span>]</span>, <span name="init">init: <span class="extype" name="shapeless.ops.hlist.Init.Aux">Aux</span>[<span class="extype" name="scodec.HListCodecEnrichedWithHListSupport.:+.LB">LB</span>, <span class="extype" name="scodec.HListCodecEnrichedWithHListSupport.L">L</span>]</span>, <span name="last">last: <span class="extype" name="shapeless.ops.hlist.Last.Aux">Aux</span>[<span class="extype" name="scodec.HListCodecEnrichedWithHListSupport.:+.LB">LB</span>, <span class="extype" name="scodec.HListCodecEnrichedWithHListSupport.:+.B">B</span>]</span>)</span><span class="result">: <a href="Codec.html" class="extype" name="scodec.Codec">Codec</a>[<span class="extype" name="scodec.HListCodecEnrichedWithHListSupport.:+.LB">LB</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../index.html#scodec.package$$HListCodecEnrichedWithHListSupport@:+[B,LB&lt;:shapeless.HList](codec:scodec.Codec[B])(implicitprepend:shapeless.ops.hlist.Prepend.Aux[L,shapeless.::[B,shapeless.HNil],LB],implicitinit:shapeless.ops.hlist.Init.Aux[LB,L],implicitlast:shapeless.ops.hlist.Last.Aux[LB,B]):scodec.Codec[LB]" title="Permalink" target="_top">
+        <img src="../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">When called on a <code>Codec[L]</code> for some <code>L &lt;: HList</code>, returns a new codec that encodes/decodes
+the <code>HList L</code> followed by a <code>B</code>.</p><div class="fullcomment"><div class="comment cmt"><p>When called on a <code>Codec[L]</code> for some <code>L &lt;: HList</code>, returns a new codec that encodes/decodes
+the <code>HList L</code> followed by a <code>B</code>.
+That is, this operator is a codec-level <code>HList</code> append operation.</p></div></div>
+    </li><li name="scodec.HListCodecEnrichedWithHListSupport#::" visbl="pub" data-isabs="false" fullComment="yes" group="hlist">
+      <a id="::[B](codec:scodec.Codec[B]):scodec.Codec[shapeless.::[B,L]]"></a>
+      <a id="::[B](Codec[B]):Codec[::[B,L]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $colon$colon" class="name">::</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="codec">codec: <a href="Codec.html" class="extype" name="scodec.Codec">Codec</a>[<span class="extype" name="scodec.HListCodecEnrichedWithHListSupport.::.B">B</span>]</span>)</span><span class="result">: <a href="Codec.html" class="extype" name="scodec.Codec">Codec</a>[<span class="extype" name="shapeless.::">::</span>[<span class="extype" name="scodec.HListCodecEnrichedWithHListSupport.::.B">B</span>, <span class="extype" name="scodec.HListCodecEnrichedWithHListSupport.L">L</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../index.html#scodec.package$$HListCodecEnrichedWithHListSupport@::[B](codec:scodec.Codec[B]):scodec.Codec[shapeless.::[B,L]]" title="Permalink" target="_top">
+        <img src="../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">When called on a <code>Codec[L]</code> for some <code>L &lt;: HList</code>, returns a new codec representing <code>Codec[B :: L]</code>.</p><div class="fullcomment"><div class="comment cmt"><p>When called on a <code>Codec[L]</code> for some <code>L &lt;: HList</code>, returns a new codec representing <code>Codec[B :: L]</code>.
+That is, this operator is a codec-level <code>HList</code> prepend operation.</p></div><dl class="paramcmts block"><dt class="param">codec</dt><dd class="cmt"><p>codec to prepend</p></dd></dl></div>
+    </li><li name="scodec.HListCodecEnrichedWithHListSupport#:::" visbl="pub" data-isabs="false" fullComment="no" group="hlist">
+      <a id=":::[K&lt;:shapeless.HList,KL&lt;:shapeless.HList,KLen&lt;:shapeless.Nat](k:scodec.Codec[K])(implicitprepend:shapeless.ops.hlist.Prepend.Aux[K,L,KL],implicitlengthK:shapeless.ops.hlist.Length.Aux[K,KLen],implicitsplit:shapeless.ops.hlist.Split.Aux[KL,KLen,K,L]):scodec.Codec[KL]"></a>
+      <a id=":::[K&lt;:HList,KL&lt;:HList,KLen&lt;:Nat](Codec[K])(shapeless.ops.hlist.Prepend.Aux[K,L,KL],Aux[K,KLen],Aux[KL,KLen,K,L]):Codec[KL]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $colon$colon$colon" class="name">:::</span><span class="tparams">[<span name="K">K &lt;: <span class="extype" name="shapeless.HList">HList</span></span>, <span name="KL">KL &lt;: <span class="extype" name="shapeless.HList">HList</span></span>, <span name="KLen">KLen &lt;: <span class="extype" name="shapeless.Nat">Nat</span></span>]</span><span class="params">(<span name="k">k: <a href="Codec.html" class="extype" name="scodec.Codec">Codec</a>[<span class="extype" name="scodec.HListCodecEnrichedWithHListSupport.:::.K">K</span>]</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="prepend">prepend: <span class="extype" name="shapeless.ops.hlist.LowPriorityPrepend.Aux">shapeless.ops.hlist.Prepend.Aux</span>[<span class="extype" name="scodec.HListCodecEnrichedWithHListSupport.:::.K">K</span>, <span class="extype" name="scodec.HListCodecEnrichedWithHListSupport.L">L</span>, <span class="extype" name="scodec.HListCodecEnrichedWithHListSupport.:::.KL">KL</span>]</span>, <span name="lengthK">lengthK: <span class="extype" name="shapeless.ops.hlist.Length.Aux">Aux</span>[<span class="extype" name="scodec.HListCodecEnrichedWithHListSupport.:::.K">K</span>, <span class="extype" name="scodec.HListCodecEnrichedWithHListSupport.:::.KLen">KLen</span>]</span>, <span name="split">split: <span class="extype" name="shapeless.ops.hlist.Split.Aux">Aux</span>[<span class="extype" name="scodec.HListCodecEnrichedWithHListSupport.:::.KL">KL</span>, <span class="extype" name="scodec.HListCodecEnrichedWithHListSupport.:::.KLen">KLen</span>, <span class="extype" name="scodec.HListCodecEnrichedWithHListSupport.:::.K">K</span>, <span class="extype" name="scodec.HListCodecEnrichedWithHListSupport.L">L</span>]</span>)</span><span class="result">: <a href="Codec.html" class="extype" name="scodec.Codec">Codec</a>[<span class="extype" name="scodec.HListCodecEnrichedWithHListSupport.:::.KL">KL</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../index.html#scodec.package$$HListCodecEnrichedWithHListSupport@:::[K&lt;:shapeless.HList,KL&lt;:shapeless.HList,KLen&lt;:shapeless.Nat](k:scodec.Codec[K])(implicitprepend:shapeless.ops.hlist.Prepend.Aux[K,L,KL],implicitlengthK:shapeless.ops.hlist.Length.Aux[K,KLen],implicitsplit:shapeless.ops.hlist.Split.Aux[KL,KLen,K,L]):scodec.Codec[KL]" title="Permalink" target="_top">
+        <img src="../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">When called on a <code>Codec[L]</code> for some <code>L &lt;: HList</code>, returns a new codec that encodes/decodes
+the <code>HList K</code> followed by the <code>HList L</code>.</p>
+    </li><li name="scodec.HListCodecEnrichedWithHListSupport#:~&gt;:" visbl="pub" data-isabs="false" fullComment="yes" group="hlist">
+      <a id=":~&gt;:[B](codec:scodec.Codec[B])(implicitev:=:=[Unit,B]):scodec.Codec[L]"></a>
+      <a id=":~&gt;:[B](Codec[B])(=:=[Unit,B]):Codec[L]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $colon$tilde$greater$colon" class="name">:~&gt;:</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="codec">codec: <a href="Codec.html" class="extype" name="scodec.Codec">Codec</a>[<span class="extype" name="scodec.HListCodecEnrichedWithHListSupport.:~&gt;:.B">B</span>]</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ev">ev: <span class="extype" name="scala.Predef.=:=">=:=</span>[<a href="http://www.scala-lang.org/api/2.11.12/index.html#scala.Unit" class="extype" target="_top">Unit</a>, <span class="extype" name="scodec.HListCodecEnrichedWithHListSupport.:~&gt;:.B">B</span>]</span>)</span><span class="result">: <a href="Codec.html" class="extype" name="scodec.Codec">Codec</a>[<span class="extype" name="scodec.HListCodecEnrichedWithHListSupport.L">L</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../index.html#scodec.package$$HListCodecEnrichedWithHListSupport@:~&gt;:[B](codec:scodec.Codec[B])(implicitev:=:=[Unit,B]):scodec.Codec[L]" title="Permalink" target="_top">
+        <img src="../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">When called on a <code>Codec[L]</code> for some <code>L &lt;: HList</code>, returns a new codec that encodes/decodes
+<code>B :: L</code> but only returns <code>L</code>.</p><div class="fullcomment"><div class="comment cmt"><p>When called on a <code>Codec[L]</code> for some <code>L &lt;: HList</code>, returns a new codec that encodes/decodes
+<code>B :: L</code> but only returns <code>L</code>.  HList equivalent of <code>~&gt;</code>.</p></div></div>
+    </li><li name="scala.Any#==" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="==(x$1:Any):Boolean"></a>
+      <a id="==(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.11.12/index.html#scala.Any" class="extype" target="_top">Any</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.12/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../index.html#scodec.package$$HListCodecEnrichedWithHListSupport@==(x$1:Any):Boolean" title="Permalink" target="_top">
+        <img src="../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="scala.Any#asInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="asInstanceOf[T0]:T0"></a>
+      <a id="asInstanceOf[T0]:T0"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">asInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Any.asInstanceOf.T0">T0</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../index.html#scodec.package$$HListCodecEnrichedWithHListSupport@asInstanceOf[T0]:T0" title="Permalink" target="_top">
+        <img src="../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="scodec.HListCodecEnrichedWithHListSupport#derive" visbl="pub" data-isabs="false" fullComment="yes" group="hlist">
+      <a id="derive[A]:scodec.codecs.DeriveHListElementAux[L,A]"></a>
+      <a id="derive[A]:DeriveHListElementAux[L,A]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">derive</span><span class="tparams">[<span name="A">A</span>]</span><span class="result">: <a href="codecs/DeriveHListElementAux.html" class="extype" name="scodec.codecs.DeriveHListElementAux">DeriveHListElementAux</a>[<span class="extype" name="scodec.HListCodecEnrichedWithHListSupport.L">L</span>, <span class="extype" name="scodec.HListCodecEnrichedWithHListSupport.derive.A">A</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../index.html#scodec.package$$HListCodecEnrichedWithHListSupport@derive[A]:scodec.codecs.DeriveHListElementAux[L,A]" title="Permalink" target="_top">
+        <img src="../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Supports building a <code>Codec[M]</code> for some <code>HList M</code> where <code>M</code> is the <code>HList</code> that results in removing
+the first <code>A</code> from <code>L</code>.</p><div class="fullcomment"><div class="comment cmt"><p>Supports building a <code>Codec[M]</code> for some <code>HList M</code> where <code>M</code> is the <code>HList</code> that results in removing
+the first <code>A</code> from <code>L</code>.</p><p>Example usage: </p><pre><span class="kw">case</span> <span class="kw">class</span> Flags(x: <span class="std">Boolean</span>, y: <span class="std">Boolean</span>, z: <span class="std">Boolean</span>)
+<span class="kw">val</span> c = (bool :: bool :: bool :: ignore(<span class="num">5</span>)).flatPrepend { flgs <span class="kw">=&gt;</span>
+  conditional(flgs.x, uint8) :: conditional(flgs.y, uint8) :: conditional(flgs.z, uint8)
+}
+c.derive[Flags].from { <span class="kw">case</span> x :: y :: z :: HNil <span class="kw">=&gt;</span> Flags(x.isDefined, y.isDefined, z.isDefined) }</pre><p>This codec, the <code>Codec[L]</code>, is used for encoding/decoding. When decoding, the first value of type
+<code>A</code> is removed from the <code>HList</code>.</p><p>When encoding, the returned codec computes an <code>A</code> value using the supplied
+function and inserts the computed <code>A</code> in to the <code>HList M</code>, yielding an <code>HList L</code>. That <code>HList L</code>
+is then encoded using the original codec.</p><p>This method is called <code>derive</code> because the value of type <code>A</code> is derived from the other fields
+in the <code>HList L</code>.
+</p></div><dl class="paramcmts block"><dt class="tparam">A</dt><dd class="cmt"><p>type to remove from <code>L</code> and derive from the resulting list</p></dd></dl></div>
+    </li><li name="scodec.HListCodecEnrichedWithHListSupport#dropUnits" visbl="pub" data-isabs="false" fullComment="no" group="hlist">
+      <a id="dropUnits[M&lt;:shapeless.HList](implicitdu:scodec.codecs.DropUnits.Aux[L,M]):scodec.Codec[M]"></a>
+      <a id="dropUnits[M&lt;:HList](Aux[L,M]):Codec[M]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">dropUnits</span><span class="tparams">[<span name="M">M &lt;: <span class="extype" name="shapeless.HList">HList</span></span>]</span><span class="params">(<span class="implicit">implicit </span><span name="du">du: <a href="codecs/DropUnits$.html#Aux[K0&lt;:shapeless.HList,L0&lt;:shapeless.HList]=scodec.codecs.DropUnits[K0]{typeL=L0}" class="extmbr" name="scodec.codecs.DropUnits.Aux">Aux</a>[<span class="extype" name="scodec.HListCodecEnrichedWithHListSupport.L">L</span>, <span class="extype" name="scodec.HListCodecEnrichedWithHListSupport.dropUnits.M">M</span>]</span>)</span><span class="result">: <a href="Codec.html" class="extype" name="scodec.Codec">Codec</a>[<span class="extype" name="scodec.HListCodecEnrichedWithHListSupport.dropUnits.M">M</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../index.html#scodec.package$$HListCodecEnrichedWithHListSupport@dropUnits[M&lt;:shapeless.HList](implicitdu:scodec.codecs.DropUnits.Aux[L,M]):scodec.Codec[M]" title="Permalink" target="_top">
+        <img src="../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Creates a new codec with all unit values filtered out.</p>
+    </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ensuring(cond:A=&gt;Boolean,msg:=&gt;Any):A"></a>
+      <a id="ensuring((HListCodecEnrichedWithHListSupport[L])⇒Boolean,⇒Any):HListCodecEnrichedWithHListSupport[L]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="scodec.HListCodecEnrichedWithHListSupport">HListCodecEnrichedWithHListSupport</a>[<span class="extype" name="scodec.HListCodecEnrichedWithHListSupport.L">L</span>]) ⇒ <a href="http://www.scala-lang.org/api/2.11.12/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>, <span name="msg">msg: ⇒ <a href="http://www.scala-lang.org/api/2.11.12/index.html#scala.Any" class="extype" target="_top">Any</a></span>)</span><span class="result">: <a href="" class="extype" name="scodec.HListCodecEnrichedWithHListSupport">HListCodecEnrichedWithHListSupport</a>[<span class="extype" name="scodec.HListCodecEnrichedWithHListSupport.L">L</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../index.html#scodec.package$$HListCodecEnrichedWithHListSupport@ensuring(cond:A=&gt;Boolean,msg:=&gt;Any):A" title="Permalink" target="_top">
+        <img src="../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="scodec.HListCodecEnrichedWithHListSupport">HListCodecEnrichedWithHListSupport</a>[<span class="extype" name="scodec.HListCodecEnrichedWithHListSupport.L">L</span>] to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="scodec.HListCodecEnrichedWithHListSupport">HListCodecEnrichedWithHListSupport</a>[<span class="extype" name="scodec.HListCodecEnrichedWithHListSupport.L">L</span>]] performed by method Ensuring in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
+    </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ensuring(cond:A=&gt;Boolean):A"></a>
+      <a id="ensuring((HListCodecEnrichedWithHListSupport[L])⇒Boolean):HListCodecEnrichedWithHListSupport[L]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="scodec.HListCodecEnrichedWithHListSupport">HListCodecEnrichedWithHListSupport</a>[<span class="extype" name="scodec.HListCodecEnrichedWithHListSupport.L">L</span>]) ⇒ <a href="http://www.scala-lang.org/api/2.11.12/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>)</span><span class="result">: <a href="" class="extype" name="scodec.HListCodecEnrichedWithHListSupport">HListCodecEnrichedWithHListSupport</a>[<span class="extype" name="scodec.HListCodecEnrichedWithHListSupport.L">L</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../index.html#scodec.package$$HListCodecEnrichedWithHListSupport@ensuring(cond:A=&gt;Boolean):A" title="Permalink" target="_top">
+        <img src="../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="scodec.HListCodecEnrichedWithHListSupport">HListCodecEnrichedWithHListSupport</a>[<span class="extype" name="scodec.HListCodecEnrichedWithHListSupport.L">L</span>] to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="scodec.HListCodecEnrichedWithHListSupport">HListCodecEnrichedWithHListSupport</a>[<span class="extype" name="scodec.HListCodecEnrichedWithHListSupport.L">L</span>]] performed by method Ensuring in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
+    </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ensuring(cond:Boolean,msg:=&gt;Any):A"></a>
+      <a id="ensuring(Boolean,⇒Any):HListCodecEnrichedWithHListSupport[L]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <a href="http://www.scala-lang.org/api/2.11.12/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>, <span name="msg">msg: ⇒ <a href="http://www.scala-lang.org/api/2.11.12/index.html#scala.Any" class="extype" target="_top">Any</a></span>)</span><span class="result">: <a href="" class="extype" name="scodec.HListCodecEnrichedWithHListSupport">HListCodecEnrichedWithHListSupport</a>[<span class="extype" name="scodec.HListCodecEnrichedWithHListSupport.L">L</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../index.html#scodec.package$$HListCodecEnrichedWithHListSupport@ensuring(cond:Boolean,msg:=&gt;Any):A" title="Permalink" target="_top">
+        <img src="../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="scodec.HListCodecEnrichedWithHListSupport">HListCodecEnrichedWithHListSupport</a>[<span class="extype" name="scodec.HListCodecEnrichedWithHListSupport.L">L</span>] to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="scodec.HListCodecEnrichedWithHListSupport">HListCodecEnrichedWithHListSupport</a>[<span class="extype" name="scodec.HListCodecEnrichedWithHListSupport.L">L</span>]] performed by method Ensuring in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
+    </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ensuring(cond:Boolean):A"></a>
+      <a id="ensuring(Boolean):HListCodecEnrichedWithHListSupport[L]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <a href="http://www.scala-lang.org/api/2.11.12/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>)</span><span class="result">: <a href="" class="extype" name="scodec.HListCodecEnrichedWithHListSupport">HListCodecEnrichedWithHListSupport</a>[<span class="extype" name="scodec.HListCodecEnrichedWithHListSupport.L">L</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../index.html#scodec.package$$HListCodecEnrichedWithHListSupport@ensuring(cond:Boolean):A" title="Permalink" target="_top">
+        <img src="../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="scodec.HListCodecEnrichedWithHListSupport">HListCodecEnrichedWithHListSupport</a>[<span class="extype" name="scodec.HListCodecEnrichedWithHListSupport.L">L</span>] to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="scodec.HListCodecEnrichedWithHListSupport">HListCodecEnrichedWithHListSupport</a>[<span class="extype" name="scodec.HListCodecEnrichedWithHListSupport.L">L</span>]] performed by method Ensuring in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
+    </li><li name="scodec.HListCodecEnrichedWithHListSupport#flatAppend" visbl="pub" data-isabs="false" fullComment="no" group="hlist">
+      <a id="flatAppend[A,LA&lt;:shapeless.HList,Len&lt;:shapeless.Nat](f:L=&gt;scodec.Codec[A])(implicitprepend:shapeless.ops.hlist.Prepend.Aux[L,shapeless.::[A,shapeless.HNil],LA],implicitlength:shapeless.ops.hlist.Length.Aux[L,Len],implicitsplit:shapeless.ops.hlist.Split.Aux[LA,Len,L,shapeless.::[A,shapeless.HNil]]):scodec.Codec[LA]"></a>
+      <a id="flatAppend[A,LA&lt;:HList,Len&lt;:Nat]((L)⇒Codec[A])(shapeless.ops.hlist.Prepend.Aux[L,::[A,HNil],LA],Aux[L,Len],Aux[LA,Len,L,::[A,HNil]]):Codec[LA]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">flatAppend</span><span class="tparams">[<span name="A">A</span>, <span name="LA">LA &lt;: <span class="extype" name="shapeless.HList">HList</span></span>, <span name="Len">Len &lt;: <span class="extype" name="shapeless.Nat">Nat</span></span>]</span><span class="params">(<span name="f">f: (<span class="extype" name="scodec.HListCodecEnrichedWithHListSupport.L">L</span>) ⇒ <a href="Codec.html" class="extype" name="scodec.Codec">Codec</a>[<span class="extype" name="scodec.HListCodecEnrichedWithHListSupport.flatAppend.A">A</span>]</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="prepend">prepend: <span class="extype" name="shapeless.ops.hlist.LowPriorityPrepend.Aux">shapeless.ops.hlist.Prepend.Aux</span>[<span class="extype" name="scodec.HListCodecEnrichedWithHListSupport.L">L</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="scodec.HListCodecEnrichedWithHListSupport.flatAppend.A">A</span>, <span class="extype" name="shapeless.HNil">HNil</span>], <span class="extype" name="scodec.HListCodecEnrichedWithHListSupport.flatAppend.LA">LA</span>]</span>, <span name="length">length: <span class="extype" name="shapeless.ops.hlist.Length.Aux">Aux</span>[<span class="extype" name="scodec.HListCodecEnrichedWithHListSupport.L">L</span>, <span class="extype" name="scodec.HListCodecEnrichedWithHListSupport.flatAppend.Len">Len</span>]</span>, <span name="split">split: <span class="extype" name="shapeless.ops.hlist.Split.Aux">Aux</span>[<span class="extype" name="scodec.HListCodecEnrichedWithHListSupport.flatAppend.LA">LA</span>, <span class="extype" name="scodec.HListCodecEnrichedWithHListSupport.flatAppend.Len">Len</span>, <span class="extype" name="scodec.HListCodecEnrichedWithHListSupport.L">L</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="scodec.HListCodecEnrichedWithHListSupport.flatAppend.A">A</span>, <span class="extype" name="shapeless.HNil">HNil</span>]]</span>)</span><span class="result">: <a href="Codec.html" class="extype" name="scodec.Codec">Codec</a>[<span class="extype" name="scodec.HListCodecEnrichedWithHListSupport.flatAppend.LA">LA</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../index.html#scodec.package$$HListCodecEnrichedWithHListSupport@flatAppend[A,LA&lt;:shapeless.HList,Len&lt;:shapeless.Nat](f:L=&gt;scodec.Codec[A])(implicitprepend:shapeless.ops.hlist.Prepend.Aux[L,shapeless.::[A,shapeless.HNil],LA],implicitlength:shapeless.ops.hlist.Length.Aux[L,Len],implicitsplit:shapeless.ops.hlist.Split.Aux[LA,Len,L,shapeless.::[A,shapeless.HNil]]):scodec.Codec[LA]" title="Permalink" target="_top">
+        <img src="../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">When called on a <code>Codec[L]</code> for some <code>L &lt;: HList</code>, returns a new codec that encodes/decodes
+the <code>HList L</code> followed by the value <code>A</code>, where the latter is encoded/decoded with the codec
+returned from applying <code>L</code> to <code>f</code>.</p>
+    </li><li name="scodec.HListCodecEnrichedWithHListSupport#flatConcat" visbl="pub" data-isabs="false" fullComment="no" group="hlist">
+      <a id="flatConcat[M&lt;:shapeless.HList,LM&lt;:shapeless.HList,LLen&lt;:shapeless.Nat](f:L=&gt;scodec.Codec[M])(implicitprepend:shapeless.ops.hlist.Prepend.Aux[L,M,LM],implicitlengthK:shapeless.ops.hlist.Length.Aux[L,LLen],implicitsplit:shapeless.ops.hlist.Split.Aux[LM,LLen,L,M]):scodec.Codec[LM]"></a>
+      <a id="flatConcat[M&lt;:HList,LM&lt;:HList,LLen&lt;:Nat]((L)⇒Codec[M])(shapeless.ops.hlist.Prepend.Aux[L,M,LM],Aux[L,LLen],Aux[LM,LLen,L,M]):Codec[LM]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">flatConcat</span><span class="tparams">[<span name="M">M &lt;: <span class="extype" name="shapeless.HList">HList</span></span>, <span name="LM">LM &lt;: <span class="extype" name="shapeless.HList">HList</span></span>, <span name="LLen">LLen &lt;: <span class="extype" name="shapeless.Nat">Nat</span></span>]</span><span class="params">(<span name="f">f: (<span class="extype" name="scodec.HListCodecEnrichedWithHListSupport.L">L</span>) ⇒ <a href="Codec.html" class="extype" name="scodec.Codec">Codec</a>[<span class="extype" name="scodec.HListCodecEnrichedWithHListSupport.flatConcat.M">M</span>]</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="prepend">prepend: <span class="extype" name="shapeless.ops.hlist.LowPriorityPrepend.Aux">shapeless.ops.hlist.Prepend.Aux</span>[<span class="extype" name="scodec.HListCodecEnrichedWithHListSupport.L">L</span>, <span class="extype" name="scodec.HListCodecEnrichedWithHListSupport.flatConcat.M">M</span>, <span class="extype" name="scodec.HListCodecEnrichedWithHListSupport.flatConcat.LM">LM</span>]</span>, <span name="lengthK">lengthK: <span class="extype" name="shapeless.ops.hlist.Length.Aux">Aux</span>[<span class="extype" name="scodec.HListCodecEnrichedWithHListSupport.L">L</span>, <span class="extype" name="scodec.HListCodecEnrichedWithHListSupport.flatConcat.LLen">LLen</span>]</span>, <span name="split">split: <span class="extype" name="shapeless.ops.hlist.Split.Aux">Aux</span>[<span class="extype" name="scodec.HListCodecEnrichedWithHListSupport.flatConcat.LM">LM</span>, <span class="extype" name="scodec.HListCodecEnrichedWithHListSupport.flatConcat.LLen">LLen</span>, <span class="extype" name="scodec.HListCodecEnrichedWithHListSupport.L">L</span>, <span class="extype" name="scodec.HListCodecEnrichedWithHListSupport.flatConcat.M">M</span>]</span>)</span><span class="result">: <a href="Codec.html" class="extype" name="scodec.Codec">Codec</a>[<span class="extype" name="scodec.HListCodecEnrichedWithHListSupport.flatConcat.LM">LM</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../index.html#scodec.package$$HListCodecEnrichedWithHListSupport@flatConcat[M&lt;:shapeless.HList,LM&lt;:shapeless.HList,LLen&lt;:shapeless.Nat](f:L=&gt;scodec.Codec[M])(implicitprepend:shapeless.ops.hlist.Prepend.Aux[L,M,LM],implicitlengthK:shapeless.ops.hlist.Length.Aux[L,LLen],implicitsplit:shapeless.ops.hlist.Split.Aux[LM,LLen,L,M]):scodec.Codec[LM]" title="Permalink" target="_top">
+        <img src="../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">When called on a <code>Codec[L]</code> for some <code>L &lt;: HList</code>, returns a new codec that encodes/decodes
+the <code>HList L</code> followed by the <code>HList M</code>, where the latter is encoded/decoded with the codec
+returned from applying <code>L</code> to <code>f</code>.</p>
+    </li><li name="scala.Predef.StringFormat#formatted" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="formatted(fmtstr:String):String"></a>
+      <a id="formatted(String):String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">formatted</span><span class="params">(<span name="fmtstr">fmtstr: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../index.html#scodec.package$$HListCodecEnrichedWithHListSupport@formatted(fmtstr:String):String" title="Permalink" target="_top">
+        <img src="../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="scodec.HListCodecEnrichedWithHListSupport">HListCodecEnrichedWithHListSupport</a>[<span class="extype" name="scodec.HListCodecEnrichedWithHListSupport.L">L</span>] to
+            <span class="extype" name="scala.Predef.StringFormat">StringFormat</span>[<a href="" class="extype" name="scodec.HListCodecEnrichedWithHListSupport">HListCodecEnrichedWithHListSupport</a>[<span class="extype" name="scodec.HListCodecEnrichedWithHListSupport.L">L</span>]] performed by method StringFormat in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>StringFormat</dd><dt>Annotations</dt><dd>
+                <span class="name">@inline</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyVal#getClass" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getClass():Class[_&lt;:AnyVal]"></a>
+      <a id="getClass():Class[_&lt;:AnyVal]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getClass</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Predef.Class">Class</span>[_ &lt;: <a href="http://www.scala-lang.org/api/2.11.12/index.html#scala.AnyVal" class="extype" target="_top">AnyVal</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../index.html#scodec.package$$HListCodecEnrichedWithHListSupport@getClass():Class[_&lt;:AnyVal]" title="Permalink" target="_top">
+        <img src="../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyVal → Any</dd></dl></div>
+    </li><li name="scala.Any#isInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="isInstanceOf[T0]:Boolean"></a>
+      <a id="isInstanceOf[T0]:Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">isInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.12/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../index.html#scodec.package$$HListCodecEnrichedWithHListSupport@isInstanceOf[T0]:Boolean" title="Permalink" target="_top">
+        <img src="../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="scodec.HListCodecEnrichedWithHListSupport#polyxmap" visbl="pub" data-isabs="false" fullComment="yes" group="generic">
+      <a id="polyxmap[M&lt;:shapeless.HList](p:shapeless.Poly,q:shapeless.Poly)(implicitlToM:shapeless.ops.hlist.Mapper.Aux[p.type,L,M],implicitmToL:shapeless.ops.hlist.Mapper.Aux[q.type,M,L]):scodec.Codec[M]"></a>
+      <a id="polyxmap[M&lt;:HList](Poly,Poly)(Aux[p.type,L,M],Aux[q.type,M,L]):Codec[M]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">polyxmap</span><span class="tparams">[<span name="M">M &lt;: <span class="extype" name="shapeless.HList">HList</span></span>]</span><span class="params">(<span name="p">p: <span class="extype" name="shapeless.Poly">Poly</span></span>, <span name="q">q: <span class="extype" name="shapeless.Poly">Poly</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="lToM">lToM: <span class="extype" name="shapeless.ops.hlist.Mapper.Aux">Aux</span>[<span class="extype" name="scodec.HListCodecEnrichedWithHListSupport.polyxmap.p">p</span>.type, <span class="extype" name="scodec.HListCodecEnrichedWithHListSupport.L">L</span>, <span class="extype" name="scodec.HListCodecEnrichedWithHListSupport.polyxmap.M">M</span>]</span>, <span name="mToL">mToL: <span class="extype" name="shapeless.ops.hlist.Mapper.Aux">Aux</span>[<span class="extype" name="scodec.HListCodecEnrichedWithHListSupport.polyxmap.q">q</span>.type, <span class="extype" name="scodec.HListCodecEnrichedWithHListSupport.polyxmap.M">M</span>, <span class="extype" name="scodec.HListCodecEnrichedWithHListSupport.L">L</span>]</span>)</span><span class="result">: <a href="Codec.html" class="extype" name="scodec.Codec">Codec</a>[<span class="extype" name="scodec.HListCodecEnrichedWithHListSupport.polyxmap.M">M</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../index.html#scodec.package$$HListCodecEnrichedWithHListSupport@polyxmap[M&lt;:shapeless.HList](p:shapeless.Poly,q:shapeless.Poly)(implicitlToM:shapeless.ops.hlist.Mapper.Aux[p.type,L,M],implicitmToL:shapeless.ops.hlist.Mapper.Aux[q.type,M,L]):scodec.Codec[M]" title="Permalink" target="_top">
+        <img src="../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Polymorphic function version of <code>xmap</code>.</p><div class="fullcomment"><div class="comment cmt"><p>Polymorphic function version of <code>xmap</code>.</p><p>When called on a <code>Codec[L]</code> for some <code>L &lt;: HList</code>, returns a new codec that's the result of
+xmapping with <code>p</code> and <code>q</code>, using <code>p</code> to convert from <code>L</code> to <code>M</code> and using <code>q</code> to convert from
+<code>M</code> to <code>L</code>.
+</p></div><dl class="paramcmts block"><dt class="param">p</dt><dd class="cmt"><p>polymorphic function that converts from <code>L</code> to <code>M</code></p></dd><dt class="param">q</dt><dd class="cmt"><p>polymorphic function that converts from <code>M</code> to <code>L</code></p></dd></dl></div>
+    </li><li name="scodec.HListCodecEnrichedWithHListSupport#polyxmap1" visbl="pub" data-isabs="false" fullComment="yes" group="generic">
+      <a id="polyxmap1[M&lt;:shapeless.HList](p:shapeless.Poly)(implicitm:shapeless.ops.hlist.Mapper.Aux[p.type,L,M],implicitm2:shapeless.ops.hlist.Mapper.Aux[p.type,M,L]):scodec.Codec[M]"></a>
+      <a id="polyxmap1[M&lt;:HList](Poly)(Aux[p.type,L,M],Aux[p.type,M,L]):Codec[M]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">polyxmap1</span><span class="tparams">[<span name="M">M &lt;: <span class="extype" name="shapeless.HList">HList</span></span>]</span><span class="params">(<span name="p">p: <span class="extype" name="shapeless.Poly">Poly</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="m">m: <span class="extype" name="shapeless.ops.hlist.Mapper.Aux">Aux</span>[<span class="extype" name="scodec.HListCodecEnrichedWithHListSupport.polyxmap1.p">p</span>.type, <span class="extype" name="scodec.HListCodecEnrichedWithHListSupport.L">L</span>, <span class="extype" name="scodec.HListCodecEnrichedWithHListSupport.polyxmap1.M">M</span>]</span>, <span name="m2">m2: <span class="extype" name="shapeless.ops.hlist.Mapper.Aux">Aux</span>[<span class="extype" name="scodec.HListCodecEnrichedWithHListSupport.polyxmap1.p">p</span>.type, <span class="extype" name="scodec.HListCodecEnrichedWithHListSupport.polyxmap1.M">M</span>, <span class="extype" name="scodec.HListCodecEnrichedWithHListSupport.L">L</span>]</span>)</span><span class="result">: <a href="Codec.html" class="extype" name="scodec.Codec">Codec</a>[<span class="extype" name="scodec.HListCodecEnrichedWithHListSupport.polyxmap1.M">M</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../index.html#scodec.package$$HListCodecEnrichedWithHListSupport@polyxmap1[M&lt;:shapeless.HList](p:shapeless.Poly)(implicitm:shapeless.ops.hlist.Mapper.Aux[p.type,L,M],implicitm2:shapeless.ops.hlist.Mapper.Aux[p.type,M,L]):scodec.Codec[M]" title="Permalink" target="_top">
+        <img src="../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Polymorphic function version of <code>xmap</code> that uses a single polymorphic function in both directions.</p><div class="fullcomment"><div class="comment cmt"><p>Polymorphic function version of <code>xmap</code> that uses a single polymorphic function in both directions.</p><p>When called on a <code>Codec[L]</code> for some <code>L &lt;: HList</code>, returns a new codec that's the result of
+xmapping with <code>p</code> for both forward and reverse directions.
+</p></div><dl class="paramcmts block"><dt class="param">p</dt><dd class="cmt"><p>polymorphic function that converts from <code>L</code> to <code>M</code> and from <code>M</code> to <code>L</code></p></dd></dl></div>
+    </li><li name="scodec.HListCodecEnrichedWithHListSupport#self" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="self:scodec.Codec[L]"></a>
+      <a id="self:Codec[L]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">self</span><span class="result">: <a href="Codec.html" class="extype" name="scodec.Codec">Codec</a>[<span class="extype" name="scodec.HListCodecEnrichedWithHListSupport.L">L</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../index.html#scodec.package$$HListCodecEnrichedWithHListSupport@self:scodec.Codec[L]" title="Permalink" target="_top">
+        <img src="../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scala.Any#toString" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="toString():String"></a>
+      <a id="toString():String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">toString</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../index.html#scodec.package$$HListCodecEnrichedWithHListSupport@toString():String" title="Permalink" target="_top">
+        <img src="../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="scala.Predef.ArrowAssoc#→" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="→[B](y:B):(A,B)"></a>
+      <a id="→[B](B):(HListCodecEnrichedWithHListSupport[L],B)"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $u2192" class="implicit">→</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="y">y: <span class="extype" name="scala.Predef.ArrowAssoc.→.B">B</span></span>)</span><span class="result">: (<a href="" class="extype" name="scodec.HListCodecEnrichedWithHListSupport">HListCodecEnrichedWithHListSupport</a>[<span class="extype" name="scodec.HListCodecEnrichedWithHListSupport.L">L</span>], <span class="extype" name="scala.Predef.ArrowAssoc.→.B">B</span>)</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../index.html#scodec.package$$HListCodecEnrichedWithHListSupport@→[B](y:B):(A,B)" title="Permalink" target="_top">
+        <img src="../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="scodec.HListCodecEnrichedWithHListSupport">HListCodecEnrichedWithHListSupport</a>[<span class="extype" name="scodec.HListCodecEnrichedWithHListSupport.L">L</span>] to
+            <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="scodec.HListCodecEnrichedWithHListSupport">HListCodecEnrichedWithHListSupport</a>[<span class="extype" name="scodec.HListCodecEnrichedWithHListSupport.L">L</span>]] performed by method ArrowAssoc in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>ArrowAssoc</dd></dl></div>
+    </li></ol>
+            </div>
+
+        
+
+        
+        </div>
+
+        <div id="inheritedMembers">
+        <div class="parent" name="scala.AnyVal">
+              <h3>Inherited from <a href="http://www.scala-lang.org/api/2.11.12/index.html#scala.AnyVal" class="extype" target="_top">AnyVal</a></h3>
+            </div><div class="parent" name="scala.Any">
+              <h3>Inherited from <a href="http://www.scala-lang.org/api/2.11.12/index.html#scala.Any" class="extype" target="_top">Any</a></h3>
+            </div>
+        <div class="conversion" name="scala.Predef.any2stringadd">
+              <h3>Inherited by implicit conversion any2stringadd from
+                <a href="" class="extype" name="scodec.HListCodecEnrichedWithHListSupport">HListCodecEnrichedWithHListSupport</a>[<span class="extype" name="scodec.HListCodecEnrichedWithHListSupport.L">L</span>] to <span class="extype" name="scala.Predef.any2stringadd">any2stringadd</span>[<a href="" class="extype" name="scodec.HListCodecEnrichedWithHListSupport">HListCodecEnrichedWithHListSupport</a>[<span class="extype" name="scodec.HListCodecEnrichedWithHListSupport.L">L</span>]]
+              </h3>
+            </div><div class="conversion" name="scala.Predef.StringFormat">
+              <h3>Inherited by implicit conversion StringFormat from
+                <a href="" class="extype" name="scodec.HListCodecEnrichedWithHListSupport">HListCodecEnrichedWithHListSupport</a>[<span class="extype" name="scodec.HListCodecEnrichedWithHListSupport.L">L</span>] to <span class="extype" name="scala.Predef.StringFormat">StringFormat</span>[<a href="" class="extype" name="scodec.HListCodecEnrichedWithHListSupport">HListCodecEnrichedWithHListSupport</a>[<span class="extype" name="scodec.HListCodecEnrichedWithHListSupport.L">L</span>]]
+              </h3>
+            </div><div class="conversion" name="scala.Predef.Ensuring">
+              <h3>Inherited by implicit conversion Ensuring from
+                <a href="" class="extype" name="scodec.HListCodecEnrichedWithHListSupport">HListCodecEnrichedWithHListSupport</a>[<span class="extype" name="scodec.HListCodecEnrichedWithHListSupport.L">L</span>] to <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="scodec.HListCodecEnrichedWithHListSupport">HListCodecEnrichedWithHListSupport</a>[<span class="extype" name="scodec.HListCodecEnrichedWithHListSupport.L">L</span>]]
+              </h3>
+            </div><div class="conversion" name="scala.Predef.ArrowAssoc">
+              <h3>Inherited by implicit conversion ArrowAssoc from
+                <a href="" class="extype" name="scodec.HListCodecEnrichedWithHListSupport">HListCodecEnrichedWithHListSupport</a>[<span class="extype" name="scodec.HListCodecEnrichedWithHListSupport.L">L</span>] to <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="scodec.HListCodecEnrichedWithHListSupport">HListCodecEnrichedWithHListSupport</a>[<span class="extype" name="scodec.HListCodecEnrichedWithHListSupport.L">L</span>]]
+              </h3>
+            </div>
+        </div>
+
+        <div id="groupedMembers">
+        <div class="group" name="generic">
+              <h3>generic</h3>
+              
+            </div><div class="group" name="hlist">
+              <h3>hlist</h3>
+              
+            </div><div class="group" name="Ungrouped">
+              <h3>Ungrouped</h3>
+              
+            </div>
+        </div>
+
+      </div>
+
+      <div id="tooltip"></div>
+
+      <div id="footer">  </div>
+
+
+    </body>
+      </html>

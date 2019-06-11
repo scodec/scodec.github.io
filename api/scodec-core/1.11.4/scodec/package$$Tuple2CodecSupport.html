@@ -1,0 +1,792 @@
+<!DOCTYPE html >
+<html>
+        <head>
+          <title>Tuple2CodecSupport - scodec.Tuple2CodecSupport</title>
+          <meta name="description" content="Tuple2CodecSupport - scodec.Tuple2CodecSupport" />
+          <meta name="keywords" content="Tuple2CodecSupport scodec.Tuple2CodecSupport" />
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+          
+      <link href="../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript" src="../lib/jquery.js" id="jquery-js"></script>
+      <script type="text/javascript" src="../lib/jquery-ui.js"></script>
+      <script type="text/javascript" src="../lib/template.js"></script>
+      <script type="text/javascript" src="../lib/tools.tooltip.js"></script>
+      
+      <script type="text/javascript">
+         if(top === self) {
+            var url = '../index.html';
+            var hash = 'scodec.package$$Tuple2CodecSupport';
+            var anchor = window.location.hash;
+            var anchor_opt = '';
+            if (anchor.length >= 1)
+              anchor_opt = '@' + anchor.substring(1);
+            window.location.href = url + '#' + hash + anchor_opt;
+         }
+   	  </script>
+    
+        </head>
+        <body class="type">
+      <div id="definition">
+        <img alt="Class" src="../lib/class_big.png" />
+        <p id="owner"><a href="package.html" class="extype" name="scodec">scodec</a></p>
+        <h1>Tuple2CodecSupport</h1><h3><span class="morelinks"><div>Related Doc:
+            <a href="package.html" class="extype" name="scodec">package scodec</a>
+          </div></span></h3><span class="permalink">
+      <a href="../index.html#scodec.package$$Tuple2CodecSupport" title="Permalink" target="_top">
+        <img src="../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      </div>
+
+      <h4 id="signature" class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">implicit final </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <span class="name">Tuple2CodecSupport</span><span class="tparams">[<span name="A">A</span>]</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.12/index.html#scala.AnyVal" class="extype" target="_top">AnyVal</a></span>
+      </span>
+      </h4>
+      
+          <div id="comment" class="fullcommenttop"><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/scodec/scodec/tree/v1.11.4/shared/src/main/scala/scodec/package.scala" target="_blank">package.scala</a></dd></dl><div class="toggleContainer block">
+          <span class="toggle">Linear Supertypes</span>
+          <div class="superTypes hiddenContent"><a href="http://www.scala-lang.org/api/2.11.12/index.html#scala.AnyVal" class="extype" target="_top">AnyVal</a>, <a href="http://www.scala-lang.org/api/2.11.12/index.html#scala.Any" class="extype" target="_top">Any</a></div>
+        </div></div>
+        
+
+      <div id="mbrsel">
+        <div id="textfilter"><span class="pre"></span><span class="input"><input id="mbrsel-input" type="text" accesskey="/" /></span><span class="post"></span></div>
+        <div id="order">
+              <span class="filtertype">Ordering</span>
+              <ol>
+                <li class="group out"><span>Grouped</span></li>
+                <li class="alpha in"><span>Alphabetic</span></li>
+                <li class="inherit out"><span>By Inheritance</span></li>
+              </ol>
+            </div>
+        <div id="ancestors">
+                <span class="filtertype">Inherited<br />
+                </span>
+                <ol id="linearization">
+                  <li class="in" name="scodec.Tuple2CodecSupport"><span>Tuple2CodecSupport</span></li><li class="in" name="scala.AnyVal"><span>AnyVal</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                </ol>
+              </div><div id="ancestors">
+                <span class="filtertype">Implicitly<br />
+                </span>
+                <ol id="implicits"> <li class="in" name="scodec.TransformSyntax" data-hidden="false"><span>by TransformSyntax</span></li><li class="in" name="scala.Predef.any2stringadd" data-hidden="true"><span>by any2stringadd</span></li><li class="in" name="scala.Predef.StringFormat" data-hidden="true"><span>by StringFormat</span></li><li class="in" name="scala.Predef.Ensuring" data-hidden="true"><span>by Ensuring</span></li><li class="in" name="scala.Predef.ArrowAssoc" data-hidden="true"><span>by ArrowAssoc</span></li>
+                </ol>
+              </div><div id="ancestors">
+            <span class="filtertype"></span>
+            <ol>
+              <li class="hideall out"><span>Hide All</span></li>
+              <li class="showall in"><span>Show All</span></li>
+            </ol>
+          </div>
+        <div id="visbl">
+            <span class="filtertype">Visibility</span>
+            <ol><li class="public in"><span>Public</span></li><li class="all out"><span>All</span></li></ol>
+          </div>
+      </div>
+
+      <div id="template">
+        <div id="allMembers">
+        <div id="constructors" class="members">
+              <h3>Instance Constructors</h3>
+              <ol><li name="scodec.Tuple2CodecSupport#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="&lt;init&gt;(self:scodec.Codec[A]):scodec.package.Tuple2CodecSupport[A]"></a>
+      <a id="&lt;init&gt;:Tuple2CodecSupport[A]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">new</span>
+      </span>
+      <span class="symbol">
+        <span class="name">Tuple2CodecSupport</span><span class="params">(<span name="self">self: <a href="Codec.html" class="extype" name="scodec.Codec">Codec</a>[<span class="extype" name="scodec.Tuple2CodecSupport.A">A</span>]</span>)</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../index.html#scodec.package$$Tuple2CodecSupport@&lt;init&gt;(self:scodec.Codec[A]):scodec.package.Tuple2CodecSupport[A]" title="Permalink" target="_top">
+        <img src="../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li></ol>
+            </div>
+
+        
+
+        
+
+        <div id="values" class="values members">
+              <h3>Value Members</h3>
+              <ol><li name="scala.Any#!=" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="!=(x$1:Any):Boolean"></a>
+      <a id="!=(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.11.12/index.html#scala.Any" class="extype" target="_top">Any</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.12/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../index.html#scodec.package$$Tuple2CodecSupport@!=(x$1:Any):Boolean" title="Permalink" target="_top">
+        <img src="../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="scala.Any###" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="##():Int"></a>
+      <a id="##():Int"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $hash$hash" class="name">##</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.12/index.html#scala.Int" class="extype" target="_top">Int</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../index.html#scodec.package$$Tuple2CodecSupport@##():Int" title="Permalink" target="_top">
+        <img src="../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="scala.Predef.any2stringadd#+" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="+(other:String):String"></a>
+      <a id="+(String):String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $plus" class="implicit">+</span><span class="params">(<span name="other">other: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../index.html#scodec.package$$Tuple2CodecSupport@+(other:String):String" title="Permalink" target="_top">
+        <img src="../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="scodec.Tuple2CodecSupport">Tuple2CodecSupport</a>[<span class="extype" name="scodec.Tuple2CodecSupport.A">A</span>] to
+            <span class="extype" name="scala.Predef.any2stringadd">any2stringadd</span>[<a href="" class="extype" name="scodec.Tuple2CodecSupport">Tuple2CodecSupport</a>[<span class="extype" name="scodec.Tuple2CodecSupport.A">A</span>]] performed by method any2stringadd in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>any2stringadd</dd></dl></div>
+    </li><li name="scala.Predef.ArrowAssoc#-&gt;" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="-&gt;[B](y:B):(A,B)"></a>
+      <a id="-&gt;[B](B):(Tuple2CodecSupport[A],B)"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $minus$greater" class="implicit">-&gt;</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="y">y: <span class="extype" name="scala.Predef.ArrowAssoc.-&gt;.B">B</span></span>)</span><span class="result">: (<a href="" class="extype" name="scodec.Tuple2CodecSupport">Tuple2CodecSupport</a>[<span class="extype" name="scodec.Tuple2CodecSupport.A">A</span>], <span class="extype" name="scala.Predef.ArrowAssoc.-&gt;.B">B</span>)</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../index.html#scodec.package$$Tuple2CodecSupport@-&gt;[B](y:B):(A,B)" title="Permalink" target="_top">
+        <img src="../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="scodec.Tuple2CodecSupport">Tuple2CodecSupport</a>[<span class="extype" name="scodec.Tuple2CodecSupport.A">A</span>] to
+            <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="scodec.Tuple2CodecSupport">Tuple2CodecSupport</a>[<span class="extype" name="scodec.Tuple2CodecSupport.A">A</span>]] performed by method ArrowAssoc in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>ArrowAssoc</dd><dt>Annotations</dt><dd>
+                <span class="name">@inline</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.Any#==" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="==(x$1:Any):Boolean"></a>
+      <a id="==(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.11.12/index.html#scala.Any" class="extype" target="_top">Any</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.12/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../index.html#scodec.package$$Tuple2CodecSupport@==(x$1:Any):Boolean" title="Permalink" target="_top">
+        <img src="../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="scodec.TransformSyntax#as" visbl="pub" data-isabs="false" fullComment="yes" group="combinators">
+      <a id="as[B](implicitas:scodec.Transformer[A,B]):F[B]"></a>
+      <a id="as[B](Transformer[A,B]):Tuple2CodecSupport[B]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">as</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span class="implicit">implicit </span><span name="as">as: <a href="Transformer.html" class="extype" name="scodec.Transformer">Transformer</a>[<span class="extype" name="scodec.Tuple2CodecSupport.A">A</span>, <span class="extype" name="scodec.TransformSyntax.as.B">B</span>]</span>)</span><span class="result">: <a href="" class="extype" name="scodec.Tuple2CodecSupport">Tuple2CodecSupport</a>[<span class="extype" name="scodec.TransformSyntax.as.B">B</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../index.html#scodec.package$$Tuple2CodecSupport@as[B](implicitas:scodec.Transformer[A,B]):F[B]" title="Permalink" target="_top">
+        <img src="../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Transforms using implicitly available evidence that such a transformation is possible.</p><div class="fullcomment"><div class="comment cmt"><p>Transforms using implicitly available evidence that such a transformation is possible.</p><p>Typical transformations include converting:</p><ul><li>an <code>F[L]</code> for some <code>L &lt;: HList</code> to/from an <code>F[CC]</code> for some case class <code>CC</code>, where the types in the case class are
+   aligned with the types in <code>L</code></li><li>an <code>F[C]</code> for some <code>C &lt;: Coproduct</code> to/from an <code>F[SC]</code> for some sealed class <code>SC</code>, where the component types in
+   the coproduct are the leaf subtypes of the sealed class.</li></ul></div><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="scodec.Tuple2CodecSupport">Tuple2CodecSupport</a>[<span class="extype" name="scodec.Tuple2CodecSupport.A">A</span>] to
+            <a href="package$$TransformSyntax.html" class="extype" name="scodec.TransformSyntax">TransformSyntax</a>[<a href="" class="extype" name="scodec.Tuple2CodecSupport">Tuple2CodecSupport</a>, <span class="extype" name="scodec.Tuple2CodecSupport.A">A</span>] performed by method TransformSyntax in <a href="package.html" class="extype" name="scodec">scodec</a>.
+            This conversion will take place only if an implicit value of type <a href="Transform.html" class="extype" name="scodec.Transform">Transform</a>[<a href="" class="extype" name="scodec.Tuple2CodecSupport">Tuple2CodecSupport</a>] is in scope.
+          </dd><dt>Definition Classes</dt><dd><a href="package$$TransformSyntax.html" class="extype" name="scodec.TransformSyntax">TransformSyntax</a></dd></dl></div>
+    </li><li name="scala.Any#asInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="asInstanceOf[T0]:T0"></a>
+      <a id="asInstanceOf[T0]:T0"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">asInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Any.asInstanceOf.T0">T0</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../index.html#scodec.package$$Tuple2CodecSupport@asInstanceOf[T0]:T0" title="Permalink" target="_top">
+        <img src="../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ensuring(cond:A=&gt;Boolean,msg:=&gt;Any):A"></a>
+      <a id="ensuring((Tuple2CodecSupport[A])⇒Boolean,⇒Any):Tuple2CodecSupport[A]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="scodec.Tuple2CodecSupport">Tuple2CodecSupport</a>[<span class="extype" name="scodec.Tuple2CodecSupport.A">A</span>]) ⇒ <a href="http://www.scala-lang.org/api/2.11.12/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>, <span name="msg">msg: ⇒ <a href="http://www.scala-lang.org/api/2.11.12/index.html#scala.Any" class="extype" target="_top">Any</a></span>)</span><span class="result">: <a href="" class="extype" name="scodec.Tuple2CodecSupport">Tuple2CodecSupport</a>[<span class="extype" name="scodec.Tuple2CodecSupport.A">A</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../index.html#scodec.package$$Tuple2CodecSupport@ensuring(cond:A=&gt;Boolean,msg:=&gt;Any):A" title="Permalink" target="_top">
+        <img src="../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="scodec.Tuple2CodecSupport">Tuple2CodecSupport</a>[<span class="extype" name="scodec.Tuple2CodecSupport.A">A</span>] to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="scodec.Tuple2CodecSupport">Tuple2CodecSupport</a>[<span class="extype" name="scodec.Tuple2CodecSupport.A">A</span>]] performed by method Ensuring in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
+    </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ensuring(cond:A=&gt;Boolean):A"></a>
+      <a id="ensuring((Tuple2CodecSupport[A])⇒Boolean):Tuple2CodecSupport[A]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="scodec.Tuple2CodecSupport">Tuple2CodecSupport</a>[<span class="extype" name="scodec.Tuple2CodecSupport.A">A</span>]) ⇒ <a href="http://www.scala-lang.org/api/2.11.12/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>)</span><span class="result">: <a href="" class="extype" name="scodec.Tuple2CodecSupport">Tuple2CodecSupport</a>[<span class="extype" name="scodec.Tuple2CodecSupport.A">A</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../index.html#scodec.package$$Tuple2CodecSupport@ensuring(cond:A=&gt;Boolean):A" title="Permalink" target="_top">
+        <img src="../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="scodec.Tuple2CodecSupport">Tuple2CodecSupport</a>[<span class="extype" name="scodec.Tuple2CodecSupport.A">A</span>] to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="scodec.Tuple2CodecSupport">Tuple2CodecSupport</a>[<span class="extype" name="scodec.Tuple2CodecSupport.A">A</span>]] performed by method Ensuring in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
+    </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ensuring(cond:Boolean,msg:=&gt;Any):A"></a>
+      <a id="ensuring(Boolean,⇒Any):Tuple2CodecSupport[A]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <a href="http://www.scala-lang.org/api/2.11.12/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>, <span name="msg">msg: ⇒ <a href="http://www.scala-lang.org/api/2.11.12/index.html#scala.Any" class="extype" target="_top">Any</a></span>)</span><span class="result">: <a href="" class="extype" name="scodec.Tuple2CodecSupport">Tuple2CodecSupport</a>[<span class="extype" name="scodec.Tuple2CodecSupport.A">A</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../index.html#scodec.package$$Tuple2CodecSupport@ensuring(cond:Boolean,msg:=&gt;Any):A" title="Permalink" target="_top">
+        <img src="../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="scodec.Tuple2CodecSupport">Tuple2CodecSupport</a>[<span class="extype" name="scodec.Tuple2CodecSupport.A">A</span>] to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="scodec.Tuple2CodecSupport">Tuple2CodecSupport</a>[<span class="extype" name="scodec.Tuple2CodecSupport.A">A</span>]] performed by method Ensuring in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
+    </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ensuring(cond:Boolean):A"></a>
+      <a id="ensuring(Boolean):Tuple2CodecSupport[A]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <a href="http://www.scala-lang.org/api/2.11.12/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>)</span><span class="result">: <a href="" class="extype" name="scodec.Tuple2CodecSupport">Tuple2CodecSupport</a>[<span class="extype" name="scodec.Tuple2CodecSupport.A">A</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../index.html#scodec.package$$Tuple2CodecSupport@ensuring(cond:Boolean):A" title="Permalink" target="_top">
+        <img src="../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="scodec.Tuple2CodecSupport">Tuple2CodecSupport</a>[<span class="extype" name="scodec.Tuple2CodecSupport.A">A</span>] to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="scodec.Tuple2CodecSupport">Tuple2CodecSupport</a>[<span class="extype" name="scodec.Tuple2CodecSupport.A">A</span>]] performed by method Ensuring in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
+    </li><li name="scodec.TransformSyntax#exmap" visbl="pub" data-isabs="false" fullComment="yes" group="combinators">
+      <a id="exmap[B](f:A=&gt;scodec.Attempt[B],g:B=&gt;scodec.Attempt[A]):F[B]"></a>
+      <a id="exmap[B]((A)⇒Attempt[B],(B)⇒Attempt[A]):Tuple2CodecSupport[B]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">exmap</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="f">f: (<span class="extype" name="scodec.Tuple2CodecSupport.A">A</span>) ⇒ <a href="Attempt.html" class="extype" name="scodec.Attempt">Attempt</a>[<span class="extype" name="scodec.TransformSyntax.exmap.B">B</span>]</span>, <span name="g">g: (<span class="extype" name="scodec.TransformSyntax.exmap.B">B</span>) ⇒ <a href="Attempt.html" class="extype" name="scodec.Attempt">Attempt</a>[<span class="extype" name="scodec.Tuple2CodecSupport.A">A</span>]</span>)</span><span class="result">: <a href="" class="extype" name="scodec.Tuple2CodecSupport">Tuple2CodecSupport</a>[<span class="extype" name="scodec.TransformSyntax.exmap.B">B</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../index.html#scodec.package$$Tuple2CodecSupport@exmap[B](f:A=&gt;scodec.Attempt[B],g:B=&gt;scodec.Attempt[A]):F[B]" title="Permalink" target="_top">
+        <img src="../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Transforms using two functions, <code>A =&gt; Attempt[B]</code> and <code>B =&gt; Attempt[A]</code>.</p><div class="fullcomment"><div class="comment cmt"><p>Transforms using two functions, <code>A =&gt; Attempt[B]</code> and <code>B =&gt; Attempt[A]</code>.</p></div><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="scodec.Tuple2CodecSupport">Tuple2CodecSupport</a>[<span class="extype" name="scodec.Tuple2CodecSupport.A">A</span>] to
+            <a href="package$$TransformSyntax.html" class="extype" name="scodec.TransformSyntax">TransformSyntax</a>[<a href="" class="extype" name="scodec.Tuple2CodecSupport">Tuple2CodecSupport</a>, <span class="extype" name="scodec.Tuple2CodecSupport.A">A</span>] performed by method TransformSyntax in <a href="package.html" class="extype" name="scodec">scodec</a>.
+            This conversion will take place only if an implicit value of type <a href="Transform.html" class="extype" name="scodec.Transform">Transform</a>[<a href="" class="extype" name="scodec.Tuple2CodecSupport">Tuple2CodecSupport</a>] is in scope.
+          </dd><dt>Definition Classes</dt><dd><a href="package$$TransformSyntax.html" class="extype" name="scodec.TransformSyntax">TransformSyntax</a></dd></dl></div>
+    </li><li name="scodec.TransformSyntax#exmapc" visbl="pub" data-isabs="false" fullComment="yes" group="combinators">
+      <a id="exmapc[B](f:A=&gt;scodec.Attempt[B])(g:B=&gt;scodec.Attempt[A]):F[B]"></a>
+      <a id="exmapc[B]((A)⇒Attempt[B])((B)⇒Attempt[A]):Tuple2CodecSupport[B]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">exmapc</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="f">f: (<span class="extype" name="scodec.Tuple2CodecSupport.A">A</span>) ⇒ <a href="Attempt.html" class="extype" name="scodec.Attempt">Attempt</a>[<span class="extype" name="scodec.TransformSyntax.exmapc.B">B</span>]</span>)</span><span class="params">(<span name="g">g: (<span class="extype" name="scodec.TransformSyntax.exmapc.B">B</span>) ⇒ <a href="Attempt.html" class="extype" name="scodec.Attempt">Attempt</a>[<span class="extype" name="scodec.Tuple2CodecSupport.A">A</span>]</span>)</span><span class="result">: <a href="" class="extype" name="scodec.Tuple2CodecSupport">Tuple2CodecSupport</a>[<span class="extype" name="scodec.TransformSyntax.exmapc.B">B</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../index.html#scodec.package$$Tuple2CodecSupport@exmapc[B](f:A=&gt;scodec.Attempt[B])(g:B=&gt;scodec.Attempt[A]):F[B]" title="Permalink" target="_top">
+        <img src="../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Curried version of <code>exmap</code>.</p><div class="fullcomment"><div class="comment cmt"><p>Curried version of <code>exmap</code>.</p></div><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="scodec.Tuple2CodecSupport">Tuple2CodecSupport</a>[<span class="extype" name="scodec.Tuple2CodecSupport.A">A</span>] to
+            <a href="package$$TransformSyntax.html" class="extype" name="scodec.TransformSyntax">TransformSyntax</a>[<a href="" class="extype" name="scodec.Tuple2CodecSupport">Tuple2CodecSupport</a>, <span class="extype" name="scodec.Tuple2CodecSupport.A">A</span>] performed by method TransformSyntax in <a href="package.html" class="extype" name="scodec">scodec</a>.
+            This conversion will take place only if an implicit value of type <a href="Transform.html" class="extype" name="scodec.Transform">Transform</a>[<a href="" class="extype" name="scodec.Tuple2CodecSupport">Tuple2CodecSupport</a>] is in scope.
+          </dd><dt>Definition Classes</dt><dd><a href="package$$TransformSyntax.html" class="extype" name="scodec.TransformSyntax">TransformSyntax</a></dd></dl></div>
+    </li><li name="scala.Predef.StringFormat#formatted" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="formatted(fmtstr:String):String"></a>
+      <a id="formatted(String):String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">formatted</span><span class="params">(<span name="fmtstr">fmtstr: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../index.html#scodec.package$$Tuple2CodecSupport@formatted(fmtstr:String):String" title="Permalink" target="_top">
+        <img src="../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="scodec.Tuple2CodecSupport">Tuple2CodecSupport</a>[<span class="extype" name="scodec.Tuple2CodecSupport.A">A</span>] to
+            <span class="extype" name="scala.Predef.StringFormat">StringFormat</span>[<a href="" class="extype" name="scodec.Tuple2CodecSupport">Tuple2CodecSupport</a>[<span class="extype" name="scodec.Tuple2CodecSupport.A">A</span>]] performed by method StringFormat in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>StringFormat</dd><dt>Annotations</dt><dd>
+                <span class="name">@inline</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyVal#getClass" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getClass():Class[_&lt;:AnyVal]"></a>
+      <a id="getClass():Class[_&lt;:AnyVal]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getClass</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Predef.Class">Class</span>[_ &lt;: <a href="http://www.scala-lang.org/api/2.11.12/index.html#scala.AnyVal" class="extype" target="_top">AnyVal</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../index.html#scodec.package$$Tuple2CodecSupport@getClass():Class[_&lt;:AnyVal]" title="Permalink" target="_top">
+        <img src="../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyVal → Any</dd></dl></div>
+    </li><li name="scala.Any#isInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="isInstanceOf[T0]:Boolean"></a>
+      <a id="isInstanceOf[T0]:Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">isInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.12/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../index.html#scodec.package$$Tuple2CodecSupport@isInstanceOf[T0]:Boolean" title="Permalink" target="_top">
+        <img src="../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="scodec.TransformSyntax#narrow" visbl="pub" data-isabs="false" fullComment="yes" group="combinators">
+      <a id="narrow[B](f:A=&gt;scodec.Attempt[B],g:B=&gt;A):F[B]"></a>
+      <a id="narrow[B]((A)⇒Attempt[B],(B)⇒A):Tuple2CodecSupport[B]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">narrow</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="f">f: (<span class="extype" name="scodec.Tuple2CodecSupport.A">A</span>) ⇒ <a href="Attempt.html" class="extype" name="scodec.Attempt">Attempt</a>[<span class="extype" name="scodec.TransformSyntax.narrow.B">B</span>]</span>, <span name="g">g: (<span class="extype" name="scodec.TransformSyntax.narrow.B">B</span>) ⇒ <span class="extype" name="scodec.Tuple2CodecSupport.A">A</span></span>)</span><span class="result">: <a href="" class="extype" name="scodec.Tuple2CodecSupport">Tuple2CodecSupport</a>[<span class="extype" name="scodec.TransformSyntax.narrow.B">B</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../index.html#scodec.package$$Tuple2CodecSupport@narrow[B](f:A=&gt;scodec.Attempt[B],g:B=&gt;A):F[B]" title="Permalink" target="_top">
+        <img src="../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Transforms using two functions, <code>A =&gt; Attempt[B]</code> and <code>B =&gt; A</code>.</p><div class="fullcomment"><div class="comment cmt"><p>Transforms using two functions, <code>A =&gt; Attempt[B]</code> and <code>B =&gt; A</code>.</p><p>The supplied functions form an injection from <code>B</code> to <code>A</code>. Hence, this method converts from
+a larger to a smaller type. Hence, the name <code>narrow</code>.</p></div><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="scodec.Tuple2CodecSupport">Tuple2CodecSupport</a>[<span class="extype" name="scodec.Tuple2CodecSupport.A">A</span>] to
+            <a href="package$$TransformSyntax.html" class="extype" name="scodec.TransformSyntax">TransformSyntax</a>[<a href="" class="extype" name="scodec.Tuple2CodecSupport">Tuple2CodecSupport</a>, <span class="extype" name="scodec.Tuple2CodecSupport.A">A</span>] performed by method TransformSyntax in <a href="package.html" class="extype" name="scodec">scodec</a>.
+            This conversion will take place only if an implicit value of type <a href="Transform.html" class="extype" name="scodec.Transform">Transform</a>[<a href="" class="extype" name="scodec.Tuple2CodecSupport">Tuple2CodecSupport</a>] is in scope.
+          </dd><dt>Definition Classes</dt><dd><a href="package$$TransformSyntax.html" class="extype" name="scodec.TransformSyntax">TransformSyntax</a></dd></dl></div>
+    </li><li name="scodec.TransformSyntax#narrowc" visbl="pub" data-isabs="false" fullComment="yes" group="combinators">
+      <a id="narrowc[B](f:A=&gt;scodec.Attempt[B])(g:B=&gt;A):F[B]"></a>
+      <a id="narrowc[B]((A)⇒Attempt[B])((B)⇒A):Tuple2CodecSupport[B]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">narrowc</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="f">f: (<span class="extype" name="scodec.Tuple2CodecSupport.A">A</span>) ⇒ <a href="Attempt.html" class="extype" name="scodec.Attempt">Attempt</a>[<span class="extype" name="scodec.TransformSyntax.narrowc.B">B</span>]</span>)</span><span class="params">(<span name="g">g: (<span class="extype" name="scodec.TransformSyntax.narrowc.B">B</span>) ⇒ <span class="extype" name="scodec.Tuple2CodecSupport.A">A</span></span>)</span><span class="result">: <a href="" class="extype" name="scodec.Tuple2CodecSupport">Tuple2CodecSupport</a>[<span class="extype" name="scodec.TransformSyntax.narrowc.B">B</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../index.html#scodec.package$$Tuple2CodecSupport@narrowc[B](f:A=&gt;scodec.Attempt[B])(g:B=&gt;A):F[B]" title="Permalink" target="_top">
+        <img src="../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Curried version of <code>narrow</code>.</p><div class="fullcomment"><div class="comment cmt"><p>Curried version of <code>narrow</code>.</p></div><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="scodec.Tuple2CodecSupport">Tuple2CodecSupport</a>[<span class="extype" name="scodec.Tuple2CodecSupport.A">A</span>] to
+            <a href="package$$TransformSyntax.html" class="extype" name="scodec.TransformSyntax">TransformSyntax</a>[<a href="" class="extype" name="scodec.Tuple2CodecSupport">Tuple2CodecSupport</a>, <span class="extype" name="scodec.Tuple2CodecSupport.A">A</span>] performed by method TransformSyntax in <a href="package.html" class="extype" name="scodec">scodec</a>.
+            This conversion will take place only if an implicit value of type <a href="Transform.html" class="extype" name="scodec.Transform">Transform</a>[<a href="" class="extype" name="scodec.Tuple2CodecSupport">Tuple2CodecSupport</a>] is in scope.
+          </dd><dt>Definition Classes</dt><dd><a href="package$$TransformSyntax.html" class="extype" name="scodec.TransformSyntax">TransformSyntax</a></dd></dl></div>
+    </li><li name="scodec.Tuple2CodecSupport#self" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="self:scodec.Codec[A]"></a>
+      <a id="self:Codec[A]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">self</span><span class="result">: <a href="Codec.html" class="extype" name="scodec.Codec">Codec</a>[<span class="extype" name="scodec.Tuple2CodecSupport.A">A</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../index.html#scodec.package$$Tuple2CodecSupport@self:scodec.Codec[A]" title="Permalink" target="_top">
+        <img src="../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scala.Any#toString" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="toString():String"></a>
+      <a id="toString():String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">toString</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../index.html#scodec.package$$Tuple2CodecSupport@toString():String" title="Permalink" target="_top">
+        <img src="../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="scodec.TransformSyntax#widen" visbl="pub" data-isabs="false" fullComment="yes" group="combinators">
+      <a id="widen[B](f:A=&gt;B,g:B=&gt;scodec.Attempt[A]):F[B]"></a>
+      <a id="widen[B]((A)⇒B,(B)⇒Attempt[A]):Tuple2CodecSupport[B]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">widen</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="f">f: (<span class="extype" name="scodec.Tuple2CodecSupport.A">A</span>) ⇒ <span class="extype" name="scodec.TransformSyntax.widen.B">B</span></span>, <span name="g">g: (<span class="extype" name="scodec.TransformSyntax.widen.B">B</span>) ⇒ <a href="Attempt.html" class="extype" name="scodec.Attempt">Attempt</a>[<span class="extype" name="scodec.Tuple2CodecSupport.A">A</span>]</span>)</span><span class="result">: <a href="" class="extype" name="scodec.Tuple2CodecSupport">Tuple2CodecSupport</a>[<span class="extype" name="scodec.TransformSyntax.widen.B">B</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../index.html#scodec.package$$Tuple2CodecSupport@widen[B](f:A=&gt;B,g:B=&gt;scodec.Attempt[A]):F[B]" title="Permalink" target="_top">
+        <img src="../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Transforms using two functions, <code>A =&gt; B</code> and <code>B =&gt; Attempt[A]</code>.</p><div class="fullcomment"><div class="comment cmt"><p>Transforms using two functions, <code>A =&gt; B</code> and <code>B =&gt; Attempt[A]</code>.</p><p>The supplied functions form an injection from <code>A</code> to <code>B</code>. Hence, this method converts from
+a smaller to a larger type. Hence, the name <code>widen</code>.</p></div><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="scodec.Tuple2CodecSupport">Tuple2CodecSupport</a>[<span class="extype" name="scodec.Tuple2CodecSupport.A">A</span>] to
+            <a href="package$$TransformSyntax.html" class="extype" name="scodec.TransformSyntax">TransformSyntax</a>[<a href="" class="extype" name="scodec.Tuple2CodecSupport">Tuple2CodecSupport</a>, <span class="extype" name="scodec.Tuple2CodecSupport.A">A</span>] performed by method TransformSyntax in <a href="package.html" class="extype" name="scodec">scodec</a>.
+            This conversion will take place only if an implicit value of type <a href="Transform.html" class="extype" name="scodec.Transform">Transform</a>[<a href="" class="extype" name="scodec.Tuple2CodecSupport">Tuple2CodecSupport</a>] is in scope.
+          </dd><dt>Definition Classes</dt><dd><a href="package$$TransformSyntax.html" class="extype" name="scodec.TransformSyntax">TransformSyntax</a></dd></dl></div>
+    </li><li name="scodec.TransformSyntax#widenOpt" visbl="pub" data-isabs="false" fullComment="yes" group="combinators">
+      <a id="widenOpt[B](f:A=&gt;B,g:B=&gt;Option[A]):F[B]"></a>
+      <a id="widenOpt[B]((A)⇒B,(B)⇒Option[A]):Tuple2CodecSupport[B]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">widenOpt</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="f">f: (<span class="extype" name="scodec.Tuple2CodecSupport.A">A</span>) ⇒ <span class="extype" name="scodec.TransformSyntax.widenOpt.B">B</span></span>, <span name="g">g: (<span class="extype" name="scodec.TransformSyntax.widenOpt.B">B</span>) ⇒ <a href="http://www.scala-lang.org/api/2.11.12/index.html#scala.Option" class="extype" target="_top">Option</a>[<span class="extype" name="scodec.Tuple2CodecSupport.A">A</span>]</span>)</span><span class="result">: <a href="" class="extype" name="scodec.Tuple2CodecSupport">Tuple2CodecSupport</a>[<span class="extype" name="scodec.TransformSyntax.widenOpt.B">B</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../index.html#scodec.package$$Tuple2CodecSupport@widenOpt[B](f:A=&gt;B,g:B=&gt;Option[A]):F[B]" title="Permalink" target="_top">
+        <img src="../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Transforms using two functions, <code>A =&gt; B</code> and <code>B =&gt; Option[A]</code>.</p><div class="fullcomment"><div class="comment cmt"><p>Transforms using two functions, <code>A =&gt; B</code> and <code>B =&gt; Option[A]</code>.</p><p>Particularly useful when combined with case class apply/unapply. E.g., <code>widenOpt(fa, Foo.apply, Foo.unapply)</code>.
+</p></div><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="scodec.Tuple2CodecSupport">Tuple2CodecSupport</a>[<span class="extype" name="scodec.Tuple2CodecSupport.A">A</span>] to
+            <a href="package$$TransformSyntax.html" class="extype" name="scodec.TransformSyntax">TransformSyntax</a>[<a href="" class="extype" name="scodec.Tuple2CodecSupport">Tuple2CodecSupport</a>, <span class="extype" name="scodec.Tuple2CodecSupport.A">A</span>] performed by method TransformSyntax in <a href="package.html" class="extype" name="scodec">scodec</a>.
+            This conversion will take place only if an implicit value of type <a href="Transform.html" class="extype" name="scodec.Transform">Transform</a>[<a href="" class="extype" name="scodec.Tuple2CodecSupport">Tuple2CodecSupport</a>] is in scope.
+          </dd><dt>Definition Classes</dt><dd><a href="package$$TransformSyntax.html" class="extype" name="scodec.TransformSyntax">TransformSyntax</a></dd></dl></div>
+    </li><li name="scodec.TransformSyntax#widenOptc" visbl="pub" data-isabs="false" fullComment="yes" group="combinators">
+      <a id="widenOptc[B](f:A=&gt;B)(g:B=&gt;Option[A]):F[B]"></a>
+      <a id="widenOptc[B]((A)⇒B)((B)⇒Option[A]):Tuple2CodecSupport[B]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">widenOptc</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="f">f: (<span class="extype" name="scodec.Tuple2CodecSupport.A">A</span>) ⇒ <span class="extype" name="scodec.TransformSyntax.widenOptc.B">B</span></span>)</span><span class="params">(<span name="g">g: (<span class="extype" name="scodec.TransformSyntax.widenOptc.B">B</span>) ⇒ <a href="http://www.scala-lang.org/api/2.11.12/index.html#scala.Option" class="extype" target="_top">Option</a>[<span class="extype" name="scodec.Tuple2CodecSupport.A">A</span>]</span>)</span><span class="result">: <a href="" class="extype" name="scodec.Tuple2CodecSupport">Tuple2CodecSupport</a>[<span class="extype" name="scodec.TransformSyntax.widenOptc.B">B</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../index.html#scodec.package$$Tuple2CodecSupport@widenOptc[B](f:A=&gt;B)(g:B=&gt;Option[A]):F[B]" title="Permalink" target="_top">
+        <img src="../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Curried version of <code>widenOpt</code>.</p><div class="fullcomment"><div class="comment cmt"><p>Curried version of <code>widenOpt</code>.</p></div><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="scodec.Tuple2CodecSupport">Tuple2CodecSupport</a>[<span class="extype" name="scodec.Tuple2CodecSupport.A">A</span>] to
+            <a href="package$$TransformSyntax.html" class="extype" name="scodec.TransformSyntax">TransformSyntax</a>[<a href="" class="extype" name="scodec.Tuple2CodecSupport">Tuple2CodecSupport</a>, <span class="extype" name="scodec.Tuple2CodecSupport.A">A</span>] performed by method TransformSyntax in <a href="package.html" class="extype" name="scodec">scodec</a>.
+            This conversion will take place only if an implicit value of type <a href="Transform.html" class="extype" name="scodec.Transform">Transform</a>[<a href="" class="extype" name="scodec.Tuple2CodecSupport">Tuple2CodecSupport</a>] is in scope.
+          </dd><dt>Definition Classes</dt><dd><a href="package$$TransformSyntax.html" class="extype" name="scodec.TransformSyntax">TransformSyntax</a></dd></dl></div>
+    </li><li name="scodec.TransformSyntax#widenc" visbl="pub" data-isabs="false" fullComment="yes" group="combinators">
+      <a id="widenc[B](f:A=&gt;B)(g:B=&gt;scodec.Attempt[A]):F[B]"></a>
+      <a id="widenc[B]((A)⇒B)((B)⇒Attempt[A]):Tuple2CodecSupport[B]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">widenc</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="f">f: (<span class="extype" name="scodec.Tuple2CodecSupport.A">A</span>) ⇒ <span class="extype" name="scodec.TransformSyntax.widenc.B">B</span></span>)</span><span class="params">(<span name="g">g: (<span class="extype" name="scodec.TransformSyntax.widenc.B">B</span>) ⇒ <a href="Attempt.html" class="extype" name="scodec.Attempt">Attempt</a>[<span class="extype" name="scodec.Tuple2CodecSupport.A">A</span>]</span>)</span><span class="result">: <a href="" class="extype" name="scodec.Tuple2CodecSupport">Tuple2CodecSupport</a>[<span class="extype" name="scodec.TransformSyntax.widenc.B">B</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../index.html#scodec.package$$Tuple2CodecSupport@widenc[B](f:A=&gt;B)(g:B=&gt;scodec.Attempt[A]):F[B]" title="Permalink" target="_top">
+        <img src="../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Curried version of <code>widen</code>.</p><div class="fullcomment"><div class="comment cmt"><p>Curried version of <code>widen</code>.</p></div><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="scodec.Tuple2CodecSupport">Tuple2CodecSupport</a>[<span class="extype" name="scodec.Tuple2CodecSupport.A">A</span>] to
+            <a href="package$$TransformSyntax.html" class="extype" name="scodec.TransformSyntax">TransformSyntax</a>[<a href="" class="extype" name="scodec.Tuple2CodecSupport">Tuple2CodecSupport</a>, <span class="extype" name="scodec.Tuple2CodecSupport.A">A</span>] performed by method TransformSyntax in <a href="package.html" class="extype" name="scodec">scodec</a>.
+            This conversion will take place only if an implicit value of type <a href="Transform.html" class="extype" name="scodec.Transform">Transform</a>[<a href="" class="extype" name="scodec.Tuple2CodecSupport">Tuple2CodecSupport</a>] is in scope.
+          </dd><dt>Definition Classes</dt><dd><a href="package$$TransformSyntax.html" class="extype" name="scodec.TransformSyntax">TransformSyntax</a></dd></dl></div>
+    </li><li name="scodec.TransformSyntax#xmap" visbl="pub" data-isabs="false" fullComment="yes" group="combinators">
+      <a id="xmap[B](f:A=&gt;B,g:B=&gt;A):F[B]"></a>
+      <a id="xmap[B]((A)⇒B,(B)⇒A):Tuple2CodecSupport[B]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">xmap</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="f">f: (<span class="extype" name="scodec.Tuple2CodecSupport.A">A</span>) ⇒ <span class="extype" name="scodec.TransformSyntax.xmap.B">B</span></span>, <span name="g">g: (<span class="extype" name="scodec.TransformSyntax.xmap.B">B</span>) ⇒ <span class="extype" name="scodec.Tuple2CodecSupport.A">A</span></span>)</span><span class="result">: <a href="" class="extype" name="scodec.Tuple2CodecSupport">Tuple2CodecSupport</a>[<span class="extype" name="scodec.TransformSyntax.xmap.B">B</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../index.html#scodec.package$$Tuple2CodecSupport@xmap[B](f:A=&gt;B,g:B=&gt;A):F[B]" title="Permalink" target="_top">
+        <img src="../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Transforms using the isomorphism described by two functions, <code>A =&gt; B</code> and <code>B =&gt; A</code>.</p><div class="fullcomment"><div class="comment cmt"><p>Transforms using the isomorphism described by two functions, <code>A =&gt; B</code> and <code>B =&gt; A</code>.</p></div><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="scodec.Tuple2CodecSupport">Tuple2CodecSupport</a>[<span class="extype" name="scodec.Tuple2CodecSupport.A">A</span>] to
+            <a href="package$$TransformSyntax.html" class="extype" name="scodec.TransformSyntax">TransformSyntax</a>[<a href="" class="extype" name="scodec.Tuple2CodecSupport">Tuple2CodecSupport</a>, <span class="extype" name="scodec.Tuple2CodecSupport.A">A</span>] performed by method TransformSyntax in <a href="package.html" class="extype" name="scodec">scodec</a>.
+            This conversion will take place only if an implicit value of type <a href="Transform.html" class="extype" name="scodec.Transform">Transform</a>[<a href="" class="extype" name="scodec.Tuple2CodecSupport">Tuple2CodecSupport</a>] is in scope.
+          </dd><dt>Definition Classes</dt><dd><a href="package$$TransformSyntax.html" class="extype" name="scodec.TransformSyntax">TransformSyntax</a></dd></dl></div>
+    </li><li name="scodec.TransformSyntax#xmapc" visbl="pub" data-isabs="false" fullComment="yes" group="combinators">
+      <a id="xmapc[B](f:A=&gt;B)(g:B=&gt;A):F[B]"></a>
+      <a id="xmapc[B]((A)⇒B)((B)⇒A):Tuple2CodecSupport[B]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">xmapc</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="f">f: (<span class="extype" name="scodec.Tuple2CodecSupport.A">A</span>) ⇒ <span class="extype" name="scodec.TransformSyntax.xmapc.B">B</span></span>)</span><span class="params">(<span name="g">g: (<span class="extype" name="scodec.TransformSyntax.xmapc.B">B</span>) ⇒ <span class="extype" name="scodec.Tuple2CodecSupport.A">A</span></span>)</span><span class="result">: <a href="" class="extype" name="scodec.Tuple2CodecSupport">Tuple2CodecSupport</a>[<span class="extype" name="scodec.TransformSyntax.xmapc.B">B</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../index.html#scodec.package$$Tuple2CodecSupport@xmapc[B](f:A=&gt;B)(g:B=&gt;A):F[B]" title="Permalink" target="_top">
+        <img src="../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Curried version of <code>xmap</code>.</p><div class="fullcomment"><div class="comment cmt"><p>Curried version of <code>xmap</code>.</p></div><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="scodec.Tuple2CodecSupport">Tuple2CodecSupport</a>[<span class="extype" name="scodec.Tuple2CodecSupport.A">A</span>] to
+            <a href="package$$TransformSyntax.html" class="extype" name="scodec.TransformSyntax">TransformSyntax</a>[<a href="" class="extype" name="scodec.Tuple2CodecSupport">Tuple2CodecSupport</a>, <span class="extype" name="scodec.Tuple2CodecSupport.A">A</span>] performed by method TransformSyntax in <a href="package.html" class="extype" name="scodec">scodec</a>.
+            This conversion will take place only if an implicit value of type <a href="Transform.html" class="extype" name="scodec.Transform">Transform</a>[<a href="" class="extype" name="scodec.Tuple2CodecSupport">Tuple2CodecSupport</a>] is in scope.
+          </dd><dt>Definition Classes</dt><dd><a href="package$$TransformSyntax.html" class="extype" name="scodec.TransformSyntax">TransformSyntax</a></dd></dl></div>
+    </li><li name="scodec.Tuple2CodecSupport#~~" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="~~[B](B:scodec.Codec[B]):scodec.codecs.TupleCodec[A,B]"></a>
+      <a id="~~[B](Codec[B]):TupleCodec[A,B]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $tilde$tilde" class="name">~~</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="B">B: <a href="Codec.html" class="extype" name="scodec.Codec">Codec</a>[<span class="extype" name="scodec.Tuple2CodecSupport.~~.B">B</span>]</span>)</span><span class="result">: <a href="codecs/TupleCodec.html" class="extype" name="scodec.codecs.TupleCodec">TupleCodec</a>[<span class="extype" name="scodec.Tuple2CodecSupport.A">A</span>, <span class="extype" name="scodec.Tuple2CodecSupport.~~.B">B</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../index.html#scodec.package$$Tuple2CodecSupport@~~[B](B:scodec.Codec[B]):scodec.codecs.TupleCodec[A,B]" title="Permalink" target="_top">
+        <img src="../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scala.Predef.ArrowAssoc#→" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="→[B](y:B):(A,B)"></a>
+      <a id="→[B](B):(Tuple2CodecSupport[A],B)"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $u2192" class="implicit">→</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="y">y: <span class="extype" name="scala.Predef.ArrowAssoc.→.B">B</span></span>)</span><span class="result">: (<a href="" class="extype" name="scodec.Tuple2CodecSupport">Tuple2CodecSupport</a>[<span class="extype" name="scodec.Tuple2CodecSupport.A">A</span>], <span class="extype" name="scala.Predef.ArrowAssoc.→.B">B</span>)</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../index.html#scodec.package$$Tuple2CodecSupport@→[B](y:B):(A,B)" title="Permalink" target="_top">
+        <img src="../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="scodec.Tuple2CodecSupport">Tuple2CodecSupport</a>[<span class="extype" name="scodec.Tuple2CodecSupport.A">A</span>] to
+            <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="scodec.Tuple2CodecSupport">Tuple2CodecSupport</a>[<span class="extype" name="scodec.Tuple2CodecSupport.A">A</span>]] performed by method ArrowAssoc in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>ArrowAssoc</dd></dl></div>
+    </li></ol>
+            </div>
+
+        <div id="values" class="values members">
+              <h3>Shadowed Implicit Value Members</h3>
+              <ol><li name="scodec.TransformSyntax#self" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="self:F[A]"></a>
+      <a id="self:Tuple2CodecSupport[A]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit shadowed">self</span><span class="result">: <a href="" class="extype" name="scodec.Tuple2CodecSupport">Tuple2CodecSupport</a>[<span class="extype" name="scodec.Tuple2CodecSupport.A">A</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../index.html#scodec.package$$Tuple2CodecSupport@self:F[A]" title="Permalink" target="_top">
+        <img src="../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Supports <a href="package$$TransformSyntax.html" class="extype" name="scodec.TransformSyntax">TransformSyntax</a>.</p><div class="fullcomment"><div class="comment cmt"><p>Supports <a href="package$$TransformSyntax.html" class="extype" name="scodec.TransformSyntax">TransformSyntax</a>.</p></div><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="scodec.Tuple2CodecSupport">Tuple2CodecSupport</a>[<span class="extype" name="scodec.Tuple2CodecSupport.A">A</span>] to
+            <a href="package$$TransformSyntax.html" class="extype" name="scodec.TransformSyntax">TransformSyntax</a>[<a href="" class="extype" name="scodec.Tuple2CodecSupport">Tuple2CodecSupport</a>, <span class="extype" name="scodec.Tuple2CodecSupport.A">A</span>] performed by method TransformSyntax in <a href="package.html" class="extype" name="scodec">scodec</a>.
+            This conversion will take place only if an implicit value of type <a href="Transform.html" class="extype" name="scodec.Transform">Transform</a>[<a href="" class="extype" name="scodec.Tuple2CodecSupport">Tuple2CodecSupport</a>] is in scope.
+          </dd><dt class="implicit">Shadowing</dt><dd>This implicitly inherited member is shadowed by one or more members in this class.<br />To access this member you can use a <a href="http://stackoverflow.com/questions/2087250/what-is-the-purpose-of-type-ascription-in-scala" target="_blank">type ascription</a>:<br /><div class="cmt"><pre>(tuple2CodecSupport: TransformSyntax[Tuple2CodecSupport, A]).self</pre></div></dd><dt>Definition Classes</dt><dd><a href="package$$TransformSyntax.html" class="extype" name="scodec.TransformSyntax">TransformSyntax</a></dd></dl></div>
+    </li></ol>
+            </div>
+
+        <div id="values" class="values members">
+              <h3>Deprecated Value Members</h3>
+              <ol><li name="scodec.TransformSyntax#pxmap" visbl="pub" data-isabs="false" fullComment="yes" group="combinators">
+      <a id="pxmap[B](f:A=&gt;B,g:B=&gt;Option[A]):F[B]"></a>
+      <a id="pxmap[B]((A)⇒B,(B)⇒Option[A]):Tuple2CodecSupport[B]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit deprecated" title="Deprecated: (Since version 1.7.0) Use widenOpt instead">pxmap</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="f">f: (<span class="extype" name="scodec.Tuple2CodecSupport.A">A</span>) ⇒ <span class="extype" name="scodec.TransformSyntax.pxmap.B">B</span></span>, <span name="g">g: (<span class="extype" name="scodec.TransformSyntax.pxmap.B">B</span>) ⇒ <a href="http://www.scala-lang.org/api/2.11.12/index.html#scala.Option" class="extype" target="_top">Option</a>[<span class="extype" name="scodec.Tuple2CodecSupport.A">A</span>]</span>)</span><span class="result">: <a href="" class="extype" name="scodec.Tuple2CodecSupport">Tuple2CodecSupport</a>[<span class="extype" name="scodec.TransformSyntax.pxmap.B">B</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../index.html#scodec.package$$Tuple2CodecSupport@pxmap[B](f:A=&gt;B,g:B=&gt;Option[A]):F[B]" title="Permalink" target="_top">
+        <img src="../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Transforms using two functions, <code>A =&gt; B</code> and <code>B =&gt; Option[A]</code>.</p><div class="fullcomment"><div class="comment cmt"><p>Transforms using two functions, <code>A =&gt; B</code> and <code>B =&gt; Option[A]</code>.</p><p>Particularly useful when combined with case class apply/unapply. E.g., <code>pxmap(fa, Foo.apply, Foo.unapply)</code>.
+</p></div><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="scodec.Tuple2CodecSupport">Tuple2CodecSupport</a>[<span class="extype" name="scodec.Tuple2CodecSupport.A">A</span>] to
+            <a href="package$$TransformSyntax.html" class="extype" name="scodec.TransformSyntax">TransformSyntax</a>[<a href="" class="extype" name="scodec.Tuple2CodecSupport">Tuple2CodecSupport</a>, <span class="extype" name="scodec.Tuple2CodecSupport.A">A</span>] performed by method TransformSyntax in <a href="package.html" class="extype" name="scodec">scodec</a>.
+            This conversion will take place only if an implicit value of type <a href="Transform.html" class="extype" name="scodec.Transform">Transform</a>[<a href="" class="extype" name="scodec.Tuple2CodecSupport">Tuple2CodecSupport</a>] is in scope.
+          </dd><dt>Definition Classes</dt><dd><a href="package$$TransformSyntax.html" class="extype" name="scodec.TransformSyntax">TransformSyntax</a></dd><dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 1.7.0)</i> Use widenOpt instead</p></dd></dl></div>
+    </li></ol>
+            </div>
+        </div>
+
+        <div id="inheritedMembers">
+        <div class="parent" name="scala.AnyVal">
+              <h3>Inherited from <a href="http://www.scala-lang.org/api/2.11.12/index.html#scala.AnyVal" class="extype" target="_top">AnyVal</a></h3>
+            </div><div class="parent" name="scala.Any">
+              <h3>Inherited from <a href="http://www.scala-lang.org/api/2.11.12/index.html#scala.Any" class="extype" target="_top">Any</a></h3>
+            </div>
+        <div class="conversion" name="scodec.TransformSyntax">
+              <h3>Inherited by implicit conversion TransformSyntax from
+                <a href="" class="extype" name="scodec.Tuple2CodecSupport">Tuple2CodecSupport</a>[<span class="extype" name="scodec.Tuple2CodecSupport.A">A</span>] to <a href="package$$TransformSyntax.html" class="extype" name="scodec.TransformSyntax">TransformSyntax</a>[<a href="" class="extype" name="scodec.Tuple2CodecSupport">Tuple2CodecSupport</a>, <span class="extype" name="scodec.Tuple2CodecSupport.A">A</span>]
+              </h3>
+            </div><div class="conversion" name="scala.Predef.any2stringadd">
+              <h3>Inherited by implicit conversion any2stringadd from
+                <a href="" class="extype" name="scodec.Tuple2CodecSupport">Tuple2CodecSupport</a>[<span class="extype" name="scodec.Tuple2CodecSupport.A">A</span>] to <span class="extype" name="scala.Predef.any2stringadd">any2stringadd</span>[<a href="" class="extype" name="scodec.Tuple2CodecSupport">Tuple2CodecSupport</a>[<span class="extype" name="scodec.Tuple2CodecSupport.A">A</span>]]
+              </h3>
+            </div><div class="conversion" name="scala.Predef.StringFormat">
+              <h3>Inherited by implicit conversion StringFormat from
+                <a href="" class="extype" name="scodec.Tuple2CodecSupport">Tuple2CodecSupport</a>[<span class="extype" name="scodec.Tuple2CodecSupport.A">A</span>] to <span class="extype" name="scala.Predef.StringFormat">StringFormat</span>[<a href="" class="extype" name="scodec.Tuple2CodecSupport">Tuple2CodecSupport</a>[<span class="extype" name="scodec.Tuple2CodecSupport.A">A</span>]]
+              </h3>
+            </div><div class="conversion" name="scala.Predef.Ensuring">
+              <h3>Inherited by implicit conversion Ensuring from
+                <a href="" class="extype" name="scodec.Tuple2CodecSupport">Tuple2CodecSupport</a>[<span class="extype" name="scodec.Tuple2CodecSupport.A">A</span>] to <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="scodec.Tuple2CodecSupport">Tuple2CodecSupport</a>[<span class="extype" name="scodec.Tuple2CodecSupport.A">A</span>]]
+              </h3>
+            </div><div class="conversion" name="scala.Predef.ArrowAssoc">
+              <h3>Inherited by implicit conversion ArrowAssoc from
+                <a href="" class="extype" name="scodec.Tuple2CodecSupport">Tuple2CodecSupport</a>[<span class="extype" name="scodec.Tuple2CodecSupport.A">A</span>] to <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="scodec.Tuple2CodecSupport">Tuple2CodecSupport</a>[<span class="extype" name="scodec.Tuple2CodecSupport.A">A</span>]]
+              </h3>
+            </div>
+        </div>
+
+        <div id="groupedMembers">
+        <div class="group" name="combinators">
+              <h3>combinators</h3>
+              
+            </div><div class="group" name="Ungrouped">
+              <h3>Ungrouped</h3>
+              
+            </div>
+        </div>
+
+      </div>
+
+      <div id="tooltip"></div>
+
+      <div id="footer">  </div>
+
+
+    </body>
+      </html>

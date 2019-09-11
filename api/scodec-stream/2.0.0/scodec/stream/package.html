@@ -1,0 +1,196 @@
+<!DOCTYPE html >
+<html>
+        <head>
+          <title>stream - scodec.stream</title>
+          <meta name="description" content="stream - scodec.stream" />
+          <meta name="keywords" content="stream scodec.stream" />
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+          
+      <link href="../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript" src="../../lib/jquery.js" id="jquery-js"></script>
+      <script type="text/javascript" src="../../lib/jquery-ui.js"></script>
+      <script type="text/javascript" src="../../lib/template.js"></script>
+      <script type="text/javascript" src="../../lib/tools.tooltip.js"></script>
+      
+      <script type="text/javascript">
+         if(top === self) {
+            var url = '../../index.html';
+            var hash = 'scodec.stream.package';
+            var anchor = window.location.hash;
+            var anchor_opt = '';
+            if (anchor.length >= 1)
+              anchor_opt = '@' + anchor.substring(1);
+            window.location.href = url + '#' + hash + anchor_opt;
+         }
+   	  </script>
+    
+        </head>
+        <body class="value">
+      <div id="definition">
+        <img alt="Package" src="../../lib/package_big.png" />
+        <p id="owner"><a href="../package.html" class="extype" name="scodec">scodec</a></p>
+        <h1>stream</h1><span class="permalink">
+      <a href="../../index.html#scodec.stream.package" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      </div>
+
+      <h4 id="signature" class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">package</span>
+      </span>
+      <span class="symbol">
+        <span class="name">stream</span>
+      </span>
+      </h4>
+      
+          <div id="comment" class="fullcommenttop"></div>
+        
+
+      <div id="mbrsel">
+        <div id="textfilter"><span class="pre"></span><span class="input"><input id="mbrsel-input" type="text" accesskey="/" /></span><span class="post"></span></div>
+        
+        
+        <div id="visbl">
+            <span class="filtertype">Visibility</span>
+            <ol><li class="public in"><span>Public</span></li><li class="all out"><span>All</span></li></ol>
+          </div>
+      </div>
+
+      <div id="template">
+        <div id="allMembers">
+        
+
+        <div id="types" class="types members">
+              <h3>Type Members</h3>
+              <ol><li name="scodec.stream.CodecError" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="CodecErrorextendsExceptionwithNoStackTracewithProductwithSerializable"></a>
+      <a id="CodecError:CodecError"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="CodecError.html"><span class="name">CodecError</span></a><span class="params">(<span name="err">err: <a href="http://scodec.org/api/scodec-core/1.11.4/index.html#scodec.Err" class="extype" target="_top">Err</a></span>)</span><span class="result"> extends <span class="extype" name="scala.Exception">Exception</span> with <a href="http://www.scala-lang.org/api/2.11.12/index.html#scala.util.control.NoStackTrace" class="extype" target="_top">NoStackTrace</a> with <a href="http://www.scala-lang.org/api/2.11.12/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.12/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scodec.stream.package@CodecErrorextendsExceptionwithNoStackTracewithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Lifts an <code>scodec.Err</code> in to an exception.</p>
+    </li><li name="scodec.stream.StreamDecoder" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="StreamDecoder[+A]extendsAnyRef"></a>
+      <a id="StreamDecoder[+A]:StreamDecoder[A]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="StreamDecoder.html"><span class="name">StreamDecoder</span></a><span class="tparams">[<span name="A">+A</span>]</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.12/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scodec.stream.package@StreamDecoder[+A]extendsAnyRef" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Supports binary decoding of a stream that emits elements as they are decoded.</p><div class="fullcomment"><div class="comment cmt"><p>Supports binary decoding of a stream that emits elements as they are decoded.</p><p>The main purpose of using a <code>StreamDecoder</code> over an <code>scodec.Decoder</code> is mixing
+decoding with processing. For example, <code>scodec.codecs.vector(decoderA): Decoder[Vector[A]]</code>
+could be used to decode a bit stream but the decoded <code>Vector[A]</code> would not be
+emitted until the end of the bit stream. With <code>StreamDecoder.many(decoderA): StreamDecoder[A]</code>,
+each decoded <code>A</code> value is emitted as soon as it is decoded.</p><p>The <code>StreamDecoder</code> companion has various constructors -- most importantly, <code>once</code>
+and <code>many</code>, that allow a <code>Decoder[A]</code> to be lifted to a <code>StreamDecoder[A]</code>.</p><p>Given a <code>StreamDecoder[A]</code>, a bit stream can be decoded via the <code>decode</code> method or
+by calling a variant of <code>toPipe</code>.
+</p></div></div>
+    </li><li name="scodec.stream.StreamEncoder" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="StreamEncoder[A]extendsAnyRef"></a>
+      <a id="StreamEncoder[A]:StreamEncoder[A]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="StreamEncoder.html"><span class="name">StreamEncoder</span></a><span class="tparams">[<span name="A">A</span>]</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.12/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scodec.stream.package@StreamEncoder[A]extendsAnyRef" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">A streaming encoding process, represented as a <code>Stream[Pure, A] =&gt; Pull[Pure, BitVector, Option[(Stream[Pure, A], StreamEncoder[A])]]</code>.</p>
+    </li></ol>
+            </div>
+
+        
+
+        <div id="values" class="values members">
+              <h3>Value Members</h3>
+              <ol><li name="scodec.stream.StreamDecoder" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="StreamDecoder"></a>
+      <a id="StreamDecoder:StreamDecoder"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="StreamDecoder$.html"><span class="name">StreamDecoder</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scodec.stream.package@StreamDecoder" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scodec.stream.StreamEncoder" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="StreamEncoder"></a>
+      <a id="StreamEncoder:StreamEncoder"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="StreamEncoder$.html"><span class="name">StreamEncoder</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scodec.stream.package@StreamEncoder" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li></ol>
+            </div>
+
+        
+
+        
+        </div>
+
+        <div id="inheritedMembers">
+        
+        
+        </div>
+
+        <div id="groupedMembers">
+        <div class="group" name="Ungrouped">
+              <h3>Ungrouped</h3>
+              
+            </div>
+        </div>
+
+      </div>
+
+      <div id="tooltip"></div>
+
+      <div id="footer">  </div>
+
+
+    </body>
+      </html>
